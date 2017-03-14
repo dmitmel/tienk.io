@@ -74,8 +74,6 @@ namespace Deepio {
                     Damage(bulletDamagePerCycle);
                     bullet.health -= bodyDamagePerCycle;
                 }
-
-                Debug.Log(prevHealth - health.health);
             }
         }
 
