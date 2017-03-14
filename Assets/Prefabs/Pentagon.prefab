@@ -216,11 +216,12 @@ MonoBehaviour:
   _health: 21.4
   bodyDamage: 12.5
   score: 130
-  damageComputationCycles: 10
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 0.24
   parent: {fileID: 1619854735590434}
   healthBarObject: {fileID: 1146902698480414}
   rotationSpeed: 10
-  randomMovementSpeed: 0.2
+  randomMovementSpeed: 0.3
   knockback: 150
 --- !u!114 &114818009337337408
 MonoBehaviour:

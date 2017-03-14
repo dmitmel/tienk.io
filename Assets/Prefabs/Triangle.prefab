@@ -214,7 +214,8 @@ MonoBehaviour:
   _health: 4.3
   bodyDamage: 7.2
   score: 25
-  damageComputationCycles: 10
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 0.5
   parent: {fileID: 1944034265205782}
   healthBarObject: {fileID: 1630739718557202}
   rotationSpeed: 10

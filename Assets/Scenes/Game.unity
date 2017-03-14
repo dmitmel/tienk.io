@@ -343,7 +343,7 @@ MonoBehaviour:
   shapes:
   - chance: 0.7
     shape: {fileID: 1824281452569420, guid: 57a7f9310339847bd8f9b6db5e5c00fa, type: 2}
-  - chance: 0.85
+  - chance: 0.8
     shape: {fileID: 1944034265205782, guid: a366b1cb624004ae0ab632312301147b, type: 2}
   - chance: 1
     shape: {fileID: 1619854735590434, guid: 0d129cb9c709c4be9b99e6dc004048c9, type: 2}
@@ -698,10 +698,10 @@ MonoBehaviour:
     _statLevel: 0
     baseValue: 1.25
     holderLevelBonus: 0
-    statLevelBonus: 1.3
+    statLevelBonus: 1.1
   bulletDamage:
     _statLevel: 0
-    baseValue: 3
+    baseValue: 2.2
     holderLevelBonus: 0
     statLevelBonus: 0.45
   reload:
