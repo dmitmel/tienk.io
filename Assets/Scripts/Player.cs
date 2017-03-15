@@ -25,6 +25,7 @@ namespace Deepio {
         StatsHolder stats;
 
         [Space]
+        public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
         bool autoSpinEnabled, autoFireEnabled;
@@ -72,7 +73,8 @@ namespace Deepio {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
-            movementRoot.AddForce(new Vector2(horizontalAxis, verticalAxis) * stats.movementSpeed.statValue * 2);
+            movementRoot.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
+                                  stats.movementSpeed.statValue * accelerationMultiplier);
             movementRoot.velocity = new Vector2(
                 Mathf.Clamp(movementRoot.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
                 Mathf.Clamp(movementRoot.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)

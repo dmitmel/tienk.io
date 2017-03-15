@@ -20,7 +20,7 @@ namespace Deepio {
     public class PlayerHealth : ObjectWithHealth {
         public StatsHolder stats;
 
-        float lastMaxHealth;
+        float lastHealthRegen, lastMaxHealth;
 
         public override float health {
             get { return base.health; }
@@ -34,12 +34,14 @@ namespace Deepio {
             base.Start();
 
             health = maxHealth = lastMaxHealth = stats.maxHealth.statValue;
+            healthRegen = lastHealthRegen = stats.healthRegen.statValue;
         }
 
         protected override void Update() {
             base.Update();
 
-            healthRegen = stats.healthRegen.statValue;
+            if (healthRegen != lastHealthRegen)
+                healthRegen = lastHealthRegen = stats.healthRegen.statValue;
 
             float newMaxHealth = stats.maxHealth.statValue;
             if (newMaxHealth != lastMaxHealth) {
