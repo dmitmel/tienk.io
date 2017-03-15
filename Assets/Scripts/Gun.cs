@@ -74,11 +74,14 @@ namespace Deepio {
                     transform.position + transform.rotation * new Vector2(bulletOffset, 0),
                     Quaternion.identity);
 
+                Vector2 normalBulletVelocity = transform.rotation * Vector2.right *
+                                                        (stats.bulletSpeed.statValue * bulletSpeed);
+
                 newBullet.GetComponent<Rigidbody2D>().velocity =
-                             (Vector2) (transform.rotation * Vector2.right * (stats.bulletSpeed.statValue * bulletSpeed)) +
-                             tank.velocity * tankRelativeVelocityMultiplier;
+                             normalBulletVelocity + tank.velocity * tankRelativeVelocityMultiplier;
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
+                newBulletController.normalVelocity = normalBulletVelocity;
                 newBulletController.damage = bulletDamage * stats.bulletDamage.statValue;
                 newBulletController.health = bulletPenetration * stats.bulletPenetration.statValue;
                 newBulletController.flyTime = bulletFlyTime;

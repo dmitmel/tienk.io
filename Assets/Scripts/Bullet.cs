@@ -21,6 +21,12 @@ namespace Deepio {
         [SerializeField]
         float _health;
         public float damage, flyTime, knockback;
+        public float slowDownToNormalVelocityTime;
+        public Vector2 normalVelocity;
+
+        Vector2 originalVelocity;
+        Rigidbody2D rigidbody;
+        float startTime;
 
         public float health {
             get { return _health; }
@@ -32,7 +38,15 @@ namespace Deepio {
 
         void Start() {
             health = _health;
+            startTime = Time.time;
+            rigidbody = GetComponent<Rigidbody2D>();
+            originalVelocity = rigidbody.velocity;
             Destroy(gameObject, flyTime);
+        }
+
+        void Update() {
+            float timeFromStart = Time.time - startTime;
+            rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
         }
    }
 }

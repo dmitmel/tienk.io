@@ -122,6 +122,8 @@ MonoBehaviour:
   damage: 0
   flyTime: 0
   knockback: 0
+  slowDownToNormalVelocityTime: 1
+  normalVelocity: {x: 0, y: 0}
 --- !u!212 &212424427670847058
 SpriteRenderer:
   m_ObjectHideFlags: 1

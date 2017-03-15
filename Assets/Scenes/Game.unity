@@ -715,7 +715,7 @@ MonoBehaviour:
     baseValue: 5
     holderLevelBonus: -0.005
     statLevelBonus: 0.25
-  level: 45
+  level: 0
   score: 0
   scorePoints: 0
 --- !u!212 &1030228925
@@ -828,7 +828,7 @@ MonoBehaviour:
   recoil: 0.5
   knockback: 0.5
   tank: {fileID: 1030228921}
-  tankRelativeVelocityMultiplier: 0.5
+  tankRelativeVelocityMultiplier: 1
 --- !u!1 &1366175727
 GameObject:
   m_ObjectHideFlags: 0
