@@ -36,7 +36,8 @@ namespace Deepio {
         public float bulletFlyTime, shootDelay, recoil, knockback;
 
         [Space]
-        public Rigidbody2D recoilRoot;
+        public Rigidbody2D tank;
+        public float tankRelativeVelocityMultiplier = 1;
 
         public bool isFiring { get; private set; }
 
@@ -74,7 +75,8 @@ namespace Deepio {
                     Quaternion.identity);
 
                 newBullet.GetComponent<Rigidbody2D>().velocity =
-                             transform.rotation * Vector2.right * (stats.bulletSpeed.statValue * bulletSpeed);
+                             (Vector2) (transform.rotation * Vector2.right * (stats.bulletSpeed.statValue * bulletSpeed)) +
+                             tank.velocity * tankRelativeVelocityMultiplier;
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 newBulletController.damage = bulletDamage * stats.bulletDamage.statValue;
@@ -84,7 +86,7 @@ namespace Deepio {
 
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
-                recoilRoot.AddForce(transform.rotation * Vector2.right * -recoil, ForceMode2D.Impulse);
+                tank.AddForce(transform.rotation * Vector2.right * -recoil, ForceMode2D.Impulse);
             }
         }
 

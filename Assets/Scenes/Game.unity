@@ -662,6 +662,7 @@ MonoBehaviour:
   rotationRoot: {fileID: 1668736576}
   guns:
   - {fileID: 1053312958}
+  accelerationMultiplier: 2
   autoSpinSpeed: 1
 --- !u!114 &1030228924
 MonoBehaviour:
@@ -712,7 +713,7 @@ MonoBehaviour:
   movementSpeed:
     _statLevel: 0
     baseValue: 5
-    holderLevelBonus: -0.01
+    holderLevelBonus: -0.005
     statLevelBonus: 0.25
   level: 45
   score: 0
@@ -826,7 +827,8 @@ MonoBehaviour:
   shootDelay: 0
   recoil: 0.5
   knockback: 0.5
-  recoilRoot: {fileID: 1030228921}
+  tank: {fileID: 1030228921}
+  tankRelativeVelocityMultiplier: 0.5
 --- !u!1 &1366175727
 GameObject:
   m_ObjectHideFlags: 0
