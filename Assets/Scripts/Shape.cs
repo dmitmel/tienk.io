@@ -54,10 +54,6 @@ namespace Deepio {
             }
         }
 
-        void OnDestroy() {
-            Debug.Log(Application.isPlaying);
-        }
-
         void OnTriggerEnter2D(Collider2D collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();

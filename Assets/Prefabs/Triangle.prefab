@@ -220,7 +220,7 @@ MonoBehaviour:
   parent: {fileID: 1944034265205782}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
-  knockback: 5
+  knockback: 3
 --- !u!114 &114543125936632978
 MonoBehaviour:
   m_ObjectHideFlags: 1
