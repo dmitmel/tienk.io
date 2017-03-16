@@ -18,8 +18,7 @@ using UnityEngine;
 
 namespace Deepio {
     public class Bullet : MonoBehaviour {
-        [SerializeField]
-        float _health;
+        public float health;
         public float damage, flyTime, knockback;
         public float slowDownToNormalVelocityTime;
         public Vector2 normalVelocity;
@@ -28,25 +27,22 @@ namespace Deepio {
         Rigidbody2D rigidbody;
         float startTime;
 
-        public float health {
-            get { return _health; }
-            set {
-                _health = value;
-                if (_health <= 0) Destroy(gameObject);
-            }
-        }
-
         void Start() {
-            health = _health;
             startTime = Time.time;
             rigidbody = GetComponent<Rigidbody2D>();
             originalVelocity = rigidbody.velocity;
+
             Destroy(gameObject, flyTime);
         }
 
         void Update() {
             float timeFromStart = Time.time - startTime;
             rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
+        }
+
+        public void Damage(float damage) {
+            health -= damage;
+            if (health <= 0) Destroy(gameObject);
         }
    }
 }

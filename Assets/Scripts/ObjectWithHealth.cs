@@ -31,6 +31,7 @@ namespace Deepio {
             }
         }
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
+
         float lastUpdate, nextExtraRegen;
 
         Vector2 originalPosition;
@@ -38,7 +39,7 @@ namespace Deepio {
 
         public virtual void Damage(float damage) {
             health -= damage;
-            if (extraRegenTimeout > 0 && extraRegen > 0) nextExtraRegen = Time.time + extraRegenTimeout;
+            if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
         }
 
         protected virtual void Start() {
@@ -47,21 +48,29 @@ namespace Deepio {
         }
 
         protected virtual void Update() {
-            if (healthRegen > 0 || (extraRegenTimeout > 0 && extraRegen > 0)) {
+            if (IsRegenEnabled() || IsExtraRegenEnabled()) {
                 float now = Time.time;
                 float sinceLastUpdate = now - lastUpdate;
-                bool isExtraRegen = extraRegenTimeout > 0 && extraRegen > 0 && now >= nextExtraRegen;
+                bool isExtraRegen = IsExtraRegenEnabled() && now >= nextExtraRegen;
 
                 if (_health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
                     float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - _health);
                     health += regen;
-                } else if (extraRegenTimeout > 0 && extraRegen > 0) {
+                } else if (IsExtraRegenEnabled()) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }
 
                 lastUpdate = now;
             }
+        }
+
+        bool IsRegenEnabled() {
+            return healthRegen > 0;
+        }
+
+        bool IsExtraRegenEnabled() {
+            return extraRegenTimeout > 0 && extraRegen > 0;
         }
     }
 }

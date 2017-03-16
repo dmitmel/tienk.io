@@ -35,17 +35,17 @@ namespace Deepio {
         }
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.E)) autoSpinEnabled = !autoSpinEnabled;
+            if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
                 rotationRoot.localRotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                Vector2 positionOnScreen = transform.position;
-                Vector2 mouseOnScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                float angle = AngleBetweenTwoPoints(mouseOnScreen, positionOnScreen);
+                float angle = AngleBetweenTwoPoints(
+                    Camera.main.ScreenToWorldPoint(Input.mousePosition),
+                    transform.position);
                 rotationRoot.rotation = Quaternion.Euler(0f, 0f, angle);
             }
 
-            if (Input.GetKeyDown(KeyCode.C)) {
+            if (KeyBindings.instance.autoFire.isDown) {
                 autoFireEnabled = !autoFireEnabled;
                 if (!autoFireEnabled) {
                     foreach (Gun gun in guns)
@@ -58,11 +58,11 @@ namespace Deepio {
                     if (!gun.isFiring)
                         gun.StartFiring();
             } else {
-                if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
+                if (KeyBindings.instance.fire.isPressed) {
                     foreach (Gun gun in guns)
                         if (!gun.isFiring)
                             gun.StartFiring();
-                } else if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space)) {
+                } else if (KeyBindings.instance.fire.isUp) {
                     foreach (Gun gun in guns)
                         gun.StopFiring();
                 }

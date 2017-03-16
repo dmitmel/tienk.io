@@ -27,7 +27,6 @@ namespace Deepio {
 
         [Space]
         public GameObject parent;
-        public GameObject healthBarObject;
 
         [Space]
         public float rotationSpeed;
@@ -36,13 +35,11 @@ namespace Deepio {
         Vector2 randomVelocity;
         Rigidbody2D rigidbody;
 
-        Vector3 healthBarOffset;
-        ObjectWithHealth health;
+        ObjectWithHealth healthBar;
 
         void Start() {
-            health = GetComponent<ObjectWithHealth>();
-            healthBarOffset = healthBarObject.transform.localPosition;
-            health.health = health.maxHealth = _health;
+            healthBar = GetComponent<ObjectWithHealth>();
+            healthBar.health = healthBar.maxHealth = _health;
 
             rigidbody = GetComponent<Rigidbody2D>();
             rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
@@ -50,11 +47,15 @@ namespace Deepio {
         }
 
         void Damage(float damage) {
-            health.Damage(damage);
-            if (health.health <= 0) {
+            healthBar.Damage(damage);
+            if (healthBar.health <= 0) {
                 ShapeSpawner.instance.SpawnShape();
                 Destroy(parent);
             }
+        }
+
+        void OnDestroy() {
+            Debug.Log(Application.isPlaying);
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
@@ -65,14 +66,12 @@ namespace Deepio {
                 Vector2 bulletDirection = bulletRigidbody.velocity.normalized;
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
-                float prevHealth = health.health;
-
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
                 float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
 
-                for (int cycle = 0; cycle < damageComputationCycles && health.health > 0 && bullet.health > 0; cycle++) {
+                for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     Damage(bulletDamagePerCycle);
-                    bullet.health -= bodyDamagePerCycle;
+                    bullet.Damage(bodyDamagePerCycle);
                 }
             }
         }
@@ -87,15 +86,12 @@ namespace Deepio {
             }
 
             Rigidbody2D colliderRigidbody = collider.attachedRigidbody;
-             if (rigidbody != null) {
-                 Vector2 colliderDirection = colliderRigidbody.velocity.normalized;
-                 colliderRigidbody.AddForce(colliderDirection * -knockback);
-                 rigidbody.AddForce(colliderDirection * knockback);
-             }
-        }
+            if (colliderRigidbody != null && rigidbody != null) {
+                Vector2 colliderDirection = colliderRigidbody.velocity.normalized;
 
-        void Update() {
-            healthBarObject.transform.localPosition = healthBarOffset + transform.localPosition;
+                colliderRigidbody.AddForce(colliderDirection * -knockback, ForceMode2D.Impulse);
+                rigidbody.AddForce(colliderDirection * knockback, ForceMode2D.Impulse);
+            }
         }
     }
 }

@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848422074269132}
   - component: {fileID: 212573305287390052}
+  - component: {fileID: 114543125936632978}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -215,12 +216,23 @@ MonoBehaviour:
   bodyDamage: 7.2
   score: 25
   damageComputationCycles: 20
-  bodyDamageForBulletMultiplier: 0.5
+  bodyDamageForBulletMultiplier: 0.43
   parent: {fileID: 1944034265205782}
-  healthBarObject: {fileID: 1630739718557202}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
-  knockback: 150
+  knockback: 5
+--- !u!114 &114543125936632978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630739718557202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follow: {fileID: 1935981649260634}
 --- !u!114 &114930419674587624
 MonoBehaviour:
   m_ObjectHideFlags: 1

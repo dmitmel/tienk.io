@@ -17,33 +17,23 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class CollisionCounter : MonoBehaviour {
-        int collisions;
+    [System.Serializable]
+    public class KeyBinding {
+        public KeyCode key1;
+        public KeyCode key2;
 
-        void OnTriggerEnter2D(Collider2D collider) {
-            collisions = 0;
+        public bool isPressed {
+            get { return Input.GetKey(key1) || Input.GetKey(key2); }
         }
+        public bool isDown {
+            get { return Input.GetKeyDown(key1) || Input.GetKeyDown(key2); }
+        }
+        public bool isUp {
+            get { return Input.GetKeyUp(key1) || Input.GetKeyUp(key2); }
+        }
+    }
 
-        void OnTriggerStay2D(Collider2D collider) {
-            collisions++;
-        }
-
-        void OnTriggerExit2D(Collider2D collider) {
-            Debug.Log(collisions, gameObject);
-            collisions = 0;
-        }
-
-        void OnCollisionEnter2D(Collision2D collision) {
-            collisions = 0;
-        }
-
-        void OnCollisionStay2D(Collision2D collision) {
-            collisions++;
-        }
-
-        void OnCollisionExit2D(Collision2D collision) {
-            Debug.Log(collisions, gameObject);
-            collisions = 0;
-        }
+    public class KeyBindings : Singleton<KeyBindings> {
+        public KeyBinding fire, autoFire, autoSpin;
     }
 }

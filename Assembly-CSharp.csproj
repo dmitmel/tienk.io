@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\CollisionCounter.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
      <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

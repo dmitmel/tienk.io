@@ -14,7 +14,6 @@
 // limitations under the License.
 //
 
-using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
@@ -94,20 +93,5 @@ namespace Deepio {
             reload.AttachTo(this);
             movementSpeed.AttachTo(this);
         }
-
-//#if UNITY_EDITOR
-//        void OnValidate() {
-//            if (Application.isPlaying) {
-//                healthRegen.SyncLevelFromEditor();
-//                maxHealth.SyncLevelFromEditor();
-//                bodyDamage.SyncLevelFromEditor();
-//                bulletSpeed.SyncLevelFromEditor();
-//                bulletPenetration.SyncLevelFromEditor();
-//                bulletDamage.SyncLevelFromEditor();
-//                reload.SyncLevelFromEditor();
-//                movementSpeed.SyncLevelFromEditor();
-//            }
-//        }
-//#endif
     }
 }

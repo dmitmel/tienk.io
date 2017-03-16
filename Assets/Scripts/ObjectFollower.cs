@@ -23,11 +23,11 @@ namespace Deepio {
         Vector3 originalPosition;
 
         void Start() {
-            originalPosition = transform.position;
+            originalPosition = transform.localPosition;
         }
 
         void Update() {
-            if (follow != null) transform.position = originalPosition + follow.transform.position;
+            if (follow != null) transform.localPosition = originalPosition + follow.transform.localPosition;
         }
     }
 }
