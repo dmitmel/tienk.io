@@ -40,7 +40,8 @@ namespace Deepio {
         protected override void Update() {
             base.Update();
 
-            if (healthRegen != lastHealthRegen)
+            float newHealthRegen = stats.healthRegen.statValue;
+            if (newHealthRegen != lastHealthRegen)
                 healthRegen = lastHealthRegen = stats.healthRegen.statValue;
 
             float newMaxHealth = stats.maxHealth.statValue;

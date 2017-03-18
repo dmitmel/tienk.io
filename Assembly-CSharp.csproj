@@ -49,10 +49,12 @@
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
+     <Compile Include="Assets\Scripts\LevelBar.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
      <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
      <Compile Include="Assets\Scripts\Shape.cs" />
      <Compile Include="Assets\Scripts\ShapeSpawner.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />

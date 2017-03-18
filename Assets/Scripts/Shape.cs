@@ -50,6 +50,7 @@ namespace Deepio {
             healthBar.Damage(damage);
             if (healthBar.health <= 0) {
                 ShapeSpawner.instance.SpawnShape();
+                ScoreCounter.instance.score += score;
                 Destroy(parent);
             }
         }
