@@ -54,15 +54,6 @@ namespace Deepio {
     }
 
     [Serializable]
-    public class StatTable : Stat {
-        public float[] values;
-
-        protected override float ComputeValue() {
-            return values[_statLevel];
-        }
-    }
-
-    [Serializable]
     public class SimpleComputedStat : Stat {
         public float baseValue, holderLevelBonus, statLevelBonus;
 

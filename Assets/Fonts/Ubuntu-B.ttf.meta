@@ -14,7 +14,7 @@ TrueTypeFontImporter:
   - Ubuntu
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 1
   ascentCalculationMode: 1
   userData: 
   assetBundleName: 
