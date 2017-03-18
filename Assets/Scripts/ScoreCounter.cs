@@ -31,8 +31,10 @@ namespace Deepio {
     public class ScoreCounter : Singleton<ScoreCounter> {
         public Text scoreLabel;
         public Text levelLabel;
-
         public LevelBar levelBar;
+
+        [Space]
+        public StatsHolder stats;
 
         [Space]
         public int levelIndex;
@@ -66,6 +68,7 @@ namespace Deepio {
             currentLevel = ComputeLevel();
             levelLabel.text = $"Lvl {currentLevel.index} Tank";
             levelBar.UpdateBar();
+            stats.level = currentLevel.index;
         }
 
 #if UNITY_EDITOR

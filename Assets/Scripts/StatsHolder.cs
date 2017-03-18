@@ -34,11 +34,13 @@ namespace Deepio {
         }
 
         float lastStatValue;
+        int lastHolderLevel;
         public float statValue {
             get {
-                if (_statLevel != lastStatLevel) {
+                if (_statLevel != lastStatLevel || holder.level != lastHolderLevel) {
                     lastStatValue = ComputeValue();
                     lastStatLevel = _statLevel;
+                    lastHolderLevel = holder.level;
                 }
                 return lastStatValue;
             }
@@ -81,7 +83,6 @@ namespace Deepio {
 
         [Space]
         public int level;
-        public int score, scorePoints;
 
         void Start() {
             healthRegen.AttachTo(this);
