@@ -1743,7 +1743,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 54282c163db34413bbac0477dc5ff688, type: 3}
     m_FontSize: 12
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 62
     m_Alignment: 4
@@ -2318,7 +2318,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 54282c163db34413bbac0477dc5ff688, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
