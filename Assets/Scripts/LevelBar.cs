@@ -20,19 +20,22 @@ namespace Deepio {
     public class LevelBar : MonoBehaviour {
         public int widthOffset;
 
+        ScoreCounter scoreCounter;
+
         RectTransform rectTransform;
         Vector2 originalPosition;
         Vector2 originalScale;
 
         void Start() {
+            scoreCounter = ScoreCounter.instance;
             rectTransform = GetComponent<RectTransform>();
             originalPosition = rectTransform.anchoredPosition;
             originalScale = rectTransform.sizeDelta;
         }
 
         public void UpdateBar() {
-            int score = ScoreCounter.instance.score;
-            Level currentLevel = ScoreCounter.instance.currentLevel;
+            int score = scoreCounter.score;
+            Level currentLevel = scoreCounter.currentLevel;
 
             if (currentLevel.scoreToNextLevel > 0) {
                 int scoreInLevel = score - currentLevel.neededScore;

@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace Deepio {
     public class PlayerHealth : ObjectWithHealth {
-        public StatsHolder stats;
+        StatsHolder stats;
 
         float lastHealthRegen, lastMaxHealth;
 
@@ -32,6 +32,8 @@ namespace Deepio {
 
         protected override void Start() {
             base.Start();
+
+            stats = StatsHolder.instance;
 
             health = maxHealth = lastMaxHealth = stats.maxHealth.statValue;
             healthRegen = lastHealthRegen = stats.healthRegen.statValue;

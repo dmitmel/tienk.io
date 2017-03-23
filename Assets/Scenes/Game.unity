@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 53697305}
   - component: {fileID: 53697307}
   - component: {fileID: 53697306}
+  - component: {fileID: 53697308}
   m_Layer: 5
   m_Name: MaxHealth
   m_TagString: Untagged
@@ -160,6 +161,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 53697304}
+--- !u!114 &53697308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 53697304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 50
+  holderLevelBonus: 2
+  statLevelBonus: 10
 --- !u!1 &54512043
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +326,7 @@ GameObject:
   - component: {fileID: 149942686}
   - component: {fileID: 149942688}
   - component: {fileID: 149942687}
+  - component: {fileID: 149942689}
   m_Layer: 5
   m_Name: Reload
   m_TagString: Untagged
@@ -369,6 +386,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149942685}
+--- !u!114 &149942689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149942685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 1.5
+  holderLevelBonus: 0
+  statLevelBonus: 0.15
 --- !u!1 &183386606
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +654,7 @@ GameObject:
   - component: {fileID: 264218808}
   - component: {fileID: 264218810}
   - component: {fileID: 264218809}
+  - component: {fileID: 264218811}
   m_Layer: 5
   m_Name: BodyDamage
   m_TagString: Untagged
@@ -681,6 +714,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 264218807}
+--- !u!114 &264218811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 264218807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 2.8
+  holderLevelBonus: 0
+  statLevelBonus: 1
 --- !u!1 &284435757
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +865,7 @@ GameObject:
   - component: {fileID: 322441766}
   - component: {fileID: 322441768}
   - component: {fileID: 322441767}
+  - component: {fileID: 322441769}
   m_Layer: 5
   m_Name: MovementSpeed
   m_TagString: Untagged
@@ -876,6 +925,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322441765}
+--- !u!114 &322441769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322441765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 5
+  holderLevelBonus: -0.005
+  statLevelBonus: 0.25
 --- !u!1 &343987068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1320,7 @@ GameObject:
   - component: {fileID: 555066027}
   - component: {fileID: 555066029}
   - component: {fileID: 555066028}
+  - component: {fileID: 555066030}
   m_Layer: 5
   m_Name: BulletDamage
   m_TagString: Untagged
@@ -1315,6 +1380,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555066026}
+--- !u!114 &555066030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 555066026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 2.2
+  holderLevelBonus: 0
+  statLevelBonus: 0.45
 --- !u!1 &580241278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1469,7 @@ GameObject:
   - component: {fileID: 580490239}
   - component: {fileID: 580490241}
   - component: {fileID: 580490240}
+  - component: {fileID: 580490242}
   m_Layer: 5
   m_Name: HealthRegen
   m_TagString: Untagged
@@ -1448,6 +1529,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580490238}
+--- !u!114 &580490242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580490238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 0.003
+  holderLevelBonus: 0.001
+  statLevelBonus: 0.00005
 --- !u!1 &726747987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1554,7 @@ GameObject:
   - component: {fileID: 726747988}
   - component: {fileID: 726747990}
   - component: {fileID: 726747989}
+  - component: {fileID: 726747991}
   m_Layer: 5
   m_Name: BulletPenetration
   m_TagString: Untagged
@@ -1517,6 +1614,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 726747987}
+--- !u!114 &726747991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 726747987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 1.25
+  holderLevelBonus: 0
+  statLevelBonus: 1.1
 --- !u!1 &760190079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1994,6 @@ MonoBehaviour:
   scoreLabel: {fileID: 1498618172}
   levelLabel: {fileID: 1882704110}
   levelBar: {fileID: 1499641127}
-  stats: {fileID: 1030228924}
   levelIndex: 0
   score: 0
   upgradePoints: 0
@@ -2130,7 +2241,6 @@ GameObject:
   - component: {fileID: 1030228921}
   - component: {fileID: 1030228925}
   - component: {fileID: 1030228923}
-  - component: {fileID: 1030228924}
   - component: {fileID: 1030228927}
   m_Layer: 0
   m_Name: Player
@@ -2207,58 +2317,6 @@ MonoBehaviour:
   - {fileID: 1053312958}
   accelerationMultiplier: 2
   autoSpinSpeed: 1
---- !u!114 &1030228924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1030228919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb6aa99bf394cdaa3506d976896e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthRegen:
-    _statLevel: 0
-    baseValue: 0.003
-    holderLevelBonus: 0.001
-    statLevelBonus: 0.00005
-  maxHealth:
-    _statLevel: 0
-    baseValue: 50
-    holderLevelBonus: 2
-    statLevelBonus: 10
-  bodyDamage:
-    _statLevel: 0
-    baseValue: 2.8
-    holderLevelBonus: 0
-    statLevelBonus: 1
-  bulletSpeed:
-    _statLevel: 0
-    baseValue: 6
-    holderLevelBonus: 0
-    statLevelBonus: 1
-  bulletPenetration:
-    _statLevel: 0
-    baseValue: 1.25
-    holderLevelBonus: 0
-    statLevelBonus: 1.1
-  bulletDamage:
-    _statLevel: 0
-    baseValue: 2.2
-    holderLevelBonus: 0
-    statLevelBonus: 0.45
-  reload:
-    _statLevel: 0
-    baseValue: 1.5
-    holderLevelBonus: 0
-    statLevelBonus: 0.15
-  movementSpeed:
-    _statLevel: 0
-    baseValue: 5
-    holderLevelBonus: -0.005
-    statLevelBonus: 0.25
-  level: 0
 --- !u!212 &1030228925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2311,7 +2369,6 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.12
-  stats: {fileID: 1030228924}
 --- !u!1 &1053312955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,12 +2416,11 @@ MonoBehaviour:
   bulletSize: {x: 1, y: 1}
   moveBackwardsOnShot: 0.05
   moveBackwardsSteps: 5
-  stats: {fileID: 1030228924}
   bulletSpeed: 1
   bulletPenetration: 1
   bulletDamage: 1
   reload: 1
-  bulletFlyTime: 2
+  bulletFlyTime: 3
   shootDelay: 0
   recoil: 0.5
   knockback: 0.5
@@ -3441,6 +3497,7 @@ GameObject:
   - component: {fileID: 2024529191}
   - component: {fileID: 2024529193}
   - component: {fileID: 2024529192}
+  - component: {fileID: 2024529194}
   m_Layer: 5
   m_Name: BulletSpeed
   m_TagString: Untagged
@@ -3500,6 +3557,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2024529190}
+--- !u!114 &2024529194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024529190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statLevel: 0
+  baseValue: 6
+  holderLevelBonus: 0
+  statLevelBonus: 1
 --- !u!1 &2057507721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,6 +3709,7 @@ GameObject:
   - component: {fileID: 2096962106}
   - component: {fileID: 2096962105}
   - component: {fileID: 2096962107}
+  - component: {fileID: 2096962108}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -3725,6 +3798,26 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &2096962108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096962103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cb6aa99bf394cdaa3506d976896e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRegen: {fileID: 580490242}
+  maxHealth: {fileID: 53697308}
+  bodyDamage: {fileID: 264218811}
+  bulletSpeed: {fileID: 2024529194}
+  bulletPenetration: {fileID: 726747991}
+  bulletDamage: {fileID: 555066030}
+  reload: {fileID: 149942689}
+  movementSpeed: {fileID: 322441769}
+  level: 0
 --- !u!1 &2105639098
 GameObject:
   m_ObjectHideFlags: 0

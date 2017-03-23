@@ -31,7 +31,7 @@ namespace Deepio {
         bool autoSpinEnabled, autoFireEnabled;
 
         void Start() {
-            stats = GetComponent<StatsHolder>();
+            stats = StatsHolder.instance;
         }
 
         void Update() {

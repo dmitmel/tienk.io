@@ -31,7 +31,6 @@ namespace Deepio {
         bool isMovingBackwards;
 
         [Space]
-        public StatsHolder stats;
         public float bulletSpeed, bulletPenetration, bulletDamage, reload;
         public float bulletFlyTime, shootDelay, recoil, knockback;
 
@@ -41,8 +40,14 @@ namespace Deepio {
 
         public bool isFiring { get; private set; }
 
+        StatsHolder stats;
+
         float nextFire;
         float firingStartTime = -1;
+
+        void Start() {
+            stats = StatsHolder.instance;
+        }
 
         public void StartFiring() {
             float now = Time.time;

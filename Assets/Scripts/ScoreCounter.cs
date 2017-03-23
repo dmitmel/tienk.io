@@ -34,18 +34,18 @@ namespace Deepio {
         public LevelBar levelBar;
 
         [Space]
-        public StatsHolder stats;
-
-        [Space]
         public int levelIndex;
         public int score;
         public int upgradePoints;
         public Level[] levels;
 
+        StatsHolder stats;
+
         int lastScore;
         public Level currentLevel;
 
         void Start() {
+            stats = StatsHolder.instance;
             UpdateLabels();
         }
 
