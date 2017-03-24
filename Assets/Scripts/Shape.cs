@@ -22,7 +22,7 @@ namespace Deepio {
         float _health;
         public float bodyDamage;
         public int score;
-        public int damageComputationCycles = 10;
+        public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
         [Space]
@@ -77,9 +77,8 @@ namespace Deepio {
             Collider2D collider = collision.collider;
             if (collider.CompareTag("Player")) {
                 var player = collider.GetComponent<ObjectWithHealth>();
-                var playerStats = collider.GetComponent<StatsHolder>();
                 player.Damage(bodyDamage);
-                Damage(playerStats.bodyDamage.statValue);
+                Damage(StatsHolder.instance.bodyDamage.statValue);
             }
 
             Rigidbody2D colliderRigidbody = collider.attachedRigidbody;

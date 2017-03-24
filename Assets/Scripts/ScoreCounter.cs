@@ -29,8 +29,7 @@ namespace Deepio {
     }
 
     public class ScoreCounter : Singleton<ScoreCounter> {
-        public Text scoreLabel;
-        public Text levelLabel;
+        public Text scoreLabel, levelLabel, upgradePointsLabel;
         public LevelBar levelBar;
 
         [Space]
@@ -38,37 +37,39 @@ namespace Deepio {
         public int score;
         public int upgradePoints;
         public Level[] levels;
+        public Level currentLevel;
 
         StatsHolder stats;
-
-        int lastScore;
-        public Level currentLevel;
+        int lastScore, lastUpgradePoints;
 
         void Start() {
             stats = StatsHolder.instance;
-            UpdateLabels();
+            UpdateUI();
         }
 
-        string FormatScore() {
-            string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
-            float valueForFormatting =
-                score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
-                score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
-            return valueForFormatting.ToString("#,##0.#" + suffix);
-        }
+        //string FormatScore() {
+        //    string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
+        //    float valueForFormatting =
+        //        score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
+        //        score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
+        //    return valueForFormatting.ToString($"#,##0.#{suffix}");
+        //}
 
         void Update() {
-            if (lastScore != score) UpdateLabels();
+            if (lastScore != score || lastUpgradePoints != upgradePoints) UpdateUI();
         }
 
-        void UpdateLabels() {
-            scoreLabel.text = $"Score: {FormatScore()}";
+        void UpdateUI() {
+            scoreLabel.text = $"Score: {score.ToString("#,##")}";
             lastScore = score;
 
             currentLevel = ComputeLevel();
             levelLabel.text = $"Lvl {currentLevel.index} Tank";
             levelBar.UpdateBar();
             stats.level = currentLevel.index;
+
+            lastUpgradePoints = upgradePoints;
+            upgradePointsLabel.text = $"x{upgradePoints}";
         }
 
 #if UNITY_EDITOR

@@ -16,40 +16,77 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Deepio {
     public class Stat : MonoBehaviour {
-        StatsHolder holder;
-
-        [SerializeField, Range(0, 7)]
-        protected int _statLevel;
-        int lastStatLevel = -1;
-        int statLevel {
-            get { return _statLevel; }
-            set {
-                if (value < 0 || value > 7)
-                    throw new ArgumentOutOfRangeException("value", value, "value must be >= 0 and <= 7");
-                _statLevel = value;
-            }
-        }
-
+        public int statLevel;
+        public int maxLevel = 7;
         public float baseValue, holderLevelBonus, statLevelBonus;
 
-        float lastStatValue;
-        int lastHolderLevel;
-        public float statValue {
-            get {
-                if (_statLevel != lastStatLevel || holder.level != lastHolderLevel) {
-                    lastStatValue = baseValue + holderLevelBonus * holder.level + statLevelBonus * _statLevel;
-                    lastStatLevel = _statLevel;
-                    lastHolderLevel = holder.level;
-                }
-                return lastStatValue;
-            }
-        }
+        public float statValue { get; private set; }
+
+        [Space]
+        public Button statButton;
+        public Transform bars;
+
+        StatsHolder holder;
+        ScoreCounter scoreCounter;
+
+        int lastStatLevel, lastHolderLevel, lastUpgradePoints;
 
         void Start() {
             holder = StatsHolder.instance;
+            scoreCounter = ScoreCounter.instance;
+            lastStatLevel = statLevel;
+            lastHolderLevel = holder.level;
+            statValue = ComputeValue();
+            UpdateUI();
+        }
+
+        void Update() {
+            if (lastStatLevel != statLevel) {
+                if (statLevel < 0 || statLevel > maxLevel)
+                    throw new ArgumentOutOfRangeException("statLevel", statLevel, $"statLevel must be >= 0 and <= {maxLevel}");
+                lastStatLevel = statLevel;
+                statValue = ComputeValue();
+                UpdateUI();
+            }
+
+            if (lastHolderLevel != holder.level) {
+                lastHolderLevel = holder.level;
+                statValue = ComputeValue();
+            }
+
+            if (lastUpgradePoints != scoreCounter.upgradePoints) {
+                lastUpgradePoints = scoreCounter.upgradePoints;
+                statButton.interactable = (scoreCounter.upgradePoints > 0 && statLevel < maxLevel);
+            }
+        }
+
+        float ComputeValue() {
+            return baseValue + holderLevelBonus * holder.level + statLevelBonus * lastStatLevel;
+        }
+
+        public void Upgrade() {
+            if (lastStatLevel < 7 && scoreCounter.upgradePoints > 0) {
+                statLevel += 1;
+                scoreCounter.upgradePoints -= 1;
+            }
+        }
+
+        void UpdateUI() {
+            for (int i = 0; i < statLevel && i < bars.childCount; i++) {
+                Transform child = bars.GetChild(i);
+                child.gameObject.SetActive(true);
+            }
+
+            for (int i = statLevel; i < maxLevel && i < bars.childCount; i++) {
+                Transform child = bars.GetChild(i);
+                child.gameObject.SetActive(false);
+            }
+
+            statButton.interactable = (scoreCounter.upgradePoints > 0 && statLevel < maxLevel);
         }
     }
 }
