@@ -17,7 +17,7 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class Player : MonoBehaviour {
+    public class Player : Singleton<Player> {
         public Rigidbody2D movementRoot;
         public Transform rotationRoot;
         public Gun[] guns;

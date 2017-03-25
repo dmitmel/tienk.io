@@ -60,7 +60,11 @@ namespace Deepio {
 
             if (lastUpgradePoints != scoreCounter.upgradePoints) {
                 lastUpgradePoints = scoreCounter.upgradePoints;
-                statButton.interactable = (scoreCounter.upgradePoints > 0 && statLevel < maxLevel);
+                statButton.interactable = IsInteractable();
+            }
+
+            if (Player.isSingletonDestroyed) {
+                statButton.interactable = false;
             }
         }
 
@@ -86,7 +90,11 @@ namespace Deepio {
                 child.gameObject.SetActive(false);
             }
 
-            statButton.interactable = (scoreCounter.upgradePoints > 0 && statLevel < maxLevel);
+            statButton.interactable = IsInteractable();
+        }
+
+        bool IsInteractable() {
+            return scoreCounter.upgradePoints > 0 && statLevel < maxLevel;
         }
     }
 }

@@ -19,6 +19,19 @@ using UnityEngine;
 namespace Deepio {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         static T _instance;
+        static bool _isSingletonDestroyed;
+
+        public static T instance {
+            get {
+                if (_instance == null)
+                    Debug.LogError($"[Singleton] There're no objects on scene with type of '{typeof(T)}'");
+                return _instance;
+            }
+        }
+
+        public static bool isSingletonDestroyed {
+            get { return _isSingletonDestroyed; }
+        }
 
         public void Awake() {
             if (_instance == null)
@@ -27,12 +40,8 @@ namespace Deepio {
                 Debug.LogError($"[Singleton] Created 2nd instance of '{typeof(T)}'");
         }
 
-        public static T instance {
-            get {
-                if (_instance == null)
-                    Debug.LogError($"[Singleton] There's no objects on scene with type of '{typeof(T)}'");
-                return _instance;
-            }
+        void OnDestroy() {
+            _isSingletonDestroyed = true;
         }
     }
 }
