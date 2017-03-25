@@ -4891,14 +4891,16 @@ MonoBehaviour:
   bulletSize: {x: 1, y: 1}
   moveBackwardsOnShot: 0.05
   moveBackwardsSteps: 5
-  bulletSpeed: 1
-  bulletPenetration: 1
-  bulletDamage: 1
-  reload: 1
+  statsMultipliers:
+    bulletSpeed: 1
+    bulletPenetration: 1
+    bulletDamage: 1
+    reload: 1
   bulletFlyTime: 3
   shootDelay: 0
   recoil: 0.5
   knockback: 0.5
+  bulletSpread: 10
   tank: {fileID: 1030228921}
   tankRelativeVelocityMultiplier: 1
 --- !u!1 &1064803422

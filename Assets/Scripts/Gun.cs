@@ -19,6 +19,9 @@ using System.Collections;
 
 namespace Deepio {
     [System.Serializable]
+    public class GunStatsMultipliers {
+        public float bulletSpeed = 1, bulletPenetration = 1, bulletDamage = 1, reload = 1;
+    }
 
     public class Gun : MonoBehaviour {
         public GameObject bullet;
@@ -31,8 +34,8 @@ namespace Deepio {
         bool isMovingBackwards;
 
         [Space]
-        public float bulletSpeed, bulletPenetration, bulletDamage, reload;
-        public float bulletFlyTime, shootDelay, recoil, knockback;
+        public GunStatsMultipliers statsMultipliers;
+        public float bulletFlyTime, shootDelay, recoil, knockback, bulletSpread;
 
         [Space]
         public Rigidbody2D tank;
@@ -72,23 +75,22 @@ namespace Deepio {
         public void Fire() {
             float now = Time.time;
             if (now >= nextFire) {
-                nextFire = now + 1 / (reload * stats.reload.statValue);
+                nextFire = now + 1 / (statsMultipliers.reload * stats.reload.statValue);
 
-                GameObject newBullet = Instantiate(
-                    bullet,
-                    transform.position + transform.rotation * new Vector2(bulletOffset, 0),
-                    Quaternion.identity);
+                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(bulletOffset, 0);
+                Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-bulletSpread, bulletSpread));
+                GameObject newBullet = Instantiate(bullet, newBulletPosition, newBulletRotation);
 
-                Vector2 normalBulletVelocity = transform.rotation * Vector2.right *
-                                                        (stats.bulletSpeed.statValue * bulletSpeed);
+                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.right *
+                                                        (stats.bulletSpeed.statValue * statsMultipliers.bulletSpeed);
 
                 newBullet.GetComponent<Rigidbody2D>().velocity =
                              normalBulletVelocity + tank.velocity * tankRelativeVelocityMultiplier;
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 newBulletController.normalVelocity = normalBulletVelocity;
-                newBulletController.damage = bulletDamage * stats.bulletDamage.statValue;
-                newBulletController.health = bulletPenetration * stats.bulletPenetration.statValue;
+                newBulletController.damage = statsMultipliers.bulletDamage * stats.bulletDamage.statValue;
+                newBulletController.health = statsMultipliers.bulletPenetration * stats.bulletPenetration.statValue;
                 newBulletController.flyTime = bulletFlyTime;
                 newBulletController.knockback = knockback;
 
