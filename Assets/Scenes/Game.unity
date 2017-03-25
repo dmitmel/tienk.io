@@ -4900,7 +4900,7 @@ MonoBehaviour:
   shootDelay: 0
   recoil: 0.5
   knockback: 0.5
-  bulletSpread: 10
+  bulletSpread: 20
   tank: {fileID: 1030228921}
   tankRelativeVelocityMultiplier: 1
 --- !u!1 &1064803422

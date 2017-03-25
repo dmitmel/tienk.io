@@ -78,7 +78,8 @@ namespace Deepio {
                 nextFire = now + 1 / (statsMultipliers.reload * stats.reload.statValue);
 
                 Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(bulletOffset, 0);
-                Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-bulletSpread, bulletSpread));
+                float halfBulletSpread = bulletSpread / 2;
+                Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-halfBulletSpread, halfBulletSpread));
                 GameObject newBullet = Instantiate(bullet, newBulletPosition, newBulletRotation);
 
                 Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.right *
