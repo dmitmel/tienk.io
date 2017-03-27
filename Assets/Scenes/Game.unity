@@ -1426,9 +1426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statLevel: 0
   maxLevel: 7
-  baseValue: 2.8
+  baseValue: 20
   holderLevelBonus: 0
-  statLevelBonus: 1
+  statLevelBonus: 4
   statButton: {fileID: 2055602102}
   bars: {fileID: 1884795001}
 --- !u!1 &269121103
@@ -2704,9 +2704,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statLevel: 0
   maxLevel: 7
-  baseValue: 2.2
+  baseValue: 28
   holderLevelBonus: 0
-  statLevelBonus: 0.45
+  statLevelBonus: 12
   statButton: {fileID: 988935255}
   bars: {fileID: 1626772741}
 --- !u!1 &570884901
@@ -3288,9 +3288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statLevel: 0
   maxLevel: 7
-  baseValue: 1.25
+  baseValue: 0.51
   holderLevelBonus: 0
-  statLevelBonus: 1.1
+  statLevelBonus: 0.4
   statButton: {fileID: 468947069}
   bars: {fileID: 1748222199}
 --- !u!1 &736515167
@@ -3931,7 +3931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 508.1, y: 383.1}
+  m_AnchoredPosition: {x: 508, y: 383}
   m_SizeDelta: {x: 160, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947887234
@@ -9442,7 +9442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -36.00003, y: 0}
+  m_AnchoredPosition: {x: -36, y: 0}
   m_SizeDelta: {x: 64, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055602102
