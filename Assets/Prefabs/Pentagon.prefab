@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 21.4
-  bodyDamage: 12.5
+  _health: 100
+  bodyDamage: 11.9
   score: 130
-  damageComputationCycles: 20
-  bodyDamageForBulletMultiplier: 0.24
+  damageComputationCycles: 100
+  bodyDamageForBulletMultiplier: 0.26
   parent: {fileID: 1619854735590434}
   rotationSpeed: 10
   randomMovementSpeed: 0.3
