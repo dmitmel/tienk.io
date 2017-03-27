@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1.4
-  bodyDamage: 3.4
+  _health: 10
+  bodyDamage: 2.1
   score: 10
-  damageComputationCycles: 20
+  damageComputationCycles: 100
   bodyDamageForBulletMultiplier: 1
   parent: {fileID: 1824281452569420}
   rotationSpeed: 10
