@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 50146730001238456}
   - component: {fileID: 114818009337337408}
   - component: {fileID: 114578170743447466}
+  - component: {fileID: 114841550609459010}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -222,7 +223,6 @@ MonoBehaviour:
   parent: {fileID: 1619854735590434}
   rotationSpeed: 10
   randomMovementSpeed: 0.3
-  knockback: 3
 --- !u!114 &114776492405937444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +252,18 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.1
+--- !u!114 &114841550609459010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816419762304934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 1
 --- !u!212 &212098560266030516
 SpriteRenderer:
   m_ObjectHideFlags: 1

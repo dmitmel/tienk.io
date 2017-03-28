@@ -2047,8 +2047,12 @@ MonoBehaviour:
     shape: {fileID: 1824281452569420, guid: 57a7f9310339847bd8f9b6db5e5c00fa, type: 2}
   - chance: 0.8
     shape: {fileID: 1944034265205782, guid: a366b1cb624004ae0ab632312301147b, type: 2}
-  - chance: 1
+  - chance: 0.9
     shape: {fileID: 1619854735590434, guid: 0d129cb9c709c4be9b99e6dc004048c9, type: 2}
+  - chance: 0.6
+    shape: {fileID: 1948235856471396, guid: 710c2d5907b4f42198dad3a0680f809d, type: 2}
+  - chance: 1
+    shape: {fileID: 1538592650469818, guid: 8ed902a366d7141aaae95bfa52d5cacb, type: 2}
   fieldBoundary:
     minX: -220
     minY: -220
@@ -4649,6 +4653,7 @@ GameObject:
   - component: {fileID: 1030228925}
   - component: {fileID: 1030228923}
   - component: {fileID: 1030228927}
+  - component: {fileID: 1030228924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4724,6 +4729,18 @@ MonoBehaviour:
   - {fileID: 1053312958}
   accelerationMultiplier: 2
   autoSpinSpeed: 1
+--- !u!114 &1030228924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030228919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 1
 --- !u!212 &1030228925
 SpriteRenderer:
   m_ObjectHideFlags: 0
