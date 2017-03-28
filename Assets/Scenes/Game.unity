@@ -4368,10 +4368,10 @@ MonoBehaviour:
     key1: 32
     key2: 323
   autoFire:
-    key1: 99
+    key1: 101
     key2: 0
   autoSpin:
-    key1: 101
+    key1: 99
     key2: 0
 --- !u!4 &1007650551
 Transform:
