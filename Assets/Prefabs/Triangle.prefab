@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 50790664999736438}
   - component: {fileID: 114930419674587624}
   - component: {fileID: 114425279534324150}
+  - component: {fileID: 114414307286579402}
   m_Layer: 0
   m_Name: Body
   m_TagString: Shape
@@ -192,7 +193,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1935981649260634}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 28822cb0d0b134efb9d54bdca45fe5ae, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -201,6 +202,18 @@ PolygonCollider2D:
     - - {x: -0.43301272, y: -0.24999994}
       - {x: 0.43301272, y: -0.25000003}
       - {x: 0, y: 0.5}
+--- !u!114 &114414307286579402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935981649260634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 1
 --- !u!114 &114425279534324150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,7 +233,6 @@ MonoBehaviour:
   parent: {fileID: 1944034265205782}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
-  knockback: 3
 --- !u!114 &114543125936632978
 MonoBehaviour:
   m_ObjectHideFlags: 1

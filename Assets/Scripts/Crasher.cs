@@ -17,23 +17,17 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class Shape : MonoBehaviour {
+    public class Crasher : MonoBehaviour {
         [SerializeField]
         float _health;
         public float bodyDamage;
         public int score;
-        public int damageComputationCycles = 20;
-        public float bodyDamageForBulletMultiplier = 1;
+        public int damageComputationCycles = 100;
 
         [Space]
         public GameObject parent;
 
-        [Space]
-        public float rotationSpeed;
-        public float randomMovementSpeed;
-        Vector2 randomVelocity;
         Rigidbody2D rigidbody;
-
         ObjectWithHealth healthBar;
 
         void Start() {
@@ -41,8 +35,6 @@ namespace Deepio {
             healthBar.health = healthBar.maxHealth = _health;
 
             rigidbody = GetComponent<Rigidbody2D>();
-            rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
-            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
         }
 
         void Damage(float damage) {
@@ -63,7 +55,7 @@ namespace Deepio {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = bodyDamage / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     Damage(bulletDamagePerCycle);

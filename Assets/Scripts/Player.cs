@@ -39,9 +39,7 @@ namespace Deepio {
             if (autoSpinEnabled) {
                 rotationRoot.localRotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                float angle = AngleBetweenTwoPoints(
-                    Camera.main.ScreenToWorldPoint(Input.mousePosition),
-                    transform.position);
+                float angle = Camera.main.ScreenToWorldPoint(Input.mousePosition).Angle2D(transform.position);
                 rotationRoot.rotation = Quaternion.Euler(0f, 0f, angle);
             }
 
@@ -79,10 +77,6 @@ namespace Deepio {
                 Mathf.Clamp(movementRoot.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
                 Mathf.Clamp(movementRoot.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)
             );
-        }
-
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-            return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
         }
     }
 }
