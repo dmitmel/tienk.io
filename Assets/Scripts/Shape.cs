@@ -46,7 +46,7 @@ namespace Deepio {
         }
 
         void Damage(float damage) {
-            healthBar.Damage(damage);
+            healthBar.health -= damage;
             if (healthBar.health <= 0) {
                 ShapeSpawner.instance.SpawnShape();
                 ScoreCounter.instance.score += score;
@@ -67,7 +67,7 @@ namespace Deepio {
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     Damage(bulletDamagePerCycle);
-                    bullet.Damage(bodyDamagePerCycle);
+                    bullet.health -= bodyDamagePerCycle;
                 }
             }
         }
@@ -76,7 +76,8 @@ namespace Deepio {
             Collider2D collider = collision.collider;
             if (collider.CompareTag("Player")) {
                 var player = collider.GetComponent<ObjectWithHealth>();
-                player.Damage(bodyDamage);
+
+                player.health -= bodyDamage;
                 Damage(StatsHolder.instance.bodyDamage.statValue);
             }
         }

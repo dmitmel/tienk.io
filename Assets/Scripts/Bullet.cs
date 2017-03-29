@@ -38,10 +38,7 @@ namespace Deepio {
         void Update() {
             float timeFromStart = Time.time - startTime;
             rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
-        }
 
-        public void Damage(float damage) {
-            health -= damage;
             if (health <= 0) Destroy(gameObject);
         }
    }

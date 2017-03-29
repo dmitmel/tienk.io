@@ -19,17 +19,8 @@ using UnityEngine;
 namespace Deepio {
     public class ObjectWithHealth : MonoBehaviour {
         public GameObject healthBar;
-        [SerializeField]
-        float _health;
-        public virtual float health {
-            get { return _health; }
-            set {
-                _health = value;
-                float width = _health * (originalScale.x / maxHealth);
-                healthBar.transform.localScale = new Vector2(width, originalScale.y);
-                healthBar.transform.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
-            }
-        }
+        float lastHealth;
+        public float health;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
         float lastUpdate, nextExtraRegen;
@@ -37,25 +28,26 @@ namespace Deepio {
         Vector2 originalPosition;
         Vector2 originalScale;
 
-        public virtual void Damage(float damage) {
-            health -= damage;
-            if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
-        }
-
         protected virtual void Start() {
             originalPosition = healthBar.transform.localPosition;
             originalScale = healthBar.transform.localScale;
         }
 
         protected virtual void Update() {
+            if (lastHealth != health) {
+                ResizeBar();
+                if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
+                lastHealth = health;
+            }
+
             if (IsRegenEnabled() || IsExtraRegenEnabled()) {
                 float now = Time.time;
                 float sinceLastUpdate = now - lastUpdate;
                 bool isExtraRegen = IsExtraRegenEnabled() && now >= nextExtraRegen;
 
-                if (_health < maxHealth) {
+                if (health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
-                    float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - _health);
+                    float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - health);
                     health += regen;
                 } else if (IsExtraRegenEnabled()) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
@@ -63,6 +55,12 @@ namespace Deepio {
 
                 lastUpdate = now;
             }
+        }
+
+        void ResizeBar() {
+            float width = health * (originalScale.x / maxHealth);
+            healthBar.transform.localScale = new Vector2(width, originalScale.y);
+            healthBar.transform.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
         }
 
         bool IsRegenEnabled() {

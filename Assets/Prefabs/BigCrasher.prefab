@@ -294,8 +294,8 @@ MonoBehaviour:
   _health: 10
   maxHealth: 10
   healthRegen: 0
-  extraRegenTimeout: 0
-  extraRegen: 0
+  extraRegenTimeout: 30
+  extraRegen: 0.1
 --- !u!114 &114782619420420164
 MonoBehaviour:
   m_ObjectHideFlags: 1

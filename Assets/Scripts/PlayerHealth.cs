@@ -22,14 +22,6 @@ namespace Deepio {
 
         float lastHealthRegen, lastMaxHealth;
 
-        public override float health {
-            get { return base.health; }
-            set {
-                base.health = value;
-                if (base.health <= 0) Destroy(gameObject);
-            }
-        }
-
         protected override void Start() {
             base.Start();
 
@@ -42,9 +34,11 @@ namespace Deepio {
         protected override void Update() {
             base.Update();
 
+            if (health <= 0) Destroy(gameObject);
+
             float newHealthRegen = stats.healthRegen.statValue;
             if (newHealthRegen != lastHealthRegen)
-                healthRegen = lastHealthRegen = stats.healthRegen.statValue;
+                lastHealthRegen = healthRegen = stats.healthRegen.statValue;
 
             float newMaxHealth = stats.maxHealth.statValue;
             if (newMaxHealth != lastMaxHealth) {

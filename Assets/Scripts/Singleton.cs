@@ -19,7 +19,7 @@ using UnityEngine;
 namespace Deepio {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         static T _instance;
-        static bool _isSingletonDestroyed;
+        static bool _isSingletonDestroyed = true;
 
         public static T instance {
             get {
@@ -34,6 +34,8 @@ namespace Deepio {
         }
 
         public void Awake() {
+            _isSingletonDestroyed = false;
+
             if (_instance == null)
                 _instance = GetComponent<T>();
             else
