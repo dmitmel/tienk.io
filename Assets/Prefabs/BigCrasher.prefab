@@ -81,7 +81,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1551015884717430
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4338767115554998}
   - component: {fileID: 58301327679115140}
   - component: {fileID: 114404087145165484}
+  - component: {fileID: 114229954083711004}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -132,12 +133,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551015884717430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
   m_Children: []
-  m_Father: {fileID: 4942871408852514}
-  m_RootOrder: 1
+  m_Father: {fileID: 4454507790558114}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4454507790558114
 Transform:
@@ -151,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 4942871408852514}
   - {fileID: 4617438125228848}
+  - {fileID: 4338767115554998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,7 +181,6 @@ Transform:
   m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
   m_Children:
   - {fileID: 4990149910659014}
-  - {fileID: 4338767115554998}
   m_Father: {fileID: 4454507790558114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -247,6 +248,18 @@ PolygonCollider2D:
     - - {x: -0.43301272, y: -0.24999994}
       - {x: 0.43301272, y: -0.25000003}
       - {x: 0, y: 0.5}
+--- !u!114 &114229954083711004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551015884717430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follow: {fileID: 1211151888567950}
 --- !u!114 &114300425064384922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1308163605147028}
-  _health: 10
+  health: 0
   maxHealth: 10
   healthRegen: 0
   extraRegenTimeout: 30
