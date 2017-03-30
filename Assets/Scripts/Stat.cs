@@ -63,7 +63,7 @@ namespace Deepio {
                 statButton.interactable = IsInteractable();
             }
 
-            if (Player.isSingletonDestroyed) {
+            if (!Player.isSingletonAlive) {
                 statButton.interactable = false;
             }
         }

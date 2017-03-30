@@ -18,8 +18,9 @@ using UnityEngine;
 
 namespace Deepio {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
+        static GameObject _gameObject;
         static T _instance;
-        static bool _isSingletonDestroyed = true;
+        static bool _isSingletonAlive;
 
         public static T instance {
             get {
@@ -29,21 +30,26 @@ namespace Deepio {
             }
         }
 
-        public static bool isSingletonDestroyed {
-            get { return _isSingletonDestroyed; }
+        public static bool isSingletonAlive {
+            get { return _isSingletonAlive; }
         }
 
         public void Awake() {
-            _isSingletonDestroyed = false;
-
-            if (_instance == null)
+            if (_instance == null) {
                 _instance = GetComponent<T>();
-            else
+                if (_instance == null) {
+                    Debug.LogError($"[Singleton] There're no components with type of '{typeof(T)}' on {gameObject.name}");
+                } else {
+                    _gameObject = gameObject;
+                    _isSingletonAlive = true;
+                }
+            } else {
                 Debug.LogError($"[Singleton] Created 2nd instance of '{typeof(T)}'");
+            }
         }
 
         void OnDestroy() {
-            _isSingletonDestroyed = true;
+            if (gameObject == _gameObject) _isSingletonAlive = false;
         }
     }
 }
