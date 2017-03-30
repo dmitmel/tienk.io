@@ -18,29 +18,29 @@ using UnityEngine;
 
 namespace Deepio {
     public class Player : Singleton<Player> {
-        public Rigidbody2D movementRoot;
-        public Transform rotationRoot;
         public Gun[] guns;
-
-        StatsHolder stats;
 
         [Space]
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
+        StatsHolder stats;
+        Rigidbody2D rigidbody;
+
         bool autoSpinEnabled, autoFireEnabled;
 
         void Start() {
             stats = StatsHolder.instance;
+            rigidbody = GetComponent<Rigidbody2D>();
         }
 
         void Update() {
             if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
-                rotationRoot.localRotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
+                transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
                 float angle = Camera.main.ScreenToWorldPoint(Input.mousePosition).Angle2D(transform.position);
-                rotationRoot.rotation = Quaternion.Euler(0f, 0f, angle);
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
 
             if (KeyBindings.instance.autoFire.isDown) {
@@ -71,11 +71,11 @@ namespace Deepio {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
-            movementRoot.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                                  stats.movementSpeed.statValue * accelerationMultiplier);
-            movementRoot.velocity = new Vector2(
-                Mathf.Clamp(movementRoot.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
-                Mathf.Clamp(movementRoot.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)
+            rigidbody.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
+                               stats.movementSpeed.statValue * accelerationMultiplier);
+            rigidbody.velocity = new Vector2(
+                Mathf.Clamp(rigidbody.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
+                Mathf.Clamp(rigidbody.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)
             );
         }
     }
