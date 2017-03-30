@@ -107,7 +107,7 @@ namespace Deepio {
             }
 
             Level lastLevel = levels[levels.Length - 1];
-            if (lastLevel.givesUpgradePoint) upgradePoints++;
+            if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
             levelIndex = lastLevel.index;
             return levels[levels.Length - 1];
         }
