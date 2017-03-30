@@ -4619,7 +4619,7 @@ MonoBehaviour:
     neededScore: 20256
     scoreToNextLevel: 1593
     respawnLevel: 20
-    givesUpgradePoint: 0
+    givesUpgradePoint: 1
   - index: 43
     neededScore: 21849
     scoreToNextLevel: 1687
