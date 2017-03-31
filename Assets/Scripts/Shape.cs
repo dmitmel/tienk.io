@@ -63,7 +63,7 @@ namespace Deepio {
 
                 if (healthBar.health <= 0) {
                     ShapeSpawner.instance.SpawnShape();
-                    bullet.tank.score.score += score;
+                    bullet.tank.scoreCounter.score += score;
                     Destroy(parent);
                 }
             }
@@ -71,7 +71,7 @@ namespace Deepio {
 
         void OnCollisionEnter2D(Collision2D collision) {
             Collider2D collider = collision.collider;
-            if (collider.CompareTag("Player") || collider.CompareTag("Tank")) {
+            if (collider.CompareTag("Tank")) {
                 var playerHealth = collider.GetComponent<ObjectWithHealth>();
                 var player = collider.GetComponent<Tank>();
 
@@ -79,7 +79,7 @@ namespace Deepio {
                 healthBar.health -= player.stats.bodyDamage.value;
                 if (healthBar.health <= 0) {
                     ShapeSpawner.instance.SpawnShape();
-                    player.score.score += score;
+                    player.scoreCounter.score += score;
                     Destroy(parent);
                 }
             }

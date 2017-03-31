@@ -46,7 +46,7 @@ namespace Deepio {
         }
 
         void Update() {
-            for (int i = 0; i < tank.score.upgradePoints; i++) {
+            for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
                 Stat stat = RandomStat();
                 stat.Upgrade();
             }

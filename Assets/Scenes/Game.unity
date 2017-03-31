@@ -3478,7 +3478,7 @@ GameObject:
   - component: {fileID: 811758857}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Player
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3530,9 +3530,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 1009189776}
-  score: {fileID: 1009189775}
+  scoreCounter: {fileID: 1009189775}
   guns:
   - {fileID: 1884103960}
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 1
 --- !u!114 &811758860
 MonoBehaviour:
   m_ObjectHideFlags: 0

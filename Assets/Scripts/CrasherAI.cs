@@ -31,20 +31,8 @@ namespace Deepio {
 
         void OnTriggerEnter2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
-            if (colliderTransform.CompareTag("Player") || colliderTransform.CompareTag("Tank"))
+            if (colliderTransform.CompareTag("Tank"))
                 enemies.Add(collider.transform);
-        }
-
-        void OnTriggerStay2D(Collider2D collision) {
-            Transform colliderTransform = collision.transform;
-            if (colliderTransform.CompareTag("Player") || colliderTransform.CompareTag("Tank")) {
-                crasher.rotation = VectorUtil.Angle2D(crasher.position, colliderTransform.position) + 90;
-                crasher.AddRelativeForce(Vector2.up * acceleration);
-                crasher.velocity = new Vector2(
-                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
-                );
-            }
         }
 
         void Update() {

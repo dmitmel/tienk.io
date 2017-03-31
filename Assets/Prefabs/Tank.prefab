@@ -1121,9 +1121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 114623544452838480}
-  score: {fileID: 114792684881831510}
+  scoreCounter: {fileID: 114792684881831510}
   guns:
   - {fileID: 114415925926550060}
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 1
 --- !u!114 &114966492099709266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1148,7 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 114805980179849186}
-  accelerationMultiplier: 7
+  accelerationMultiplier: 6.8
   minSqrDistance: 20
   objectsAttackPriority:
   - Square
@@ -1156,6 +1158,7 @@ MonoBehaviour:
   - Pentagon
   - SmallCrasher
   - BigCrasher
+  - Tank
   targetChooseInterval: 1
 --- !u!212 &212077713766668624
 SpriteRenderer:
