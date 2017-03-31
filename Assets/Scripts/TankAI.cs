@@ -34,6 +34,7 @@ namespace Deepio {
         Transform target;
 
         float nextTargetChooseTime;
+        int lastUpgradePoints;
 
         void Start() {
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
@@ -45,6 +46,11 @@ namespace Deepio {
         }
 
         void Update() {
+            for (int i = 0; i < tank.score.upgradePoints; i++) {
+                Stat stat = RandomStat();
+                stat.Upgrade();
+            }
+
             if (enemies.Count > 0) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
@@ -72,6 +78,29 @@ namespace Deepio {
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
+            }
+        }
+
+        Stat RandomStat() {
+            switch (UnityEngine.Random.Range(0, 6)) {
+                case 0:
+                    return tank.stats.healthRegen;
+                case 1:
+                    return tank.stats.maxHealth;
+                case 2:
+                    return tank.stats.bodyDamage;
+                case 3:
+                    return tank.stats.bulletSpeed;
+                case 4:
+                    return tank.stats.bulletPenetration;
+                case 5:
+                    return tank.stats.bulletDamage;
+                case 6:
+                    return tank.stats.reload;
+                case 7:
+                    return tank.stats.movementSpeed;
+                default:
+                    throw new NotImplementedException();
             }
         }
 
