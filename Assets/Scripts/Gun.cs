@@ -108,7 +108,7 @@ namespace Deepio {
             float step = 1f / moveBackwardsSteps;
 
             Vector2 startPosition = transform.localPosition;
-            Vector2 endPosition = transform.localPosition - transform.localRotation * new Vector3(moveBackwardsOnShot, 0);
+            Vector2 endPosition = transform.localPosition - transform.localRotation * new Vector3(0, moveBackwardsOnShot);
 
             for (float t = 0; t < 1; t += step) {
                 transform.localPosition = Vector2.Lerp(startPosition, endPosition, t);
