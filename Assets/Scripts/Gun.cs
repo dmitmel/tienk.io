@@ -77,12 +77,12 @@ namespace Deepio {
             if (now >= nextFire) {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
-                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(bulletOffset, 0);
+                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
                 float halfBulletSpread = bulletSpread / 2;
                 Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-halfBulletSpread, halfBulletSpread));
                 GameObject newBullet = Instantiate(bullet, newBulletPosition, newBulletRotation);
 
-                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.right *
+                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.up *
                                                         (tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed);
 
                 newBullet.GetComponent<Rigidbody2D>().velocity =
@@ -98,7 +98,7 @@ namespace Deepio {
 
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
-                tankRigidbody.AddForce(transform.rotation * Vector2.right * -recoil, ForceMode2D.Impulse);
+                tankRigidbody.AddForce(transform.rotation * Vector2.down * recoil, ForceMode2D.Impulse);
             }
         }
 

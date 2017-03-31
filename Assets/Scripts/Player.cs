@@ -36,8 +36,8 @@ namespace Deepio {
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                float angle = Camera.main.ScreenToWorldPoint(Input.mousePosition).Angle2D(transform.position);
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                float angle = VectorUtil.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
             }
 
             if (KeyBindings.instance.autoFire.isDown) {
@@ -68,11 +68,12 @@ namespace Deepio {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
+            float movementSpeed = tank.stats.movementSpeed.value;
             rigidbody.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                               tank.stats.movementSpeed.value * accelerationMultiplier);
+                               movementSpeed * accelerationMultiplier);
             rigidbody.velocity = new Vector2(
-                Mathf.Clamp(rigidbody.velocity.x, -tank.stats.movementSpeed.value, tank.stats.movementSpeed.value),
-                Mathf.Clamp(rigidbody.velocity.y, -tank.stats.movementSpeed.value, tank.stats.movementSpeed.value)
+                Mathf.Clamp(rigidbody.velocity.x, -movementSpeed, movementSpeed),
+                Mathf.Clamp(rigidbody.velocity.y, -movementSpeed, movementSpeed)
             );
         }
     }

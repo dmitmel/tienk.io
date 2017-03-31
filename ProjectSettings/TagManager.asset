@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shape
   - Bullet
+  - Tank
+  - SmallCrasher
+  - BigCrasher
+  - Square
+  - Triangle
+  - Pentagon
   layers:
   - Default
   - TransparentFX

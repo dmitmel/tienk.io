@@ -17,10 +17,11 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class PlayerHealth : ObjectWithHealth {
+    public class TankHealth : ObjectWithHealth {
         [Space]
         public GameObject parent;
         public StatsHolder stats;
+        public float extraRegenMultiplier = 1;
 
         float lastHealthRegen, lastMaxHealth;
 
@@ -37,13 +38,15 @@ namespace Deepio {
             if (health <= 0) Destroy(parent);
 
             float newHealthRegen = stats.healthRegen.value;
-            if (newHealthRegen != lastHealthRegen)
+            if (newHealthRegen != lastHealthRegen) {
                 lastHealthRegen = healthRegen = stats.healthRegen.value;
+                extraRegen = healthRegen * extraRegenMultiplier;
+            }
 
             float newMaxHealth = stats.maxHealth.value;
             if (newMaxHealth != lastMaxHealth) {
                 maxHealth = newMaxHealth;
-                health = health * newMaxHealth / lastMaxHealth;
+                lastHealth = health = health * newMaxHealth / lastMaxHealth;
                 lastMaxHealth = newMaxHealth;
             }
         }

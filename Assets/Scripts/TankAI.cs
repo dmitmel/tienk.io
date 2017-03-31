@@ -16,12 +16,17 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 namespace Deepio {
-    public class CrasherAI : MonoBehaviour {
-        public Rigidbody2D crasher;
-        public float acceleration, movementSpeed;
+    public class TankAI : MonoBehaviour {
+        public Tank tank;
+        Rigidbody2D tankRigidbody;
+        public float accelerationMultiplier = 2;
 
+        [Space]
+        public string[] objectsAttackPriority;
         public float targetChooseInterval;
 
         List<Transform> enemies = new List<Transform>();
@@ -29,22 +34,12 @@ namespace Deepio {
 
         float nextTargetChooseTime;
 
-        void OnTriggerEnter2D(Collider2D collider) {
-            Transform colliderTransform = collider.transform;
-            if (colliderTransform.CompareTag("Player") || colliderTransform.CompareTag("Tank"))
-                enemies.Add(collider.transform);
+        void Start() {
+            tankRigidbody = tank.GetComponent<Rigidbody2D>();
         }
 
-        void OnTriggerStay2D(Collider2D collision) {
-            Transform colliderTransform = collision.transform;
-            if (colliderTransform.CompareTag("Player") || colliderTransform.CompareTag("Tank")) {
-                crasher.rotation = VectorUtil.Angle2D(crasher.position, colliderTransform.position) + 90;
-                crasher.AddRelativeForce(Vector2.up * acceleration);
-                crasher.velocity = new Vector2(
-                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
-                );
-            }
+        void OnTriggerEnter2D(Collider2D collider) {
+            if (objectsAttackPriority.Contains(collider.tag)) enemies.Add(collider.transform);
         }
 
         void Update() {
@@ -53,22 +48,32 @@ namespace Deepio {
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
                     target = ChooseTarget();
+
+                    foreach (Gun gun in tank.guns)
+                        if (!gun.isFiring)
+                            gun.StartFiring();
                 }
             }
 
             if (target != null) {
-                crasher.rotation = VectorUtil.Angle2D(crasher.position, target.position) + 90;
-                crasher.AddRelativeForce(Vector2.up * acceleration);
-                crasher.velocity = new Vector2(
-                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
+                float movementSpeed = tank.stats.movementSpeed.value;
+
+                tankRigidbody.rotation = VectorUtil.Angle2D(tankRigidbody.position, target.transform.position) + 90;
+                tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier);
+                tankRigidbody.velocity = new Vector2(
+                    Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
+                    Mathf.Clamp(tankRigidbody.velocity.y, -movementSpeed, movementSpeed)
                 );
+            } else {
+                foreach (Gun gun in tank.guns)
+                    gun.StopFiring();
             }
         }
 
         Transform ChooseTarget() {
             Transform currentTarget = null;
             float sqrDistanceToCurrentTarget = 0;
+            int currentTargetPriority = 0;
 
             bool isFirst = true;
 
@@ -78,19 +83,27 @@ namespace Deepio {
                 if (isFirst) {
                     currentTarget = enemy;
                     sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
+                    currentTargetPriority = GetAttackPriorityFor(currentTarget);
 
                     isFirst = false;
                 } else {
                     float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
+                    int enemyPriority = GetAttackPriorityFor(enemy);
 
-                    if (sqrDistanceToEnemy < sqrDistanceToCurrentTarget) {
+                    if (enemyPriority > currentTargetPriority ||
+                        (enemyPriority == currentTargetPriority && sqrDistanceToEnemy < sqrDistanceToCurrentTarget)) {
                         currentTarget = enemy;
                         sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
+                        currentTargetPriority = enemyPriority;
                     }
                 }
             }
 
             return currentTarget;
+        }
+
+        int GetAttackPriorityFor(Transform enemy) {
+            return Array.IndexOf(objectsAttackPriority, enemy.tag);
         }
 
         void OnTriggerExit2D(Collider2D collider) {

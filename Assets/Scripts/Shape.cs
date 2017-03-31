@@ -71,7 +71,7 @@ namespace Deepio {
 
         void OnCollisionEnter2D(Collision2D collision) {
             Collider2D collider = collision.collider;
-            if (collider.CompareTag("Player")) {
+            if (collider.CompareTag("Player") || collider.CompareTag("Tank")) {
                 var playerHealth = collider.GetComponent<ObjectWithHealth>();
                 var player = collider.GetComponent<Tank>();
 
