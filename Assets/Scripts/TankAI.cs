@@ -24,6 +24,7 @@ namespace Deepio {
         public Tank tank;
         Rigidbody2D tankRigidbody;
         public float accelerationMultiplier = 2;
+        public float minSqrDistance;
 
         [Space]
         public string[] objectsAttackPriority;
@@ -39,7 +40,8 @@ namespace Deepio {
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
-            if (objectsAttackPriority.Contains(collider.tag)) enemies.Add(collider.transform);
+            if (collider.gameObject != tank.gameObject && objectsAttackPriority.Contains(collider.tag))
+                enemies.Add(collider.transform);
         }
 
         void Update() {
@@ -58,8 +60,11 @@ namespace Deepio {
             if (target != null) {
                 float movementSpeed = tank.stats.movementSpeed.value;
 
+                float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
+                float additionalMultiplier = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
+
                 tankRigidbody.rotation = VectorUtil.Angle2D(tankRigidbody.position, target.transform.position) + 90;
-                tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier);
+                tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier * additionalMultiplier);
                 tankRigidbody.velocity = new Vector2(
                     Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
                     Mathf.Clamp(tankRigidbody.velocity.y, -movementSpeed, movementSpeed)

@@ -1148,7 +1148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 114805980179849186}
-  movementSpeed: 20
+  accelerationMultiplier: 7
+  minSqrDistance: 20
   objectsAttackPriority:
   - Square
   - Triangle
@@ -1156,8 +1157,6 @@ MonoBehaviour:
   - SmallCrasher
   - BigCrasher
   targetChooseInterval: 1
-  enemies: []
-  target: {fileID: 0}
 --- !u!212 &212077713766668624
 SpriteRenderer:
   m_ObjectHideFlags: 1
