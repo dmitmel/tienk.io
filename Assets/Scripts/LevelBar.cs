@@ -19,15 +19,13 @@ using UnityEngine;
 namespace Deepio {
     public class LevelBar : MonoBehaviour {
         public int widthOffset;
-
-        ScoreCounter scoreCounter;
+        public ScoreCounter scoreCounter;
 
         RectTransform rectTransform;
         Vector2 originalPosition;
         Vector2 originalScale;
 
         void Start() {
-            scoreCounter = ScoreCounter.instance;
             rectTransform = GetComponent<RectTransform>();
             originalPosition = rectTransform.anchoredPosition;
             originalScale = rectTransform.sizeDelta;

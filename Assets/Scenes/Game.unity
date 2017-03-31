@@ -307,16 +307,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 53697304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 50
-  holderLevelBonus: 2
-  statLevelBonus: 10
-  statButton: {fileID: 1663856290}
-  bars: {fileID: 1203307530}
+  stat: {fileID: 1162153732}
+  upgradeButton: {fileID: 1663856290}
+  upgradeBars: {fileID: 1203307530}
 --- !u!1 &63947346
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,16 +692,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 149942685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 1.5
-  holderLevelBonus: 0
-  statLevelBonus: 0.15
-  statButton: {fileID: 1458458274}
-  bars: {fileID: 197159197}
+  stat: {fileID: 869553067}
+  upgradeButton: {fileID: 1458458274}
+  upgradeBars: {fileID: 197159197}
 --- !u!1 &160890256
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +782,7 @@ GameObject:
   - component: {fileID: 183386607}
   - component: {fileID: 183386609}
   - component: {fileID: 183386610}
+  - component: {fileID: 183386608}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -818,6 +811,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -72, y: -72}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &183386608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183386606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac63106c63924c3cb16fef2d88ecfb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: {fileID: 799168456}
+  scoreLabel: {fileID: 1498618172}
+  levelLabel: {fileID: 1882704110}
+  upgradePointsLabel: {fileID: 947887235}
+  levelBar: {fileID: 1499641127}
 --- !u!222 &183386609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1355,16 +1364,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 264218807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 20
-  holderLevelBonus: 0
-  statLevelBonus: 4
-  statButton: {fileID: 2055602102}
-  bars: {fileID: 1884795001}
+  stat: {fileID: 1074231862}
+  upgradeButton: {fileID: 2055602102}
+  upgradeBars: {fileID: 1884795001}
 --- !u!1 &269121103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1516,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 322441769}
+      - m_Target: {fileID: 1495864138}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -1681,7 +1686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308738752
 GameObject:
@@ -1831,16 +1836,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 322441765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 5
-  holderLevelBonus: -0.005
-  statLevelBonus: 0.25
-  statButton: {fileID: 281834524}
-  bars: {fileID: 789586402}
+  stat: {fileID: 1495864138}
+  upgradeButton: {fileID: 281834524}
+  upgradeBars: {fileID: 789586402}
 --- !u!1 &343987068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +1930,7 @@ RectTransform:
   - {fileID: 2096962104}
   - {fileID: 947887233}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1963,8 +1964,9 @@ Transform:
   m_Children:
   - {fileID: 1030228920}
   - {fileID: 2072899870}
+  - {fileID: 799168455}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &398800042
 GameObject:
@@ -1993,7 +1995,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &398800044
 MonoBehaviour:
@@ -2188,7 +2190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 726747991}
+      - m_Target: {fileID: 1293634342}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -2667,16 +2669,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 555066026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 28
-  holderLevelBonus: 0
-  statLevelBonus: 12
-  statButton: {fileID: 988935255}
-  bars: {fileID: 1626772741}
+  stat: {fileID: 1198305583}
+  upgradeButton: {fileID: 988935255}
+  upgradeBars: {fileID: 1626772741}
 --- !u!1 &570884901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,16 +2955,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 580490238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 0.003
-  holderLevelBonus: 0.001
-  statLevelBonus: 0.00005
-  statButton: {fileID: 1947040438}
-  bars: {fileID: 269121104}
+  stat: {fileID: 1543168771}
+  upgradeButton: {fileID: 1947040438}
+  upgradeBars: {fileID: 269121104}
 --- !u!1 &584035607
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,7 +3197,7 @@ RectTransform:
   - {fileID: 1175378482}
   - {fileID: 468947068}
   m_Father: {fileID: 2096962104}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3251,16 +3245,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 726747987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 0.51
-  holderLevelBonus: 0
-  statLevelBonus: 0.4
-  statButton: {fileID: 468947069}
-  bars: {fileID: 1748222199}
+  stat: {fileID: 1293634342}
+  upgradeButton: {fileID: 468947069}
+  upgradeBars: {fileID: 1748222199}
 --- !u!1 &727303028 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1050416654718120, guid: e66c26cd73e414bba9b45298785c257a,
@@ -3579,6 +3569,310 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790338383}
+--- !u!1 &799168454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 799168455}
+  - component: {fileID: 799168457}
+  - component: {fileID: 799168456}
+  m_Layer: 5
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &799168455
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799168454}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1543168772}
+  - {fileID: 1162153733}
+  - {fileID: 1074231863}
+  - {fileID: 1293634343}
+  - {fileID: 1345250984}
+  - {fileID: 1198305584}
+  - {fileID: 869553068}
+  - {fileID: 1495864137}
+  m_Father: {fileID: 381152415}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799168456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799168454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 799168457}
+  levelIndex: 0
+  score: 0
+  upgradePoints: 0
+  levels:
+  - index: 0
+    neededScore: 0
+    scoreToNextLevel: 4
+    respawnLevel: 0
+    givesUpgradePoint: 0
+  - index: 1
+    neededScore: 4
+    scoreToNextLevel: 9
+    respawnLevel: 0
+    givesUpgradePoint: 1
+  - index: 2
+    neededScore: 13
+    scoreToNextLevel: 15
+    respawnLevel: 1
+    givesUpgradePoint: 1
+  - index: 3
+    neededScore: 28
+    scoreToNextLevel: 22
+    respawnLevel: 2
+    givesUpgradePoint: 1
+  - index: 4
+    neededScore: 50
+    scoreToNextLevel: 28
+    respawnLevel: 3
+    givesUpgradePoint: 1
+  - index: 5
+    neededScore: 78
+    scoreToNextLevel: 35
+    respawnLevel: 4
+    givesUpgradePoint: 1
+  - index: 6
+    neededScore: 113
+    scoreToNextLevel: 44
+    respawnLevel: 5
+    givesUpgradePoint: 1
+  - index: 7
+    neededScore: 157
+    scoreToNextLevel: 54
+    respawnLevel: 6
+    givesUpgradePoint: 1
+  - index: 8
+    neededScore: 211
+    scoreToNextLevel: 64
+    respawnLevel: 7
+    givesUpgradePoint: 1
+  - index: 9
+    neededScore: 275
+    scoreToNextLevel: 75
+    respawnLevel: 8
+    givesUpgradePoint: 1
+  - index: 10
+    neededScore: 350
+    scoreToNextLevel: 87
+    respawnLevel: 9
+    givesUpgradePoint: 1
+  - index: 11
+    neededScore: 437
+    scoreToNextLevel: 101
+    respawnLevel: 10
+    givesUpgradePoint: 1
+  - index: 12
+    neededScore: 538
+    scoreToNextLevel: 117
+    respawnLevel: 10
+    givesUpgradePoint: 1
+  - index: 13
+    neededScore: 655
+    scoreToNextLevel: 132
+    respawnLevel: 11
+    givesUpgradePoint: 1
+  - index: 14
+    neededScore: 787
+    scoreToNextLevel: 151
+    respawnLevel: 11
+    givesUpgradePoint: 1
+  - index: 15
+    neededScore: 938
+    scoreToNextLevel: 171
+    respawnLevel: 12
+    givesUpgradePoint: 1
+  - index: 16
+    neededScore: 1109
+    scoreToNextLevel: 192
+    respawnLevel: 12
+    givesUpgradePoint: 1
+  - index: 17
+    neededScore: 1301
+    scoreToNextLevel: 215
+    respawnLevel: 12
+    givesUpgradePoint: 1
+  - index: 18
+    neededScore: 1516
+    scoreToNextLevel: 241
+    respawnLevel: 13
+    givesUpgradePoint: 1
+  - index: 19
+    neededScore: 1757
+    scoreToNextLevel: 269
+    respawnLevel: 13
+    givesUpgradePoint: 1
+  - index: 20
+    neededScore: 2026
+    scoreToNextLevel: 299
+    respawnLevel: 14
+    givesUpgradePoint: 1
+  - index: 21
+    neededScore: 2325
+    scoreToNextLevel: 333
+    respawnLevel: 14
+    givesUpgradePoint: 1
+  - index: 22
+    neededScore: 2658
+    scoreToNextLevel: 368
+    respawnLevel: 14
+    givesUpgradePoint: 1
+  - index: 23
+    neededScore: 3026
+    scoreToNextLevel: 407
+    respawnLevel: 15
+    givesUpgradePoint: 1
+  - index: 24
+    neededScore: 3433
+    scoreToNextLevel: 450
+    respawnLevel: 15
+    givesUpgradePoint: 1
+  - index: 25
+    neededScore: 3883
+    scoreToNextLevel: 496
+    respawnLevel: 15
+    givesUpgradePoint: 1
+  - index: 26
+    neededScore: 4379
+    scoreToNextLevel: 546
+    respawnLevel: 16
+    givesUpgradePoint: 1
+  - index: 27
+    neededScore: 4925
+    scoreToNextLevel: 600
+    respawnLevel: 16
+    givesUpgradePoint: 1
+  - index: 28
+    neededScore: 5525
+    scoreToNextLevel: 659
+    respawnLevel: 16
+    givesUpgradePoint: 1
+  - index: 29
+    neededScore: 6184
+    scoreToNextLevel: 723
+    respawnLevel: 16
+    givesUpgradePoint: 0
+  - index: 30
+    neededScore: 6907
+    scoreToNextLevel: 791
+    respawnLevel: 17
+    givesUpgradePoint: 1
+  - index: 31
+    neededScore: 7698
+    scoreToNextLevel: 839
+    respawnLevel: 17
+    givesUpgradePoint: 0
+  - index: 32
+    neededScore: 8537
+    scoreToNextLevel: 889
+    respawnLevel: 17
+    givesUpgradePoint: 0
+  - index: 33
+    neededScore: 9426
+    scoreToNextLevel: 942
+    respawnLevel: 18
+    givesUpgradePoint: 0
+  - index: 34
+    neededScore: 10368
+    scoreToNextLevel: 999
+    respawnLevel: 18
+    givesUpgradePoint: 1
+  - index: 35
+    neededScore: 11367
+    scoreToNextLevel: 1059
+    respawnLevel: 18
+    givesUpgradePoint: 0
+  - index: 36
+    neededScore: 12426
+    scoreToNextLevel: 1123
+    respawnLevel: 18
+    givesUpgradePoint: 0
+  - index: 37
+    neededScore: 13549
+    scoreToNextLevel: 1190
+    respawnLevel: 19
+    givesUpgradePoint: 0
+  - index: 38
+    neededScore: 14739
+    scoreToNextLevel: 1261
+    respawnLevel: 19
+    givesUpgradePoint: 0
+  - index: 39
+    neededScore: 16000
+    scoreToNextLevel: 1337
+    respawnLevel: 19
+    givesUpgradePoint: 1
+  - index: 40
+    neededScore: 17337
+    scoreToNextLevel: 1417
+    respawnLevel: 19
+    givesUpgradePoint: 0
+  - index: 41
+    neededScore: 18754
+    scoreToNextLevel: 1502
+    respawnLevel: 20
+    givesUpgradePoint: 0
+  - index: 42
+    neededScore: 20256
+    scoreToNextLevel: 1593
+    respawnLevel: 20
+    givesUpgradePoint: 0
+  - index: 43
+    neededScore: 21849
+    scoreToNextLevel: 1687
+    respawnLevel: 20
+    givesUpgradePoint: 0
+  - index: 44
+    neededScore: 23536
+    scoreToNextLevel: 0
+    respawnLevel: 21
+    givesUpgradePoint: 1
+  currentLevel:
+    index: 0
+    neededScore: 0
+    scoreToNextLevel: 4
+    respawnLevel: 0
+    givesUpgradePoint: 0
+--- !u!114 &799168457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799168454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cb6aa99bf394cdaa3506d976896e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRegen: {fileID: 1543168771}
+  maxHealth: {fileID: 1162153732}
+  bodyDamage: {fileID: 1074231862}
+  bulletPenetration: {fileID: 1293634342}
+  bulletSpeed: {fileID: 1345250983}
+  bulletDamage: {fileID: 1198305583}
+  reload: {fileID: 869553067}
+  movementSpeed: {fileID: 1495864138}
 --- !u!1 &820888001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,6 +4177,52 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!1 &869553066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 869553068}
+  - component: {fileID: 869553067}
+  m_Layer: 5
+  m_Name: Reload
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &869553067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869553066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 1.5
+  holderLevelBonus: 0
+  statLevelBonus: 0.15
+--- !u!4 &869553068
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869553066}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947887232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,7 +4458,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 555066030}
+      - m_Target: {fileID: 1198305583}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -4330,7 +4670,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1007650551}
   - component: {fileID: 1007650550}
-  - component: {fileID: 1007650552}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4369,258 +4708,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1007650552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1007650549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreLabel: {fileID: 1498618172}
-  levelLabel: {fileID: 1882704110}
-  upgradePointsLabel: {fileID: 947887235}
-  levelBar: {fileID: 1499641127}
-  levelIndex: 0
-  score: 0
-  upgradePoints: 0
-  levels:
-  - index: 0
-    neededScore: 0
-    scoreToNextLevel: 4
-    respawnLevel: 0
-    givesUpgradePoint: 0
-  - index: 1
-    neededScore: 4
-    scoreToNextLevel: 9
-    respawnLevel: 0
-    givesUpgradePoint: 1
-  - index: 2
-    neededScore: 13
-    scoreToNextLevel: 15
-    respawnLevel: 1
-    givesUpgradePoint: 1
-  - index: 3
-    neededScore: 28
-    scoreToNextLevel: 22
-    respawnLevel: 2
-    givesUpgradePoint: 1
-  - index: 4
-    neededScore: 50
-    scoreToNextLevel: 28
-    respawnLevel: 3
-    givesUpgradePoint: 1
-  - index: 5
-    neededScore: 78
-    scoreToNextLevel: 35
-    respawnLevel: 4
-    givesUpgradePoint: 1
-  - index: 6
-    neededScore: 113
-    scoreToNextLevel: 44
-    respawnLevel: 5
-    givesUpgradePoint: 1
-  - index: 7
-    neededScore: 157
-    scoreToNextLevel: 54
-    respawnLevel: 6
-    givesUpgradePoint: 1
-  - index: 8
-    neededScore: 211
-    scoreToNextLevel: 64
-    respawnLevel: 7
-    givesUpgradePoint: 1
-  - index: 9
-    neededScore: 275
-    scoreToNextLevel: 75
-    respawnLevel: 8
-    givesUpgradePoint: 1
-  - index: 10
-    neededScore: 350
-    scoreToNextLevel: 87
-    respawnLevel: 9
-    givesUpgradePoint: 1
-  - index: 11
-    neededScore: 437
-    scoreToNextLevel: 101
-    respawnLevel: 10
-    givesUpgradePoint: 1
-  - index: 12
-    neededScore: 538
-    scoreToNextLevel: 117
-    respawnLevel: 10
-    givesUpgradePoint: 1
-  - index: 13
-    neededScore: 655
-    scoreToNextLevel: 132
-    respawnLevel: 11
-    givesUpgradePoint: 1
-  - index: 14
-    neededScore: 787
-    scoreToNextLevel: 151
-    respawnLevel: 11
-    givesUpgradePoint: 1
-  - index: 15
-    neededScore: 938
-    scoreToNextLevel: 171
-    respawnLevel: 12
-    givesUpgradePoint: 1
-  - index: 16
-    neededScore: 1109
-    scoreToNextLevel: 192
-    respawnLevel: 12
-    givesUpgradePoint: 1
-  - index: 17
-    neededScore: 1301
-    scoreToNextLevel: 215
-    respawnLevel: 12
-    givesUpgradePoint: 1
-  - index: 18
-    neededScore: 1516
-    scoreToNextLevel: 241
-    respawnLevel: 13
-    givesUpgradePoint: 1
-  - index: 19
-    neededScore: 1757
-    scoreToNextLevel: 269
-    respawnLevel: 13
-    givesUpgradePoint: 1
-  - index: 20
-    neededScore: 2026
-    scoreToNextLevel: 299
-    respawnLevel: 14
-    givesUpgradePoint: 1
-  - index: 21
-    neededScore: 2325
-    scoreToNextLevel: 333
-    respawnLevel: 14
-    givesUpgradePoint: 1
-  - index: 22
-    neededScore: 2658
-    scoreToNextLevel: 368
-    respawnLevel: 14
-    givesUpgradePoint: 1
-  - index: 23
-    neededScore: 3026
-    scoreToNextLevel: 407
-    respawnLevel: 15
-    givesUpgradePoint: 1
-  - index: 24
-    neededScore: 3433
-    scoreToNextLevel: 450
-    respawnLevel: 15
-    givesUpgradePoint: 1
-  - index: 25
-    neededScore: 3883
-    scoreToNextLevel: 496
-    respawnLevel: 15
-    givesUpgradePoint: 1
-  - index: 26
-    neededScore: 4379
-    scoreToNextLevel: 546
-    respawnLevel: 16
-    givesUpgradePoint: 1
-  - index: 27
-    neededScore: 4925
-    scoreToNextLevel: 600
-    respawnLevel: 16
-    givesUpgradePoint: 1
-  - index: 28
-    neededScore: 5525
-    scoreToNextLevel: 659
-    respawnLevel: 16
-    givesUpgradePoint: 1
-  - index: 29
-    neededScore: 6184
-    scoreToNextLevel: 723
-    respawnLevel: 16
-    givesUpgradePoint: 0
-  - index: 30
-    neededScore: 6907
-    scoreToNextLevel: 791
-    respawnLevel: 17
-    givesUpgradePoint: 1
-  - index: 31
-    neededScore: 7698
-    scoreToNextLevel: 839
-    respawnLevel: 17
-    givesUpgradePoint: 0
-  - index: 32
-    neededScore: 8537
-    scoreToNextLevel: 889
-    respawnLevel: 17
-    givesUpgradePoint: 0
-  - index: 33
-    neededScore: 9426
-    scoreToNextLevel: 942
-    respawnLevel: 18
-    givesUpgradePoint: 0
-  - index: 34
-    neededScore: 10368
-    scoreToNextLevel: 999
-    respawnLevel: 18
-    givesUpgradePoint: 1
-  - index: 35
-    neededScore: 11367
-    scoreToNextLevel: 1059
-    respawnLevel: 18
-    givesUpgradePoint: 0
-  - index: 36
-    neededScore: 12426
-    scoreToNextLevel: 1123
-    respawnLevel: 18
-    givesUpgradePoint: 0
-  - index: 37
-    neededScore: 13549
-    scoreToNextLevel: 1190
-    respawnLevel: 19
-    givesUpgradePoint: 0
-  - index: 38
-    neededScore: 14739
-    scoreToNextLevel: 1261
-    respawnLevel: 19
-    givesUpgradePoint: 0
-  - index: 39
-    neededScore: 16000
-    scoreToNextLevel: 1337
-    respawnLevel: 19
-    givesUpgradePoint: 1
-  - index: 40
-    neededScore: 17337
-    scoreToNextLevel: 1417
-    respawnLevel: 19
-    givesUpgradePoint: 0
-  - index: 41
-    neededScore: 18754
-    scoreToNextLevel: 1502
-    respawnLevel: 20
-    givesUpgradePoint: 0
-  - index: 42
-    neededScore: 20256
-    scoreToNextLevel: 1593
-    respawnLevel: 20
-    givesUpgradePoint: 0
-  - index: 43
-    neededScore: 21849
-    scoreToNextLevel: 1687
-    respawnLevel: 20
-    givesUpgradePoint: 0
-  - index: 44
-    neededScore: 23536
-    scoreToNextLevel: 0
-    respawnLevel: 21
-    givesUpgradePoint: 1
-  currentLevel:
-    index: 0
-    neededScore: 0
-    scoreToNextLevel: 4
-    respawnLevel: 0
-    givesUpgradePoint: 0
 --- !u!1 &1030228919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +4724,7 @@ GameObject:
   - component: {fileID: 1030228923}
   - component: {fileID: 1030228927}
   - component: {fileID: 1030228924}
+  - component: {fileID: 1030228926}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -4702,10 +4792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRoot: {fileID: 1030228921}
-  rotationRoot: {fileID: 1668736576}
-  guns:
-  - {fileID: 1053312958}
   accelerationMultiplier: 2
   autoSpinSpeed: 1
 --- !u!114 &1030228924
@@ -4755,6 +4841,21 @@ SpriteRenderer:
   m_Color: {r: 0.9998734, g: 1, b: 0.9998412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1030228926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030228919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 799168457}
+  score: {fileID: 799168456}
+  guns:
+  - {fileID: 1053312958}
 --- !u!114 &1030228927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4772,6 +4873,8 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.12
+  parent: {fileID: 381152414}
+  stats: {fileID: 799168457}
 --- !u!1 &1040158867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,9 +4998,9 @@ MonoBehaviour:
   bulletFlyTime: 3
   shootDelay: 0
   recoil: 0.5
-  knockback: 0.5
+  bulletKnockback: 0.5
   bulletSpread: 20
-  tank: {fileID: 1030228921}
+  tank: {fileID: 1030228926}
   tankRelativeVelocityMultiplier: 1
 --- !u!1 &1064803422
 GameObject:
@@ -4973,6 +5076,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064803422}
+--- !u!1 &1074231861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1074231863}
+  - component: {fileID: 1074231862}
+  m_Layer: 5
+  m_Name: BodyDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1074231862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074231861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 20
+  holderLevelBonus: 0
+  statLevelBonus: 4
+--- !u!4 &1074231863
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074231861}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087146439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,6 +5394,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1114678261}
+--- !u!1 &1162153731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1162153733}
+  - component: {fileID: 1162153732}
+  m_Layer: 5
+  m_Name: MaxHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162153732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162153731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 50
+  holderLevelBonus: 2
+  statLevelBonus: 20
+--- !u!4 &1162153733
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162153731}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175378481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5470,6 +5665,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1193326321}
+--- !u!1 &1198305582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1198305584}
+  - component: {fileID: 1198305583}
+  m_Layer: 5
+  m_Name: BulletDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1198305583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198305582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 28
+  holderLevelBonus: 0
+  statLevelBonus: 12
+--- !u!4 &1198305584
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198305582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203307529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5812,6 +6053,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287915419}
+--- !u!1 &1293634341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1293634343}
+  - component: {fileID: 1293634342}
+  m_Layer: 5
+  m_Name: BulletPenetration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1293634342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293634341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 0.51
+  holderLevelBonus: 0
+  statLevelBonus: 0.4
+--- !u!4 &1293634343
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293634341}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1340069272
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,6 +6188,52 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23921569, g: 0.23921569, b: 0.23921569, a: 1}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!1 &1345250982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1345250984}
+  - component: {fileID: 1345250983}
+  m_Layer: 5
+  m_Name: BulletSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1345250983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345250982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 6
+  holderLevelBonus: 0
+  statLevelBonus: 0.5
+--- !u!4 &1345250984
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345250982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362742818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6663,7 +6996,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 149942689}
+      - m_Target: {fileID: 869553067}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -6777,6 +7110,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478371777}
+--- !u!1 &1495864136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1495864137}
+  - component: {fileID: 1495864138}
+  m_Layer: 5
+  m_Name: MovementSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495864137
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495864136}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495864138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495864136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 5
+  holderLevelBonus: -0.005
+  statLevelBonus: 0.25
 --- !u!1 &1498618169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6947,6 +7326,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   widthOffset: 31
+  scoreCounter: {fileID: 799168456}
+--- !u!1 &1543168770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1543168772}
+  - component: {fileID: 1543168771}
+  m_Layer: 5
+  m_Name: HealthRegen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1543168771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543168770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 799168456}
+  level: 0
+  maxLevel: 7
+  baseValue: 0.003
+  holderLevelBonus: 0.001
+  statLevelBonus: 0.0005
+--- !u!4 &1543168772
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543168770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 799168455}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608739833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7376,7 +7802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 53697308}
+      - m_Target: {fileID: 1162153732}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -8295,7 +8721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1802605110
 MonoBehaviour:
@@ -8837,7 +9263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 580490242}
+      - m_Target: {fileID: 1543168771}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -9049,7 +9475,7 @@ Transform:
   - {fileID: 510877163}
   - {fileID: 214314117}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017678253
 GameObject:
@@ -9153,7 +9579,7 @@ RectTransform:
   - {fileID: 760190080}
   - {fileID: 2071145297}
   m_Father: {fileID: 2096962104}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9201,16 +9627,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024529190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576eee27a621945b8885264593495207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba356c512be341f694599144c93ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statLevel: 0
-  maxLevel: 7
-  baseValue: 6
-  holderLevelBonus: 0
-  statLevelBonus: 0.5
-  statButton: {fileID: 2071145298}
-  bars: {fileID: 2017678254}
+  stat: {fileID: 1345250983}
+  upgradeButton: {fileID: 2071145298}
+  upgradeBars: {fileID: 2017678254}
 --- !u!1 &2055602100
 GameObject:
   m_ObjectHideFlags: 0
@@ -9287,7 +9709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264218811}
+      - m_Target: {fileID: 1074231862}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -9498,7 +9920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2024529194}
+      - m_Target: {fileID: 1345250983}
         m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
@@ -9674,7 +10096,6 @@ GameObject:
   - component: {fileID: 2096962104}
   - component: {fileID: 2096962106}
   - component: {fileID: 2096962107}
-  - component: {fileID: 2096962108}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -9695,8 +10116,8 @@ RectTransform:
   - {fileID: 580490239}
   - {fileID: 53697305}
   - {fileID: 264218808}
-  - {fileID: 2024529191}
   - {fileID: 726747988}
+  - {fileID: 2024529191}
   - {fileID: 555066027}
   - {fileID: 149942686}
   - {fileID: 322441766}
@@ -9736,26 +10157,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!114 &2096962108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2096962103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb6aa99bf394cdaa3506d976896e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthRegen: {fileID: 580490242}
-  maxHealth: {fileID: 53697308}
-  bodyDamage: {fileID: 264218811}
-  bulletSpeed: {fileID: 2024529194}
-  bulletPenetration: {fileID: 726747991}
-  bulletDamage: {fileID: 555066030}
-  reload: {fileID: 149942689}
-  movementSpeed: {fileID: 322441769}
-  level: 0
 --- !u!1 &2105639098
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,5 +10223,5 @@ Transform:
   m_LocalScale: {x: 500, y: 500, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

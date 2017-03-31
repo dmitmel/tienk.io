@@ -14,18 +14,12 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
 
 namespace Deepio {
-    public class StatsHolder : MonoBehaviour {
-        public Stat healthRegen;
-        public Stat maxHealth;
-        public Stat bodyDamage;
-        public Stat bulletPenetration;
-        public Stat bulletSpeed;
-        public Stat bulletDamage;
-        public Stat reload;
-        public Stat movementSpeed;
+    public class Tank : MonoBehaviour {
+        public StatsHolder stats;
+        public ScoreCounter score;
+        public Gun[] guns;
     }
 }

@@ -45,15 +45,6 @@ namespace Deepio {
             rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
         }
 
-        void Damage(float damage) {
-            healthBar.health -= damage;
-            if (healthBar.health <= 0) {
-                ShapeSpawner.instance.SpawnShape();
-                ScoreCounter.instance.score += score;
-                Destroy(parent);
-            }
-        }
-
         void OnTriggerEnter2D(Collider2D collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();
@@ -66,8 +57,14 @@ namespace Deepio {
                 float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
-                    Damage(bulletDamagePerCycle);
+                    healthBar.health -= bulletDamagePerCycle;
                     bullet.health -= bodyDamagePerCycle;
+                }
+
+                if (healthBar.health <= 0) {
+                    ShapeSpawner.instance.SpawnShape();
+                    bullet.tank.score.score += score;
+                    Destroy(parent);
                 }
             }
         }
@@ -75,10 +72,16 @@ namespace Deepio {
         void OnCollisionEnter2D(Collision2D collision) {
             Collider2D collider = collision.collider;
             if (collider.CompareTag("Player")) {
-                var player = collider.GetComponent<ObjectWithHealth>();
+                var playerHealth = collider.GetComponent<ObjectWithHealth>();
+                var player = collider.GetComponent<Tank>();
 
-                player.health -= bodyDamage;
-                Damage(StatsHolder.instance.bodyDamage.statValue);
+                playerHealth.health -= bodyDamage;
+                healthBar.health -= player.stats.bodyDamage.value;
+                if (healthBar.health <= 0) {
+                    ShapeSpawner.instance.SpawnShape();
+                    player.score.score += score;
+                    Destroy(parent);
+                }
             }
         }
     }

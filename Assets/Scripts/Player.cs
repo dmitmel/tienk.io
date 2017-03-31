@@ -18,19 +18,16 @@ using UnityEngine;
 
 namespace Deepio {
     public class Player : Singleton<Player> {
-        public Gun[] guns;
-
-        [Space]
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
-        StatsHolder stats;
+        Tank tank;
         Rigidbody2D rigidbody;
 
         bool autoSpinEnabled, autoFireEnabled;
 
         void Start() {
-            stats = StatsHolder.instance;
+            tank = GetComponent<Tank>();
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
@@ -46,22 +43,22 @@ namespace Deepio {
             if (KeyBindings.instance.autoFire.isDown) {
                 autoFireEnabled = !autoFireEnabled;
                 if (!autoFireEnabled) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
             }
 
             if (autoFireEnabled) {
-                foreach (Gun gun in guns)
+                foreach (Gun gun in tank.guns)
                     if (!gun.isFiring)
                         gun.StartFiring();
             } else {
                 if (KeyBindings.instance.fire.isPressed) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         if (!gun.isFiring)
                             gun.StartFiring();
                 } else if (KeyBindings.instance.fire.isUp) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
             }
@@ -72,10 +69,10 @@ namespace Deepio {
             float verticalAxis = Input.GetAxis("Vertical");
 
             rigidbody.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                               stats.movementSpeed.statValue * accelerationMultiplier);
+                               tank.stats.movementSpeed.value * accelerationMultiplier);
             rigidbody.velocity = new Vector2(
-                Mathf.Clamp(rigidbody.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
-                Mathf.Clamp(rigidbody.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)
+                Mathf.Clamp(rigidbody.velocity.x, -tank.stats.movementSpeed.value, tank.stats.movementSpeed.value),
+                Mathf.Clamp(rigidbody.velocity.y, -tank.stats.movementSpeed.value, tank.stats.movementSpeed.value)
             );
         }
     }

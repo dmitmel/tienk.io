@@ -118,11 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1aba1c9df0a4fbe915f6139e3ed616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  tank: {fileID: 0}
+  health: 0
   damage: 0
   flyTime: 0
   knockback: 0
-  slowDownToNormalVelocityTime: 1
+  slowDownToNormalVelocityTime: 0.5
   normalVelocity: {x: 0, y: 0}
 --- !u!212 &212424427670847058
 SpriteRenderer:

@@ -16,85 +16,48 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Deepio {
     public class Stat : MonoBehaviour {
-        public int statLevel;
+        public ScoreCounter scoreCounter;
+        public int level;
         public int maxLevel = 7;
         public float baseValue, holderLevelBonus, statLevelBonus;
 
-        public float statValue { get; private set; }
+        public float value { get; private set; }
 
-        [Space]
-        public Button statButton;
-        public Transform bars;
-
-        StatsHolder holder;
-        ScoreCounter scoreCounter;
-
-        int lastStatLevel, lastHolderLevel, lastUpgradePoints;
+        int lastStatLevel, lastHolderLevel;
 
         void Start() {
-            holder = StatsHolder.instance;
-            scoreCounter = ScoreCounter.instance;
-            lastStatLevel = statLevel;
-            lastHolderLevel = holder.level;
-            statValue = ComputeValue();
-            UpdateUI();
+            lastStatLevel = level;
+            lastHolderLevel = scoreCounter.currentLevel.index;
+            value = ComputeValue();
         }
 
         void Update() {
-            if (lastStatLevel != statLevel) {
-                if (statLevel < 0 || statLevel > maxLevel)
-                    throw new ArgumentOutOfRangeException("statLevel", statLevel, $"statLevel must be >= 0 and <= {maxLevel}");
-                lastStatLevel = statLevel;
-                statValue = ComputeValue();
-                UpdateUI();
+            if (lastStatLevel != level) {
+                if (level < 0 || level > maxLevel)
+                    throw new ArgumentOutOfRangeException("statLevel", level, $"statLevel must be >= 0 and <= {maxLevel}");
+                lastStatLevel = level;
+                value = ComputeValue();
             }
 
-            if (lastHolderLevel != holder.level) {
-                lastHolderLevel = holder.level;
-                statValue = ComputeValue();
-            }
-
-            if (lastUpgradePoints != scoreCounter.upgradePoints) {
-                lastUpgradePoints = scoreCounter.upgradePoints;
-                statButton.interactable = IsInteractable();
-            }
-
-            if (!Player.isSingletonAlive) {
-                statButton.interactable = false;
+            int holderLevel = scoreCounter.currentLevel.index;
+            if (lastHolderLevel != holderLevel) {
+                lastHolderLevel = holderLevel;
+                value = ComputeValue();
             }
         }
 
         float ComputeValue() {
-            return baseValue + holderLevelBonus * holder.level + statLevelBonus * lastStatLevel;
+            return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastStatLevel;
         }
 
         public void Upgrade() {
             if (lastStatLevel < 7 && scoreCounter.upgradePoints > 0) {
-                statLevel += 1;
+                level += 1;
                 scoreCounter.upgradePoints -= 1;
             }
-        }
-
-        void UpdateUI() {
-            for (int i = 0; i < statLevel && i < bars.childCount; i++) {
-                Transform child = bars.GetChild(i);
-                child.gameObject.SetActive(true);
-            }
-
-            for (int i = statLevel; i < maxLevel && i < bars.childCount; i++) {
-                Transform child = bars.GetChild(i);
-                child.gameObject.SetActive(false);
-            }
-
-            statButton.interactable = IsInteractable();
-        }
-
-        bool IsInteractable() {
-            return scoreCounter.upgradePoints > 0 && statLevel < maxLevel;
         }
     }
 }
