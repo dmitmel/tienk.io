@@ -88,7 +88,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 28822cb0d0b134efb9d54bdca45fe5ae, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -101,7 +101,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1832934887781792}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 28822cb0d0b134efb9d54bdca45fe5ae, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -156,8 +156,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f09d3f70b21e24c53ab55963df15bd4c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7900f9b3da0884f56ba6201557b8fe05, type: 3}
+  m_Color: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212586638750971074
@@ -191,7 +191,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 6bdcad4849c584ad4bc222febb36adfa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7900f9b3da0884f56ba6201557b8fe05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
