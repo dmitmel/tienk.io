@@ -44,7 +44,7 @@ namespace Deepio {
         //}
 
         public void UpdateUI() {
-            scoreLabel.text = $"Score: {counter.score.ToString("#,##")}";
+            scoreLabel.text = $"Score: {counter.score.ToString("#,##0")}";
             lastScore = counter.score;
 
             levelLabel.text = $"Lvl {counter.currentLevel.index} Tank";
