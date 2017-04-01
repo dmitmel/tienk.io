@@ -17,22 +17,16 @@
 using System;
 using UnityEngine;
 
-namespace Deepio
-{
+namespace Deepio {
     [Serializable]
     public class SpawnableShape {
         public float chance;
         public GameObject shape;
     }
 
-    [Serializable]
-    public class FieldBoundary {
-        public float minX, minY, maxX, maxY;
-    }
-
     public class ShapeSpawner : Singleton<ShapeSpawner> {
         public SpawnableShape[] shapes;
-        public FieldBoundary fieldBoundary;
+        public Rect fieldBoundary;
         public int shapesCount;
 
         void Start() {
@@ -42,7 +36,10 @@ namespace Deepio
         public void SpawnShape() {
             GameObject selectedShape = SelectShape();
             if (selectedShape != null) {
-                Vector2 position = RandomPosition();
+                Vector2 position = new Vector2(
+                    UnityEngine.Random.Range(fieldBoundary.x, fieldBoundary.width),
+                    UnityEngine.Random.Range(fieldBoundary.y, fieldBoundary.height)
+                );
                 Instantiate(selectedShape, position, Quaternion.identity, transform);
             }
         }
@@ -53,13 +50,6 @@ namespace Deepio
                 if (random <= spawnableShape.chance) return spawnableShape.shape;
             }
             return null;
-        }
-
-        public Vector2 RandomPosition() {
-            return new Vector2(
-                UnityEngine.Random.Range(fieldBoundary.minX, fieldBoundary.maxX),
-                UnityEngine.Random.Range(fieldBoundary.minY, fieldBoundary.maxY)
-            );
         }
     }
 }

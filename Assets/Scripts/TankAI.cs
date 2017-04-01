@@ -79,6 +79,10 @@ namespace Deepio {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
             }
+
+            if (tank.healthBar.health <= 0) {
+                BotSpawner.instance.SpawnBot();
+            }
         }
 
         Stat RandomStat() {

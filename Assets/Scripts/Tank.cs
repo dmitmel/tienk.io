@@ -20,13 +20,14 @@ namespace Deepio {
     public class Tank : MonoBehaviour {
         public StatsHolder stats;
         public ScoreCounter scoreCounter;
+        [HideInInspector]
+        public TankHealth healthBar;
         public Gun[] guns;
 
         [Space]
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
-        TankHealth healthBar;
         Rigidbody2D rigidbody;
 
         void Start() {
