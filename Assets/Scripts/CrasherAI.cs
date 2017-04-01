@@ -14,19 +14,77 @@
 // limitations under the License.
 //
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Deepio {
     public class CrasherAI : MonoBehaviour {
         public Rigidbody2D crasher;
-        public float movementSpeed;
+        public float acceleration, movementSpeed;
 
-        void OnTriggerStay2D(Collider2D collision) {
-            GameObject gameObject = collision.gameObject;
-            if (gameObject.CompareTag("Player")) {
-                crasher.rotation = crasher.position.Angle2D(gameObject.transform.position) + 90;
-                crasher.AddRelativeForce(Vector2.up * movementSpeed);
+        public float targetChooseInterval;
+
+        List<Transform> enemies = new List<Transform>();
+        Transform target;
+
+        float nextTargetChooseTime;
+
+        void OnTriggerEnter2D(Collider2D collider) {
+            Transform colliderTransform = collider.transform;
+            if (colliderTransform.CompareTag("Tank"))
+                enemies.Add(collider.transform);
+        }
+
+        void Update() {
+            if (enemies.Count > 0) {
+                float now = Time.time;
+                if (now >= nextTargetChooseTime) {
+                    nextTargetChooseTime = now + targetChooseInterval;
+                    target = ChooseTarget();
+                }
             }
+
+            if (target != null) {
+                crasher.rotation = VectorUtil.Angle2D(crasher.position, target.position) + 90;
+                crasher.AddRelativeForce(Vector2.up * acceleration);
+                crasher.velocity = new Vector2(
+                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
+                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
+                );
+            }
+        }
+
+        Transform ChooseTarget() {
+            Transform currentTarget = null;
+            float sqrDistanceToCurrentTarget = 0;
+
+            bool isFirst = true;
+
+            foreach (Transform enemy in enemies) {
+                if (enemy == null) continue;
+
+                if (isFirst) {
+                    currentTarget = enemy;
+                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
+
+                    isFirst = false;
+                } else {
+                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
+
+                    if (sqrDistanceToEnemy < sqrDistanceToCurrentTarget) {
+                        currentTarget = enemy;
+                        sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
+                    }
+                }
+            }
+
+            return currentTarget;
+        }
+
+        void OnTriggerExit2D(Collider2D collider) {
+            Transform colliderTransform = collider.transform;
+            bool colliderIsEnemy = enemies.Remove(colliderTransform);
+            if (colliderIsEnemy && colliderTransform == target) target = ChooseTarget();
         }
     }
 }

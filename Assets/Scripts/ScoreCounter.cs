@@ -15,7 +15,6 @@
 //
 
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 
 namespace Deepio {
@@ -28,9 +27,8 @@ namespace Deepio {
         public bool givesUpgradePoint;
     }
 
-    public class ScoreCounter : Singleton<ScoreCounter> {
-        public Text scoreLabel, levelLabel, upgradePointsLabel;
-        public LevelBar levelBar;
+    public class ScoreCounter : MonoBehaviour {
+        public StatsHolder stats;
 
         [Space]
         public int levelIndex;
@@ -39,37 +37,18 @@ namespace Deepio {
         public Level[] levels;
         public Level currentLevel;
 
-        StatsHolder stats;
-        int lastScore, lastUpgradePoints;
+        int lastScore;
 
         void Start() {
-            stats = StatsHolder.instance;
-            UpdateUI();
+            currentLevel = ComputeLevel();
+            lastScore = score;
         }
-
-        //string FormatScore() {
-        //    string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
-        //    float valueForFormatting =
-        //        score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
-        //        score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
-        //    return valueForFormatting.ToString($"#,##0.#{suffix}");
-        //}
 
         void Update() {
-            if (lastScore != score || lastUpgradePoints != upgradePoints) UpdateUI();
-        }
-
-        void UpdateUI() {
-            scoreLabel.text = $"Score: {score.ToString("#,##")}";
-            lastScore = score;
-
-            currentLevel = ComputeLevel();
-            levelLabel.text = $"Lvl {currentLevel.index} Tank";
-            levelBar.UpdateBar();
-            stats.level = currentLevel.index;
-
-            lastUpgradePoints = upgradePoints;
-            upgradePointsLabel.text = $"x{upgradePoints}";
+            if (lastScore != score) {
+                currentLevel = ComputeLevel();
+                lastScore = score;
+            }
         }
 
 #if UNITY_EDITOR

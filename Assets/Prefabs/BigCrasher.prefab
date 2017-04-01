@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114300425064384922}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: BigCrasher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,7 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crasher: {fileID: 50575705587551632}
-  movementSpeed: 5
+  acceleration: 7
+  movementSpeed: 3
 --- !u!114 &114586187776066764
 MonoBehaviour:
   m_ObjectHideFlags: 1

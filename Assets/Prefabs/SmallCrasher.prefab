@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114334959653777644}
   m_Layer: 0
   m_Name: AI
-  m_TagString: Untagged
+  m_TagString: SmallCrasher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crasher: {fileID: 50235583735751434}
-  movementSpeed: 6
+  acceleration: 8.5
+  movementSpeed: 4.5
 --- !u!212 &212563204193915124
 SpriteRenderer:
   m_ObjectHideFlags: 1

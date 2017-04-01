@@ -19,11 +19,11 @@ using UnityEngine;
 namespace Deepio {
     public class ObjectWithHealth : MonoBehaviour {
         public GameObject healthBar;
-        float lastHealth;
         public float health;
+        protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
-        float lastUpdate, nextExtraRegen;
+        protected float lastUpdate, nextExtraRegen;
 
         Vector2 originalPosition;
         Vector2 originalScale;
@@ -48,7 +48,8 @@ namespace Deepio {
                 if (health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
                     float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - health);
-                    health += regen;
+                    health = lastHealth += regen;
+                    ResizeBar();
                 } else if (IsExtraRegenEnabled()) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }

@@ -18,11 +18,7 @@ using UnityEngine;
 
 namespace Deepio {
     public static class VectorUtil {
-        public static float Angle2D(this Vector2 a, Vector2 b) {
-            return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
-        }
-
-        public static float Angle2D(this Vector3 a, Vector3 b) {
+        public static float Angle2D(Vector2 a, Vector2 b) {
             return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
         }
     }

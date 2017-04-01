@@ -18,9 +18,14 @@ using UnityEngine;
 
 namespace Deepio {
     public class Bullet : MonoBehaviour {
-        public float health;
-        public float damage, flyTime, knockback;
+        [HideInInspector]
+        public Tank tank;
+
+        [HideInInspector]
+        public float health, damage, flyTime, knockback;
         public float slowDownToNormalVelocityTime;
+
+        [HideInInspector]
         public Vector2 normalVelocity;
 
         Vector2 originalVelocity;

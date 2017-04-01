@@ -17,70 +17,55 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class Shape : MonoBehaviour {
-        [SerializeField]
-        float _health;
-        public float bodyDamage;
-        public int score;
+    public class Tank : MonoBehaviour {
+        public StatsHolder stats;
+        public ScoreCounter scoreCounter;
+        [HideInInspector]
+        public TankHealth healthBar;
+        public Gun[] guns;
+
+        [Space]
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
-        [Space]
-        public GameObject parent;
-
-        [Space]
-        public float rotationSpeed;
-        public float randomMovementSpeed;
-        Vector2 randomVelocity;
         Rigidbody2D rigidbody;
 
-        ObjectWithHealth healthBar;
-
         void Start() {
-            healthBar = GetComponent<ObjectWithHealth>();
-            healthBar.health = healthBar.maxHealth = _health;
-
+            healthBar = GetComponent<TankHealth>();
             rigidbody = GetComponent<Rigidbody2D>();
-            rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
-            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();
+                if (bullet.tank == this) return;
+
                 Rigidbody2D bulletRigidbody = collider.attachedRigidbody;
 
                 Vector2 bulletDirection = bulletRigidbody.velocity.normalized;
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = stats.bodyDamage.value * bodyDamageForBulletMultiplier / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
-                    bullet.tank.scoreCounter.score += score;
-                    Destroy(parent);
-                }
+                if (healthBar.health <= 0) bullet.tank.scoreCounter.score += scoreCounter.score;
             }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
             Collider2D collider = collision.collider;
             if (collider.CompareTag("Tank")) {
+                var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
                 var tank = collider.GetComponent<Tank>();
 
-                tank.healthBar.health -= bodyDamage;
-                healthBar.health -= tank.stats.bodyDamage.value;
-                if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
-                    tank.scoreCounter.score += score;
-                    Destroy(parent);
-                }
+                tankHealthBar.health -= stats.bodyDamage.value;
+
+                if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
             }
         }
     }

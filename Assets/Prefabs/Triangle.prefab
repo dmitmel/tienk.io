@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114414307286579402}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Shape
+  m_TagString: Triangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1069405578772000}
-  _health: 0
+  health: 0
   maxHealth: 0
   healthRegen: 0
   extraRegenTimeout: 30

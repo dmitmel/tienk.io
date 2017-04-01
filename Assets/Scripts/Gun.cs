@@ -24,6 +24,7 @@ namespace Deepio {
     }
 
     public class Gun : MonoBehaviour {
+        [Space]
         public GameObject bullet;
         public float bulletOffset;
         public Vector2 bulletSize = Vector2.one;
@@ -35,21 +36,20 @@ namespace Deepio {
 
         [Space]
         public GunStatsMultipliers statsMultipliers;
-        public float bulletFlyTime, shootDelay, recoil, knockback, bulletSpread;
+        public float bulletFlyTime, shootDelay, recoil, bulletKnockback, bulletSpread;
 
         [Space]
-        public Rigidbody2D tank;
+        public Tank tank;
+        Rigidbody2D tankRigidbody;
         public float tankRelativeVelocityMultiplier = 1;
 
         public bool isFiring { get; private set; }
-
-        StatsHolder stats;
 
         float nextFire;
         float firingStartTime = -1;
 
         void Start() {
-            stats = StatsHolder.instance;
+            tankRigidbody = tank.GetComponent<Rigidbody2D>();
         }
 
         public void StartFiring() {
@@ -75,29 +75,30 @@ namespace Deepio {
         public void Fire() {
             float now = Time.time;
             if (now >= nextFire) {
-                nextFire = now + 1 / (statsMultipliers.reload * stats.reload.statValue);
+                nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
-                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(bulletOffset, 0);
+                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
                 float halfBulletSpread = bulletSpread / 2;
                 Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-halfBulletSpread, halfBulletSpread));
                 GameObject newBullet = Instantiate(bullet, newBulletPosition, newBulletRotation);
 
-                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.right *
-                                                        (stats.bulletSpeed.statValue * statsMultipliers.bulletSpeed);
+                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.up *
+                                                        (tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed);
 
                 newBullet.GetComponent<Rigidbody2D>().velocity =
-                             normalBulletVelocity + tank.velocity * tankRelativeVelocityMultiplier;
+                             normalBulletVelocity + tankRigidbody.velocity * tankRelativeVelocityMultiplier;
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
+                newBulletController.tank = tank;
                 newBulletController.normalVelocity = normalBulletVelocity;
-                newBulletController.damage = statsMultipliers.bulletDamage * stats.bulletDamage.statValue;
-                newBulletController.health = statsMultipliers.bulletPenetration * stats.bulletPenetration.statValue;
+                newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
+                newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
                 newBulletController.flyTime = bulletFlyTime;
-                newBulletController.knockback = knockback;
+                newBulletController.knockback = bulletKnockback;
 
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
-                tank.AddForce(transform.rotation * Vector2.right * -recoil, ForceMode2D.Impulse);
+                tankRigidbody.AddForce(transform.rotation * Vector2.down * recoil, ForceMode2D.Impulse);
             }
         }
 
@@ -107,7 +108,7 @@ namespace Deepio {
             float step = 1f / moveBackwardsSteps;
 
             Vector2 startPosition = transform.localPosition;
-            Vector2 endPosition = transform.localPosition - transform.localRotation * new Vector3(moveBackwardsOnShot, 0);
+            Vector2 endPosition = transform.localPosition - transform.localRotation * new Vector3(0, moveBackwardsOnShot);
 
             for (float t = 0; t < 1; t += step) {
                 transform.localPosition = Vector2.Lerp(startPosition, endPosition, t);

@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BotSpawner.cs" />
      <Compile Include="Assets\Scripts\BouncyObject.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CrasherAI.cs" />
@@ -55,13 +56,17 @@
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
      <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\ScoreCounter.cs" />
+     <Compile Include="Assets\Scripts\ScoreRenderer.cs" />
      <Compile Include="Assets\Scripts\Shape.cs" />
      <Compile Include="Assets\Scripts\ShapeSpawner.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\Stat.cs" />
+     <Compile Include="Assets\Scripts\StatRenderer.cs" />
      <Compile Include="Assets\Scripts\StatsHolder.cs" />
+     <Compile Include="Assets\Scripts\Tank.cs" />
+     <Compile Include="Assets\Scripts\TankAI.cs" />
+     <Compile Include="Assets\Scripts\TankHealth.cs" />
      <Compile Include="Assets\Scripts\VectorUtil.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

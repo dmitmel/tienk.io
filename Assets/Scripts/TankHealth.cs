@@ -17,33 +17,36 @@
 using UnityEngine;
 
 namespace Deepio {
-    public class PlayerHealth : ObjectWithHealth {
-        StatsHolder stats;
+    public class TankHealth : ObjectWithHealth {
+        [Space]
+        public GameObject parent;
+        public StatsHolder stats;
+        public float extraRegenMultiplier = 1;
 
         float lastHealthRegen, lastMaxHealth;
 
         protected override void Start() {
             base.Start();
 
-            stats = StatsHolder.instance;
-
-            health = maxHealth = lastMaxHealth = stats.maxHealth.statValue;
-            healthRegen = lastHealthRegen = stats.healthRegen.statValue;
+            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
+            healthRegen = lastHealthRegen = stats.healthRegen.value;
         }
 
         protected override void Update() {
             base.Update();
 
-            if (health <= 0) Destroy(gameObject);
+            if (health <= 0) Destroy(parent);
 
-            float newHealthRegen = stats.healthRegen.statValue;
-            if (newHealthRegen != lastHealthRegen)
-                lastHealthRegen = healthRegen = stats.healthRegen.statValue;
+            float newHealthRegen = stats.healthRegen.value;
+            if (newHealthRegen != lastHealthRegen) {
+                lastHealthRegen = healthRegen = stats.healthRegen.value;
+                extraRegen = healthRegen * extraRegenMultiplier;
+            }
 
-            float newMaxHealth = stats.maxHealth.statValue;
+            float newMaxHealth = stats.maxHealth.value;
             if (newMaxHealth != lastMaxHealth) {
                 maxHealth = newMaxHealth;
-                health = health * newMaxHealth / lastMaxHealth;
+                lastHealth = health = health * newMaxHealth / lastMaxHealth;
                 lastMaxHealth = newMaxHealth;
             }
         }

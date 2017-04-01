@@ -18,14 +18,21 @@ using System;
 using UnityEngine;
 
 namespace Deepio {
-    public class StatsHolder : MonoBehaviour {
-        public Stat healthRegen;
-        public Stat maxHealth;
-        public Stat bodyDamage;
-        public Stat bulletPenetration;
-        public Stat bulletSpeed;
-        public Stat bulletDamage;
-        public Stat reload;
-        public Stat movementSpeed;
+    public class BotSpawner : Singleton<BotSpawner> {
+        public GameObject bot;
+        public Rect fieldBoundary;
+        public int botsCount;
+
+        void Start() {
+            for (int i = 0; i < botsCount; i++) SpawnBot();
+        }
+
+        public void SpawnBot() {
+            Vector2 position = new Vector2(
+                UnityEngine.Random.Range(fieldBoundary.x, fieldBoundary.width),
+                UnityEngine.Random.Range(fieldBoundary.y, fieldBoundary.height)
+            );
+            Instantiate(bot, position, Quaternion.identity, transform);
+        }
     }
 }
