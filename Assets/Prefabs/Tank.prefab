@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64640f4b679614c8c8388990e6e7612a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1832934887781792, guid: a6cfb0de1e93e421a80efc6a326b1eb3, type: 2}
+  bullet: {fileID: 1234055898819006, guid: ba6d212d86601452a8ca3e9fecb477e2, type: 2}
   bulletOffset: 0.68
   bulletSize: {x: 1, y: 1}
   moveBackwardsOnShot: 0.05
@@ -1296,7 +1296,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: 6bdcad4849c584ad4bc222febb36adfa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3282d763460a41feab316e0cdafec9e, type: 3}
   m_Color: {r: 0.9998734, g: 1, b: 0.9998412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
