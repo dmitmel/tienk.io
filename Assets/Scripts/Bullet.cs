@@ -22,7 +22,7 @@ namespace Deepio {
         public Tank tank;
 
         [HideInInspector]
-        public float health, damage, flyTime, knockback;
+        public float health, damage, knockback;
         public float slowDownToNormalVelocityTime;
 
         [HideInInspector]
@@ -36,8 +36,6 @@ namespace Deepio {
             startTime = Time.time;
             rigidbody = GetComponent<Rigidbody2D>();
             originalVelocity = rigidbody.velocity;
-
-            Destroy(gameObject, flyTime);
         }
 
         void Update() {

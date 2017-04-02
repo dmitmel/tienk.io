@@ -29,5 +29,12 @@ namespace Deepio {
         void Update() {
             if (follow != null) transform.localPosition = originalPosition + follow.transform.localPosition;
         }
+
+#if UNITY_EDITOR
+        void OnValidate() {
+            if (follow == null)
+                Debug.LogWarning($"[{gameObject.name}]: [ObjectFollower]: Maybe missing object to follow?");
+        }
+#endif
     }
 }

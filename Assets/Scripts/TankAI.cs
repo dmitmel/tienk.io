@@ -51,7 +51,7 @@ namespace Deepio {
                 stat.Upgrade();
             }
 
-            if (enemies.Count > 0) {
+            if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -147,7 +147,7 @@ namespace Deepio {
         void OnTriggerExit2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = ChooseTarget();
+            if (colliderIsEnemy && colliderTransform == target) target = null;
         }
     }
 }

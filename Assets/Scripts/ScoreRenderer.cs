@@ -16,7 +16,6 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 namespace Deepio {
     public class ScoreRenderer : MonoBehaviour {

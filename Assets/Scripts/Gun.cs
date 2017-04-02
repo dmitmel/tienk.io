@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 namespace Deepio {
     [System.Serializable]
@@ -80,13 +80,14 @@ namespace Deepio {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
                 Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
-                float halfBulletSpread = bulletSpread / 2;
                 GameObject newBullet = Instantiate(bullet, newBulletPosition, Quaternion.identity);
+                Destroy(newBullet, bulletFlyTime);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 var newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
                 var newBulletSpriteRenderer = newBullet.GetComponent<SpriteRenderer>();
 
+                float halfBulletSpread = bulletSpread / 2;
                 float newBulletRotationZ = Random.Range(-halfBulletSpread, halfBulletSpread);
                 Quaternion newBulletRotation = transform.rotation * Quaternion.Euler(0, 0, newBulletRotationZ);
 
@@ -99,7 +100,6 @@ namespace Deepio {
                 newBulletController.tank = tank;
                 newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
                 newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
-                newBulletController.flyTime = bulletFlyTime;
                 newBulletController.knockback = bulletKnockback;
 
                 newBulletSpriteRenderer.color = tankSpriteRenderer.color;
