@@ -6031,7 +6031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xAF\\_(\u30C4)_/\xAF"
+  m_Text: "\xAF\\(\xB0_o)/\xAF\n\n"
 --- !u!222 &1340069275
 CanvasRenderer:
   m_ObjectHideFlags: 0
