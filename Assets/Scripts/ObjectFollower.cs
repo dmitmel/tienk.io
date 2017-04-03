@@ -33,7 +33,7 @@ namespace Deepio {
 #if UNITY_EDITOR
         void OnValidate() {
             if (follow == null)
-                Debug.LogWarning($"[{gameObject.name}]: [ObjectFollower]: Maybe missing object to follow?");
+                Debug.LogWarning($"[{gameObject.name}]: [ObjectFollower]: ObjectFollower.follow == null");
         }
 #endif
     }

@@ -110,8 +110,9 @@ namespace Deepio {
 
         Transform ChooseTarget() {
             Transform currentTarget = null;
-            float sqrDistanceToCurrentTarget = 0;
             int currentTargetPriority = 0;
+            float currentTargetHealth = 0;
+            float sqrDistanceToCurrentTarget = 0;
 
             bool isFirst = true;
 
@@ -120,16 +121,20 @@ namespace Deepio {
 
                 if (isFirst) {
                     currentTarget = enemy;
-                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
                     currentTargetPriority = GetAttackPriorityFor(currentTarget);
+                    currentTargetHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
-                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
                     int enemyPriority = GetAttackPriorityFor(enemy);
+                    float enemyHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
                     if (enemyPriority > currentTargetPriority ||
-                        (enemyPriority == currentTargetPriority && sqrDistanceToEnemy < sqrDistanceToCurrentTarget)) {
+                        (enemyPriority == currentTargetPriority && enemyHealth < currentTargetHealth) ||
+                        (enemyPriority == currentTargetPriority && enemyHealth == currentTargetHealth &&
+                            sqrDistanceToEnemy < sqrDistanceToCurrentTarget)) {
                         currentTarget = enemy;
                         sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
                         currentTargetPriority = enemyPriority;
