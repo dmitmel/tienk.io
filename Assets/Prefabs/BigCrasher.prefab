@@ -275,7 +275,7 @@ MonoBehaviour:
   bodyDamage: 9
   score: 25
   damageComputationCycles: 20
-  bodyDamageForBulletMultiplier: 1
+  bodyDamageForBullets: 2.5
   parent: {fileID: 1538592650469818}
   rotationSpeed: 0
   randomMovementSpeed: 0

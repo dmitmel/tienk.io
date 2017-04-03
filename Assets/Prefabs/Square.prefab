@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   healthBar: {fileID: 1645468474553236}
   health: 0
   maxHealth: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   _health: 10
   bodyDamage: 2.1
   score: 10
   damageComputationCycles: 100
-  bodyDamageForBulletMultiplier: 1
+  bodyDamageForBullets: 2.1
   parent: {fileID: 1824281452569420}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   knockback: 1
 --- !u!114 &114595722525855846
 MonoBehaviour:
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   follow: {fileID: 1408646190294972}
 --- !u!212 &212463135538515802
 SpriteRenderer:

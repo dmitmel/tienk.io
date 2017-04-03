@@ -23,7 +23,7 @@ namespace Deepio {
         public float bodyDamage;
         public int score;
         public int damageComputationCycles = 20;
-        public float bodyDamageForBulletMultiplier = 1;
+        public float bodyDamageForBullets;
 
         [Space]
         public GameObject parent;
@@ -54,7 +54,7 @@ namespace Deepio {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = bodyDamageForBullets / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;

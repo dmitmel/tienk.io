@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   knockback: 1
 --- !u!114 &114425279534324150
 MonoBehaviour:
@@ -223,13 +223,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   _health: 30
   bodyDamage: 5.9
   score: 25
   damageComputationCycles: 100
-  bodyDamageForBulletMultiplier: 0.35
+  bodyDamageForBullets: 2.065
   parent: {fileID: 1944034265205782}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   follow: {fileID: 1935981649260634}
 --- !u!114 &114930419674587624
 MonoBehaviour:
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   healthBar: {fileID: 1069405578772000}
   health: 0
   maxHealth: 0
