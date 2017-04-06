@@ -36,8 +36,7 @@ namespace Deepio {
 
         void Update() {
             if (lastStatLevel != level) {
-                if (level < 0 || level > maxLevel)
-                    throw new ArgumentOutOfRangeException("statLevel", level, $"statLevel must be >= 0 and <= {maxLevel}");
+                level = Mathf.Clamp(level, 0, maxLevel);
                 lastStatLevel = level;
                 value = ComputeValue();
             }
@@ -49,7 +48,7 @@ namespace Deepio {
             }
         }
 
-        float ComputeValue() {
+		float ComputeValue() {
             return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastStatLevel;
         }
 
@@ -58,6 +57,12 @@ namespace Deepio {
                 level += 1;
                 scoreCounter.upgradePoints -= 1;
             }
+        }
+
+        public void OnRespawn() {
+            lastStatLevel = level = 0;
+            lastHolderLevel = scoreCounter.currentLevel.index;
+            value = ComputeValue();
         }
     }
 }

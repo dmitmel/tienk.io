@@ -1078,7 +1078,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &214314117
 Transform:
@@ -1887,7 +1887,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &398800043
 Transform:
@@ -2156,7 +2156,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &491613836
 Transform:
@@ -2341,7 +2341,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &510877163
 Transform:
@@ -3544,6 +3544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 1948516689}
   accelerationMultiplier: 2
   autoSpinSpeed: 1
 --- !u!114 &811758858
@@ -3558,13 +3559,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1905581926}
+  healthBar: {fileID: 1905581927}
   health: 0
   maxHealth: 0
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0
-  parent: {fileID: 1948516689}
   stats: {fileID: 1009189776}
   extraRegenMultiplier: 40
 --- !u!114 &811758859
@@ -3838,7 +3838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!212 &855389164
 SpriteRenderer:
@@ -4443,7 +4443,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1007650550
 MonoBehaviour:
@@ -7193,7 +7193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 811758856}
+  follow: {fileID: 811758864}
 --- !u!212 &1522758081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7245,7 +7245,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1608739834
 Transform:
@@ -8712,7 +8712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 811758856}
+  follow: {fileID: 811758864}
 --- !u!1 &1818456634
 GameObject:
   m_ObjectHideFlags: 0
@@ -9629,7 +9629,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1998973277
 Transform:
@@ -10358,7 +10358,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &2105639099
 MeshRenderer:

@@ -14,11 +14,10 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
 
 namespace Deepio {
-    [Serializable]
+    [System.Serializable]
     public class SpawnableShape {
         public float chance;
         public GameObject shape;

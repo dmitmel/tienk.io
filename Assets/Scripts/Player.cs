@@ -18,25 +18,33 @@ using UnityEngine;
 
 namespace Deepio {
     public class Player : Singleton<Player> {
+        public GameObject parent;
+
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
+        new Transform transform;
+        new Rigidbody2D rigidbody;
         Tank tank;
-        Rigidbody2D rigidbody;
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        void Start() {
-            tank = GetComponent<Tank>();
+        protected override void Awake() {
+            base.Awake();
+
+            transform = base.transform;
             rigidbody = GetComponent<Rigidbody2D>();
+            tank = GetComponent<Tank>();
         }
 
         void Update() {
+            if (tank.healthBar.health <= 0) Destroy(parent);
+
             if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                float angle = VectorUtil.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                float angle = Vectors.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
             }
 

@@ -28,14 +28,18 @@ namespace Deepio {
         [HideInInspector]
         public Vector2 normalVelocity;
 
+        new Rigidbody2D rigidbody;
         Vector2 originalVelocity;
-        Rigidbody2D rigidbody;
+
         float startTime;
 
-        void Start() {
-            startTime = Time.time;
+        void Awake() {
             rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        void Start() {
             originalVelocity = rigidbody.velocity;
+            startTime = Time.time;
         }
 
         void Update() {

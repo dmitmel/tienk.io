@@ -36,7 +36,10 @@ namespace Deepio {
         float nextTargetChooseTime;
         int lastUpgradePoints;
 
-        void Start() {
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
         }
 
@@ -46,6 +49,8 @@ namespace Deepio {
         }
 
         void Update() {
+            if (tank.healthBar.health <= 0) BotSpawner.instance.RespawnBot(tank);
+
             for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
                 Stat stat = RandomStat();
                 stat.Upgrade();
@@ -69,7 +74,7 @@ namespace Deepio {
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
                 float additionalMultiplier = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
-                tankRigidbody.rotation = VectorUtil.Angle2D(tankRigidbody.position, target.transform.position) + 90;
+                tankRigidbody.rotation = Vectors.Angle2D(tankRigidbody.position, target.position) + 90;
                 tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier * additionalMultiplier);
                 tankRigidbody.velocity = new Vector2(
                     Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
@@ -78,10 +83,6 @@ namespace Deepio {
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
-            }
-
-            if (tank.healthBar.health <= 0) {
-                BotSpawner.instance.SpawnBot();
             }
         }
 

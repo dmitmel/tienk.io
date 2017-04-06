@@ -45,7 +45,7 @@ namespace Deepio {
                 upgradeButton.interactable = IsInteractable();
             }
 
-            if (!Player.isSingletonAlive) {
+            if (Player.singletonGameObject != null) {
                 upgradeButton.interactable = false;
             }
         }

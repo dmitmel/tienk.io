@@ -49,7 +49,10 @@ namespace Deepio {
         float nextFire;
         float firingStartTime = -1;
 
-        void Start() {
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
             tankSpriteRenderer = tank.GetComponent<SpriteRenderer>();
         }

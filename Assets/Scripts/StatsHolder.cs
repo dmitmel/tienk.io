@@ -26,5 +26,16 @@ namespace Deepio {
         public Stat bulletDamage;
         public Stat reload;
         public Stat movementSpeed;
+
+        public void OnRespawn() {
+            healthRegen.OnRespawn();
+            maxHealth.OnRespawn();
+            bodyDamage.OnRespawn();
+            bulletSpeed.OnRespawn();
+            bulletPenetration.OnRespawn();
+            bulletDamage.OnRespawn();
+            reload.OnRespawn();
+            movementSpeed.OnRespawn();
+        }
     }
 }

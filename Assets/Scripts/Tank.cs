@@ -28,9 +28,9 @@ namespace Deepio {
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
-        Rigidbody2D rigidbody;
+        new Rigidbody2D rigidbody;
 
-        void Start() {
+        void Awake() {
             healthBar = GetComponent<TankHealth>();
             rigidbody = GetComponent<Rigidbody2D>();
         }

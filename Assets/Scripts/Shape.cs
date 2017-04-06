@@ -18,8 +18,6 @@ using UnityEngine;
 
 namespace Deepio {
     public class Shape : MonoBehaviour {
-        [SerializeField]
-        float _health;
         public float bodyDamage;
         public int score;
         public int damageComputationCycles = 20;
@@ -32,15 +30,16 @@ namespace Deepio {
         public float rotationSpeed;
         public float randomMovementSpeed;
         Vector2 randomVelocity;
-        Rigidbody2D rigidbody;
+        new Rigidbody2D rigidbody;
 
         ObjectWithHealth healthBar;
 
-        void Start() {
+        void Awake() {
             healthBar = GetComponent<ObjectWithHealth>();
-            healthBar.health = healthBar.maxHealth = _health;
-
             rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        void Start() {
             rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
             rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
         }

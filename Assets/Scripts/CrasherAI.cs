@@ -29,6 +29,12 @@ namespace Deepio {
 
         float nextTargetChooseTime;
 
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
+        }
+
         void OnTriggerEnter2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
             if (colliderTransform.CompareTag("Tank"))
@@ -45,7 +51,7 @@ namespace Deepio {
             }
 
             if (target != null) {
-                crasher.rotation = VectorUtil.Angle2D(crasher.position, target.position) + 90;
+                crasher.rotation = Vectors.Angle2D(crasher.position, target.position) + 90;
                 crasher.AddRelativeForce(Vector2.up * acceleration);
                 crasher.velocity = new Vector2(
                     Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),

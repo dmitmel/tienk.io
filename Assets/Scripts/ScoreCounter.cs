@@ -15,10 +15,9 @@
 //
 
 using UnityEngine;
-using System;
 
 namespace Deepio {
-    [Serializable]
+    [System.Serializable]
     public class Level {
         public int index;
         public int neededScore;
@@ -89,6 +88,12 @@ namespace Deepio {
             if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
             levelIndex = lastLevel.index;
             return levels[levels.Length - 1];
+        }
+
+        public void OnRespawn() {
+            lastScore = score = 0;
+            upgradePoints = 0;
+            currentLevel = ComputeLevel();
         }
     }
 }

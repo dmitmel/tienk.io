@@ -25,8 +25,11 @@ namespace Deepio {
         Vector2 originalPosition;
         Vector2 originalScale;
 
-        void Start() {
+        void Awake() {
             rectTransform = GetComponent<RectTransform>();
+        }
+
+        void Start() {
             originalPosition = rectTransform.anchoredPosition;
             originalScale = rectTransform.sizeDelta;
         }

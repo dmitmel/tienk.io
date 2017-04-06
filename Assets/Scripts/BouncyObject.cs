@@ -20,9 +20,11 @@ namespace Deepio {
     public class BouncyObject : MonoBehaviour {
         public int knockback;
 
-        Rigidbody2D rigidbody;
+        new Transform transform;
+        new Rigidbody2D rigidbody;
 
-        void Start() {
+        void Awake() {
+            transform = base.transform;
             rigidbody = GetComponent<Rigidbody2D>();
         }
 

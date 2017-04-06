@@ -143,7 +143,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619854735590434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -182,7 +182,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!60 &60527098305744308
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
   bodyDamage: 11.9
   score: 130
   damageComputationCycles: 100
@@ -234,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 1816419762304934}
+  follow: {fileID: 4305421576034866}
 --- !u!114 &114818009337337408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,9 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1844485106819898}
-  health: 0
-  maxHealth: 0
+  healthBar: {fileID: 4111115050982994}
+  health: 100
+  maxHealth: 100
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.1

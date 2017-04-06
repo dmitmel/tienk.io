@@ -28,10 +28,21 @@ namespace Deepio {
 
         public void SpawnBot() {
             Vector2 position = new Vector2(
-                UnityEngine.Random.Range(fieldBoundary.x, fieldBoundary.width),
-                UnityEngine.Random.Range(fieldBoundary.y, fieldBoundary.height)
+                Random.Range(fieldBoundary.x, fieldBoundary.width),
+                Random.Range(fieldBoundary.y, fieldBoundary.height)
             );
             Instantiate(bot, position, Quaternion.identity, transform);
+        }
+
+        public void RespawnBot(Tank bot) {
+            bot.scoreCounter.OnRespawn();
+            bot.stats.OnRespawn();
+            bot.healthBar.OnRespawn();
+
+            bot.transform.position = new Vector2(
+                Random.Range(fieldBoundary.x, fieldBoundary.width),
+                Random.Range(fieldBoundary.y, fieldBoundary.height)
+            );
         }
     }
 }
