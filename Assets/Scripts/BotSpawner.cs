@@ -35,14 +35,14 @@ namespace Deepio {
         }
 
         public void RespawnBot(Tank bot) {
-            bot.scoreCounter.OnRespawn();
-            bot.stats.OnRespawn();
-            bot.healthBar.OnRespawn();
-
             bot.transform.position = new Vector2(
                 Random.Range(fieldBoundary.x, fieldBoundary.width),
                 Random.Range(fieldBoundary.y, fieldBoundary.height)
             );
+
+            bot.scoreCounter.OnRespawn();
+            bot.stats.OnRespawn();
+            bot.healthBar.OnRespawn();
         }
     }
 }

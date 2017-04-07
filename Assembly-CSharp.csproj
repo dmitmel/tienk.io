@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\BotSpawner.cs" />
      <Compile Include="Assets\Scripts\BouncyObject.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\BulletPool.cs" />
      <Compile Include="Assets\Scripts\CrasherAI.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />

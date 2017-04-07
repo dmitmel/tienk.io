@@ -22,7 +22,7 @@ namespace Deepio {
         public Tank tank;
 
         [HideInInspector]
-        public float health, damage, knockback;
+        public float health, damage, knockback, flyTime;
         public float slowDownToNormalVelocityTime;
 
         [HideInInspector]
@@ -37,16 +37,18 @@ namespace Deepio {
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        void Start() {
+        public void Start() {
             originalVelocity = rigidbody.velocity;
             startTime = Time.time;
         }
 
         void Update() {
             float timeFromStart = Time.time - startTime;
+            if (timeFromStart >= flyTime) BulletPool.instance.DestroyBullet(gameObject);
+
             rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
-            if (health <= 0) Destroy(gameObject);
+            if (health <= 0) BulletPool.instance.DestroyBullet(gameObject);
         }
    }
 }

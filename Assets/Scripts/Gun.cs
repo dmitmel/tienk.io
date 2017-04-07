@@ -25,7 +25,6 @@ namespace Deepio {
 
     public class Gun : MonoBehaviour {
         [Space]
-        public GameObject bullet;
         public float bulletOffset;
         public Vector2 bulletSize = Vector2.one;
 
@@ -83,8 +82,7 @@ namespace Deepio {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
                 Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
-                GameObject newBullet = Instantiate(bullet, newBulletPosition, Quaternion.identity);
-                Destroy(newBullet, bulletFlyTime);
+                GameObject newBullet = BulletPool.instance.InstantiateBullet(newBulletPosition, Quaternion.identity);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 var newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
@@ -104,6 +102,7 @@ namespace Deepio {
                 newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
                 newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
                 newBulletController.knockback = bulletKnockback;
+                newBulletController.flyTime = bulletFlyTime;
 
                 newBulletSpriteRenderer.color = tankSpriteRenderer.color;
 

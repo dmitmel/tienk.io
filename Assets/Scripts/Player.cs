@@ -29,9 +29,7 @@ namespace Deepio {
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        protected override void Awake() {
-            base.Awake();
-
+        void Awake() {
             transform = base.transform;
             rigidbody = GetComponent<Rigidbody2D>();
             tank = GetComponent<Tank>();
