@@ -18,16 +18,16 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Deepio {
-    public class BulletPool : Singleton<BulletPool> {
-        public GameObject bulletPrefab;
+    public class ShapePool : MonoBehaviour {
+        public GameObject shapePrefab;
         public int initialPoolSize;
-        public float garbageCollectionDelay;
-        public float garbageCollectionInterval;
+        public float garbageCollectionDelay = 10;
+        public float garbageCollectionInterval = 0.4f;
 
         Queue<GameObject> pool;
         List<GameObject> objectsToIntialize;
 
-        float nextGCStart = -1, nextBulletRemove = -1;
+        float nextGCStart = -1, nextShapeRemove = -1;
 
         new Transform transform;
 
@@ -41,8 +41,8 @@ namespace Deepio {
         }
 
         void LateUpdate() {
-            foreach (GameObject bullet in objectsToIntialize) {
-                bullet.GetComponent<Bullet>().Start();
+            foreach (GameObject shape in objectsToIntialize) {
+                shape.GetComponentInChildren<Shape>().Start();
             }
 
             objectsToIntialize.Clear();
@@ -54,45 +54,45 @@ namespace Deepio {
             if (pool.Count > 0) {
                 if (nextGCStart > 0 && now >= nextGCStart) {
                     nextGCStart = -1;
-                    nextBulletRemove = now + garbageCollectionInterval;
+                    nextShapeRemove = now + garbageCollectionInterval;
                 }
 
-                if (nextBulletRemove > 0 && now >= nextBulletRemove) {
-                    nextBulletRemove = now + garbageCollectionInterval;
-                    GameObject bullet = pool.Dequeue();
-                    Destroy(bullet);
+                if (nextShapeRemove > 0 && now >= nextShapeRemove) {
+                    nextShapeRemove = now + garbageCollectionInterval;
+                    GameObject shape = pool.Dequeue();
+                    Destroy(shape);
                 }
             }
         }
 
         public GameObject GetFromPool(Vector2 position, Quaternion rotation) {
             nextGCStart = Time.time + garbageCollectionDelay;
-            nextBulletRemove = -1;
+            nextShapeRemove = -1;
 
             if (pool.Count == 0) {
-                return Instantiate(bulletPrefab, position, rotation, transform);
+                return Instantiate(shapePrefab, position, rotation, transform);
             } else {
-                GameObject bullet = pool.Dequeue();
+                GameObject shape = pool.Dequeue();
 
-                bullet.SetActive(true);
+                shape.SetActive(true);
 
-                Transform bulletTransform = bullet.transform;
-                bulletTransform.position = position;
-                bulletTransform.rotation = rotation;
+                Transform shapeTransform = shape.transform;
+                shapeTransform.position = position;
+                shapeTransform.rotation = rotation;
 
-                objectsToIntialize.Add(bullet);
+                objectsToIntialize.Add(shape);
 
-                return bullet;
+                return shape;
             }
         }
 
-        public void PutIntoPool(GameObject bullet) {
+        public void PutIntoPool(GameObject shape) {
             nextGCStart = Time.time + garbageCollectionDelay;
-            nextBulletRemove = -1;
+            nextShapeRemove = -1;
 
-            pool.Enqueue(bullet);
-            bullet.SetActive(false);
-            objectsToIntialize.Remove(bullet);
+            pool.Enqueue(shape);
+            shape.SetActive(false);
+            objectsToIntialize.Remove(shape);
         }
     }
 }

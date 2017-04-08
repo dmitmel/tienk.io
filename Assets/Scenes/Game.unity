@@ -1624,6 +1624,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &301126175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 301126176}
+  - component: {fileID: 301126177}
+  m_Layer: 0
+  m_Name: Squares
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301126176
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301126175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398800043}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &301126177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301126175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae677fb2e36e7402e898694e96ca57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefab: {fileID: 1824281452569420, guid: 57a7f9310339847bd8f9b6db5e5c00fa,
+    type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &308738752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1823,51 @@ MonoBehaviour:
   stat: {fileID: 1299414041}
   upgradeButton: {fileID: 281834524}
   upgradeBars: {fileID: 789586402}
+--- !u!1 &331453491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 331453492}
+  - component: {fileID: 331453493}
+  m_Layer: 0
+  m_Name: SmallCrashers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331453492
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331453491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398800043}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331453493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331453491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae677fb2e36e7402e898694e96ca57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefab: {fileID: 1948235856471396, guid: 710c2d5907b4f42198dad3a0680f809d,
+    type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &343987068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1988,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 301126176}
+  - {fileID: 1418395437}
+  - {fileID: 1247854564}
+  - {fileID: 331453492}
+  - {fileID: 1290008752}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1913,24 +2008,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4680f928c0d4cecba0827a3a4c65f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapes:
+  shapePools:
   - chance: 0.7
-    shape: {fileID: 1824281452569420, guid: 57a7f9310339847bd8f9b6db5e5c00fa, type: 2}
+    pool: {fileID: 301126177}
+    objectsTag: Square
   - chance: 0.8
-    shape: {fileID: 1944034265205782, guid: a366b1cb624004ae0ab632312301147b, type: 2}
+    pool: {fileID: 1418395438}
+    objectsTag: Triangle
   - chance: 0.9
-    shape: {fileID: 1619854735590434, guid: 0d129cb9c709c4be9b99e6dc004048c9, type: 2}
+    pool: {fileID: 1247854565}
+    objectsTag: Pentagon
   - chance: 0.6
-    shape: {fileID: 1948235856471396, guid: 710c2d5907b4f42198dad3a0680f809d, type: 2}
+    pool: {fileID: 331453493}
+    objectsTag: SmallCrasher
   - chance: 1
-    shape: {fileID: 1538592650469818, guid: 8ed902a366d7141aaae95bfa52d5cacb, type: 2}
+    pool: {fileID: 1290008753}
+    objectsTag: BigCrasher
   fieldBoundary:
     serializedVersion: 2
-    x: -220
-    y: -220
-    width: 220
-    height: 220
-  shapesCount: 2000
+    x: -5
+    y: -5
+    width: 5
+    height: 5
+  shapesCount: 12
 --- !u!1 &428895858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,6 +5829,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229181351}
+--- !u!1 &1247854563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1247854564}
+  - component: {fileID: 1247854565}
+  m_Layer: 0
+  m_Name: Pentagons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1247854564
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247854563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398800043}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247854565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247854563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae677fb2e36e7402e898694e96ca57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefab: {fileID: 1619854735590434, guid: 0d129cb9c709c4be9b99e6dc004048c9,
+    type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &1280114467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,6 +6010,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287915419}
+--- !u!1 &1290008751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1290008752}
+  - component: {fileID: 1290008753}
+  m_Layer: 0
+  m_Name: BigCrashers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1290008752
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1290008751}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398800043}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290008753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1290008751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae677fb2e36e7402e898694e96ca57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefab: {fileID: 1538592650469818, guid: 8ed902a366d7141aaae95bfa52d5cacb,
+    type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &1299414039
 GameObject:
   m_ObjectHideFlags: 0
@@ -6583,6 +6773,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1414570259}
+--- !u!1 &1418395436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1418395437}
+  - component: {fileID: 1418395438}
+  m_Layer: 0
+  m_Name: Triangles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418395437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418395436}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398800043}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1418395438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418395436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae677fb2e36e7402e898694e96ca57b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefab: {fileID: 1944034265205782, guid: a366b1cb624004ae0ab632312301147b,
+    type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &1426950100
 GameObject:
   m_ObjectHideFlags: 0
@@ -6681,8 +6916,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1832934887781792, guid: a6cfb0de1e93e421a80efc6a326b1eb3,
     type: 2}
   initialPoolSize: 50
-  garbageCollectionDelay: 5
-  garbageCollectionInterval: 0.2
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!4 &1437571730
 Transform:
   m_ObjectHideFlags: 0

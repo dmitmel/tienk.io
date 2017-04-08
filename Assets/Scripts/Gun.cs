@@ -82,7 +82,7 @@ namespace Deepio {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
                 Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
-                GameObject newBullet = BulletPool.instance.InstantiateBullet(newBulletPosition, Quaternion.identity);
+                GameObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 var newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();

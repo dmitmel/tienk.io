@@ -44,11 +44,11 @@ namespace Deepio {
 
         void Update() {
             float timeFromStart = Time.time - startTime;
-            if (timeFromStart >= flyTime) BulletPool.instance.DestroyBullet(gameObject);
+            if (timeFromStart >= flyTime) BulletPool.instance.PutIntoPool(gameObject);
 
             rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
-            if (health <= 0) BulletPool.instance.DestroyBullet(gameObject);
+            if (health <= 0) BulletPool.instance.PutIntoPool(gameObject);
         }
    }
 }

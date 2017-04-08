@@ -18,13 +18,14 @@ using UnityEngine;
 
 namespace Deepio {
     [System.Serializable]
-    public class SpawnableShape {
+    public class ShapeSpawnerPool {
         public float chance;
-        public GameObject shape;
+        public ShapePool pool;
+        public string objectsTag;
     }
 
     public class ShapeSpawner : Singleton<ShapeSpawner> {
-        public SpawnableShape[] shapes;
+        public ShapeSpawnerPool[] shapePools;
         public Rect fieldBoundary;
         public int shapesCount;
 
@@ -33,22 +34,33 @@ namespace Deepio {
         }
 
         public void SpawnShape() {
-            GameObject selectedShape = SelectShape();
-            if (selectedShape != null) {
+            ShapePool pool = SelectPool();
+            if (pool != null) {
                 Vector2 position = new Vector2(
-                    UnityEngine.Random.Range(fieldBoundary.x, fieldBoundary.width),
-                    UnityEngine.Random.Range(fieldBoundary.y, fieldBoundary.height)
+                    Random.Range(fieldBoundary.x, fieldBoundary.width),
+                    Random.Range(fieldBoundary.y, fieldBoundary.height)
                 );
-                Instantiate(selectedShape, position, Quaternion.identity, transform);
+                pool.GetFromPool(position, Quaternion.identity);
             }
         }
 
-        public GameObject SelectShape() {
-            foreach (SpawnableShape spawnableShape in shapes) {
-                float random = UnityEngine.Random.value;
-                if (random <= spawnableShape.chance) return spawnableShape.shape;
+        public ShapePool SelectPool() {
+            foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
+                float random = Random.value;
+                if (random <= shapeSpawnerPool.chance) return shapeSpawnerPool.pool;
             }
             return null;
+        }
+
+        public void DestroyShape(GameObject shape) {
+            foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
+                if (shape.CompareTag(shapeSpawnerPool.objectsTag)) {
+                    Debug.Log(shapeSpawnerPool.pool);
+                    shapeSpawnerPool.pool.PutIntoPool(shape);
+                    return;
+                }
+            }
+            Destroy(shape);
         }
     }
 }

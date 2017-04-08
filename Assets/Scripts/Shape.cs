@@ -39,9 +39,10 @@ namespace Deepio {
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        void Start() {
+        public void Start() {
             rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
             rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
+            healthBar.health = healthBar.maxHealth;
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
@@ -63,7 +64,7 @@ namespace Deepio {
                 if (healthBar.health <= 0) {
                     ShapeSpawner.instance.SpawnShape();
                     bullet.tank.scoreCounter.score += score;
-                    Destroy(parent);
+                    ShapeSpawner.instance.DestroyShape(parent);
                 }
             }
         }
@@ -78,7 +79,7 @@ namespace Deepio {
                 if (healthBar.health <= 0) {
                     ShapeSpawner.instance.SpawnShape();
                     tank.scoreCounter.score += score;
-                    Destroy(parent);
+                    ShapeSpawner.instance.DestroyShape(parent);
                 }
             }
         }
