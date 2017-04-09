@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4772518294606934}
+  - component: {fileID: 114397020887705444}
   m_Layer: 0
   m_Name: Pentagon
   m_TagString: Pentagon
@@ -204,6 +205,34 @@ PolygonCollider2D:
       - {x: -0.47552824, y: 0.15450859}
       - {x: -0.29389268, y: -0.40450847}
       - {x: 0.29389262, y: -0.40450853}
+--- !u!114 &114397020887705444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619854735590434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGetFromPool:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114578170743447466}
+        m_MethodName: Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  pool: {fileID: 0}
 --- !u!114 &114578170743447466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,7 +248,7 @@ MonoBehaviour:
   score: 130
   damageComputationCycles: 100
   bodyDamageForBullets: 3.094
-  parent: {fileID: 1619854735590434}
+  parent: {fileID: 114397020887705444}
   rotationSpeed: 10
   randomMovementSpeed: 0.3
 --- !u!114 &114776492405937444

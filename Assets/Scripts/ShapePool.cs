@@ -15,84 +15,44 @@
 //
 
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace Deepio {
-    public class ShapePool : MonoBehaviour {
-        public GameObject shapePrefab;
-        public int initialPoolSize;
-        public float garbageCollectionDelay = 10;
-        public float garbageCollectionInterval = 0.4f;
+    [System.Serializable]
+    public class ShapeSpawnerPool {
+    	public float chance;
+    	public PoolManager pool;
+    }
 
-        Queue<GameObject> pool;
-        List<GameObject> objectsToIntialize;
-
-        float nextGCStart = -1, nextShapeRemove = -1;
-
-        new Transform transform;
-
-        void Awake() {
-            transform = base.transform;
-        }
+    public class ShapePool : Singleton<ShapePool> {
+        public ShapeSpawnerPool[] shapePools;
+        public Rect fieldBoundary;
+        public int shapesCount;
 
         void Start() {
-            pool = new Queue<GameObject>(initialPoolSize);
-            objectsToIntialize = new List<GameObject>(initialPoolSize);
+            for (int i = 0; i < shapesCount; i++) SpawnShape();
         }
 
-        void LateUpdate() {
-            foreach (GameObject shape in objectsToIntialize) {
-                shape.GetComponentInChildren<Shape>().Start();
-            }
-
-            objectsToIntialize.Clear();
-        }
-
-        void Update() {
-            float now = Time.time;
-
-            if (pool.Count > 0) {
-                if (nextGCStart > 0 && now >= nextGCStart) {
-                    nextGCStart = -1;
-                    nextShapeRemove = now + garbageCollectionInterval;
-                }
-
-                if (nextShapeRemove > 0 && now >= nextShapeRemove) {
-                    nextShapeRemove = now + garbageCollectionInterval;
-                    GameObject shape = pool.Dequeue();
-                    Destroy(shape);
-                }
+        public void SpawnShape() {
+            PoolManager pool = SelectPool();
+            if (pool != null) {
+                Vector2 position = new Vector2(
+                    Random.Range(fieldBoundary.x, fieldBoundary.width),
+                    Random.Range(fieldBoundary.y, fieldBoundary.height)
+                );
+                pool.GetFromPool(position, Quaternion.identity);
             }
         }
 
-        public GameObject GetFromPool(Vector2 position, Quaternion rotation) {
-            nextGCStart = Time.time + garbageCollectionDelay;
-            nextShapeRemove = -1;
-
-            if (pool.Count == 0) {
-                return Instantiate(shapePrefab, position, rotation, transform);
-            } else {
-                GameObject shape = pool.Dequeue();
-
-                shape.SetActive(true);
-
-                Transform shapeTransform = shape.transform;
-                shapeTransform.position = position;
-                shapeTransform.rotation = rotation;
-
-                objectsToIntialize.Add(shape);
-
-                return shape;
+        public PoolManager SelectPool() {
+            foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
+                float random = Random.value;
+                if (random <= shapeSpawnerPool.chance) return shapeSpawnerPool.pool;
             }
+            return null;
         }
 
-        public void PutIntoPool(GameObject shape) {
-            nextGCStart = Time.time + garbageCollectionDelay;
-            nextShapeRemove = -1;
-
-            pool.Enqueue(shape);
-            shape.SetActive(false);
-            objectsToIntialize.Remove(shape);
+        public void DestroyShape(PoolObject shape) {
+            shape.PutIntoPool();
         }
     }
 }

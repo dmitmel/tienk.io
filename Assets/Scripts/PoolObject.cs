@@ -15,21 +15,16 @@
 //
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Deepio {
-    public class BulletPool : Singleton<BulletPool> {
-        PoolManager pool;
+    public class PoolObject : MonoBehaviour {
+        public UnityEvent onGetFromPool;
+        [HideInInspector]
+        public PoolManager pool;
 
-        void Awake() {
-            pool = GetComponent<PoolManager>();
-        }
-
-        public PoolObject GetFromPool(Vector2 position, Quaternion rotation) {
-            return pool.GetFromPool(position, rotation);
-        }
-
-        public void PutIntoPool(PoolObject bullet) {
-            pool.PutIntoPool(bullet);
+        public void PutIntoPool() {
+            pool.PutIntoPool(this);
         }
     }
 }

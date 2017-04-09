@@ -30,6 +30,9 @@ namespace Deepio {
         public string[] objectsAttackPriority;
         public float targetChooseInterval;
 
+        [Space]
+        public Rect spawnFieldBoundary;
+
         List<Transform> enemies = new List<Transform>();
         Transform target;
 
@@ -43,13 +46,28 @@ namespace Deepio {
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
         }
 
+        void Start() {
+            tank.transform.position = new Vector2(
+                UnityEngine.Random.Range(spawnFieldBoundary.x, spawnFieldBoundary.width),
+                UnityEngine.Random.Range(spawnFieldBoundary.y, spawnFieldBoundary.height)
+            );
+        }
+
+        void Respawn() {
+            Start();
+
+            tank.scoreCounter.OnRespawn();
+            tank.stats.OnRespawn();
+            tank.healthBar.OnRespawn();
+        }
+
         void OnTriggerEnter2D(Collider2D collider) {
             if (collider.gameObject != tank.gameObject && objectsAttackPriority.Contains(collider.tag))
                 enemies.Add(collider.transform);
         }
 
         void Update() {
-            if (tank.healthBar.health <= 0) BotSpawner.instance.RespawnBot(tank);
+            if (tank.healthBar.health <= 0) Respawn();
 
             for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
                 Stat stat = RandomStat();

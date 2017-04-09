@@ -31,10 +31,13 @@ namespace Deepio {
         new Rigidbody2D rigidbody;
         Vector2 originalVelocity;
 
+        PoolObject poolObject;
+
         float startTime;
 
         void Awake() {
             rigidbody = GetComponent<Rigidbody2D>();
+            poolObject = GetComponent<PoolObject>();
         }
 
         public void Start() {
@@ -44,11 +47,11 @@ namespace Deepio {
 
         void Update() {
             float timeFromStart = Time.time - startTime;
-            if (timeFromStart >= flyTime) BulletPool.instance.PutIntoPool(gameObject);
+            if (timeFromStart >= flyTime) poolObject.PutIntoPool();
 
             rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
-            if (health <= 0) BulletPool.instance.PutIntoPool(gameObject);
+            if (health <= 0) poolObject.PutIntoPool();
         }
    }
 }

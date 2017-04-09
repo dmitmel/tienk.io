@@ -72,6 +72,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4336311779641716}
+  - component: {fileID: 114245877332376112}
   m_Layer: 0
   m_Name: Square
   m_TagString: Square
@@ -216,6 +217,34 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.1
+--- !u!114 &114245877332376112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824281452569420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGetFromPool:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114405082108026670}
+        m_MethodName: Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  pool: {fileID: 0}
 --- !u!114 &114405082108026670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,7 +260,7 @@ MonoBehaviour:
   score: 10
   damageComputationCycles: 100
   bodyDamageForBullets: 2.1
-  parent: {fileID: 1824281452569420}
+  parent: {fileID: 114245877332376112}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
 --- !u!114 &114548237719597140

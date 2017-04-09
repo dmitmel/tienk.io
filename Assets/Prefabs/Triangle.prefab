@@ -89,6 +89,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757542693922998}
+  - component: {fileID: 114630351719228614}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Triangle
@@ -229,7 +230,7 @@ MonoBehaviour:
   score: 25
   damageComputationCycles: 100
   bodyDamageForBullets: 2.065
-  parent: {fileID: 1944034265205782}
+  parent: {fileID: 114630351719228614}
   rotationSpeed: 10
   randomMovementSpeed: 0.2
 --- !u!114 &114543125936632978
@@ -244,6 +245,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 4275434478499934}
+--- !u!114 &114630351719228614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944034265205782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGetFromPool:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114425279534324150}
+        m_MethodName: Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  pool: {fileID: 0}
 --- !u!114 &114930419674587624
 MonoBehaviour:
   m_ObjectHideFlags: 1

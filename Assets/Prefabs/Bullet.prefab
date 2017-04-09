@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 58698152570892522}
   - component: {fileID: 50861024840197396}
   - component: {fileID: 114268783001056376}
+  - component: {fileID: 114690722846867370}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -121,10 +122,38 @@ MonoBehaviour:
   tank: {fileID: 0}
   health: 0
   damage: 0
-  flyTime: 0
   knockback: 0
+  flyTime: 0
   slowDownToNormalVelocityTime: 0.5
   normalVelocity: {x: 0, y: 0}
+--- !u!114 &114690722846867370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832934887781792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGetFromPool:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114268783001056376}
+        m_MethodName: Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  pool: {fileID: 0}
 --- !u!212 &212424427670847058
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -24,7 +24,7 @@ namespace Deepio {
         public float bodyDamageForBullets;
 
         [Space]
-        public GameObject parent;
+        public PoolObject parent;
 
         [Space]
         public float rotationSpeed;
@@ -62,9 +62,9 @@ namespace Deepio {
                 }
 
                 if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
+                    ShapePool.instance.SpawnShape();
                     bullet.tank.scoreCounter.score += score;
-                    ShapeSpawner.instance.DestroyShape(parent);
+                    ShapePool.instance.DestroyShape(parent);
                 }
             }
         }
@@ -77,9 +77,9 @@ namespace Deepio {
                 tank.healthBar.health -= bodyDamage;
                 healthBar.health -= tank.stats.bodyDamage.value;
                 if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
+                    ShapePool.instance.SpawnShape();
                     tank.scoreCounter.score += score;
-                    ShapeSpawner.instance.DestroyShape(parent);
+                    ShapePool.instance.DestroyShape(parent);
                 }
             }
         }
