@@ -1,4 +1,4 @@
-= deep.io
+= tienk.io
 
 image:Assets/main-background.png[]
 
@@ -31,7 +31,7 @@ Everything consists of simple shapes:
 - circles
 
 [NOTE]
-Every shape in deep.io has border. Border is always
+Every shape in tienk.io has border. Border is always
 +++<code style="color: #FFF; background: #555555">dark grey (#555555)</span>+++
 
 // [[colors]]

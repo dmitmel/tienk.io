@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class ObjectFollower : MonoBehaviour {
         public Transform follow;
 

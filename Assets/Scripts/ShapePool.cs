@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     [System.Serializable]
     public class ShapeSpawnerPool {
     	public float chance;

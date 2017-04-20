@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class StatsHolder : MonoBehaviour {
         public Stat healthRegen;
         public Stat maxHealth;

@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         static GameObject _instanceObject;
         static T _instance;

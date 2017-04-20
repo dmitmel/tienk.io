@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class BulletPool : Singleton<BulletPool> {
         PoolManager pool;
 

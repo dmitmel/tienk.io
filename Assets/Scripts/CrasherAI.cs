@@ -17,7 +17,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class CrasherAI : MonoBehaviour {
         public Rigidbody2D crasher;
         public float acceleration, movementSpeed;

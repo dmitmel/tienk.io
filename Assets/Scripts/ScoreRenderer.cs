@@ -17,7 +17,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Deepio {
+namespace Tienkio {
     public class ScoreRenderer : MonoBehaviour {
         public ScoreCounter counter;
 

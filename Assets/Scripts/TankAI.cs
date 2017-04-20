@@ -19,7 +19,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-namespace Deepio {
+namespace Tienkio {
     public class TankAI : MonoBehaviour {
         public Tank tank;
         Rigidbody2D tankRigidbody;

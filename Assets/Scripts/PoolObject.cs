@@ -17,7 +17,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Deepio {
+namespace Tienkio {
     public class PoolObject : MonoBehaviour {
         public UnityEvent onGetFromPool;
         [HideInInspector]

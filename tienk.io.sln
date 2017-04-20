@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deep.io", "Assembly-CSharp.csproj", "{0CA6C785-ACE3-F3F3-1AE6-706CBC7C8286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tienk.io", "Assembly-CSharp.csproj", "{0CA6C785-ACE3-F3F3-1AE6-706CBC7C8286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

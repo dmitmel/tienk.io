@@ -17,7 +17,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Deepio {
+namespace Tienkio {
     public class PoolManager : MonoBehaviour {
         public PoolObject prefab;
         public int initialPoolSize;

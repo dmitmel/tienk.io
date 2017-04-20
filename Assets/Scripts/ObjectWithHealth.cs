@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class ObjectWithHealth : MonoBehaviour {
         public Transform healthBar;
         public float health;

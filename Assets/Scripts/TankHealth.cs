@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class TankHealth : ObjectWithHealth {
         [Space]
         public StatsHolder stats;

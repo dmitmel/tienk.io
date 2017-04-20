@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Bullet : MonoBehaviour {
         [HideInInspector]
         public Tank tank;

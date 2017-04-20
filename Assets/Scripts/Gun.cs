@@ -17,7 +17,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     [System.Serializable]
     public class GunStatsMultipliers {
         public float bulletSpeed = 1, bulletPenetration = 1, bulletDamage = 1, reload = 1;

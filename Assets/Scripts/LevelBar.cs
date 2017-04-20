@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class LevelBar : MonoBehaviour {
         public int widthOffset;
         public ScoreCounter scoreCounter;

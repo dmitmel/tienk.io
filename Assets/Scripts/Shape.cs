@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Shape : MonoBehaviour {
         public float bodyDamage;
         public int score;

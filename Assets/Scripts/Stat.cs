@@ -17,7 +17,7 @@
 using System;
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Stat : MonoBehaviour {
         public ScoreCounter scoreCounter;
         public int level;

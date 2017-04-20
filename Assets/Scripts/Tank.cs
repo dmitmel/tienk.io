@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Tank : MonoBehaviour {
         public StatsHolder stats;
         public ScoreCounter scoreCounter;

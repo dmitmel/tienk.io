@@ -17,7 +17,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Deepio {
+namespace Tienkio {
     public enum StatType {
         HealthRegen, MaxHealth, BodyDamage, BulletPenetration, BulletSpeed, BulletDamage, Reload, MovementSpeed
     }

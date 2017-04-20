@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class BouncyObject : MonoBehaviour {
         public int knockback;
 
