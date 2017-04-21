@@ -23,7 +23,7 @@ PlayerSettings:
   m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
-  m_SplashScreenBackgroundLandscapeAspect: 1.7777778
+  m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1.7777778
   m_SplashScreenBackgroundLandscapeUvs:
     serializedVersion: 2
@@ -40,9 +40,8 @@ PlayerSettings:
   m_SplashScreenLogos: []
   m_SplashScreenBackgroundLandscape: {fileID: 1, guid: 00000000000000000000000000000000,
     type: 0}
-  m_SplashScreenBackgroundPortrait: {fileID: 1, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  m_SplashScreenBackgroundPortrait: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -132,7 +131,7 @@ PlayerSettings:
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
-  aotOptions:
+  aotOptions: 
   apiCompatibilityLevel: 2
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
@@ -151,7 +150,7 @@ PlayerSettings:
   iOSTargetOSVersionString: 7.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
-  tvOSTargetOSVersionString:
+  tvOSTargetOSVersionString: 
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIRequiresFullScreen: 1
@@ -181,7 +180,7 @@ PlayerSettings:
     rgba: 0
   iOSLaunchScreenFillPct: 100
   iOSLaunchScreenSize: 100
-  iOSLaunchScreenCustomXibPath:
+  iOSLaunchScreenCustomXibPath: 
   iOSLaunchScreeniPadType: 0
   iOSLaunchScreeniPadImage: {fileID: 0}
   iOSLaunchScreeniPadBackgroundColor:
@@ -189,20 +188,20 @@ PlayerSettings:
     rgba: 0
   iOSLaunchScreeniPadFillPct: 100
   iOSLaunchScreeniPadSize: 100
-  iOSLaunchScreeniPadCustomXibPath:
+  iOSLaunchScreeniPadCustomXibPath: 
   iOSDeviceRequirements: []
   iOSURLSchemes: []
   iOSBackgroundModes: 0
   iOSMetalForceHardShadows: 0
-  appleDeveloperTeamID:
-  iOSManualSigningProvisioningProfileID:
-  tvOSManualSigningProvisioningProfileID:
+  appleDeveloperTeamID: 
+  iOSManualSigningProvisioningProfileID: 
+  tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName:
-  AndroidKeyaliasName:
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
@@ -211,10 +210,10 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 2800000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  resolutionDialogBanner: {fileID: 2800000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   m_BuildTargetIcons:
-  - m_BuildTarget:
+  - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: c0fbacc81809247609d1533c9c0c632b, type: 3}
@@ -251,17 +250,17 @@ PlayerSettings:
   wiiUTVStartupScreen: {fileID: 0}
   wiiUGamePadStartupScreen: {fileID: 0}
   wiiUDrcBufferDisabled: 0
-  wiiUProfilerLibPath:
+  wiiUProfilerLibPath: 
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription:
-  locationUsageDescription:
-  microphoneUsageDescription:
-  XboxTitleId:
-  XboxImageXexPath:
-  XboxSpaPath:
+  cameraUsageDescription: 
+  locationUsageDescription: 
+  microphoneUsageDescription: 
+  XboxTitleId: 
+  XboxImageXexPath: 
+  XboxSpaPath: 
   XboxGenerateSpa: 0
   XboxDeployKinectResources: 0
   XboxSplashScreen: {fileID: 0}
@@ -270,32 +269,32 @@ PlayerSettings:
   xboxDeployKinectHeadOrientation: 0
   xboxDeployKinectHeadPosition: 0
   ps4NPAgeRating: 12
-  ps4NPTitleSecret:
-  ps4NPTrophyPackPath:
+  ps4NPTitleSecret: 
+  ps4NPTrophyPackPath: 
   ps4ParentalLevel: 1
   ps4ContentID: ED1633-NPXX51362_00-0000000000000000
   ps4Category: 0
   ps4MasterVersion: 01.00
   ps4AppVersion: 01.00
   ps4AppType: 0
-  ps4ParamSfxPath:
+  ps4ParamSfxPath: 
   ps4VideoOutPixelFormat: 0
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
   ps4VideoOutReprojectionRate: 120
-  ps4PronunciationXMLPath:
-  ps4PronunciationSIGPath:
-  ps4BackgroundImagePath:
-  ps4StartupImagePath:
-  ps4SaveDataImagePath:
-  ps4SdkOverride:
-  ps4BGMPath:
-  ps4ShareFilePath:
-  ps4ShareOverlayImagePath:
-  ps4PrivacyGuardImagePath:
-  ps4NPtitleDatPath:
+  ps4PronunciationXMLPath: 
+  ps4PronunciationSIGPath: 
+  ps4BackgroundImagePath: 
+  ps4StartupImagePath: 
+  ps4SaveDataImagePath: 
+  ps4SdkOverride: 
+  ps4BGMPath: 
+  ps4ShareFilePath: 
+  ps4ShareOverlayImagePath: 
+  ps4PrivacyGuardImagePath: 
+  ps4NPtitleDatPath: 
   ps4RemotePlayKeyAssignment: -1
-  ps4RemotePlayKeyMappingDir:
+  ps4RemotePlayKeyMappingDir: 
   ps4PlayTogetherPlayerCount: 0
   ps4EnterButtonAssignment: 1
   ps4ApplicationParam1: 0
@@ -320,9 +319,9 @@ PlayerSettings:
   ps4ScriptOptimizationLevel: 3
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
-  ps4PatchPkgPath:
-  ps4PatchLatestPkgPath:
-  ps4PatchChangeinfoPath:
+  ps4PatchPkgPath: 
+  ps4PatchLatestPkgPath: 
+  ps4PatchChangeinfoPath: 
   ps4PatchDayOne: 0
   ps4attribUserManagement: 0
   ps4attribMoveSupport: 0
@@ -334,37 +333,37 @@ PlayerSettings:
   ps4contentSearchFeaturesUsed: 0
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
-  monoEnv:
+  monoEnv: 
   psp2Splashimage: {fileID: 0}
-  psp2NPTrophyPackPath:
+  psp2NPTrophyPackPath: 
   psp2NPSupportGBMorGJP: 0
   psp2NPAgeRating: 12
-  psp2NPTitleDatPath:
-  psp2NPCommsID:
-  psp2NPCommunicationsID:
-  psp2NPCommsPassphrase:
-  psp2NPCommsSig:
-  psp2ParamSfxPath:
-  psp2ManualPath:
-  psp2LiveAreaGatePath:
-  psp2LiveAreaBackroundPath:
-  psp2LiveAreaPath:
-  psp2LiveAreaTrialPath:
-  psp2PatchChangeInfoPath:
-  psp2PatchOriginalPackage:
+  psp2NPTitleDatPath: 
+  psp2NPCommsID: 
+  psp2NPCommunicationsID: 
+  psp2NPCommsPassphrase: 
+  psp2NPCommsSig: 
+  psp2ParamSfxPath: 
+  psp2ManualPath: 
+  psp2LiveAreaGatePath: 
+  psp2LiveAreaBackroundPath: 
+  psp2LiveAreaPath: 
+  psp2LiveAreaTrialPath: 
+  psp2PatchChangeInfoPath: 
+  psp2PatchOriginalPackage: 
   psp2PackagePassword: RK5RhRXdCdG5nG5azdNMK66MuCV6GXi5
-  psp2KeystoneFile:
+  psp2KeystoneFile: 
   psp2MemoryExpansionMode: 0
   psp2DRMType: 0
   psp2StorageType: 0
   psp2MediaCapacity: 0
-  psp2DLCConfigPath:
-  psp2ThumbnailPath:
-  psp2BackgroundPath:
-  psp2SoundPath:
-  psp2TrophyCommId:
-  psp2TrophyPackagePath:
-  psp2PackagedResourcesPath:
+  psp2DLCConfigPath: 
+  psp2ThumbnailPath: 
+  psp2BackgroundPath: 
+  psp2SoundPath: 
+  psp2TrophyCommId: 
+  psp2TrophyPackagePath: 
+  psp2PackagedResourcesPath: 
   psp2SaveDataQuota: 10240
   psp2ParentalLevel: 1
   psp2ShortTitle: Not Set
@@ -383,17 +382,17 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psp2UseDebugIl2cppLibs: 0
   psmSplashimage: {fileID: 0}
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: c068cdfd688ef49a68a470a9d282bd81,
     type: 3}
-  spritePackerPolicy:
+  spritePackerPolicy: 
   webGLMemorySize: 256
   webGLExceptionSupport: 1
   webGLDataCaching: 0
   webGLDebugSymbols: 0
-  webGLEmscriptenArgs:
-  webGLModulesDirectory:
+  webGLEmscriptenArgs: 
+  webGLModulesDirectory: 
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
@@ -403,20 +402,20 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}
-  additionalIl2CppArgs:
+  additionalIl2CppArgs: 
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: tienk.io
-  metroPackageVersion:
-  metroCertificatePath:
-  metroCertificatePassword:
-  metroCertificateSubject:
-  metroCertificateIssuer:
+  metroPackageVersion: 
+  metroCertificatePath: 
+  metroCertificatePassword: 
+  metroCertificateSubject: 
+  metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: tienk.io
   wsaImages: {}
-  metroTileShortName:
-  metroCommandLineArgsFile:
+  metroTileShortName: 
+  metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -428,16 +427,16 @@ PlayerSettings:
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities: {}
-  metroFTAName:
+  metroFTAName: 
   metroFTAFileTypes: []
-  metroProtocolName:
+  metroProtocolName: 
   metroCompilationOverrides: 1
-  tizenProductDescription:
-  tizenProductURL:
-  tizenSigningProfileName:
+  tizenProductDescription: 
+  tizenProductURL: 
+  tizenSigningProfileName: 
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
-  tizenDeploymentTarget:
+  tizenDeploymentTarget: 
   tizenDeploymentTargetType: 0
   tizenMinOSVersion: 1
   n3dsUseExtSaveData: 0
@@ -449,26 +448,26 @@ PlayerSettings:
   n3dsMediaSize: 0
   n3dsLogoStyle: 3
   n3dsTitle: GameName
-  n3dsProductCode:
+  n3dsProductCode: 
   n3dsApplicationId: 0xFF3FF
-  stvDeviceAddress:
-  stvProductDescription:
-  stvProductAuthor:
-  stvProductAuthorEmail:
-  stvProductLink:
+  stvDeviceAddress: 
+  stvProductDescription: 
+  stvProductAuthor: 
+  stvProductAuthorEmail: 
+  stvProductLink: 
   stvProductCategory: 0
-  XboxOneProductId:
-  XboxOneUpdateKey:
-  XboxOneSandboxId:
-  XboxOneContentId:
-  XboxOneTitleId:
-  XboxOneSCId:
-  XboxOneGameOsOverridePath:
-  XboxOnePackagingOverridePath:
-  XboxOneAppManifestOverridePath:
+  XboxOneProductId: 
+  XboxOneUpdateKey: 
+  XboxOneSandboxId: 
+  XboxOneContentId: 
+  XboxOneTitleId: 
+  XboxOneSCId: 
+  XboxOneGameOsOverridePath: 
+  XboxOnePackagingOverridePath: 
+  XboxOneAppManifestOverridePath: 
   XboxOnePackageEncryption: 0
   XboxOnePackageUpdateGranularity: 2
-  XboxOneDescription:
+  XboxOneDescription: 
   XboxOneLanguage:
   - enus
   XboxOneCapability: []
@@ -481,7 +480,7 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled: {}
-  cloudProjectId:
-  projectName:
-  organizationId:
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
