@@ -16,43 +16,33 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Shape : MonoBehaviour {
-        [SerializeField]
-        float _health;
         public float bodyDamage;
         public int score;
         public int damageComputationCycles = 20;
-        public float bodyDamageForBulletMultiplier = 1;
+        public float bodyDamageForBullets;
 
         [Space]
-        public GameObject parent;
+        public PoolObject parent;
 
         [Space]
         public float rotationSpeed;
         public float randomMovementSpeed;
-        public float knockback;
         Vector2 randomVelocity;
-        Rigidbody2D rigidbody;
+        new Rigidbody2D rigidbody;
 
         ObjectWithHealth healthBar;
 
-        void Start() {
+        void Awake() {
             healthBar = GetComponent<ObjectWithHealth>();
-            healthBar.health = healthBar.maxHealth = _health;
-
             rigidbody = GetComponent<Rigidbody2D>();
-            rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
-            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
         }
 
-        void Damage(float damage) {
-            healthBar.Damage(damage);
-            if (healthBar.health <= 0) {
-                ShapeSpawner.instance.SpawnShape();
-                ScoreCounter.instance.score += score;
-                Destroy(parent);
-            }
+        public void Start() {
+            rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
+            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
+            healthBar.health = healthBar.maxHealth;
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
@@ -64,29 +54,33 @@ namespace Deepio {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = bodyDamageForBullets / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
-                    Damage(bulletDamagePerCycle);
-                    bullet.Damage(bodyDamagePerCycle);
+                    healthBar.health -= bulletDamagePerCycle;
+                    bullet.health -= bodyDamagePerCycle;
+                }
+
+                if (healthBar.health <= 0) {
+                    ShapePool.instance.SpawnShape();
+                    bullet.tank.scoreCounter.score += score;
+                    ShapePool.instance.DestroyShape(parent);
                 }
             }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
             Collider2D collider = collision.collider;
-            if (collider.CompareTag("Player")) {
-                var player = collider.GetComponent<ObjectWithHealth>();
-                player.Damage(bodyDamage);
-                Damage(StatsHolder.instance.bodyDamage.statValue);
-            }
+            if (collider.CompareTag("Tank")) {
+                var tank = collider.GetComponent<Tank>();
 
-            Rigidbody2D colliderRigidbody = collider.attachedRigidbody;
-            if (colliderRigidbody != null && rigidbody != null) {
-                Vector2 colliderDirection = colliderRigidbody.velocity.normalized;
-
-                colliderRigidbody.AddForce(colliderDirection * -knockback, ForceMode2D.Impulse);
-                rigidbody.AddForce(colliderDirection * knockback, ForceMode2D.Impulse);
+                tank.healthBar.health -= bodyDamage;
+                healthBar.health -= tank.stats.bodyDamage.value;
+                if (healthBar.health <= 0) {
+                    tank.scoreCounter.score += score;
+                    ShapePool.instance.DestroyShape(parent);
+                    ShapePool.instance.SpawnShape();
+                }
             }
         }
     }

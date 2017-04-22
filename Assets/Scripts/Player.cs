@@ -16,54 +16,55 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Player : Singleton<Player> {
-        public Rigidbody2D movementRoot;
-        public Transform rotationRoot;
-        public Gun[] guns;
+        public GameObject parent;
 
-        StatsHolder stats;
-
-        [Space]
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
+        new Transform transform;
+        new Rigidbody2D rigidbody;
+        Tank tank;
+
         bool autoSpinEnabled, autoFireEnabled;
 
-        void Start() {
-            stats = StatsHolder.instance;
+        void Awake() {
+            transform = base.transform;
+            rigidbody = GetComponent<Rigidbody2D>();
+            tank = GetComponent<Tank>();
         }
 
         void Update() {
+            if (tank.healthBar.health <= 0) Destroy(parent);
+
             if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
-                rotationRoot.localRotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
+                transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                float angle = AngleBetweenTwoPoints(
-                    Camera.main.ScreenToWorldPoint(Input.mousePosition),
-                    transform.position);
-                rotationRoot.rotation = Quaternion.Euler(0f, 0f, angle);
+                float angle = Vectors.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
             }
 
             if (KeyBindings.instance.autoFire.isDown) {
                 autoFireEnabled = !autoFireEnabled;
                 if (!autoFireEnabled) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
             }
 
             if (autoFireEnabled) {
-                foreach (Gun gun in guns)
+                foreach (Gun gun in tank.guns)
                     if (!gun.isFiring)
                         gun.StartFiring();
             } else {
                 if (KeyBindings.instance.fire.isPressed) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         if (!gun.isFiring)
                             gun.StartFiring();
                 } else if (KeyBindings.instance.fire.isUp) {
-                    foreach (Gun gun in guns)
+                    foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
             }
@@ -72,17 +73,16 @@ namespace Deepio {
         void FixedUpdate() {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
+            var velocity = new Vector2(horizontalAxis, verticalAxis);
+            if (velocity.sqrMagnitude > 1) velocity.Normalize();
 
-            movementRoot.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                                  stats.movementSpeed.statValue * accelerationMultiplier);
-            movementRoot.velocity = new Vector2(
-                Mathf.Clamp(movementRoot.velocity.x, -stats.movementSpeed.statValue, stats.movementSpeed.statValue),
-                Mathf.Clamp(movementRoot.velocity.y, -stats.movementSpeed.statValue, stats.movementSpeed.statValue)
+            float movementSpeed = tank.stats.movementSpeed.value;
+
+            rigidbody.AddForce(velocity * movementSpeed * accelerationMultiplier);
+            rigidbody.velocity = new Vector2(
+                Mathf.Clamp(rigidbody.velocity.x, -movementSpeed, movementSpeed),
+                Mathf.Clamp(rigidbody.velocity.y, -movementSpeed, movementSpeed)
             );
-        }
-
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-            return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
         }
     }
 }

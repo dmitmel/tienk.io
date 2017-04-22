@@ -16,53 +16,52 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class ObjectWithHealth : MonoBehaviour {
-        public GameObject healthBar;
-        [SerializeField]
-        float _health;
-        public virtual float health {
-            get { return _health; }
-            set {
-                _health = value;
-                float width = _health * (originalScale.x / maxHealth);
-                healthBar.transform.localScale = new Vector2(width, originalScale.y);
-                healthBar.transform.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
-            }
-        }
+        public Transform healthBar;
+        public float health;
+        protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
-        float lastUpdate, nextExtraRegen;
+        protected float lastUpdate, nextExtraRegen;
 
         Vector2 originalPosition;
         Vector2 originalScale;
 
-        public virtual void Damage(float damage) {
-            health -= damage;
-            if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
-        }
-
         protected virtual void Start() {
-            originalPosition = healthBar.transform.localPosition;
-            originalScale = healthBar.transform.localScale;
+            originalPosition = healthBar.localPosition;
+            originalScale = healthBar.localScale;
         }
 
         protected virtual void Update() {
+            if (lastHealth != health) {
+                ResizeBar();
+                if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
+                lastHealth = health;
+            }
+
             if (IsRegenEnabled() || IsExtraRegenEnabled()) {
                 float now = Time.time;
                 float sinceLastUpdate = now - lastUpdate;
                 bool isExtraRegen = IsExtraRegenEnabled() && now >= nextExtraRegen;
 
-                if (_health < maxHealth) {
+                if (health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
-                    float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - _health);
-                    health += regen;
+                    float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - health);
+                    health = lastHealth += regen;
+                    ResizeBar();
                 } else if (IsExtraRegenEnabled()) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }
 
                 lastUpdate = now;
             }
+        }
+
+        void ResizeBar() {
+            float width = health * (originalScale.x / maxHealth);
+            healthBar.localScale = new Vector2(width, originalScale.y);
+            healthBar.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
         }
 
         bool IsRegenEnabled() {

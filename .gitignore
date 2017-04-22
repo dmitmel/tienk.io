@@ -45,3 +45,6 @@ Thumbs.db
 # ==== #
 /README.html
 /.vscode
+/SVGAssets
+/UtilScripts
+/.save.cson

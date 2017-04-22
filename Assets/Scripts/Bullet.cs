@@ -16,33 +16,44 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Bullet : MonoBehaviour {
-        public float health;
-        public float damage, flyTime, knockback;
+        [HideInInspector]
+        public Tank tank;
+
+        [HideInInspector]
+        public float health, damage, knockback, flyTime;
         public float slowDownToNormalVelocityTime;
+
+        [HideInInspector]
         public Vector2 normalVelocity;
 
+        new Rigidbody2D rigidbody;
         Vector2 originalVelocity;
-        Rigidbody2D rigidbody;
+
+        PoolObject poolObject;
+
         float startTime;
 
-        void Start() {
-            startTime = Time.time;
+        void Awake() {
             rigidbody = GetComponent<Rigidbody2D>();
-            originalVelocity = rigidbody.velocity;
+            poolObject = GetComponent<PoolObject>();
+        }
 
-            Destroy(gameObject, flyTime);
+        public void Start() {
+            originalVelocity = rigidbody.velocity;
+            startTime = Time.time;
         }
 
         void Update() {
             float timeFromStart = Time.time - startTime;
-            rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
-        }
+            if (timeFromStart >= flyTime) {
+                poolObject.PutIntoPool();
+            } else {
+                rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
-        public void Damage(float damage) {
-            health -= damage;
-            if (health <= 0) Destroy(gameObject);
+                if (health <= 0) poolObject.PutIntoPool();
+            }
         }
    }
 }
