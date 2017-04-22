@@ -16,9 +16,9 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class ObjectWithHealth : MonoBehaviour {
-        public GameObject healthBar;
+        public Transform healthBar;
         public float health;
         protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
@@ -29,8 +29,8 @@ namespace Deepio {
         Vector2 originalScale;
 
         protected virtual void Start() {
-            originalPosition = healthBar.transform.localPosition;
-            originalScale = healthBar.transform.localScale;
+            originalPosition = healthBar.localPosition;
+            originalScale = healthBar.localScale;
         }
 
         protected virtual void Update() {
@@ -60,8 +60,8 @@ namespace Deepio {
 
         void ResizeBar() {
             float width = health * (originalScale.x / maxHealth);
-            healthBar.transform.localScale = new Vector2(width, originalScale.y);
-            healthBar.transform.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
+            healthBar.localScale = new Vector2(width, originalScale.y);
+            healthBar.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
         }
 
         bool IsRegenEnabled() {

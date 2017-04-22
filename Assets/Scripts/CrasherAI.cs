@@ -17,7 +17,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class CrasherAI : MonoBehaviour {
         public Rigidbody2D crasher;
         public float acceleration, movementSpeed;
@@ -29,6 +29,12 @@ namespace Deepio {
 
         float nextTargetChooseTime;
 
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
+        }
+
         void OnTriggerEnter2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
             if (colliderTransform.CompareTag("Tank"))
@@ -36,7 +42,7 @@ namespace Deepio {
         }
 
         void Update() {
-            if (enemies.Count > 0) {
+            if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -45,7 +51,7 @@ namespace Deepio {
             }
 
             if (target != null) {
-                crasher.rotation = VectorUtil.Angle2D(crasher.position, target.position) + 90;
+                crasher.rotation = (Vectors.Angle2D(crasher.position, target.position) + 90) % 360;
                 crasher.AddRelativeForce(Vector2.up * acceleration);
                 crasher.velocity = new Vector2(
                     Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
@@ -56,7 +62,7 @@ namespace Deepio {
 
         Transform ChooseTarget() {
             Transform currentTarget = null;
-            float sqrDistanceToCurrentTarget = 0;
+            float distanceToCurrentTarget = 0;
 
             bool isFirst = true;
 
@@ -65,15 +71,15 @@ namespace Deepio {
 
                 if (isFirst) {
                     currentTarget = enemy;
-                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
+                    distanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
-                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
+                    float distanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
-                    if (sqrDistanceToEnemy < sqrDistanceToCurrentTarget) {
+                    if (distanceToEnemy < distanceToCurrentTarget) {
                         currentTarget = enemy;
-                        sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
+                        distanceToCurrentTarget = distanceToEnemy;
                     }
                 }
             }
@@ -84,7 +90,7 @@ namespace Deepio {
         void OnTriggerExit2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = ChooseTarget();
+            if (colliderIsEnemy && colliderTransform == target) target = null;
         }
     }
 }

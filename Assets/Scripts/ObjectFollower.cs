@@ -16,18 +16,23 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class ObjectFollower : MonoBehaviour {
-        public GameObject follow;
+        public Transform follow;
 
-        Vector3 originalPosition;
+        new Transform transform;
+        Vector3 offset;
+
+        void Awake() {
+            transform = base.transform;
+        }
 
         void Start() {
-            originalPosition = transform.localPosition;
+            offset = transform.localPosition;
         }
 
         void Update() {
-            if (follow != null) transform.localPosition = originalPosition + follow.transform.localPosition;
+            if (follow != null) transform.localPosition = offset + follow.localPosition;
         }
     }
 }

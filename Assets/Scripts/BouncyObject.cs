@@ -16,23 +16,25 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class BouncyObject : MonoBehaviour {
         public int knockback;
 
-        Rigidbody2D rigidbody;
+        new Transform transform;
+        new Rigidbody2D rigidbody;
 
-        void Start() {
+        void Awake() {
+            transform = base.transform;
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
             Rigidbody2D colliderRigidbody = collision.collider.attachedRigidbody;
             if (colliderRigidbody != null && rigidbody != null) {
-                Vector2 collisionDirection = (transform.position - collision.transform.position).normalized;
+                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
 
-                colliderRigidbody.AddForce(collisionDirection * -knockback, ForceMode2D.Impulse);
-                rigidbody.AddForce(collisionDirection * knockback, ForceMode2D.Impulse);
+                colliderRigidbody.AddForce(collisionDirection * knockback, ForceMode2D.Impulse);
+                rigidbody.AddForce(collisionDirection * -knockback, ForceMode2D.Impulse);
             }
         }
     }

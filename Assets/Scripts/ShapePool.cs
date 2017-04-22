@@ -14,18 +14,17 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
 
-namespace Deepio {
-    [Serializable]
-    public class SpawnableShape {
-        public float chance;
-        public GameObject shape;
+namespace Tienkio {
+    [System.Serializable]
+    public class ShapeSpawnerPool {
+    	public float chance;
+    	public PoolManager pool;
     }
 
-    public class ShapeSpawner : Singleton<ShapeSpawner> {
-        public SpawnableShape[] shapes;
+    public class ShapePool : Singleton<ShapePool> {
+        public ShapeSpawnerPool[] shapePools;
         public Rect fieldBoundary;
         public int shapesCount;
 
@@ -34,22 +33,26 @@ namespace Deepio {
         }
 
         public void SpawnShape() {
-            GameObject selectedShape = SelectShape();
-            if (selectedShape != null) {
+            PoolManager pool = SelectPool();
+            if (pool != null) {
                 Vector2 position = new Vector2(
-                    UnityEngine.Random.Range(fieldBoundary.x, fieldBoundary.width),
-                    UnityEngine.Random.Range(fieldBoundary.y, fieldBoundary.height)
+                    Random.Range(fieldBoundary.x, fieldBoundary.width),
+                    Random.Range(fieldBoundary.y, fieldBoundary.height)
                 );
-                Instantiate(selectedShape, position, Quaternion.identity, transform);
+                pool.GetFromPool(position, Quaternion.identity);
             }
         }
 
-        public GameObject SelectShape() {
-            foreach (SpawnableShape spawnableShape in shapes) {
-                float random = UnityEngine.Random.value;
-                if (random <= spawnableShape.chance) return spawnableShape.shape;
+        public PoolManager SelectPool() {
+            foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
+                float random = Random.value;
+                if (random <= shapeSpawnerPool.chance) return shapeSpawnerPool.pool;
             }
             return null;
+        }
+
+        public void DestroyShape(PoolObject shape) {
+            shape.PutIntoPool();
         }
     }
 }

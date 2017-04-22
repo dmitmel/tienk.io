@@ -16,33 +16,33 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Shape : MonoBehaviour {
-        [SerializeField]
-        float _health;
         public float bodyDamage;
         public int score;
         public int damageComputationCycles = 20;
-        public float bodyDamageForBulletMultiplier = 1;
+        public float bodyDamageForBullets;
 
         [Space]
-        public GameObject parent;
+        public PoolObject parent;
 
         [Space]
         public float rotationSpeed;
         public float randomMovementSpeed;
         Vector2 randomVelocity;
-        Rigidbody2D rigidbody;
+        new Rigidbody2D rigidbody;
 
         ObjectWithHealth healthBar;
 
-        void Start() {
+        void Awake() {
             healthBar = GetComponent<ObjectWithHealth>();
-            healthBar.health = healthBar.maxHealth = _health;
-
             rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        public void Start() {
             rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
             rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
+            healthBar.health = healthBar.maxHealth;
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
@@ -54,7 +54,7 @@ namespace Deepio {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamage * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = bodyDamageForBullets / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;
@@ -62,9 +62,9 @@ namespace Deepio {
                 }
 
                 if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
+                    ShapePool.instance.SpawnShape();
                     bullet.tank.scoreCounter.score += score;
-                    Destroy(parent);
+                    ShapePool.instance.DestroyShape(parent);
                 }
             }
         }
@@ -77,9 +77,9 @@ namespace Deepio {
                 tank.healthBar.health -= bodyDamage;
                 healthBar.health -= tank.stats.bodyDamage.value;
                 if (healthBar.health <= 0) {
-                    ShapeSpawner.instance.SpawnShape();
                     tank.scoreCounter.score += score;
-                    Destroy(parent);
+                    ShapePool.instance.DestroyShape(parent);
+                    ShapePool.instance.SpawnShape();
                 }
             }
         }

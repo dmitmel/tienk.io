@@ -14,10 +14,9 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class StatsHolder : MonoBehaviour {
         public Stat healthRegen;
         public Stat maxHealth;
@@ -27,5 +26,16 @@ namespace Deepio {
         public Stat bulletDamage;
         public Stat reload;
         public Stat movementSpeed;
+
+        public void OnRespawn() {
+            healthRegen.OnRespawn();
+            maxHealth.OnRespawn();
+            bodyDamage.OnRespawn();
+            bulletSpeed.OnRespawn();
+            bulletPenetration.OnRespawn();
+            bulletDamage.OnRespawn();
+            reload.OnRespawn();
+            movementSpeed.OnRespawn();
+        }
     }
 }

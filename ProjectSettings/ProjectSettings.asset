@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: FederationOfCoders.org
-  productName: deep.io
+  productName: tienk.io
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -19,11 +19,11 @@ PlayerSettings:
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
-  m_SplashScreenLogoStyle: 1
+  m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
-  m_SplashScreenBackgroundLandscapeAspect: 1.7777778
+  m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1.7777778
   m_SplashScreenBackgroundLandscapeUvs:
     serializedVersion: 2
@@ -40,9 +40,8 @@ PlayerSettings:
   m_SplashScreenLogos: []
   m_SplashScreenBackgroundLandscape: {fileID: 1, guid: 00000000000000000000000000000000,
     type: 0}
-  m_SplashScreenBackgroundPortrait: {fileID: 1, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  m_SplashScreenBackgroundPortrait: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -122,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: org.fedofcoders.tienkio
   bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
@@ -148,7 +147,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 
+  iOSTargetOSVersionString: 7.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
@@ -211,7 +210,7 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 2800000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  resolutionDialogBanner: {fileID: 2800000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
@@ -221,8 +220,15 @@ PlayerSettings:
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
-  m_BuildTargetGraphicsAPIs: []
-  m_BuildTargetVRSettings: []
+  m_BuildTargetGraphicsAPIs:
+  - m_BuildTarget: WindowsStandaloneSupport
+    m_APIs: 0200000001000000
+    m_Automatic: 1
+  m_BuildTargetVRSettings:
+  - m_BuildTarget: Standalone
+    m_Enabled: 0
+    m_Devices:
+    - Oculus
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   webPlayerTemplate: APPLICATION:Default
@@ -376,7 +382,7 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psp2UseDebugIl2cppLibs: 0
   psmSplashimage: {fileID: 0}
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: c068cdfd688ef49a68a470a9d282bd81,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: e8f9c0778e6c844239626dd65a230077,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: c068cdfd688ef49a68a470a9d282bd81,
     type: 3}
@@ -399,14 +405,14 @@ PlayerSettings:
   additionalIl2CppArgs: 
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: deep.io
+  metroPackageName: tienk.io
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: deep.io
+  metroApplicationDescription: tienk.io
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 

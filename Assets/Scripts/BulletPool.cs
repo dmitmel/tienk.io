@@ -16,10 +16,20 @@
 
 using UnityEngine;
 
-namespace Deepio {
-    public static class VectorUtil {
-        public static float Angle2D(Vector2 a, Vector2 b) {
-            return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+namespace Tienkio {
+    public class BulletPool : Singleton<BulletPool> {
+        PoolManager pool;
+
+        void Awake() {
+            pool = GetComponent<PoolManager>();
+        }
+
+        public PoolObject GetFromPool(Vector2 position, Quaternion rotation) {
+            return pool.GetFromPool(position, rotation);
+        }
+
+        public void PutIntoPool(PoolObject bullet) {
+            pool.PutIntoPool(bullet);
         }
     }
 }

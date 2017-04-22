@@ -15,10 +15,9 @@
 //
 
 using UnityEngine;
-using System;
 
-namespace Deepio {
-    [Serializable]
+namespace Tienkio {
+    [System.Serializable]
     public class Level {
         public int index;
         public int neededScore;
@@ -28,9 +27,6 @@ namespace Deepio {
     }
 
     public class ScoreCounter : MonoBehaviour {
-        public StatsHolder stats;
-
-        [Space]
         public int levelIndex;
         public int score;
         public int upgradePoints;
@@ -89,6 +85,12 @@ namespace Deepio {
             if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
             levelIndex = lastLevel.index;
             return levels[levels.Length - 1];
+        }
+
+        public void OnRespawn() {
+            lastScore = score = 0;
+            upgradePoints = 0;
+            currentLevel = ComputeLevel();
         }
     }
 }

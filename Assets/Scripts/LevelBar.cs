@@ -16,7 +16,7 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class LevelBar : MonoBehaviour {
         public int widthOffset;
         public ScoreCounter scoreCounter;
@@ -25,8 +25,11 @@ namespace Deepio {
         Vector2 originalPosition;
         Vector2 originalScale;
 
-        void Start() {
+        void Awake() {
             rectTransform = GetComponent<RectTransform>();
+        }
+
+        void Start() {
             originalPosition = rectTransform.anchoredPosition;
             originalScale = rectTransform.sizeDelta;
         }

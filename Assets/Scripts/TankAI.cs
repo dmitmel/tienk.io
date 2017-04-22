@@ -19,7 +19,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-namespace Deepio {
+namespace Tienkio {
     public class TankAI : MonoBehaviour {
         public Tank tank;
         Rigidbody2D tankRigidbody;
@@ -30,14 +30,35 @@ namespace Deepio {
         public string[] objectsAttackPriority;
         public float targetChooseInterval;
 
+        [Space]
+        public Rect spawnFieldBoundary;
+
         List<Transform> enemies = new List<Transform>();
         Transform target;
 
         float nextTargetChooseTime;
         int lastUpgradePoints;
 
-        void Start() {
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
+        }
+
+        void Start() {
+            tank.transform.position = new Vector2(
+                UnityEngine.Random.Range(spawnFieldBoundary.x, spawnFieldBoundary.width),
+                UnityEngine.Random.Range(spawnFieldBoundary.y, spawnFieldBoundary.height)
+            );
+        }
+
+        void Respawn() {
+            Start();
+
+            tank.scoreCounter.OnRespawn();
+            tank.stats.OnRespawn();
+            tank.healthBar.OnRespawn();
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
@@ -46,12 +67,14 @@ namespace Deepio {
         }
 
         void Update() {
+            if (tank.healthBar.health <= 0) Respawn();
+
             for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
                 Stat stat = RandomStat();
                 stat.Upgrade();
             }
 
-            if (enemies.Count > 0) {
+            if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -69,7 +92,7 @@ namespace Deepio {
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
                 float additionalMultiplier = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
-                tankRigidbody.rotation = VectorUtil.Angle2D(tankRigidbody.position, target.transform.position) + 90;
+                tankRigidbody.rotation = Vectors.Angle2D(tankRigidbody.position, target.position) + 90;
                 tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier * additionalMultiplier);
                 tankRigidbody.velocity = new Vector2(
                     Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
@@ -78,10 +101,6 @@ namespace Deepio {
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
-            }
-
-            if (tank.healthBar.health <= 0) {
-                BotSpawner.instance.SpawnBot();
             }
         }
 
@@ -110,8 +129,9 @@ namespace Deepio {
 
         Transform ChooseTarget() {
             Transform currentTarget = null;
-            float sqrDistanceToCurrentTarget = 0;
             int currentTargetPriority = 0;
+            float currentTargetHealth = 0;
+            float sqrDistanceToCurrentTarget = 0;
 
             bool isFirst = true;
 
@@ -120,16 +140,20 @@ namespace Deepio {
 
                 if (isFirst) {
                     currentTarget = enemy;
-                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
                     currentTargetPriority = GetAttackPriorityFor(currentTarget);
+                    currentTargetHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
-                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
                     int enemyPriority = GetAttackPriorityFor(enemy);
+                    float enemyHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
                     if (enemyPriority > currentTargetPriority ||
-                        (enemyPriority == currentTargetPriority && sqrDistanceToEnemy < sqrDistanceToCurrentTarget)) {
+                        (enemyPriority == currentTargetPriority && enemyHealth < currentTargetHealth) ||
+                        (enemyPriority == currentTargetPriority && enemyHealth == currentTargetHealth &&
+                            sqrDistanceToEnemy < sqrDistanceToCurrentTarget)) {
                         currentTarget = enemy;
                         sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
                         currentTargetPriority = enemyPriority;
@@ -147,7 +171,7 @@ namespace Deepio {
         void OnTriggerExit2D(Collider2D collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = ChooseTarget();
+            if (colliderIsEnemy && colliderTransform == target) target = null;
         }
     }
 }

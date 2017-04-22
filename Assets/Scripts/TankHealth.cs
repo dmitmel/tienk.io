@@ -16,10 +16,9 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class TankHealth : ObjectWithHealth {
         [Space]
-        public GameObject parent;
         public StatsHolder stats;
         public float extraRegenMultiplier = 1;
 
@@ -35,8 +34,6 @@ namespace Deepio {
         protected override void Update() {
             base.Update();
 
-            if (health <= 0) Destroy(parent);
-
             float newHealthRegen = stats.healthRegen.value;
             if (newHealthRegen != lastHealthRegen) {
                 lastHealthRegen = healthRegen = stats.healthRegen.value;
@@ -49,6 +46,11 @@ namespace Deepio {
                 lastHealth = health = health * newMaxHealth / lastMaxHealth;
                 lastMaxHealth = newMaxHealth;
             }
+        }
+
+        public void OnRespawn() {
+            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
+            healthRegen = lastHealthRegen = stats.healthRegen.value;
         }
     }
 }

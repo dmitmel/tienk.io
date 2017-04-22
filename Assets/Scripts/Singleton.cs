@@ -16,40 +16,32 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
-        static GameObject _gameObject;
+        static GameObject _instanceObject;
         static T _instance;
-        static bool _isSingletonAlive;
 
         public static T instance {
             get {
-                if (_instance == null)
-                    Debug.LogError($"[Singleton] There're no objects on scene with type of '{typeof(T)}'");
+                if (_instance == null) {
+                    T[] objects = FindObjectsOfType<T>();
+                    int count = objects.Length;
+                    if (count == 0) {
+                        Debug.LogError($"[Singleton] There're no objects on scene with type of '{typeof(T)}'");
+                    } else {
+                        if (count > 1)
+                            Debug.LogError($"[Singleton] There're multiple instances of '{typeof(T)}'");
+                        _instance = objects[0];
+                        _instanceObject = _instance.gameObject;
+                    }
+                }
+
                 return _instance;
             }
         }
 
-        public static bool isSingletonAlive {
-            get { return _isSingletonAlive; }
-        }
-
-        public void Awake() {
-            if (_instance == null) {
-                _instance = GetComponent<T>();
-                if (_instance == null) {
-                    Debug.LogError($"[Singleton] There're no components with type of '{typeof(T)}' on {gameObject.name}");
-                } else {
-                    _gameObject = gameObject;
-                    _isSingletonAlive = true;
-                }
-            } else {
-                Debug.LogError($"[Singleton] Created 2nd instance of '{typeof(T)}'");
-            }
-        }
-
-        void OnDestroy() {
-            if (gameObject == _gameObject) _isSingletonAlive = false;
+        public static GameObject singletonGameObject {
+            get { return _instanceObject; }
         }
     }
 }

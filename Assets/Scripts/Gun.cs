@@ -14,10 +14,10 @@
 // limitations under the License.
 //
 
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     [System.Serializable]
     public class GunStatsMultipliers {
         public float bulletSpeed = 1, bulletPenetration = 1, bulletDamage = 1, reload = 1;
@@ -25,7 +25,6 @@ namespace Deepio {
 
     public class Gun : MonoBehaviour {
         [Space]
-        public GameObject bullet;
         public float bulletOffset;
         public Vector2 bulletSize = Vector2.one;
 
@@ -41,6 +40,7 @@ namespace Deepio {
         [Space]
         public Tank tank;
         Rigidbody2D tankRigidbody;
+        SpriteRenderer tankSpriteRenderer;
         public float tankRelativeVelocityMultiplier = 1;
 
         public bool isFiring { get; private set; }
@@ -48,8 +48,12 @@ namespace Deepio {
         float nextFire;
         float firingStartTime = -1;
 
-        void Start() {
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
             tankRigidbody = tank.GetComponent<Rigidbody2D>();
+            tankSpriteRenderer = tank.GetComponent<SpriteRenderer>();
         }
 
         public void StartFiring() {
@@ -78,23 +82,29 @@ namespace Deepio {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
                 Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
-                float halfBulletSpread = bulletSpread / 2;
-                Quaternion newBulletRotation = Quaternion.Euler(0, 0, Random.Range(-halfBulletSpread, halfBulletSpread));
-                GameObject newBullet = Instantiate(bullet, newBulletPosition, newBulletRotation);
-
-                Vector2 normalBulletVelocity = transform.rotation * newBulletRotation * Vector2.up *
-                                                        (tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed);
-
-                newBullet.GetComponent<Rigidbody2D>().velocity =
-                             normalBulletVelocity + tankRigidbody.velocity * tankRelativeVelocityMultiplier;
+                PoolObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
-                newBulletController.tank = tank;
+                var newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
+                var newBulletSpriteRenderer = newBullet.GetComponent<SpriteRenderer>();
+
+                float halfBulletSpread = bulletSpread / 2;
+                float newBulletRotationZ = Random.Range(-halfBulletSpread, halfBulletSpread);
+                Quaternion newBulletRotation = transform.rotation * Quaternion.Euler(0, 0, newBulletRotationZ);
+
+                float bulletSpeed = tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed;
+                Vector2 normalBulletVelocity = newBulletRotation * Vector2.up * bulletSpeed;
+
                 newBulletController.normalVelocity = normalBulletVelocity;
+                newBulletRigidbody.velocity = normalBulletVelocity + tankRigidbody.velocity * tankRelativeVelocityMultiplier;
+
+                newBulletController.tank = tank;
                 newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
                 newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
-                newBulletController.flyTime = bulletFlyTime;
                 newBulletController.knockback = bulletKnockback;
+                newBulletController.flyTime = bulletFlyTime;
+
+                newBulletSpriteRenderer.color = tankSpriteRenderer.color;
 
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 

@@ -16,27 +16,33 @@
 
 using UnityEngine;
 
-namespace Deepio {
+namespace Tienkio {
     public class Player : Singleton<Player> {
+        public GameObject parent;
+
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
+        new Transform transform;
+        new Rigidbody2D rigidbody;
         Tank tank;
-        Rigidbody2D rigidbody;
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        void Start() {
-            tank = GetComponent<Tank>();
+        void Awake() {
+            transform = base.transform;
             rigidbody = GetComponent<Rigidbody2D>();
+            tank = GetComponent<Tank>();
         }
 
         void Update() {
+            if (tank.healthBar.health <= 0) Destroy(parent);
+
             if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
             } else {
-                float angle = VectorUtil.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                float angle = Vectors.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
             }
 
@@ -67,10 +73,12 @@ namespace Deepio {
         void FixedUpdate() {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
+            var velocity = new Vector2(horizontalAxis, verticalAxis);
+            if (velocity.sqrMagnitude > 1) velocity.Normalize();
 
             float movementSpeed = tank.stats.movementSpeed.value;
-            rigidbody.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                               movementSpeed * accelerationMultiplier);
+
+            rigidbody.AddForce(velocity * movementSpeed * accelerationMultiplier);
             rigidbody.velocity = new Vector2(
                 Mathf.Clamp(rigidbody.velocity.x, -movementSpeed, movementSpeed),
                 Mathf.Clamp(rigidbody.velocity.y, -movementSpeed, movementSpeed)
