@@ -73,10 +73,12 @@ namespace Tienkio {
         void FixedUpdate() {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
+            var velocity = new Vector2(horizontalAxis, verticalAxis);
+            if (velocity.sqrMagnitude > 1) velocity.Normalize();
 
             float movementSpeed = tank.stats.movementSpeed.value;
-            rigidbody.AddForce(new Vector2(horizontalAxis, verticalAxis).normalized *
-                               movementSpeed * accelerationMultiplier);
+
+            rigidbody.AddForce(velocity * movementSpeed * accelerationMultiplier);
             rigidbody.velocity = new Vector2(
                 Mathf.Clamp(rigidbody.velocity.x, -movementSpeed, movementSpeed),
                 Mathf.Clamp(rigidbody.velocity.y, -movementSpeed, movementSpeed)
