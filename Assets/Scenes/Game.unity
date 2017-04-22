@@ -5323,7 +5323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 1009189776}
   levelIndex: 0
   score: 0
   upgradePoints: 0

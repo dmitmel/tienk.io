@@ -77,9 +77,9 @@ namespace Tienkio {
                 tank.healthBar.health -= bodyDamage;
                 healthBar.health -= tank.stats.bodyDamage.value;
                 if (healthBar.health <= 0) {
-                    ShapePool.instance.SpawnShape();
                     tank.scoreCounter.score += score;
                     ShapePool.instance.DestroyShape(parent);
+                    ShapePool.instance.SpawnShape();
                 }
             }
         }

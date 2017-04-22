@@ -51,7 +51,7 @@ namespace Tienkio {
             }
 
             if (target != null) {
-                crasher.rotation = Vectors.Angle2D(crasher.position, target.position) + 90;
+                crasher.rotation = (Vectors.Angle2D(crasher.position, target.position) + 90) % 360;
                 crasher.AddRelativeForce(Vector2.up * acceleration);
                 crasher.velocity = new Vector2(
                     Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
@@ -62,7 +62,7 @@ namespace Tienkio {
 
         Transform ChooseTarget() {
             Transform currentTarget = null;
-            float sqrDistanceToCurrentTarget = 0;
+            float distanceToCurrentTarget = 0;
 
             bool isFirst = true;
 
@@ -71,15 +71,15 @@ namespace Tienkio {
 
                 if (isFirst) {
                     currentTarget = enemy;
-                    sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
+                    distanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
-                    float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
+                    float distanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
-                    if (sqrDistanceToEnemy < sqrDistanceToCurrentTarget) {
+                    if (distanceToEnemy < distanceToCurrentTarget) {
                         currentTarget = enemy;
-                        sqrDistanceToCurrentTarget = sqrDistanceToEnemy;
+                        distanceToCurrentTarget = distanceToEnemy;
                     }
                 }
             }

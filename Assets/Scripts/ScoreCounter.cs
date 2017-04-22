@@ -27,9 +27,6 @@ namespace Tienkio {
     }
 
     public class ScoreCounter : MonoBehaviour {
-        public StatsHolder stats;
-
-        [Space]
         public int levelIndex;
         public int score;
         public int upgradePoints;

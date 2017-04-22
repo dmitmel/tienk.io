@@ -36,9 +36,6 @@ namespace Tienkio {
                     }
                 }
 
-                if (_instance == null)
-                    Debug.LogError($"[Singleton] There're no objects on scene with type of '{typeof(T)}'");
-
                 return _instance;
             }
         }

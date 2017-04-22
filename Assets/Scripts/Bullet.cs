@@ -47,11 +47,13 @@ namespace Tienkio {
 
         void Update() {
             float timeFromStart = Time.time - startTime;
-            if (timeFromStart >= flyTime) poolObject.PutIntoPool();
+            if (timeFromStart >= flyTime) {
+                poolObject.PutIntoPool();
+            } else {
+                rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
-            rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
-
-            if (health <= 0) poolObject.PutIntoPool();
+                if (health <= 0) poolObject.PutIntoPool();
+            }
         }
    }
 }
