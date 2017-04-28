@@ -24,7 +24,7 @@ namespace Tienkio {
     }
 
     public class Gun : MonoBehaviour {
-        [Space]
+        public PoolManager bulletPool;
         public float bulletOffset;
         public Vector3 bulletSize = Vector3.one;
 
@@ -80,7 +80,7 @@ namespace Tienkio {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
                 Vector3 newBulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
-                PoolObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
+                PoolObject newBullet = bulletPool.GetFromPool(newBulletPosition, Quaternion.identity);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
                 var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();
