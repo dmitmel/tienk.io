@@ -43,7 +43,7 @@ namespace Tienkio {
                 enemies.Add(collider.transform);
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {

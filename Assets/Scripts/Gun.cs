@@ -70,7 +70,7 @@ namespace Tienkio {
             firingStartTime = -1;
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (isFiring) Fire();
         }
 

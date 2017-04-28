@@ -69,7 +69,7 @@ namespace Tienkio {
                 enemies.Add(collider.transform);
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (tank.healthBar.health <= 0) Respawn();
 
             for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {

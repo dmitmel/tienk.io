@@ -34,7 +34,7 @@ namespace Tienkio {
             value = ComputeValue();
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (lastStatLevel != level) {
                 level = Mathf.Clamp(level, 0, maxLevel);
                 lastStatLevel = level;

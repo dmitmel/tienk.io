@@ -33,7 +33,7 @@ namespace Tienkio {
             originalScale = healthBar.localScale;
         }
 
-        protected virtual void Update() {
+        protected virtual void FixedUpdate() {
             if (lastHealth != health) {
                 ResizeBar();
                 if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;

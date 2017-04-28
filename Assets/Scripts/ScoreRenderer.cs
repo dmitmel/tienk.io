@@ -30,7 +30,7 @@ namespace Tienkio {
             UpdateUI();
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (lastScore != counter.score || lastUpgradePoints != counter.upgradePoints) UpdateUI();
         }
 

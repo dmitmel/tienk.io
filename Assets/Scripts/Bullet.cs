@@ -45,7 +45,7 @@ namespace Tienkio {
             startTime = Time.time;
         }
 
-        void Update() {
+        void FixedUpdate() {
             float timeFromStart = Time.time - startTime;
             if (timeFromStart >= flyTime) {
                 poolObject.PutIntoPool();

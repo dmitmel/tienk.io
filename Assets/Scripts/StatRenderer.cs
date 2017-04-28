@@ -33,7 +33,7 @@ namespace Tienkio {
             UpdateUI();
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (lastStatLevel != stat.level) {
                 UpdateUI();
                 lastStatLevel = stat.level;

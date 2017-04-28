@@ -40,7 +40,7 @@ namespace Tienkio {
             lastScore = score;
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (lastScore != score) {
                 currentLevel = ComputeLevel();
                 lastScore = score;

@@ -31,7 +31,7 @@ namespace Tienkio {
             offset = transform.localPosition;
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (follow != null) transform.localPosition = offset + follow.localPosition;
         }
     }

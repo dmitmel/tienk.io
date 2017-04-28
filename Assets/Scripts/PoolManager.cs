@@ -48,7 +48,7 @@ namespace Tienkio {
             objectsToIntialize.Clear();
         }
 
-        void Update() {
+        void FixedUpdate() {
             float now = Time.time;
 
             if (pool.Count > 0) {

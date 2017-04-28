@@ -31,8 +31,8 @@ namespace Tienkio {
             healthRegen = lastHealthRegen = stats.healthRegen.value;
         }
 
-        protected override void Update() {
-            base.Update();
+        protected override void FixedUpdate() {
+            base.FixedUpdate();
 
             float newHealthRegen = stats.healthRegen.value;
             if (newHealthRegen != lastHealthRegen) {

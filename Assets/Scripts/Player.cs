@@ -43,7 +43,7 @@ namespace Tienkio {
             tank = GetComponent<Tank>();
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (tank.healthBar.health <= 0) Destroy(parent);
 
             //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;

@@ -36,7 +36,7 @@ namespace Tienkio {
             rotOffset = transform.rotation * Quaternion.Inverse(player.rotation);
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (player != null) {
                 transform.position = Vector3.Lerp(transform.position, player.position + posOffset,
                                                   Time.deltaTime * movementSpeed);
