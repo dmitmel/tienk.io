@@ -34,6 +34,6 @@ namespace Tienkio {
     }
 
     public class KeyBindings : Singleton<KeyBindings> {
-        public KeyBinding fire, autoFire, autoSpin;
+        public KeyBinding fire, autoFire, autoSpin, lockCursor, unlockCursor;
     }
 }

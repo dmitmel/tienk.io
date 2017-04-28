@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tienk.io", "Assembly-CSharp-firstpass.csproj", "{F24B7168-0D84-C029-1C5E-E771204D2A15}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tienk.io", "Assembly-CSharp.csproj", "{F38E58A8-F473-6915-7E82-F34E7FABC8D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tienk.io", "Assembly-CSharp-Editor.csproj", "{8EDCAF0F-B10D-64C4-D9E2-37109EF12210}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F24B7168-0D84-C029-1C5E-E771204D2A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24B7168-0D84-C029-1C5E-E771204D2A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24B7168-0D84-C029-1C5E-E771204D2A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24B7168-0D84-C029-1C5E-E771204D2A15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F38E58A8-F473-6915-7E82-F34E7FABC8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F38E58A8-F473-6915-7E82-F34E7FABC8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38E58A8-F473-6915-7E82-F34E7FABC8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38E58A8-F473-6915-7E82-F34E7FABC8D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDCAF0F-B10D-64C4-D9E2-37109EF12210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDCAF0F-B10D-64C4-D9E2-37109EF12210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDCAF0F-B10D-64C4-D9E2-37109EF12210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDCAF0F-B10D-64C4-D9E2-37109EF12210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

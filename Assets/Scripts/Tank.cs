@@ -28,22 +28,22 @@ namespace Tienkio {
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
-        new Rigidbody2D rigidbody;
+        new Rigidbody rigidbody;
 
         void Awake() {
             healthBar = GetComponent<TankHealth>();
-            rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody = GetComponent<Rigidbody>();
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void OnTriggerEnter(Collider collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();
                 if (bullet.tank == this) return;
 
-                Rigidbody2D bulletRigidbody = collider.attachedRigidbody;
+                Rigidbody bulletRigidbody = collider.attachedRigidbody;
 
-                Vector2 bulletDirection = bulletRigidbody.velocity.normalized;
-                rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
+                Vector3 bulletDirection = bulletRigidbody.velocity.normalized;
+                rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
                 float bodyDamagePerCycle = stats.bodyDamage.value * bodyDamageForBulletMultiplier / damageComputationCycles;
@@ -57,14 +57,13 @@ namespace Tienkio {
             }
         }
 
-        void OnCollisionEnter2D(Collision2D collision) {
-            Collider2D collider = collision.collider;
+        void OnCollisionEnter(Collision collision) {
+            GameObject collider = collision.gameObject;
             if (collider.CompareTag("Tank")) {
                 var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
                 var tank = collider.GetComponent<Tank>();
 
                 tankHealthBar.health -= stats.bodyDamage.value;
-
                 if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
             }
         }

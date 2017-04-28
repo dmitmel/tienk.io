@@ -48,3 +48,9 @@ Thumbs.db
 /SVGAssets
 /UtilScripts
 /.save.cson
+
+/Assembly-CSharp-Editor.csproj
+/Assets/Editor*
+/Assets/Standard Assets*
+/Assets/www.Devination.com*
+/Assembly-CSharp-firstpass.csproj

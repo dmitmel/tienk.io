@@ -27,31 +27,33 @@ namespace Tienkio {
         public PoolObject parent;
 
         [Space]
-        public float rotationSpeed;
-        public float randomMovementSpeed;
-        Vector2 randomVelocity;
-        new Rigidbody2D rigidbody;
+        public float randomRotationSpeed, randomMovementSpeed;
+        new Rigidbody rigidbody;
 
         ObjectWithHealth healthBar;
 
         void Awake() {
             healthBar = GetComponent<ObjectWithHealth>();
-            rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody = GetComponent<Rigidbody>();
         }
 
         public void Start() {
-            rigidbody.angularVelocity = Mathf.Lerp(-1, 1, Random.value) * rotationSpeed;
+            rigidbody.angularVelocity = new Vector3(
+                Random.Range(randomRotationSpeed, randomRotationSpeed),
+                0,
+                Random.Range(randomRotationSpeed, randomRotationSpeed)
+            );
             rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
             healthBar.health = healthBar.maxHealth;
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void OnTriggerEnter(Collider collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();
-                Rigidbody2D bulletRigidbody = collider.attachedRigidbody;
+                Rigidbody bulletRigidbody = collider.attachedRigidbody;
 
-                Vector2 bulletDirection = bulletRigidbody.velocity.normalized;
-                rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
+                Vector3 bulletDirection = bulletRigidbody.velocity.normalized;
+                rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
                 float bodyDamagePerCycle = bodyDamageForBullets / damageComputationCycles;
@@ -62,15 +64,15 @@ namespace Tienkio {
                 }
 
                 if (healthBar.health <= 0) {
-                    ShapePool.instance.SpawnShape();
                     bullet.tank.scoreCounter.score += score;
+                    ShapePool.instance.SpawnShape();
                     ShapePool.instance.DestroyShape(parent);
                 }
             }
         }
 
-        void OnCollisionEnter2D(Collision2D collision) {
-            Collider2D collider = collision.collider;
+        void OnCollisionEnter(Collision collision) {
+            GameObject collider = collision.gameObject;
             if (collider.CompareTag("Tank")) {
                 var tank = collider.GetComponent<Tank>();
 
@@ -78,8 +80,8 @@ namespace Tienkio {
                 healthBar.health -= tank.stats.bodyDamage.value;
                 if (healthBar.health <= 0) {
                     tank.scoreCounter.score += score;
-                    ShapePool.instance.DestroyShape(parent);
                     ShapePool.instance.SpawnShape();
+                    ShapePool.instance.DestroyShape(parent);
                 }
             }
         }

@@ -22,7 +22,8 @@ using System;
 namespace Tienkio {
     public class TankAI : MonoBehaviour {
         public Tank tank;
-        Rigidbody2D tankRigidbody;
+        Rigidbody tankRigidbody;
+        Transform tankTransform;
         public float accelerationMultiplier = 2;
         public float minSqrDistance;
 
@@ -31,7 +32,7 @@ namespace Tienkio {
         public float targetChooseInterval;
 
         [Space]
-        public Rect spawnFieldBoundary;
+        public Vector3 spawnFieldMin, spawnFieldMax;
 
         List<Transform> enemies = new List<Transform>();
         Transform target;
@@ -43,13 +44,15 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
-            tankRigidbody = tank.GetComponent<Rigidbody2D>();
+            tankRigidbody = tank.GetComponent<Rigidbody>();
+            tankTransform = tank.transform;
         }
 
         void Start() {
-            tank.transform.position = new Vector2(
-                UnityEngine.Random.Range(spawnFieldBoundary.x, spawnFieldBoundary.width),
-                UnityEngine.Random.Range(spawnFieldBoundary.y, spawnFieldBoundary.height)
+            tank.transform.position = new Vector3(
+                UnityEngine.Random.Range(spawnFieldMin.x, spawnFieldMax.x),
+                UnityEngine.Random.Range(spawnFieldMin.y, spawnFieldMax.y),
+                UnityEngine.Random.Range(spawnFieldMin.z, spawnFieldMax.z)
             );
         }
 
@@ -61,7 +64,7 @@ namespace Tienkio {
             tank.healthBar.OnRespawn();
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void OnTriggerEnter(Collider collider) {
             if (collider.gameObject != tank.gameObject && objectsAttackPriority.Contains(collider.tag))
                 enemies.Add(collider.transform);
         }
@@ -90,14 +93,11 @@ namespace Tienkio {
                 float movementSpeed = tank.stats.movementSpeed.value;
 
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
-                float additionalMultiplier = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
+                float distanceStabilization = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
-                tankRigidbody.rotation = Vectors.Angle2D(tankRigidbody.position, target.position) + 90;
-                tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier * additionalMultiplier);
-                tankRigidbody.velocity = new Vector2(
-                    Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(tankRigidbody.velocity.y, -movementSpeed, movementSpeed)
-                );
+                tankTransform.LookAt(target);
+                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * distanceStabilization);
+                if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
@@ -168,7 +168,7 @@ namespace Tienkio {
             return Array.IndexOf(objectsAttackPriority, enemy.tag);
         }
 
-        void OnTriggerExit2D(Collider2D collider) {
+        void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
             if (colliderIsEnemy && colliderTransform == target) target = null;
