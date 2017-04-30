@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4554841265577114}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 114204638348659794}
-  accelerationMultiplier: 6.8
+  accelerationMultiplier: 2
   minSqrDistance: 20
   objectsAttackPriority:
   - Square
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   bulletOffset: 0.68
-  bulletSize: {x: 1, y: 1, z: 1}
+  bulletSize: 1
   moveBackwardsOnShot: 0.05
   moveBackwardsSteps: 5
   statsMultipliers:
@@ -999,7 +999,6 @@ MonoBehaviour:
   bulletKnockback: 0.5
   bulletSpread: 20
   tank: {fileID: 114204638348659794}
-  tankRelativeVelocityMultiplier: 1
 --- !u!114 &114878821196847498
 MonoBehaviour:
   m_ObjectHideFlags: 1

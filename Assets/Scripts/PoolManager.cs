@@ -48,7 +48,7 @@ namespace Tienkio {
             objectsToIntialize.Clear();
         }
 
-        void FixedUpdate() {
+        void Update() {
             float now = Time.time;
 
             if (pool.Count > 0) {
@@ -59,8 +59,8 @@ namespace Tienkio {
 
                 if (nextObjectRemove > 0 && now >= nextObjectRemove) {
                     nextObjectRemove = now + garbageCollectionInterval;
-                    PoolObject obj = pool.Dequeue();
-                    Destroy(obj);
+                    PoolObject poolObj = pool.Dequeue();
+                    Destroy(poolObj.gameObject);
                 }
             }
         }
@@ -88,13 +88,13 @@ namespace Tienkio {
             }
         }
 
-        public void PutIntoPool(PoolObject obj) {
+        public void PutIntoPool(PoolObject poolObj) {
             nextGCStart = Time.time + garbageCollectionDelay;
             nextObjectRemove = -1;
 
-            pool.Enqueue(obj);
-            obj.gameObject.SetActive(false);
-            objectsToIntialize.Remove(obj);
+            pool.Enqueue(poolObj);
+            poolObj.gameObject.SetActive(false);
+            objectsToIntialize.Remove(poolObj);
         }
     }
 }

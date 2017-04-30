@@ -84,8 +84,7 @@ namespace Tienkio {
                     target = ChooseTarget();
 
                     foreach (Gun gun in tank.guns)
-                        if (!gun.isFiring)
-                            gun.StartFiring();
+                        gun.Fire();
                 }
             }
 

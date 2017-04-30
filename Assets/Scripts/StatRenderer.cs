@@ -18,10 +18,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Tienkio {
-    public enum StatType {
-        HealthRegen, MaxHealth, BodyDamage, BulletPenetration, BulletSpeed, BulletDamage, Reload, MovementSpeed
-    }
-
     public class StatRenderer : MonoBehaviour {
         public Stat stat;
         public Button upgradeButton;
@@ -45,7 +41,7 @@ namespace Tienkio {
                 upgradeButton.interactable = IsInteractable();
             }
 
-            if (Player.singletonGameObject != null) {
+            if (PlayerControls.singletonGameObject != null) {
                 upgradeButton.interactable = false;
             }
         }

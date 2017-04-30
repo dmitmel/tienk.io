@@ -17,25 +17,12 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class HealthBarMover : MonoBehaviour {
-        public Transform follow;
-        new Transform camera;
+    public class PlayerUpgrader : TankUpgrader {
+        public CameraController cameraController;
 
-        new Transform transform;
-        Vector3 offset;
-
-        void Awake() {
-            transform = base.transform;
-            camera = Camera.main.transform;
-        }
-
-        void Start() {
-            offset = transform.position - follow.position;
-        }
-
-        void FixedUpdate() {
-            if (follow != null) transform.position = camera.rotation * offset + follow.position;
-            transform.rotation = camera.rotation;
+        protected override void ResetComponentsOfTank() {
+            base.ResetComponentsOfTank();
+            cameraController.OnPlayerUpgrade(currentTankBody);
         }
     }
 }

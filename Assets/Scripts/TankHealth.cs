@@ -19,10 +19,14 @@ using UnityEngine;
 namespace Tienkio {
     public class TankHealth : ObjectWithHealth {
         [Space]
-        public StatsHolder stats;
-        public float extraRegenMultiplier = 1;
+        public float statToExtraRegenMultiplier = 1;
 
+        StatsHolder stats;
         float lastHealthRegen, lastMaxHealth;
+
+        public void OnTankUpgrade(Tank tankBody) {
+            stats = tankBody.stats;
+        }
 
         protected override void Start() {
             base.Start();
@@ -37,7 +41,7 @@ namespace Tienkio {
             float newHealthRegen = stats.healthRegen.value;
             if (newHealthRegen != lastHealthRegen) {
                 lastHealthRegen = healthRegen = stats.healthRegen.value;
-                extraRegen = healthRegen * extraRegenMultiplier;
+                extraRegen = healthRegen * statToExtraRegenMultiplier;
             }
 
             float newMaxHealth = stats.maxHealth.value;
