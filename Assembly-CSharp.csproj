@@ -48,17 +48,18 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BouncyObject.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\BulletPool.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CrasherAI.cs" />
      <Compile Include="Assets\Scripts\CursorLocker.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\HealthBarMover.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
      <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerControls.cs" />
-     <Compile Include="Assets\Scripts\PlayerUpgrader.cs" />
      <Compile Include="Assets\Scripts\PoolManager.cs" />
      <Compile Include="Assets\Scripts\PoolObject.cs" />
      <Compile Include="Assets\Scripts\ScoreCounter.cs" />

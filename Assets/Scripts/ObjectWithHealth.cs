@@ -23,7 +23,7 @@ namespace Tienkio {
         protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
-        protected float lastUpdate, nextExtraRegen;
+        protected float nextExtraRegen;
 
         Vector3 originalPosition;
         Vector3 originalScale;
@@ -42,19 +42,16 @@ namespace Tienkio {
 
             if (IsRegenEnabled() || IsExtraRegenEnabled()) {
                 float now = Time.time;
-                float sinceLastUpdate = now - lastUpdate;
                 bool isExtraRegen = IsExtraRegenEnabled() && now >= nextExtraRegen;
 
                 if (health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
-                    float regen = Mathf.Min(maxHealth * healthPerSecond * sinceLastUpdate, maxHealth - health);
+                    float regen = Mathf.Min(maxHealth * healthPerSecond * Time.deltaTime, maxHealth - health);
                     health = lastHealth += regen;
                     ResizeBar();
                 } else if (IsExtraRegenEnabled()) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }
-
-                lastUpdate = now;
             }
         }
 

@@ -17,12 +17,9 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class PlayerUpgrader : TankUpgrader {
-        public CameraController cameraController;
-
-        protected override void ResetComponentsOfTank() {
-            base.ResetComponentsOfTank();
-            cameraController.OnPlayerUpgrade(currentTankBody);
+    public class BulletPool : PoolManager {
+        public void OnTankUpgrade(Tank tank) {
+            foreach (Gun gun in tank.guns) gun.bulletPool = this;
         }
     }
 }

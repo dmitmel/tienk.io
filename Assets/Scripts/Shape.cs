@@ -24,10 +24,11 @@ namespace Tienkio {
         public float bodyDamageForBullets;
 
         [Space]
-        public PoolObject parent;
+        public PoolObject poolObject;
 
         [Space]
-        public float randomRotationSpeed, randomMovementSpeed;
+        public float randomRotationSpeed;
+        public float randomMovementSpeed;
         new Rigidbody rigidbody;
 
         ObjectWithHealth healthBar;
@@ -66,7 +67,7 @@ namespace Tienkio {
                 if (healthBar.health <= 0) {
                     bullet.tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(parent);
+                    ShapePool.instance.DestroyShape(poolObject);
                 }
             }
         }
@@ -81,7 +82,7 @@ namespace Tienkio {
                 if (healthBar.health <= 0) {
                     tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(parent);
+                    ShapePool.instance.DestroyShape(poolObject);
                 }
             }
         }

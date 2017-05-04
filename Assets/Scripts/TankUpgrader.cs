@@ -15,15 +15,16 @@
 //
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tienkio {
+    [System.Serializable]
+    public class TankUpgradeEvent : UnityEvent<Tank> { }
+
     public class TankUpgrader : MonoBehaviour {
-        public PlayerControls playerControls;
-        public Transform healthBar;
-        public StatsHolder stats;
         public ScoreCounter scoreCounter;
-        public HealthBarMover healthBarMover;
-        public PoolManager bulletPool;
+
+        public TankUpgradeEvent onTankUpgrade;
 
         TankUpgradeNode currentTank;
         [HideInInspector]
@@ -34,7 +35,7 @@ namespace Tienkio {
         void Start() {
             currentTank = TankUpgradeTree.instance.tankUpgradeTree[0];
             currentTankBody = Instantiate(currentTank.prefab, transform);
-            ResetComponentsOfTank();
+            onTankUpgrade.Invoke(currentTankBody);
         }
 
         void Update() {
@@ -45,17 +46,7 @@ namespace Tienkio {
             currentTank = upgrades[tierIndex];
             Destroy(currentTankBody.gameObject);
             currentTankBody = Instantiate(currentTank.prefab, transform);
-            ResetComponentsOfTank();
-        }
-
-        protected virtual void ResetComponentsOfTank() {
-            currentTankBody.stats = stats;
-            currentTankBody.scoreCounter = scoreCounter;
-            currentTankBody.healthBar.healthBar = healthBar;
-            currentTankBody.healthBar.OnTankUpgrade(currentTankBody);
-            playerControls.OnTankUpgrade(currentTankBody);
-            healthBarMover.follow = currentTankBody.transform;
-            foreach (Gun gun in currentTankBody.guns) gun.bulletPool = bulletPool;
+            onTankUpgrade.Invoke(currentTankBody);
         }
     }
 }

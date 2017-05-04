@@ -20,10 +20,9 @@ namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
 
     public class PlayerControls : Singleton<PlayerControls> {
-        public GameObject parent;
         public Tank tank;
-        public Transform tankTransform;
-        public Rigidbody tankRigidbody;
+        Transform tankTransform;
+        Rigidbody tankRigidbody;
 
         [Space]
         public ControlsType controlsType;
@@ -43,7 +42,7 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (tank.healthBar.health <= 0) Destroy(parent);
+            if (tank.healthBar.health <= 0) Destroy(gameObject);
 
             //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             //if (autoSpinEnabled) {

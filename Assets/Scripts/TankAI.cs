@@ -72,11 +72,6 @@ namespace Tienkio {
         void FixedUpdate() {
             if (tank.healthBar.health <= 0) Respawn();
 
-            for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
-                Stat stat = RandomStat();
-                stat.Upgrade();
-            }
-
             if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
@@ -100,6 +95,13 @@ namespace Tienkio {
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
+            }
+        }
+
+        public void UpgradeRandomStats() {
+            for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
+                Stat stat = RandomStat();
+                stat.Upgrade();
             }
         }
 

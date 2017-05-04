@@ -2011,7 +2011,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -2918,6 +2918,12 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &443373057 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114715507373294810, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 777305631}
+  m_Script: {fileID: 11500000, guid: c5b9007f9d2aa4011b33c56f3598b463, type: 3}
 --- !u!1 &468947067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3430,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -4302,54 +4308,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
---- !u!1 &610754262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 610754263}
-  - component: {fileID: 610754264}
-  m_Layer: 0
-  m_Name: PlayerMover
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &610754263
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 610754262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1948516690}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610754264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 610754262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 1948516689}
-  tank: {fileID: 0}
-  tankTransform: {fileID: 0}
-  tankRigidbody: {fileID: 0}
-  controlsType: 0
-  inversedControls: 0
-  rotationSensitivity: {x: 10, y: 10}
-  accelerationMultiplier: 2
 --- !u!1001 &626839951
 Prefab:
   m_ObjectHideFlags: 0
@@ -4393,7 +4351,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -5077,6 +5035,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 491613836}
     m_Modifications:
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4554841265577114, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5113,10 +5076,35 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 443373057}
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeRandomStats
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688945464035576, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
+        type: 2}
+      propertyPath: onUpgradePointsChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
@@ -6210,7 +6198,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -6775,7 +6763,7 @@ Transform:
   - {fileID: 1747562482}
   - {fileID: 1299414040}
   m_Father: {fileID: 1948516690}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009189775
 MonoBehaviour:
@@ -6789,9 +6777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 44
-  score: 30000
-  upgradePoints: 49
+  levelIndex: 0
+  score: 0
+  upgradePoints: 0
   levels:
   - index: 0
     neededScore: 0
@@ -7019,11 +7007,43 @@ MonoBehaviour:
     respawnLevel: 21
     givesUpgradePoint: 1
   currentLevel:
-    index: 44
-    neededScore: 23536
-    scoreToNextLevel: 0
-    respawnLevel: 21
-    givesUpgradePoint: 1
+    index: 0
+    neededScore: 0
+    scoreToNextLevel: 4
+    respawnLevel: 0
+    givesUpgradePoint: 0
+  onScoreChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 183386608}
+        m_MethodName: OnScoreChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onUpgradePointsChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 183386608}
+        m_MethodName: OnUpgradePointsChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1009189776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7087,7 +7107,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -7328,7 +7348,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -8183,7 +8203,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -8803,7 +8823,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -9049,7 +9069,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -9266,7 +9286,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -9987,7 +10007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementSpeed: 100
+  movementSpeed: 2
   rotationSpeed: 1
 --- !u!1 &1392158136
 GameObject:
@@ -10245,7 +10265,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1437571730}
-  - component: {fileID: 1437571731}
+  - component: {fileID: 1437571729}
   m_Layer: 0
   m_Name: PlayerBullets
   m_TagString: Untagged
@@ -10253,6 +10273,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1437571729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437571728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2abd7dc0d1e4e969792e0a9061635c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 114690722846867370, guid: a6cfb0de1e93e421a80efc6a326b1eb3, type: 2}
+  initialPoolSize: 50
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!4 &1437571730
 Transform:
   m_ObjectHideFlags: 0
@@ -10266,21 +10301,6 @@ Transform:
   m_Father: {fileID: 564997209}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1437571731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1437571728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7836eb223d2444907a60abba249d9c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 114690722846867370, guid: a6cfb0de1e93e421a80efc6a326b1eb3, type: 2}
-  initialPoolSize: 50
-  garbageCollectionDelay: 1
-  garbageCollectionInterval: 0
 --- !u!1 &1444355533
 GameObject:
   m_ObjectHideFlags: 0
@@ -10425,7 +10445,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1455035259}
-  - component: {fileID: 1455035261}
+  - component: {fileID: 1455035260}
   m_Layer: 0
   m_Name: EnemyBullets
   m_TagString: Untagged
@@ -10446,7 +10466,7 @@ Transform:
   m_Father: {fileID: 564997209}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455035261
+--- !u!114 &1455035260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -10454,13 +10474,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455035258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7836eb223d2444907a60abba249d9c66, type: 3}
+  m_Script: {fileID: 11500000, guid: ac2abd7dc0d1e4e969792e0a9061635c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 114690722846867370, guid: a38118dd802df4f52aecf15eb7fc63c3, type: 2}
   initialPoolSize: 50
-  garbageCollectionDelay: 1
-  garbageCollectionInterval: 0.1
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &1458136610
 GameObject:
   m_ObjectHideFlags: 0
@@ -10694,7 +10714,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -10818,7 +10838,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -11011,8 +11031,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1529042227}
-  - component: {fileID: 1529042230}
   - component: {fileID: 1529042228}
+  - component: {fileID: 1529042229}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -11033,7 +11053,7 @@ Transform:
   m_Children:
   - {fileID: 915195731}
   m_Father: {fileID: 1948516690}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1529042228
 SpriteRenderer:
@@ -11070,7 +11090,7 @@ SpriteRenderer:
   m_Color: {r: 0.32580435, g: 0.3258669, b: 0.32579386, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!114 &1529042230
+--- !u!114 &1529042229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -11078,9 +11098,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1529042226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12f40917098e490ab6a071cd4b9e351, type: 3}
+  m_Script: {fileID: 11500000, guid: 26f05b8a0948846829c69e42bd104077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 915195731}
   follow: {fileID: 0}
 --- !u!1 &1565385991
 GameObject:
@@ -11835,7 +11856,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -11959,7 +11980,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -13499,7 +13520,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -13644,7 +13665,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -13911,6 +13932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948516690}
   - component: {fileID: 1948516692}
+  - component: {fileID: 1948516691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -13929,12 +13951,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 610754263}
   - {fileID: 1009189774}
   - {fileID: 1529042227}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948516691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1948516689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 0}
+  controlsType: 0
+  inversedControls: 0
+  rotationSensitivity: {x: 10, y: 10}
+  accelerationMultiplier: 2
 --- !u!114 &1948516692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13943,17 +13980,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 1948516689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f28665b07ab84d369aa78b4d293e362, type: 3}
+  m_Script: {fileID: 11500000, guid: a77d42ef6a9164bc3b6976659bb009c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControls: {fileID: 610754264}
-  healthBar: {fileID: 915195731}
-  stats: {fileID: 1009189776}
   scoreCounter: {fileID: 1009189775}
-  healthBarMover: {fileID: 1529042230}
-  bulletPool: {fileID: 1437571731}
+  onTankUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1948516691}
+        m_MethodName: OnTankUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1009189776}
+        m_MethodName: OnTankUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1009189775}
+        m_MethodName: OnTankUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1390244218}
+        m_MethodName: OnPlayerUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1529042229}
+        m_MethodName: OnTankUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1437571729}
+        m_MethodName: OnTankUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: Tienkio.TankUpgradeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   upgrades: []
-  cameraController: {fileID: 1390244218}
 --- !u!1001 &1949372944
 Prefab:
   m_ObjectHideFlags: 0
@@ -13997,7 +14099,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -14053,7 +14155,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -14896,7 +14998,7 @@ Prefab:
         type: 2}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 1455035261}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot

@@ -243,7 +243,7 @@ MonoBehaviour:
   score: 25
   damageComputationCycles: 100
   bodyDamageForBullets: 2.065
-  parent: {fileID: 114630351719228614}
+  poolObject: {fileID: 114630351719228614}
   randomRotationSpeed: 0
   randomMovementSpeed: 0.2
 --- !u!114 &114630351719228614
