@@ -25,15 +25,15 @@ namespace Tienkio {
 
         protected float lastUpdate, nextExtraRegen;
 
-        Vector2 originalPosition;
-        Vector2 originalScale;
+        Vector3 originalPosition;
+        Vector3 originalScale;
 
         protected virtual void Start() {
             originalPosition = healthBar.localPosition;
             originalScale = healthBar.localScale;
         }
 
-        protected virtual void Update() {
+        protected virtual void FixedUpdate() {
             if (lastHealth != health) {
                 ResizeBar();
                 if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
@@ -60,8 +60,8 @@ namespace Tienkio {
 
         void ResizeBar() {
             float width = health * (originalScale.x / maxHealth);
-            healthBar.localScale = new Vector2(width, originalScale.y);
-            healthBar.localPosition = new Vector2(width / 2f - originalScale.x / 2f, originalPosition.y);
+            healthBar.localScale = new Vector3(width, originalScale.y);
+            healthBar.localPosition = new Vector3(width / 2f - originalScale.x / 2f, originalPosition.y);
         }
 
         bool IsRegenEnabled() {

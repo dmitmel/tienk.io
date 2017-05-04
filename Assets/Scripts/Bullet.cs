@@ -26,17 +26,17 @@ namespace Tienkio {
         public float slowDownToNormalVelocityTime;
 
         [HideInInspector]
-        public Vector2 normalVelocity;
+        public Vector3 normalVelocity;
 
-        new Rigidbody2D rigidbody;
-        Vector2 originalVelocity;
+        new Rigidbody rigidbody;
+        Vector3 originalVelocity;
 
         PoolObject poolObject;
 
         float startTime;
 
         void Awake() {
-            rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody = GetComponent<Rigidbody>();
             poolObject = GetComponent<PoolObject>();
         }
 
@@ -45,12 +45,12 @@ namespace Tienkio {
             startTime = Time.time;
         }
 
-        void Update() {
+        void FixedUpdate() {
             float timeFromStart = Time.time - startTime;
             if (timeFromStart >= flyTime) {
                 poolObject.PutIntoPool();
             } else {
-                rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
+                rigidbody.velocity = Vector3.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
                 if (health <= 0) poolObject.PutIntoPool();
             }

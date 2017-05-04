@@ -21,20 +21,22 @@ namespace Tienkio {
         public int knockback;
 
         new Transform transform;
-        new Rigidbody2D rigidbody;
+        new Rigidbody rigidbody;
 
         void Awake() {
             transform = base.transform;
-            rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody = GetComponent<Rigidbody>();
         }
 
-        void OnCollisionEnter2D(Collision2D collision) {
-            Rigidbody2D colliderRigidbody = collision.collider.attachedRigidbody;
-            if (colliderRigidbody != null && rigidbody != null) {
-                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+        void OnCollisionEnter(Collision collision) {
+            if (rigidbody == null) return;
 
-                colliderRigidbody.AddForce(collisionDirection * knockback, ForceMode2D.Impulse);
-                rigidbody.AddForce(collisionDirection * -knockback, ForceMode2D.Impulse);
+            Rigidbody colliderRigidbody = collision.collider.attachedRigidbody;
+            if (colliderRigidbody != null) {
+                Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
+
+                colliderRigidbody.AddForce(collisionDirection * knockback, ForceMode.Impulse);
+                rigidbody.AddForce(collisionDirection * -knockback, ForceMode.Impulse);
             }
         }
     }

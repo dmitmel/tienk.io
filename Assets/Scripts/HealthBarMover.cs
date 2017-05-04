@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,22 +17,25 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class ObjectFollower : MonoBehaviour {
+    public class HealthBarMover : MonoBehaviour {
         public Transform follow;
+        new Transform camera;
 
         new Transform transform;
         Vector3 offset;
 
         void Awake() {
             transform = base.transform;
+            camera = GameObject.FindWithTag("MainCamera").transform;
         }
 
         void Start() {
-            offset = transform.localPosition;
+            offset = transform.position - follow.position;
         }
 
         void FixedUpdate() {
-            if (follow != null) transform.localPosition = offset + follow.localPosition;
+            if (follow != null) transform.position = camera.rotation * offset + follow.position;
+            transform.rotation = camera.rotation;
         }
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4e507a982bdde44d6b6f3806af285c1b
-timeCreated: 1492278816
+guid: 3776001277ffb465495b5d66498074d1
+timeCreated: 1488096609
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -40,7 +40,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 219
+  spritePixelsToUnits: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -51,7 +51,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -59,7 +59,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -67,7 +67,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -75,7 +75,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -83,7 +83,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: WebGL
-    maxTextureSize: 256
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50

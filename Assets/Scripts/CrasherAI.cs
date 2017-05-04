@@ -19,7 +19,8 @@ using UnityEngine;
 
 namespace Tienkio {
     public class CrasherAI : MonoBehaviour {
-        public Rigidbody2D crasher;
+        public Rigidbody crasher;
+        Transform crasherTransform;
         public float acceleration, movementSpeed;
 
         public float targetChooseInterval;
@@ -33,15 +34,16 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
+            crasherTransform = crasher.transform;
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void OnTriggerEnter(Collider collider) {
             Transform colliderTransform = collider.transform;
             if (colliderTransform.CompareTag("Tank"))
                 enemies.Add(collider.transform);
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
@@ -51,12 +53,9 @@ namespace Tienkio {
             }
 
             if (target != null) {
-                crasher.rotation = (Vectors.Angle2D(crasher.position, target.position) + 90) % 360;
-                crasher.AddRelativeForce(Vector2.up * acceleration);
-                crasher.velocity = new Vector2(
-                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
-                );
+                crasherTransform.LookAt(target);
+                crasher.AddRelativeForce(Vector3.forward * acceleration);
+                if (crasher.velocity.sqrMagnitude > movementSpeed * movementSpeed) crasher.velocity.Normalize();
             }
         }
 
@@ -87,7 +86,7 @@ namespace Tienkio {
             return currentTarget;
         }
 
-        void OnTriggerExit2D(Collider2D collider) {
+        void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
             if (colliderIsEnemy && colliderTransform == target) target = null;

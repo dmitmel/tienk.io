@@ -24,9 +24,9 @@ namespace Tienkio {
     }
 
     public class Gun : MonoBehaviour {
-        [Space]
+        public PoolManager bulletPool;
         public float bulletOffset;
-        public Vector2 bulletSize = Vector2.one;
+        public Vector3 bulletSize = Vector3.one;
 
         [Space]
         public float moveBackwardsOnShot;
@@ -39,8 +39,7 @@ namespace Tienkio {
 
         [Space]
         public Tank tank;
-        Rigidbody2D tankRigidbody;
-        SpriteRenderer tankSpriteRenderer;
+        Rigidbody tankRigidbody;
         public float tankRelativeVelocityMultiplier = 1;
 
         public bool isFiring { get; private set; }
@@ -52,8 +51,7 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
-            tankRigidbody = tank.GetComponent<Rigidbody2D>();
-            tankSpriteRenderer = tank.GetComponent<SpriteRenderer>();
+            tankRigidbody = tank.GetComponent<Rigidbody>();
         }
 
         public void StartFiring() {
@@ -72,7 +70,7 @@ namespace Tienkio {
             firingStartTime = -1;
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (isFiring) Fire();
         }
 
@@ -81,19 +79,21 @@ namespace Tienkio {
             if (now >= nextFire) {
                 nextFire = now + 1 / (statsMultipliers.reload * tank.stats.reload.value);
 
-                Vector2 newBulletPosition = transform.position + transform.rotation * new Vector2(0, bulletOffset);
-                PoolObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
+                Vector3 newBulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
+                PoolObject newBullet = bulletPool.GetFromPool(newBulletPosition, Quaternion.identity);
 
                 var newBulletController = newBullet.GetComponent<Bullet>();
-                var newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
-                var newBulletSpriteRenderer = newBullet.GetComponent<SpriteRenderer>();
+                var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();
 
                 float halfBulletSpread = bulletSpread / 2;
-                float newBulletRotationZ = Random.Range(-halfBulletSpread, halfBulletSpread);
-                Quaternion newBulletRotation = transform.rotation * Quaternion.Euler(0, 0, newBulletRotationZ);
+                var newBulletRotation = transform.rotation * Quaternion.Euler(
+                    Random.Range(-halfBulletSpread, halfBulletSpread),
+                    0,
+                    Random.Range(-halfBulletSpread, halfBulletSpread)
+                );
 
                 float bulletSpeed = tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed;
-                Vector2 normalBulletVelocity = newBulletRotation * Vector2.up * bulletSpeed;
+                var normalBulletVelocity = newBulletRotation * Vector3.up * bulletSpeed;
 
                 newBulletController.normalVelocity = normalBulletVelocity;
                 newBulletRigidbody.velocity = normalBulletVelocity + tankRigidbody.velocity * tankRelativeVelocityMultiplier;
@@ -104,11 +104,9 @@ namespace Tienkio {
                 newBulletController.knockback = bulletKnockback;
                 newBulletController.flyTime = bulletFlyTime;
 
-                newBulletSpriteRenderer.color = tankSpriteRenderer.color;
-
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
-                tankRigidbody.AddForce(transform.rotation * Vector2.down * recoil, ForceMode2D.Impulse);
+                tankRigidbody.AddForce(transform.rotation * Vector3.down * recoil, ForceMode.Impulse);
             }
         }
 
@@ -117,16 +115,16 @@ namespace Tienkio {
 
             float step = 1f / moveBackwardsSteps;
 
-            Vector2 startPosition = transform.localPosition;
-            Vector2 endPosition = transform.localPosition - transform.localRotation * new Vector3(0, moveBackwardsOnShot);
+            var startPosition = transform.localPosition;
+            var endPosition = transform.localPosition - transform.localRotation * new Vector3(0, moveBackwardsOnShot, 0);
 
             for (float t = 0; t < 1; t += step) {
-                transform.localPosition = Vector2.Lerp(startPosition, endPosition, t);
+                transform.localPosition = Vector3.Lerp(startPosition, endPosition, t);
                 yield return null;
             }
 
             for (float t = 0; t < 1; t += step) {
-                transform.localPosition = Vector2.Lerp(endPosition, startPosition, t);
+                transform.localPosition = Vector3.Lerp(endPosition, startPosition, t);
                 yield return null;
             }
 

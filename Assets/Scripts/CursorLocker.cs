@@ -17,19 +17,28 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class BulletPool : Singleton<BulletPool> {
-        PoolManager pool;
+    public class CursorLocker : MonoBehaviour {
+        public bool cursorIsLocked = true;
 
-        void Awake() {
-            pool = GetComponent<PoolManager>();
+        void Start() {
+            if (cursorIsLocked) LockCursor();
         }
 
-        public PoolObject GetFromPool(Vector2 position, Quaternion rotation) {
-            return pool.GetFromPool(position, rotation);
+        void LockCursor() {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cursorIsLocked = true;
         }
 
-        public void PutIntoPool(PoolObject bullet) {
-            pool.PutIntoPool(bullet);
+        void UnlockCursor() {
+        	Cursor.lockState = CursorLockMode.None;
+        	Cursor.visible = true;
+            cursorIsLocked = false;
+        }
+
+        void Update() {
+            if (cursorIsLocked && KeyBindings.instance.unlockCursor.isDown) UnlockCursor();
+            else if (!cursorIsLocked && KeyBindings.instance.lockCursor.isDown) LockCursor();
         }
     }
 }

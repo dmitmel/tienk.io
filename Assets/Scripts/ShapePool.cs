@@ -25,7 +25,7 @@ namespace Tienkio {
 
     public class ShapePool : Singleton<ShapePool> {
         public ShapeSpawnerPool[] shapePools;
-        public Rect fieldBoundary;
+        public Vector3 spawnFieldMin, spawnFieldMax;
         public int shapesCount;
 
         void Start() {
@@ -35,9 +35,10 @@ namespace Tienkio {
         public void SpawnShape() {
             PoolManager pool = SelectPool();
             if (pool != null) {
-                Vector2 position = new Vector2(
-                    Random.Range(fieldBoundary.x, fieldBoundary.width),
-                    Random.Range(fieldBoundary.y, fieldBoundary.height)
+                var position = new Vector3(
+                    Random.Range(spawnFieldMin.x, spawnFieldMax.x),
+                    Random.Range(spawnFieldMin.y, spawnFieldMax.y),
+                    Random.Range(spawnFieldMin.z, spawnFieldMax.z)
                 );
                 pool.GetFromPool(position, Quaternion.identity);
             }
