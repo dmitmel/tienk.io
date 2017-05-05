@@ -43,10 +43,13 @@ namespace Tienkio {
         }
 
         public void UpgradeToTier(int tierIndex) {
-            currentTank = upgrades[tierIndex];
-            Destroy(currentTankBody.gameObject);
-            currentTankBody = Instantiate(currentTank.prefab, transform);
-            onTankUpgrade.Invoke(currentTankBody);
+            TankUpgradeNode upgradedTank = upgrades[tierIndex];
+            currentTank = upgradedTank;
+            if (currentTank.prefab != null) {
+                Destroy(currentTankBody.gameObject);
+                currentTankBody = Instantiate(currentTank.prefab, transform);
+                onTankUpgrade.Invoke(currentTankBody);
+            }
         }
     }
 }

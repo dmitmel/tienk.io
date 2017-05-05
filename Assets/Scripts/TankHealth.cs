@@ -19,9 +19,9 @@ using UnityEngine;
 namespace Tienkio {
     public class TankHealth : ObjectWithHealth {
         [Space]
+        public StatsHolder stats;
         public float statToExtraRegenMultiplier = 1;
 
-        StatsHolder stats;
         float lastHealthRegen, lastMaxHealth;
 
         public void OnTankUpgrade(Tank tankBody) {

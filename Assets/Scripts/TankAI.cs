@@ -21,6 +21,8 @@ using System;
 
 namespace Tienkio {
     public class TankAI : MonoBehaviour {
+        public TankUpgrader upgrader;
+
         public Tank tank;
         Rigidbody tankRigidbody;
         Transform tankTransform;
@@ -32,7 +34,8 @@ namespace Tienkio {
         public float targetChooseInterval;
 
         [Space]
-        public Vector3 spawnFieldMin, spawnFieldMax;
+        public Vector3 spawnFieldMin;
+        public Vector3 spawnFieldMax;
 
         List<Transform> enemies = new List<Transform>();
         Transform target;
@@ -44,24 +47,30 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
-            tankRigidbody = tank.GetComponent<Rigidbody>();
-            tankTransform = tank.transform;
         }
 
-        void Start() {
-            tank.transform.position = new Vector3(
+        public void OnTankUpgrade(Tank tank) {
+            this.tank = tank;
+
+            tankRigidbody = tank.GetComponent<Rigidbody>();
+            tankTransform = tank.transform;
+
+            SetRandomPosition();
+        }
+
+        void Respawn() {
+            SetRandomPosition();
+            tank.scoreCounter.OnRespawn();
+            tank.stats.OnRespawn();
+            tank.healthBar.OnRespawn();
+        }
+
+        void SetRandomPosition() {
+            tankTransform.position = new Vector3(
                 UnityEngine.Random.Range(spawnFieldMin.x, spawnFieldMax.x),
                 UnityEngine.Random.Range(spawnFieldMin.y, spawnFieldMax.y),
                 UnityEngine.Random.Range(spawnFieldMin.z, spawnFieldMax.z)
             );
-        }
-
-        void Respawn() {
-            Start();
-
-            tank.scoreCounter.OnRespawn();
-            tank.stats.OnRespawn();
-            tank.healthBar.OnRespawn();
         }
 
         void OnTriggerEnter(Collider collider) {
@@ -71,6 +80,8 @@ namespace Tienkio {
 
         void FixedUpdate() {
             if (tank.healthBar.health <= 0) Respawn();
+
+            if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
 
             if (enemies.Count > 0 || target == null) {
                 float now = Time.time;
@@ -96,6 +107,14 @@ namespace Tienkio {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
             }
+
+            transform.position = tankTransform.position;
+        }
+
+        public void UpgradeToRandomTier() {
+            int tiers = upgrader.upgrades.Length;
+            int tier = UnityEngine.Random.Range(0, tiers - 1);
+            upgrader.UpgradeToTier(tier);
         }
 
         public void UpgradeRandomStats() {

@@ -29,10 +29,6 @@ namespace Tienkio {
             camera = Camera.main.transform;
         }
 
-        void Start() {
-            offset = transform.position - follow.position;
-        }
-
         void FixedUpdate() {
             if (follow != null) transform.position = camera.rotation * offset + follow.position;
             transform.rotation = camera.rotation;
@@ -40,6 +36,7 @@ namespace Tienkio {
 
         public void OnTankUpgrade(Tank tank) {
             follow = tank.transform;
+            offset = transform.position - follow.position;
             tank.healthBar.healthBar = bar;
             tank.healthBar.OnTankUpgrade(tank);
         }
