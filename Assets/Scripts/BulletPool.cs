@@ -17,9 +17,19 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class BulletPool : PoolManager {
-        public void OnTankUpgrade(Tank tank) {
-            foreach (Gun gun in tank.guns) gun.bulletPool = this;
+    public class BulletPool : Singleton<BulletPool> {
+        PoolManager pool;
+
+        void Awake() {
+            pool = GetComponent<PoolManager>();
+        }
+
+        public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {
+            return pool.GetFromPool(position, rotation);
+        }
+
+        public void PutIntoPool(PoolObject bullet) {
+            pool.PutIntoPool(bullet);
         }
     }
 }

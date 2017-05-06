@@ -134,7 +134,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -799,7 +799,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -851,11 +851,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114594409814918338, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
-        type: 2}
-      propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
-      value: 
-      objectReference: {fileID: 1455035260}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
   m_IsPrefabParent: 0
@@ -1035,7 +1030,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -1393,7 +1388,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -1979,7 +1974,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -2035,7 +2030,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -2550,7 +2545,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -3877,7 +3872,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -4168,36 +4163,6 @@ MonoBehaviour:
   stat: {fileID: 1771891686}
   upgradeButton: {fileID: 988935255}
   upgradeBars: {fileID: 1626772741}
---- !u!1 &564997208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 564997209}
-  m_Layer: 0
-  m_Name: Bullets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &564997209
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564997208}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000000044703484, z: 0.634}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1437571730}
-  - {fileID: 1455035259}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570884901
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4342,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -4695,7 +4660,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -4976,7 +4941,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -5100,7 +5065,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -5822,7 +5787,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -6055,6 +6020,62 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!1 &856847104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 856847105}
+  - component: {fileID: 856847107}
+  - component: {fileID: 856847106}
+  m_Layer: 0
+  m_Name: Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &856847105
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856847104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856847106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856847104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2abd7dc0d1e4e969792e0a9061635c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &856847107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856847104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7836eb223d2444907a60abba249d9c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 114690722846867370, guid: 2c9bd118239614099862227aef75b5d5, type: 2}
+  initialPoolSize: 500
+  garbageCollectionDelay: 10
+  garbageCollectionInterval: 0.4
 --- !u!1 &911096090
 GameObject:
   m_ObjectHideFlags: 0
@@ -6528,7 +6549,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -7627,7 +7648,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -9231,7 +9252,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -10553,50 +10574,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1426950100}
---- !u!1 &1437571728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1437571730}
-  - component: {fileID: 1437571729}
-  m_Layer: 0
-  m_Name: PlayerBullets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1437571729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1437571728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2abd7dc0d1e4e969792e0a9061635c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 114690722846867370, guid: a6cfb0de1e93e421a80efc6a326b1eb3, type: 2}
-  initialPoolSize: 50
-  garbageCollectionDelay: 10
-  garbageCollectionInterval: 0.4
---- !u!4 &1437571730
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1437571728}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 564997209}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444355533
 GameObject:
   m_ObjectHideFlags: 0
@@ -10733,50 +10710,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1449035797}
---- !u!1 &1455035258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1455035259}
-  - component: {fileID: 1455035260}
-  m_Layer: 0
-  m_Name: EnemyBullets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1455035259
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1455035258}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 564997209}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455035260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1455035258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2abd7dc0d1e4e969792e0a9061635c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 114690722846867370, guid: a38118dd802df4f52aecf15eb7fc63c3, type: 2}
-  initialPoolSize: 50
-  garbageCollectionDelay: 10
-  garbageCollectionInterval: 0.4
 --- !u!1 &1458136610
 GameObject:
   m_ObjectHideFlags: 0
@@ -11508,7 +11441,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -13037,7 +12970,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot
@@ -14114,17 +14047,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1437571729}
-        m_MethodName: OnTankUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: Tienkio.TankUpgradeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
@@ -14172,7 +14094,7 @@ Prefab:
         type: 2}
       propertyPath: onTankUpgrade.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1455035260}
+      objectReference: {fileID: 0}
     - target: {fileID: 1796678027560356, guid: 4f2980d0bdb0547258d4c2f6763c45ed, type: 2}
       propertyPath: m_Name
       value: Bot

@@ -24,7 +24,6 @@ namespace Tienkio {
     }
 
     public class Gun : MonoBehaviour {
-        public PoolManager bulletPool;
         public float bulletOffset;
         public float bulletSize = 1;
 
@@ -65,33 +64,7 @@ namespace Tienkio {
             if (isFiring && now >= nextFire) {
                 nextFire = now + (statsMultipliers.reload * tank.stats.reload.value);
 
-                Vector3 newBulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
-                PoolObject newBullet = bulletPool.GetFromPool(newBulletPosition, Quaternion.identity);
-
-                Vector3 scale = transform.lossyScale;
-                newBullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
-
-                var newBulletController = newBullet.GetComponent<Bullet>();
-                var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();
-
-                float halfBulletSpread = bulletSpread / 2;
-                var newBulletRotation = transform.rotation * Quaternion.Euler(
-                    Random.Range(-halfBulletSpread, halfBulletSpread),
-                    0,
-                    Random.Range(-halfBulletSpread, halfBulletSpread)
-                );
-
-                float bulletSpeed = tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed;
-                var bulletVelocity = newBulletRotation * Vector3.up * bulletSpeed;
-
-                newBulletController.normalVelocity = bulletVelocity;
-                newBulletRigidbody.velocity = bulletVelocity + tankRigidbody.velocity;
-
-                newBulletController.tank = tank;
-                newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
-                newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
-                newBulletController.knockback = bulletKnockback;
-                newBulletController.flyTime = bulletFlyTime;
+                SpawnBullet();
 
                 if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
@@ -101,6 +74,39 @@ namespace Tienkio {
                     nextFire = now + shootDelay * (statsMultipliers.reload * tank.stats.reload.value);
                 isFiring = true;
             }
+        }
+
+        void SpawnBullet() {
+            Vector3 newBulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
+            PoolObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
+
+            Vector3 scale = transform.lossyScale;
+            newBullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
+
+            var newBulletRenderer = newBullet.GetComponent<MeshRenderer>();
+            newBulletRenderer.material = tank.meshRenderer.material;
+
+            var newBulletController = newBullet.GetComponent<Bullet>();
+            var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();
+
+            float halfBulletSpread = bulletSpread / 2;
+            var newBulletRotation = transform.rotation * Quaternion.Euler(
+                Random.Range(-halfBulletSpread, halfBulletSpread),
+                0,
+                Random.Range(-halfBulletSpread, halfBulletSpread)
+            );
+
+            float bulletSpeed = tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed;
+            var bulletVelocity = newBulletRotation * Vector3.up * bulletSpeed;
+
+            newBulletController.normalVelocity = bulletVelocity;
+            newBulletRigidbody.velocity = bulletVelocity + tankRigidbody.velocity;
+
+            newBulletController.tank = tank;
+            newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
+            newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
+            newBulletController.knockback = bulletKnockback;
+            newBulletController.flyTime = bulletFlyTime;
         }
 
         IEnumerator MoveBackwards() {

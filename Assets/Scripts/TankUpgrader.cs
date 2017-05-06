@@ -50,8 +50,7 @@ namespace Tienkio {
             if (currentTankBody != null) Destroy(currentTankBody.gameObject);
             currentTankBody = Instantiate(currentTank.prefab, transform);
 
-            var currentBodyRenderer = currentTankBody.GetComponent<MeshRenderer>();
-            currentBodyRenderer.material = bodyMaterial;
+            currentTankBody.meshRenderer.material = bodyMaterial;
 
             onTankUpgrade.Invoke(currentTankBody);
         }
