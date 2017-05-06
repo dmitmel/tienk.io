@@ -48,7 +48,7 @@ namespace Tienkio {
             }
         }
 
-		float ComputeValue() {
+        float ComputeValue() {
             return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastStatLevel;
         }
 

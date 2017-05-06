@@ -92,7 +92,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,7 +205,8 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0
-  statToExtraRegenMultiplier: 1
+  stats: {fileID: 0}
+  statToExtraRegenMultiplier: 40
 --- !u!114 &114437523490971938
 MonoBehaviour:
   m_ObjectHideFlags: 1

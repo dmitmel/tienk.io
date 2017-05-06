@@ -19,8 +19,8 @@ using UnityEngine;
 namespace Tienkio {
     [System.Serializable]
     public class ShapeSpawnerPool {
-    	public float chance;
-    	public PoolManager pool;
+        public float chance;
+        public PoolManager pool;
     }
 
     public class ShapePool : Singleton<ShapePool> {

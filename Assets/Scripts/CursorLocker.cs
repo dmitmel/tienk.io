@@ -31,8 +31,8 @@ namespace Tienkio {
         }
 
         void UnlockCursor() {
-        	Cursor.lockState = CursorLockMode.None;
-        	Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             cursorIsLocked = false;
         }
 

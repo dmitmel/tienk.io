@@ -14127,6 +14127,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Tienkio.TankUpgradeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
   upgrades: []
 --- !u!1001 &1969955136
 Prefab:

@@ -23,8 +23,8 @@ namespace Tienkio {
 
     public class TankUpgrader : MonoBehaviour {
         public ScoreCounter scoreCounter;
-
         public TankUpgradeEvent onTankUpgrade;
+        public Material bodyMaterial;
 
         TankUpgradeNode currentTank;
         [HideInInspector]
@@ -34,8 +34,7 @@ namespace Tienkio {
 
         void Start() {
             currentTank = TankUpgradeTree.instance.tankUpgradeTree[0];
-            currentTankBody = Instantiate(currentTank.prefab, transform);
-            onTankUpgrade.Invoke(currentTankBody);
+            UpdateTank();
         }
 
         void Update() {
@@ -43,13 +42,18 @@ namespace Tienkio {
         }
 
         public void UpgradeToTier(int tierIndex) {
-            TankUpgradeNode upgradedTank = upgrades[tierIndex];
-            currentTank = upgradedTank;
-            if (currentTank.prefab != null) {
-                Destroy(currentTankBody.gameObject);
-                currentTankBody = Instantiate(currentTank.prefab, transform);
-                onTankUpgrade.Invoke(currentTankBody);
-            }
+            currentTank = upgrades[tierIndex];
+            if (currentTank.prefab != null) UpdateTank();
+        }
+
+        void UpdateTank() {
+            if (currentTankBody != null) Destroy(currentTankBody.gameObject);
+            currentTankBody = Instantiate(currentTank.prefab, transform);
+
+            var currentBodyRenderer = currentTankBody.GetComponent<MeshRenderer>();
+            currentBodyRenderer.material = bodyMaterial;
+
+            onTankUpgrade.Invoke(currentTankBody);
         }
     }
 }
