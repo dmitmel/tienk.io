@@ -47,8 +47,14 @@ namespace Tienkio {
         }
 
         void UpdateTank() {
-            if (currentTankBody != null) Destroy(currentTankBody.gameObject);
-            currentTankBody = Instantiate(currentTank.prefab, transform);
+            Vector3 position = transform.position;
+            Quaternion rotation = transform.rotation;
+            if (currentTankBody != null) {
+                Destroy(currentTankBody.gameObject);
+                position = currentTankBody.transform.position;
+                rotation = currentTankBody.transform.rotation;
+            }
+            currentTankBody = Instantiate(currentTank.prefab, position, rotation, transform);
 
             currentTankBody.meshRenderer.material = bodyMaterial;
 

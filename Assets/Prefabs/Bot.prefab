@@ -848,6 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 4478781346470216}
   follow: {fileID: 0}
+  offset: {x: 0, y: -0.9, z: 0}
 --- !u!114 &114715507373294810
 MonoBehaviour:
   m_ObjectHideFlags: 1

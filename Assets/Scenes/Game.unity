@@ -11220,6 +11220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 915195731}
   follow: {fileID: 0}
+  offset: {x: 0, y: -0.9, z: 0}
 --- !u!1 &1565385991
 GameObject:
   m_ObjectHideFlags: 0

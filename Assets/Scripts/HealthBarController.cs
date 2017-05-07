@@ -19,10 +19,10 @@ using UnityEngine;
 namespace Tienkio {
     public class HealthBarController : MonoBehaviour {
         public Transform bar, follow;
+        public Vector3 offset;
         new Transform camera;
 
         new Transform transform;
-        Vector3 offset;
 
         void Awake() {
             transform = base.transform;
@@ -36,7 +36,6 @@ namespace Tienkio {
 
         public void OnTankUpgrade(Tank tank) {
             follow = tank.transform;
-            offset = transform.position - follow.position;
             tank.healthBar.healthBar = bar;
             tank.healthBar.OnTankUpgrade(tank);
         }
