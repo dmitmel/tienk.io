@@ -24,16 +24,6 @@ namespace Tienkio {
         public Text scoreLabel, levelLabel, upgradePointsLabel;
         public LevelBar levelBar;
 
-        int lastScore, lastUpgradePoints;
-
-        void Start() {
-            UpdateUI();
-        }
-
-        void FixedUpdate() {
-            if (lastScore != counter.score || lastUpgradePoints != counter.upgradePoints) UpdateUI();
-        }
-
         //string FormatScore() {
         //    string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
         //    float valueForFormatting =
@@ -42,15 +32,15 @@ namespace Tienkio {
         //    return valueForFormatting.ToString($"#,##0.#{suffix}");
         //}
 
-        public void UpdateUI() {
+        public void OnScoreChange() {
             scoreLabel.text = $"Score: {counter.score.ToString("#,##0")}";
-            lastScore = counter.score;
 
             levelLabel.text = $"Lvl {counter.currentLevel.index} Tank";
             levelBar.UpdateBar();
+        }
 
+        public void OnUpgradePointsChange() {
             upgradePointsLabel.text = $"x{counter.upgradePoints}";
-            lastUpgradePoints = counter.upgradePoints;
         }
     }
 }

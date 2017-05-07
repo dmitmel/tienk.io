@@ -31,6 +31,10 @@ namespace Tienkio {
             transform = base.transform;
         }
 
+        public void OnPlayerUpgrade(Tank playerBody) {
+            player = playerBody.GetComponent<Rigidbody>();
+        }
+
         void Start() {
             posOffset = transform.position - player.position;
             rotOffset = transform.rotation * Quaternion.Inverse(player.rotation);

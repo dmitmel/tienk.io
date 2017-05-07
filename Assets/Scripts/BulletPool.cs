@@ -17,25 +17,19 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class HealthBarMover : MonoBehaviour {
-        public Transform follow;
-        new Transform camera;
-
-        new Transform transform;
-        Vector3 offset;
+    public class BulletPool : Singleton<BulletPool> {
+        PoolManager pool;
 
         void Awake() {
-            transform = base.transform;
-            camera = Camera.main.transform;
+            pool = GetComponent<PoolManager>();
         }
 
-        void Start() {
-            offset = transform.position - follow.position;
+        public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {
+            return pool.GetFromPool(position, rotation);
         }
 
-        void FixedUpdate() {
-            if (follow != null) transform.position = camera.rotation * offset + follow.position;
-            transform.rotation = camera.rotation;
+        public void PutIntoPool(PoolObject bullet) {
+            pool.PutIntoPool(bullet);
         }
     }
 }

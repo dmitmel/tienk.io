@@ -27,6 +27,10 @@ namespace Tienkio {
         public Stat reload;
         public Stat movementSpeed;
 
+        public void OnTankUpgrade(Tank tank) {
+            tank.stats = this;
+        }
+
         public void OnRespawn() {
             healthRegen.OnRespawn();
             maxHealth.OnRespawn();

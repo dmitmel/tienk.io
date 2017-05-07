@@ -15,6 +15,7 @@
 //
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tienkio {
     [System.Serializable]
@@ -33,17 +34,29 @@ namespace Tienkio {
         public Level[] levels;
         public Level currentLevel;
 
-        int lastScore;
+        [Space]
+        public UnityEvent onScoreChange, onUpgradePointsChange;
+
+        int lastScore, lastUpgradePoints;
+
 
         void Start() {
             currentLevel = ComputeLevel();
             lastScore = score;
+            onScoreChange.Invoke();
+            onUpgradePointsChange.Invoke();
         }
 
         void FixedUpdate() {
             if (lastScore != score) {
                 currentLevel = ComputeLevel();
                 lastScore = score;
+                onScoreChange.Invoke();
+            }
+
+            if (lastUpgradePoints != upgradePoints) {
+                lastUpgradePoints = upgradePoints;
+                onUpgradePointsChange.Invoke();
             }
         }
 
@@ -85,6 +98,10 @@ namespace Tienkio {
             if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
             levelIndex = lastLevel.index;
             return levels[levels.Length - 1];
+        }
+
+        public void OnTankUpgrade(Tank tank) {
+            tank.scoreCounter = this;
         }
 
         public void OnRespawn() {

@@ -19,8 +19,10 @@ using UnityEngine;
 namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
 
-    public class Player : Singleton<Player> {
-        public GameObject parent;
+    public class PlayerControls : Singleton<PlayerControls> {
+        public Tank tank;
+        Transform tankTransform;
+        Rigidbody tankRigidbody;
 
         [Space]
         public ControlsType controlsType;
@@ -31,20 +33,16 @@ namespace Tienkio {
         public float accelerationMultiplier = 2;
         //public float autoSpinSpeed;
 
-        new Transform transform;
-        new Rigidbody rigidbody;
-        Tank tank;
-
         bool autoSpinEnabled, autoFireEnabled;
 
-        void Awake() {
-            transform = base.transform;
-            rigidbody = GetComponent<Rigidbody>();
-            tank = GetComponent<Tank>();
+        public void OnTankUpgrade(Tank tankBody) {
+            tank = tankBody;
+            tankTransform = tankBody.transform;
+            tankRigidbody = tankBody.GetComponent<Rigidbody>();
         }
 
         void FixedUpdate() {
-            if (tank.healthBar.health <= 0) Destroy(parent);
+            if (tank.healthBar.health <= 0) Destroy(gameObject);
 
             //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             //if (autoSpinEnabled) {
@@ -64,21 +62,17 @@ namespace Tienkio {
 
             if (autoFireEnabled) {
                 foreach (Gun gun in tank.guns)
-                    if (!gun.isFiring)
-                        gun.StartFiring();
+                    gun.Fire();
             } else {
                 if (KeyBindings.instance.fire.isPressed) {
                     foreach (Gun gun in tank.guns)
-                        if (!gun.isFiring)
-                            gun.StartFiring();
+                        gun.Fire();
                 } else if (KeyBindings.instance.fire.isUp) {
                     foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
             }
-        //}
 
-        //void FixedUpdate() {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
@@ -98,7 +92,6 @@ namespace Tienkio {
                     rotationX = horizontalAxis * rotationSensitivity.x;
                     rotationY = verticalAxis * rotationSensitivity.y;
 
-                    currentVelocity += new Vector3(0, 0, Input.GetAxis("Speed"));
                     currentVelocity = new Vector3(0, 0, Mathf.Clamp01(currentVelocity.z + Input.GetAxis("Speed")));
                     break;
             }
@@ -106,11 +99,11 @@ namespace Tienkio {
             if (inversedControls) rotationY = -rotationY;
             var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
             var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
-            transform.localRotation *= yQuaternion * xQuaternion;
+            tankTransform.localRotation *= yQuaternion * xQuaternion;
 
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
-            rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
-            if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
+            tankRigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
+            if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
         }
     }
 }

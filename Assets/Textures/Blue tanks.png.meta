@@ -1,0 +1,1094 @@
+fileFormatVersion: 2
+guid: 08e87581438a44f38a58e6429092beec
+timeCreated: 1493450294
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Blue tanks_0
+    21300002: Blue tanks_1
+    21300004: Blue tanks_2
+    21300006: Blue tanks_3
+    21300008: Blue tanks_4
+    21300010: Blue tanks_5
+    21300012: Blue tanks_6
+    21300014: Blue tanks_7
+    21300016: Blue tanks_8
+    21300018: Blue tanks_9
+    21300020: Blue tanks_10
+    21300022: Blue tanks_11
+    21300024: Blue tanks_12
+    21300026: Blue tanks_13
+    21300028: Blue tanks_14
+    21300030: Blue tanks_15
+    21300032: Blue tanks_16
+    21300034: Blue tanks_17
+    21300036: Blue tanks_18
+    21300038: Blue tanks_19
+    21300040: Blue tanks_20
+    21300042: Blue tanks_21
+    21300044: Blue tanks_22
+    21300046: Blue tanks_23
+    21300048: Blue tanks_24
+    21300050: Blue tanks_25
+    21300052: Blue tanks_26
+    21300054: Blue tanks_27
+    21300056: Blue tanks_28
+    21300058: Blue tanks_29
+    21300060: Blue tanks_30
+    21300062: Blue tanks_31
+    21300064: Blue tanks_32
+    21300066: Blue tanks_33
+    21300068: Blue tanks_34
+    21300070: Blue tanks_35
+    21300072: Blue tanks_36
+    21300074: Blue tanks_37
+    21300076: Blue tanks_38
+    21300078: Blue tanks_39
+    21300080: Blue tanks_40
+    21300082: Blue tanks_41
+    21300084: Blue tanks_42
+    21300086: Blue tanks_43
+    21300088: Blue tanks_44
+    21300090: Blue tanks_45
+    21300092: Blue tanks_46
+    21300094: Blue tanks_47
+    21300096: Blue tanks_48
+    21300098: Blue tanks_49
+    21300100: Blue tanks_50
+    21300102: Blue tanks_51
+    21300104: Blue tanks_52
+    21300106: Blue tanks_53
+    21300108: Blue tanks_54
+    21300110: Blue tanks_55
+    21300112: Blue tanks_56
+    21300114: Blue tanks_57
+    21300116: Blue tanks_58
+    21300118: Blue tanks_59
+    21300120: Blue tanks_60
+    21300122: Blue tanks_61
+    21300124: Blue tanks_62
+    21300126: Blue tanks_63
+    21300128: Blue tanks_64
+    21300130: Blue tanks_65
+    21300132: Blue tanks_66
+    21300134: Blue tanks_67
+    21300136: Blue tanks_68
+    21300138: Blue tanks_69
+    21300140: Blue tanks_70
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blue tanks_0
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 6120
+        width: 412
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_1
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 6060
+        width: 619
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_2
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 5995
+        width: 739
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_3
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 5823
+        width: 795
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_4
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5793
+        width: 795
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_5
+      rect:
+        serializedVersion: 2
+        x: 4305
+        y: 5854
+        width: 740
+        height: 679
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_6
+      rect:
+        serializedVersion: 2
+        x: 5259
+        y: 5974
+        width: 739
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_7
+      rect:
+        serializedVersion: 2
+        x: 6222
+        y: 5957
+        width: 623
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_8
+      rect:
+        serializedVersion: 2
+        x: 7060
+        y: 5888
+        width: 683
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_9
+      rect:
+        serializedVersion: 2
+        x: 7979
+        y: 5897
+        width: 404
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_10
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 5346
+        width: 623
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_11
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 5338
+        width: 623
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_12
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 5166
+        width: 597
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_13
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 5269
+        width: 808
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_14
+      rect:
+        serializedVersion: 2
+        x: 3493
+        y: 5204
+        width: 688
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_15
+      rect:
+        serializedVersion: 2
+        x: 4267
+        y: 5230
+        width: 683
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_16
+      rect:
+        serializedVersion: 2
+        x: 5006
+        y: 5213
+        width: 722
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_17
+      rect:
+        serializedVersion: 2
+        x: 5775
+        y: 5222
+        width: 722
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_18
+      rect:
+        serializedVersion: 2
+        x: 6570
+        y: 5230
+        width: 687
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_19
+      rect:
+        serializedVersion: 2
+        x: 7373
+        y: 5243
+        width: 559
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_20
+      rect:
+        serializedVersion: 2
+        x: 8164
+        y: 5235
+        width: 503
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_21
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 4362
+        width: 657
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_22
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 4517
+        width: 615
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_23
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 4405
+        width: 619
+        height: 688
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_24
+      rect:
+        serializedVersion: 2
+        x: 2419
+        y: 4457
+        width: 438
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_25
+      rect:
+        serializedVersion: 2
+        x: 3051
+        y: 4543
+        width: 704
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_26
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 4268
+        width: 782
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_27
+      rect:
+        serializedVersion: 2
+        x: 4739
+        y: 4483
+        width: 735
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_28
+      rect:
+        serializedVersion: 2
+        x: 5552
+        y: 4543
+        width: 687
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_29
+      rect:
+        serializedVersion: 2
+        x: 6312
+        y: 4547
+        width: 520
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_30
+      rect:
+        serializedVersion: 2
+        x: 7025
+        y: 4564
+        width: 722
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_31
+      rect:
+        serializedVersion: 2
+        x: 7988
+        y: 4491
+        width: 623
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_32
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 3662
+        width: 684
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_33
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 3550
+        width: 627
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_34
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 3687
+        width: 580
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_35
+      rect:
+        serializedVersion: 2
+        x: 2557
+        y: 3670
+        width: 627
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_36
+      rect:
+        serializedVersion: 2
+        x: 3472
+        y: 3683
+        width: 601
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_37
+      rect:
+        serializedVersion: 2
+        x: 4353
+        y: 3554
+        width: 657
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_38
+      rect:
+        serializedVersion: 2
+        x: 5062
+        y: 3533
+        width: 760
+        height: 799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_39
+      rect:
+        serializedVersion: 2
+        x: 5968
+        y: 3653
+        width: 550
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_40
+      rect:
+        serializedVersion: 2
+        x: 6656
+        y: 3705
+        width: 687
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_41
+      rect:
+        serializedVersion: 2
+        x: 7571
+        y: 3730
+        width: 576
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_42
+      rect:
+        serializedVersion: 2
+        x: 8293
+        y: 3619
+        width: 443
+        height: 644
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_43
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 2961
+        width: 623
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_44
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 2953
+        width: 507
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_45
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 2897
+        width: 563
+        height: 558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_46
+      rect:
+        serializedVersion: 2
+        x: 2355
+        y: 2965
+        width: 498
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_47
+      rect:
+        serializedVersion: 2
+        x: 4632
+        y: 1285
+        width: 546
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_48
+      rect:
+        serializedVersion: 2
+        x: 5259
+        y: 86
+        width: 1315
+        height: 1319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_49
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 172
+        width: 1216
+        height: 941
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_50
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 52
+        width: 1186
+        height: 1186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_51
+      rect:
+        serializedVersion: 2
+        x: 2557
+        y: 168
+        width: 1237
+        height: 941
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_52
+      rect:
+        serializedVersion: 2
+        x: 3893
+        y: 744
+        width: 614
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_53
+      rect:
+        serializedVersion: 2
+        x: 4585
+        y: 744
+        width: 606
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_54
+      rect:
+        serializedVersion: 2
+        x: 6759
+        y: 584
+        width: 438
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_55
+      rect:
+        serializedVersion: 2
+        x: 7249
+        y: 593
+        width: 318
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_56
+      rect:
+        serializedVersion: 2
+        x: 8409
+        y: 903
+        width: 309
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_57
+      rect:
+        serializedVersion: 2
+        x: 3876
+        y: 73
+        width: 588
+        height: 593
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_58
+      rect:
+        serializedVersion: 2
+        x: 4615
+        y: 103
+        width: 524
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_59
+      rect:
+        serializedVersion: 2
+        x: 7623
+        y: 606
+        width: 240
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_60
+      rect:
+        serializedVersion: 2
+        x: 7893
+        y: 606
+        width: 207
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_61
+      rect:
+        serializedVersion: 2
+        x: 8125
+        y: 610
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_62
+      rect:
+        serializedVersion: 2
+        x: 8280
+        y: 610
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_63
+      rect:
+        serializedVersion: 2
+        x: 8478
+        y: 550
+        width: 240
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_64
+      rect:
+        serializedVersion: 2
+        x: 6746
+        y: 202
+        width: 211
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_65
+      rect:
+        serializedVersion: 2
+        x: 6991
+        y: 193
+        width: 279
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_66
+      rect:
+        serializedVersion: 2
+        x: 7287
+        y: 180
+        width: 404
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_67
+      rect:
+        serializedVersion: 2
+        x: 7872
+        y: 189
+        width: 232
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_68
+      rect:
+        serializedVersion: 2
+        x: 8194
+        y: 189
+        width: 168
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_69
+      rect:
+        serializedVersion: 2
+        x: 8430
+        y: 189
+        width: 129
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue tanks_70
+      rect:
+        serializedVersion: 2
+        x: 8628
+        y: 185
+        width: 82
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

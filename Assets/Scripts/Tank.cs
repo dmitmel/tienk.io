@@ -18,6 +18,9 @@ using UnityEngine;
 
 namespace Tienkio {
     public class Tank : MonoBehaviour {
+        [HideInInspector]
+        public MeshRenderer meshRenderer;
+
         public StatsHolder stats;
         public ScoreCounter scoreCounter;
         [HideInInspector]
@@ -31,6 +34,7 @@ namespace Tienkio {
         new Rigidbody rigidbody;
 
         void Awake() {
+            meshRenderer = GetComponent<MeshRenderer>();
             healthBar = GetComponent<TankHealth>();
             rigidbody = GetComponent<Rigidbody>();
         }

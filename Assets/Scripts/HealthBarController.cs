@@ -17,25 +17,27 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class HealthBarMover : MonoBehaviour {
-        public Transform follow;
+    public class HealthBarController : MonoBehaviour {
+        public Transform bar, follow;
+        public Vector3 offset;
         new Transform camera;
 
         new Transform transform;
-        Vector3 offset;
 
         void Awake() {
             transform = base.transform;
             camera = Camera.main.transform;
         }
 
-        void Start() {
-            offset = transform.position - follow.position;
-        }
-
         void FixedUpdate() {
             if (follow != null) transform.position = camera.rotation * offset + follow.position;
             transform.rotation = camera.rotation;
+        }
+
+        public void OnTankUpgrade(Tank tank) {
+            follow = tank.transform;
+            tank.healthBar.healthBar = bar;
+            tank.healthBar.OnTankUpgrade(tank);
         }
     }
 }
