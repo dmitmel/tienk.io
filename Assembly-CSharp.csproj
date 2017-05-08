@@ -57,6 +57,9 @@
      <Compile Include="Assets\Scripts\HealthBarMover.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
+     <Compile Include="Assets\Scripts\MainMenuBackground.cs" />
+     <Compile Include="Assets\Scripts\MainMenuController.cs" />
+     <Compile Include="Assets\Scripts\NickLabel.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
      <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerControls.cs" />

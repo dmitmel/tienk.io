@@ -15,6 +15,7 @@
 //
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
@@ -42,7 +43,10 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (tank.healthBar.health <= 0) Destroy(gameObject);
+            if (tank.healthBar.health <= 0) {
+                Destroy(gameObject);
+                SceneManager.LoadScene(0);
+            }
 
             //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
             //if (autoSpinEnabled) {
