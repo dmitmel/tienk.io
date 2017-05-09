@@ -27,10 +27,10 @@ namespace Tienkio {
                     T[] objects = FindObjectsOfType<T>();
                     int count = objects.Length;
                     if (count == 0) {
-                        Debug.LogError($"[Singleton] There're no objects on scene with type of '{typeof(T)}'");
+                        Debug.LogError(string.Format("[Singleton] There're no objects on scene with type of '{0}'", typeof(T)));
                     } else {
                         if (count > 1)
-                            Debug.LogError($"[Singleton] There're multiple instances of '{typeof(T)}'");
+                            Debug.LogError(string.Format("[Singleton] There're multiple instances of '{0}'", typeof(T)));
                         _instance = objects[0];
                         _instanceObject = _instance.gameObject;
                     }

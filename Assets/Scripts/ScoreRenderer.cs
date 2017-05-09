@@ -33,14 +33,14 @@ namespace Tienkio {
         //}
 
         public void OnScoreChange() {
-            scoreLabel.text = $"Score: {counter.score.ToString("#,##0")}";
+            scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
 
-            levelLabel.text = $"Lvl {counter.currentLevel.index} Tank";
+            levelLabel.text = string.Format("Lvl {0} Tank", counter.currentLevel.index);
             levelBar.UpdateBar();
         }
 
         public void OnUpgradePointsChange() {
-            upgradePointsLabel.text = $"x{counter.upgradePoints}";
+            upgradePointsLabel.text = string.Format("x{0}", counter.upgradePoints);
         }
     }
 }
