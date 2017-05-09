@@ -50,9 +50,9 @@ namespace Tienkio {
             Vector3 position = transform.position;
             Quaternion rotation = transform.rotation;
             if (currentTankBody != null) {
-                Destroy(currentTankBody.gameObject);
                 position = currentTankBody.transform.position;
                 rotation = currentTankBody.transform.rotation;
+                DestroyImmediate(currentTankBody.gameObject);
             }
             currentTankBody = Instantiate(currentTank.prefab, position, rotation, transform);
 
