@@ -22,6 +22,7 @@ using System;
 namespace Tienkio {
     public class TankAI : MonoBehaviour {
         public TankUpgrader upgrader;
+        bool firstUpgrade = true;
 
         public Tank tank;
         Rigidbody tankRigidbody;
@@ -55,7 +56,10 @@ namespace Tienkio {
             tankRigidbody = tank.GetComponent<Rigidbody>();
             tankTransform = tank.transform;
 
-            SetRandomPosition();
+            if (firstUpgrade) {
+                firstUpgrade = false;
+                SetRandomPosition();
+            }
         }
 
         void Respawn() {
