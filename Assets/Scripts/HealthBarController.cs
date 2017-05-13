@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,12 +32,6 @@ namespace Tienkio {
         void FixedUpdate() {
             if (follow != null) transform.position = camera.rotation * offset + follow.position;
             transform.rotation = camera.rotation;
-        }
-
-        public void OnTankUpgrade(Tank tank) {
-            follow = tank.transform;
-            tank.healthBar.healthBar = bar;
-            tank.healthBar.OnTankUpgrade(tank);
         }
     }
 }

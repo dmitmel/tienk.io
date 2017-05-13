@@ -21,11 +21,6 @@ namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
 
     public class PlayerControls : Singleton<PlayerControls> {
-        public Tank tank;
-        Transform tankTransform;
-        Rigidbody tankRigidbody;
-
-        [Space]
         public ControlsType controlsType;
         public bool inversedControls;
         public Vector2 rotationSensitivity = new Vector2(10, 10);
@@ -34,12 +29,17 @@ namespace Tienkio {
         public float accelerationMultiplier = 2;
         //public float autoSpinSpeed;
 
+        TankController tank;
+        new Transform transform;
+        new Rigidbody rigidbody;
+
+
         bool autoSpinEnabled, autoFireEnabled;
 
-        public void OnTankUpgrade(Tank tankBody) {
-            tank = tankBody;
-            tankTransform = tankBody.transform;
-            tankRigidbody = tankBody.GetComponent<Rigidbody>();
+        void Awake() {
+            tank = GetComponent<TankController>();
+            transform = base.transform;
+            rigidbody = GetComponent<Rigidbody>();
         }
 
         void FixedUpdate() {
@@ -103,11 +103,11 @@ namespace Tienkio {
             if (inversedControls) rotationY = -rotationY;
             var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
             var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
-            tankTransform.localRotation *= yQuaternion * xQuaternion;
+            transform.localRotation *= yQuaternion * xQuaternion;
 
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
-            tankRigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
-            if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
+            rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
+            if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
         }
     }
 }

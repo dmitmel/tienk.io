@@ -15,35 +15,40 @@
 //
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Tienkio {
-    [System.Serializable]
-    public class TankUpgradeEvent : UnityEvent<Tank> { }
-
     public class TankUpgrader : MonoBehaviour {
         public ScoreCounter scoreCounter;
-        public TankUpgradeEvent onTankUpgrade;
-        public Material bodyMaterial;
 
-        TankUpgradeNode currentTank;
+        TankUpgradeNode currentUpgradeNode;
         [HideInInspector]
         public TankUpgradeNode[] upgrades;
 
-        protected Tank currentTankBody;
+        TankController tankController;
+        Rigidbody tankRigidbody;
+
+        Tank currentTankBody;
+
+        new Transform transform;
+
+        void Awake() {
+            transform = base.transform;
+            tankController = GetComponent<TankController>();
+            tankRigidbody = GetComponent<Rigidbody>();
+        }
 
         void Start() {
-            currentTank = TankUpgradeTree.instance.tankUpgradeTree[0];
+            currentUpgradeNode = TankUpgradeTree.instance.tankUpgradeTree[0];
             UpdateTank();
         }
 
         void Update() {
-            upgrades = currentTank.GetAvailableTanksForLevel(scoreCounter.levelIndex);
+            upgrades = currentUpgradeNode.GetAvailableTanksForLevel(scoreCounter.levelIndex);
         }
 
         public void UpgradeToTier(int tierIndex) {
-            currentTank = upgrades[tierIndex];
-            if (currentTank.prefab != null) UpdateTank();
+            currentUpgradeNode = upgrades[tierIndex];
+            if (currentUpgradeNode.prefab != null) UpdateTank();
         }
 
         void UpdateTank() {
@@ -54,11 +59,17 @@ namespace Tienkio {
                 rotation = currentTankBody.transform.rotation;
                 DestroyImmediate(currentTankBody.gameObject);
             }
-            currentTankBody = Instantiate(currentTank.prefab, position, rotation, transform);
 
-            currentTankBody.meshRenderer.material = bodyMaterial;
+            currentTankBody = Instantiate(currentUpgradeNode.prefab, position, rotation, transform);
 
-            onTankUpgrade.Invoke(currentTankBody);
+            tankController.guns = currentTankBody.guns;
+            foreach (Gun gun in tankController.guns) {
+                gun.tank = tankController;
+                gun.tankRigidbody = tankRigidbody;
+            }
+
+            var bodyRenderer = currentTankBody.GetComponent<MeshRenderer>();
+            bodyRenderer.material = tankController.bodyMaterial;
         }
     }
 }

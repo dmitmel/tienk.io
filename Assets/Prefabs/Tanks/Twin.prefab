@@ -60,13 +60,10 @@ GameObject:
   - component: {fileID: 33467296251331628}
   - component: {fileID: 135140320727135484}
   - component: {fileID: 23041338730221108}
-  - component: {fileID: 54823276493434012}
-  - component: {fileID: 114904768362095388}
-  - component: {fileID: 114123534804565508}
-  - component: {fileID: 114154300397620684}
+  - component: {fileID: 114902014056405934}
   m_Layer: 0
   m_Name: Twin
-  m_TagString: Tank
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +139,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23041338730221108
 MeshRenderer:
@@ -173,6 +171,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23519436761121562
 MeshRenderer:
@@ -204,6 +203,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33123991691819140
 MeshFilter:
@@ -226,59 +226,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517002252417956}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54823276493434012
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1594379207799484}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &114123534804565508
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1594379207799484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 0}
-  scoreCounter: {fileID: 0}
-  healthBar: {fileID: 0}
-  guns:
-  - {fileID: 114259317874322946}
-  - {fileID: 114776497761186650}
-  damageComputationCycles: 20
-  bodyDamageForBulletMultiplier: 0.5
---- !u!114 &114154300397620684
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1594379207799484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  health: 0
-  maxHealth: 0
-  healthRegen: 0
-  extraRegenTimeout: 30
-  extraRegen: 0
-  stats: {fileID: 0}
-  statToExtraRegenMultiplier: 40
 --- !u!114 &114259317874322946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,7 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64640f4b679614c8c8388990e6e7612a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPool: {fileID: 0}
   bulletOffset: 0.68
   bulletSize: 1
   moveBackwardsOnShot: 0.05
@@ -305,7 +251,6 @@ MonoBehaviour:
   recoil: 0.5
   bulletKnockback: 0.5
   bulletSpread: 15
-  tank: {fileID: 114123534804565508}
 --- !u!114 &114776497761186650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64640f4b679614c8c8388990e6e7612a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPool: {fileID: 0}
   bulletOffset: 0.68
   bulletSize: 1
   moveBackwardsOnShot: 0.05
@@ -332,8 +276,7 @@ MonoBehaviour:
   recoil: 0.5
   bulletKnockback: 0.5
   bulletSpread: 15
-  tank: {fileID: 114123534804565508}
---- !u!114 &114904768362095388
+--- !u!114 &114902014056405934
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -341,10 +284,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594379207799484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e61fa405cfe249bf910a26af780ec34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 2
+  guns:
+  - {fileID: 114259317874322946}
+  - {fileID: 114776497761186650}
+  bodyDamageMultiplier: 1
 --- !u!135 &135140320727135484
 SphereCollider:
   m_ObjectHideFlags: 1

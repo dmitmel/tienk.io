@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,18 +36,16 @@ namespace Tienkio {
         public GunStatsMultipliers statsMultipliers;
         public float bulletFlyTime, shootDelay, recoil, bulletKnockback, bulletSpread;
 
-        [Space]
-        public Tank tank;
-        Rigidbody tankRigidbody;
+        public TankController tank;
+        public Rigidbody tankRigidbody;
 
         bool isFiring;
-        float nextFire = -1;
+        float nextFire;
 
         new Transform transform;
 
         void Awake() {
             transform = base.transform;
-            tankRigidbody = tank.GetComponent<Rigidbody>();
         }
 
         public void StopFiring() {
@@ -61,15 +59,17 @@ namespace Tienkio {
         public void Fire() {
             float now = Time.time;
 
-            if (isFiring && now >= nextFire) {
-                nextFire = now + (statsMultipliers.reload * tank.stats.reload.value);
+            if (isFiring) {
+                if (now >= nextFire) {
+                    nextFire = now + (statsMultipliers.reload * tank.stats.reload.value);
 
-                SpawnBullet();
+                    SpawnBullet();
 
-                if (!isMovingBackwards) StartCoroutine(MoveBackwards());
+                    if (!isMovingBackwards) StartCoroutine(MoveBackwards());
 
-                tankRigidbody.AddForce(transform.rotation * Vector3.down * recoil, ForceMode.Impulse);
-            } else if (!isFiring) {
+                    tankRigidbody.AddForce(transform.rotation * Vector3.down * recoil, ForceMode.Impulse);
+                }
+            } else {
                 if (now >= nextFire)
                     nextFire = now + shootDelay * (statsMultipliers.reload * tank.stats.reload.value);
                 isFiring = true;
@@ -84,7 +84,7 @@ namespace Tienkio {
             newBullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
 
             var newBulletRenderer = newBullet.GetComponent<MeshRenderer>();
-            newBulletRenderer.material = tank.meshRenderer.material;
+            newBulletRenderer.material = tank.bodyMaterial;
 
             var newBulletController = newBullet.GetComponent<Bullet>();
             var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();

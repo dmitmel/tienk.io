@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,7 +24,7 @@ namespace Tienkio {
         public TankUpgrader upgrader;
         bool firstUpgrade = true;
 
-        public Tank tank;
+        public TankController tank;
         Rigidbody tankRigidbody;
         Transform tankTransform;
         public float accelerationMultiplier = 2;
@@ -50,7 +50,7 @@ namespace Tienkio {
             transform = base.transform;
         }
 
-        public void OnTankUpgrade(Tank tank) {
+        public void OnTankUpgrade(TankController tank) {
             this.tank = tank;
 
             tankRigidbody = tank.GetComponent<Rigidbody>();

@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\StatsHolder.cs" />
      <Compile Include="Assets\Scripts\Tank.cs" />
      <Compile Include="Assets\Scripts\TankAI.cs" />
+     <Compile Include="Assets\Scripts\TankController.cs" />
      <Compile Include="Assets\Scripts\TankHealth.cs" />
      <Compile Include="Assets\Scripts\TankUpgradeRenderer.cs" />
      <Compile Include="Assets\Scripts\TankUpgradeTree.cs" />

@@ -887,7 +887,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &94046352
 Light:
@@ -1587,7 +1587,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &191345621
 Light:
@@ -2080,7 +2080,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &231637532
 Light:
@@ -2323,7 +2323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0385537059cb4b92be81be82e6a316e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrader: {fileID: 1948516692}
+  upgrader: {fileID: 919655969}
   upgradeButtons:
   - button: {fileID: 1076373632}
     tankName: {fileID: 592190303}
@@ -3188,7 +3188,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &398800043
 Transform:
@@ -3457,8 +3457,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!4 &491613836
 Transform:
   m_ObjectHideFlags: 0
@@ -4057,7 +4057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -5175,7 +5175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -5903,7 +5903,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &854963177
 Light:
@@ -6175,7 +6175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -6362,6 +6362,134 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916564668}
+--- !u!1 &919655963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 919655964}
+  - component: {fileID: 919655967}
+  - component: {fileID: 919655968}
+  - component: {fileID: 919655965}
+  - component: {fileID: 919655966}
+  - component: {fileID: 919655969}
+  - component: {fileID: 919655970}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Tank
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919655964
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1948516690}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919655965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
+  stats: {fileID: 1009189776}
+  scoreCounter: {fileID: 1009189775}
+  healthBar: {fileID: 0}
+  guns: []
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 0.5
+--- !u!114 &919655966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 915195731}
+  health: 0
+  maxHealth: 0
+  healthRegen: 0
+  extraRegenTimeout: 30
+  extraRegen: 0
+  stats: {fileID: 1009189776}
+  statToExtraRegenMultiplier: 40
+--- !u!54 &919655967
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &919655968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 2
+--- !u!114 &919655969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77d42ef6a9164bc3b6976659bb009c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 1009189775}
+  bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
+  upgrades: []
+--- !u!114 &919655970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsType: 0
+  inversedControls: 0
+  rotationSensitivity: {x: 10, y: 10}
+  accelerationMultiplier: 2
 --- !u!1 &947887232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6954,7 +7082,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1007650550
 MonoBehaviour:
@@ -7023,31 +7151,31 @@ MonoBehaviour:
     tankName: Tank
     previewIcon: {fileID: 21300002, guid: 08e87581438a44f38a58e6429092beec, type: 3}
     minLevel: 0
-    prefab: {fileID: 114123534804565508, guid: bbd66e2e7908645d5966ed332e6af363, type: 2}
+    prefab: {fileID: 114273142071671744, guid: bbd66e2e7908645d5966ed332e6af363, type: 2}
     unlockedTanks: 0100000002000000030000000400000010000000
   - tree: {fileID: 1007650553}
     tankName: Twin
     previewIcon: {fileID: 21300022, guid: 08e87581438a44f38a58e6429092beec, type: 3}
     minLevel: 15
-    prefab: {fileID: 114123534804565508, guid: 22f92b3a9030e41a08de5e459733ce1e, type: 2}
+    prefab: {fileID: 114902014056405934, guid: 22f92b3a9030e41a08de5e459733ce1e, type: 2}
     unlockedTanks: 050000000600000007000000
   - tree: {fileID: 1007650553}
     tankName: Sniper
     previewIcon: {fileID: 21300030, guid: 08e87581438a44f38a58e6429092beec, type: 3}
     minLevel: 15
-    prefab: {fileID: 114123534804565508, guid: 504e20d03a6284db5a581b886274233f, type: 2}
+    prefab: {fileID: 114815090070974814, guid: 504e20d03a6284db5a581b886274233f, type: 2}
     unlockedTanks: 08000000090000000a0000000b000000
   - tree: {fileID: 1007650553}
     tankName: Machine Gun
     previewIcon: {fileID: 21300020, guid: 08e87581438a44f38a58e6429092beec, type: 3}
     minLevel: 15
-    prefab: {fileID: 114123534804565508, guid: 7ad236865a86e4f51add543b1a4f3a2d, type: 2}
+    prefab: {fileID: 0}
     unlockedTanks: 0c0000000d0000002c000000
   - tree: {fileID: 1007650553}
     tankName: Flank Guard
     previewIcon: {fileID: 21300012, guid: 08e87581438a44f38a58e6429092beec, type: 3}
     minLevel: 15
-    prefab: {fileID: 114123534804565508, guid: 6b2dda1a22ffe4eb6a99128bd8e16aaa, type: 2}
+    prefab: {fileID: 0}
     unlockedTanks: 0e00000006000000070000000f000000
   - tree: {fileID: 1007650553}
     tankName: Triple Shot
@@ -8074,7 +8202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -9371,7 +9499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -9929,7 +10057,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &1355562078
 Light:
@@ -10367,7 +10495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f41e8bb0fbf4934a8a5a3e36f44e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 919655964}
   movementSpeed: 2
   rotationSpeed: 1
 --- !u!1 &1392158136
@@ -11268,7 +11396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 915195731}
-  follow: {fileID: 0}
+  follow: {fileID: 919655964}
   offset: {x: 0, y: -0.9, z: 0}
 --- !u!1 &1565385991
 GameObject:
@@ -11283,7 +11411,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1565385992
 Transform:
@@ -11318,7 +11446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1569473032
 Transform:
@@ -13815,7 +13943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1948516692}
+      - m_Target: {fileID: 919655969}
         m_MethodName: UpgradeToTier
         m_Mode: 3
         m_Arguments:
@@ -13992,8 +14120,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1948516690}
-  - component: {fileID: 1948516692}
-  - component: {fileID: 1948516691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14014,99 +14140,10 @@ Transform:
   m_Children:
   - {fileID: 1009189774}
   - {fileID: 1529042227}
+  - {fileID: 919655964}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1948516691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1948516689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ff3445c477c4330a60a9429dd6f958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tank: {fileID: 0}
-  controlsType: 0
-  inversedControls: 0
-  rotationSensitivity: {x: 10, y: 10}
-  accelerationMultiplier: 2
---- !u!114 &1948516692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1948516689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77d42ef6a9164bc3b6976659bb009c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreCounter: {fileID: 1009189775}
-  onTankUpgrade:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948516691}
-        m_MethodName: OnTankUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1009189776}
-        m_MethodName: OnTankUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1009189775}
-        m_MethodName: OnTankUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1390244218}
-        m_MethodName: OnPlayerUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1529042229}
-        m_MethodName: OnTankUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-    m_TypeName: Tienkio.TankUpgradeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
-  upgrades: []
 --- !u!1001 &1969955136
 Prefab:
   m_ObjectHideFlags: 0

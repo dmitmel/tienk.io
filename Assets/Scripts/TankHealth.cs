@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,15 +24,12 @@ namespace Tienkio {
 
         float lastHealthRegen, lastMaxHealth;
 
-        public void OnTankUpgrade(Tank tankBody) {
-            stats = tankBody.stats;
-        }
-
         protected override void Start() {
             base.Start();
 
             health = maxHealth = lastMaxHealth = stats.maxHealth.value;
             healthRegen = lastHealthRegen = stats.healthRegen.value;
+            extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
 
         protected override void FixedUpdate() {
@@ -55,6 +52,7 @@ namespace Tienkio {
         public void OnRespawn() {
             health = maxHealth = lastMaxHealth = stats.maxHealth.value;
             healthRegen = lastHealthRegen = stats.healthRegen.value;
+            extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
     }
 }
