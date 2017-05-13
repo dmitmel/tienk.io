@@ -26,47 +26,47 @@ namespace Tienkio {
 
         public float Value { get; private set; }
 
-        public UnityEvent onUpgrade;
+        public UnityEvent onValueChange;
 
-        int lastStatLevel, lastHolderLevel;
+        int lastLevel, lastHolderLevel;
 
         void Start() {
-            lastStatLevel = level;
+            lastLevel = level;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            Value = ComputeValue();
-            onUpgrade.Invoke();
+            ComputeValue();
+            onValueChange.Invoke();
         }
 
         void FixedUpdate() {
-            if (lastStatLevel != level) {
+            if (lastLevel != level) {
                 level = Mathf.Clamp(level, 0, maxLevel);
-                lastStatLevel = level;
-                Value = ComputeValue();
+                lastLevel = level;
+                ComputeValue();
             }
 
             int holderLevel = scoreCounter.currentLevel.index;
             if (lastHolderLevel != holderLevel) {
                 lastHolderLevel = holderLevel;
-                Value = ComputeValue();
+                ComputeValue();
             }
         }
 
-        float ComputeValue() {
-            return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastStatLevel;
+        void ComputeValue() {
+            Value = baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastLevel;
+            onValueChange.Invoke();
         }
 
         public void Upgrade() {
-            if (lastStatLevel < maxLevel && scoreCounter.upgradePoints > 0) {
-                level += 1;
+            if (lastLevel < maxLevel && scoreCounter.upgradePoints > 0) {
+                lastLevel = level += 1;
                 scoreCounter.upgradePoints -= 1;
-                onUpgrade.Invoke();
             }
         }
 
         public void OnRespawn() {
-            lastStatLevel = level = 0;
+            lastLevel = level = 0;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            Value = ComputeValue();
+            ComputeValue();
         }
     }
 }

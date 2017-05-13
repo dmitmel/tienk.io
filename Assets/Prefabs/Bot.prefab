@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4034111248489672}
   - component: {fileID: 114482613929390116}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MaxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4679901016249112}
   - component: {fileID: 114190475757037976}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BodyDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4736439044166612}
   - component: {fileID: 135796314160304662}
   - component: {fileID: 114715507373294810}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4172568890565496}
   - component: {fileID: 114878821196847498}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletPenetration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4838116891789300}
   - component: {fileID: 114592161969822918}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4274146802662566}
   - component: {fileID: 114033099804060824}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Reload
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524506291198724}
   - component: {fileID: 114259092442635014}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MovementSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4106284198101092}
   - component: {fileID: 114959366138635260}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4345635480439248}
   - component: {fileID: 114932535852448002}
   - component: {fileID: 114688945464035576}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4859157234878688}
   - component: {fileID: 114143874603512482}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthRegen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,6 +468,11 @@ MonoBehaviour:
   baseValue: 0.6
   holderLevelBonus: 0
   statLevelBonus: -0.05
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114085802647605790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,7 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nick: Bot
   bodyMaterial: {fileID: 2100000, guid: dda4b19e1b5f54c33bffca6c087df0d5, type: 2}
   stats: {fileID: 114932535852448002}
   scoreCounter: {fileID: 114688945464035576}
@@ -504,6 +508,22 @@ MonoBehaviour:
   baseValue: 0.003
   holderLevelBonus: 0.001
   statLevelBonus: 0.0005
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114371437190328476}
+        m_MethodName: OnHealthRegenUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114190475757037976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -521,6 +541,11 @@ MonoBehaviour:
   baseValue: 20
   holderLevelBonus: 0
   statLevelBonus: 4
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114259092442635014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,6 +563,11 @@ MonoBehaviour:
   baseValue: 5
   holderLevelBonus: -0.005
   statLevelBonus: 0.25
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114371437190328476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,6 +616,22 @@ MonoBehaviour:
   baseValue: 50
   holderLevelBonus: 2
   statLevelBonus: 20
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114371437190328476}
+        m_MethodName: OnMaxHealthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114592161969822918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -603,6 +649,11 @@ MonoBehaviour:
   baseValue: 28
   holderLevelBonus: 0
   statLevelBonus: 12
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114640937803044584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -939,6 +990,11 @@ MonoBehaviour:
   baseValue: 0.51
   holderLevelBonus: 0
   statLevelBonus: 0.4
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114932535852448002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -975,6 +1031,11 @@ MonoBehaviour:
   baseValue: 6
   holderLevelBonus: 0
   statLevelBonus: 0.5
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!135 &135796314160304662
 SphereCollider:
   m_ObjectHideFlags: 1

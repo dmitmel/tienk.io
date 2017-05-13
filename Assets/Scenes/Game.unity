@@ -7640,7 +7640,7 @@ MonoBehaviour:
   baseValue: 6
   holderLevelBonus: 0
   statLevelBonus: 0.5
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2024529194}
@@ -7898,11 +7898,22 @@ MonoBehaviour:
   baseValue: 50
   holderLevelBonus: 2
   statLevelBonus: 20
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 53697308}
         m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 919655966}
+        m_MethodName: OnMaxHealthUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9520,7 +9531,7 @@ MonoBehaviour:
   baseValue: 5
   holderLevelBonus: -0.005
   statLevelBonus: 0.25
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 322441769}
@@ -9571,7 +9582,7 @@ MonoBehaviour:
   baseValue: 20
   holderLevelBonus: 0
   statLevelBonus: 4
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 264218811}
@@ -9858,11 +9869,22 @@ MonoBehaviour:
   baseValue: 0.003
   holderLevelBonus: 0.001
   statLevelBonus: 0.0005
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 580490242}
         m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 919655966}
+        m_MethodName: OnHealthRegenUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12371,7 +12393,7 @@ MonoBehaviour:
   baseValue: 0.6
   holderLevelBonus: 0
   statLevelBonus: -0.05
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 149942689}
@@ -12625,7 +12647,7 @@ MonoBehaviour:
   baseValue: 28
   holderLevelBonus: 0
   statLevelBonus: 12
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 555066030}
@@ -12908,7 +12930,7 @@ MonoBehaviour:
   baseValue: 0.51
   holderLevelBonus: 0
   statLevelBonus: 0.4
-  onUpgrade:
+  onValueChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 726747991}

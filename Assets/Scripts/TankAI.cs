@@ -41,7 +41,6 @@ namespace Tienkio {
         Transform target;
 
         float nextTargetChooseTime;
-        int lastUpgradePoints;
 
         new Transform transform;
 
