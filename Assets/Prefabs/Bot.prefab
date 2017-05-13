@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 114085802647605790}
   - component: {fileID: 114371437190328476}
   - component: {fileID: 114640937803044584}
+  - component: {fileID: 135715597377873828}
   m_Layer: 0
   m_Name: Body
   m_TagString: Tank
@@ -1036,6 +1037,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!135 &135715597377873828
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524769267325730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135796314160304662
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -193,6 +193,8 @@ MonoBehaviour:
   recoil: 0.5
   bulletKnockback: 0.5
   bulletSpread: 20
+  tank: {fileID: 0}
+  tankRigidbody: {fileID: 0}
 --- !u!135 &135140320727135484
 SphereCollider:
   m_ObjectHideFlags: 1

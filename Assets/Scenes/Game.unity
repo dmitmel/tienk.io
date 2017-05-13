@@ -6070,6 +6070,7 @@ GameObject:
   - component: {fileID: 919655966}
   - component: {fileID: 919655969}
   - component: {fileID: 919655970}
+  - component: {fileID: 919655971}
   m_Layer: 0
   m_Name: Body
   m_TagString: Tank
@@ -6182,6 +6183,18 @@ MonoBehaviour:
   inversedControls: 0
   rotationSensitivity: {x: 10, y: 10}
   accelerationMultiplier: 2
+--- !u!135 &919655971
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919655963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &947887232
 GameObject:
   m_ObjectHideFlags: 0

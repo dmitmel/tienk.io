@@ -81,9 +81,6 @@ namespace Tienkio {
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
                     target = ChooseTarget();
-
-                    foreach (Gun gun in tank.guns)
-                        gun.Fire();
                 }
             }
 
@@ -95,6 +92,9 @@ namespace Tienkio {
 
                 tankTransform.LookAt(target);
                 tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * distanceStabilization);
+
+                foreach (Gun gun in tank.guns) gun.Fire();
+
                 if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
             } else {
                 foreach (Gun gun in tank.guns)

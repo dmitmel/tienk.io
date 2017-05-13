@@ -251,6 +251,8 @@ MonoBehaviour:
   recoil: 0.5
   bulletKnockback: 0.5
   bulletSpread: 20
+  tank: {fileID: 0}
+  tankRigidbody: {fileID: 0}
 --- !u!114 &114437523490971938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,6 +278,8 @@ MonoBehaviour:
   recoil: 0.5
   bulletKnockback: 0.5
   bulletSpread: 20
+  tank: {fileID: 0}
+  tankRigidbody: {fileID: 0}
 --- !u!114 &114495488278081834
 MonoBehaviour:
   m_ObjectHideFlags: 1
