@@ -24,6 +24,7 @@ namespace Tienkio {
         public ScoreCounter scoreCounter;
         [HideInInspector]
         public TankHealth healthBar;
+        [HideInInspector]
         public Gun[] guns;
 
         [Space]
