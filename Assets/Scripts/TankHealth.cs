@@ -27,21 +27,21 @@ namespace Tienkio {
         protected override void Start() {
             base.Start();
 
-            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
-            healthRegen = lastHealthRegen = stats.healthRegen.value;
+            health = maxHealth = lastMaxHealth = stats.maxHealth.Value;
+            healthRegen = lastHealthRegen = stats.healthRegen.Value;
             extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
 
         protected override void FixedUpdate() {
             base.FixedUpdate();
 
-            float newHealthRegen = stats.healthRegen.value;
+            float newHealthRegen = stats.healthRegen.Value;
             if (newHealthRegen != lastHealthRegen) {
-                lastHealthRegen = healthRegen = stats.healthRegen.value;
+                lastHealthRegen = healthRegen = stats.healthRegen.Value;
                 extraRegen = healthRegen * statToExtraRegenMultiplier;
             }
 
-            float newMaxHealth = stats.maxHealth.value;
+            float newMaxHealth = stats.maxHealth.Value;
             if (newMaxHealth != lastMaxHealth) {
                 maxHealth = newMaxHealth;
                 lastHealth = health = health * newMaxHealth / lastMaxHealth;
@@ -50,8 +50,8 @@ namespace Tienkio {
         }
 
         public void OnRespawn() {
-            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
-            healthRegen = lastHealthRegen = stats.healthRegen.value;
+            health = maxHealth = lastMaxHealth = stats.maxHealth.Value;
+            healthRegen = lastHealthRegen = stats.healthRegen.Value;
             extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
     }

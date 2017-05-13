@@ -7183,14 +7183,14 @@ MonoBehaviour:
     givesUpgradePoint: 1
   - index: 3
     neededScore: 28
-    scoreToNextLevel: 22
+    scoreToNextLevel: 0
     respawnLevel: 2
     givesUpgradePoint: 1
   - index: 4
-    neededScore: 50
-    scoreToNextLevel: 28
-    respawnLevel: 3
-    givesUpgradePoint: 1
+    neededScore: 0
+    scoreToNextLevel: 78
+    respawnLevel: 0
+    givesUpgradePoint: 0
   - index: 5
     neededScore: 78
     scoreToNextLevel: 35
@@ -7427,6 +7427,94 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 580490242}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 53697308}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264218811}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2024529194}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 726747991}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 555066030}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 149942689}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 322441769}
+        m_MethodName: UpdateButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &1009189776
@@ -7552,6 +7640,22 @@ MonoBehaviour:
   baseValue: 6
   holderLevelBonus: 0
   statLevelBonus: 0.5
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2024529194}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1038500112
 Transform:
   m_ObjectHideFlags: 0
@@ -7794,6 +7898,22 @@ MonoBehaviour:
   baseValue: 50
   holderLevelBonus: 2
   statLevelBonus: 20
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 53697308}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1075670072
 Transform:
   m_ObjectHideFlags: 0
@@ -9400,6 +9520,22 @@ MonoBehaviour:
   baseValue: 5
   holderLevelBonus: -0.005
   statLevelBonus: 0.25
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 322441769}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1313891802
 GameObject:
   m_ObjectHideFlags: 0
@@ -9435,6 +9571,22 @@ MonoBehaviour:
   baseValue: 20
   holderLevelBonus: 0
   statLevelBonus: 4
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 264218811}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1313891804
 Transform:
   m_ObjectHideFlags: 0
@@ -9706,6 +9858,22 @@ MonoBehaviour:
   baseValue: 0.003
   holderLevelBonus: 0.001
   statLevelBonus: 0.0005
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580490242}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1341958924
 Transform:
   m_ObjectHideFlags: 0
@@ -12203,6 +12371,22 @@ MonoBehaviour:
   baseValue: 0.6
   holderLevelBonus: 0
   statLevelBonus: -0.05
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 149942689}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1747562482
 Transform:
   m_ObjectHideFlags: 0
@@ -12441,6 +12625,22 @@ MonoBehaviour:
   baseValue: 28
   holderLevelBonus: 0
   statLevelBonus: 12
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 555066030}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1771891687
 Transform:
   m_ObjectHideFlags: 0
@@ -12708,6 +12908,22 @@ MonoBehaviour:
   baseValue: 0.51
   holderLevelBonus: 0
   statLevelBonus: 0.4
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 726747991}
+        m_MethodName: UpdateBars
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1797460323
 Transform:
   m_ObjectHideFlags: 0

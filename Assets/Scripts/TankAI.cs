@@ -89,7 +89,7 @@ namespace Tienkio {
             }
 
             if (target != null) {
-                float movementSpeed = tank.stats.movementSpeed.value;
+                float movementSpeed = tank.stats.movementSpeed.Value;
 
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
                 float distanceStabilization = sqrDistanceToTarget < minSqrDistance ? -1 : 1;

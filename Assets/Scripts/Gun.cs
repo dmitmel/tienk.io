@@ -61,7 +61,7 @@ namespace Tienkio {
 
             if (isFiring) {
                 if (now >= nextFire) {
-                    nextFire = now + (statsMultipliers.reload * tank.stats.reload.value);
+                    nextFire = now + (statsMultipliers.reload * tank.stats.reload.Value);
 
                     SpawnBullet();
 
@@ -71,7 +71,7 @@ namespace Tienkio {
                 }
             } else {
                 if (now >= nextFire)
-                    nextFire = now + shootDelay * (statsMultipliers.reload * tank.stats.reload.value);
+                    nextFire = now + shootDelay * (statsMultipliers.reload * tank.stats.reload.Value);
                 isFiring = true;
             }
         }
@@ -96,15 +96,15 @@ namespace Tienkio {
                 Random.Range(-halfBulletSpread, halfBulletSpread)
             );
 
-            float bulletSpeed = tank.stats.bulletSpeed.value * statsMultipliers.bulletSpeed;
+            float bulletSpeed = tank.stats.bulletSpeed.Value * statsMultipliers.bulletSpeed;
             var bulletVelocity = newBulletRotation * Vector3.up * bulletSpeed;
 
             newBulletController.normalVelocity = bulletVelocity;
             newBulletRigidbody.velocity = bulletVelocity + tankRigidbody.velocity;
 
             newBulletController.tank = tank;
-            newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.value;
-            newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.value;
+            newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.Value;
+            newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.Value;
             newBulletController.knockback = bulletKnockback;
             newBulletController.flyTime = bulletFlyTime;
         }

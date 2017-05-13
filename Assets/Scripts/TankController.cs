@@ -49,7 +49,7 @@ namespace Tienkio {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = stats.bodyDamage.value * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = stats.bodyDamage.Value * bodyDamageForBulletMultiplier / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;
@@ -66,7 +66,7 @@ namespace Tienkio {
                 var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
                 var tank = collider.GetComponent<TankController>();
 
-                tankHealthBar.health -= stats.bodyDamage.value;
+                tankHealthBar.health -= stats.bodyDamage.Value;
                 if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
             }
         }

@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tienkio {
     public class Stat : MonoBehaviour {
@@ -24,27 +24,30 @@ namespace Tienkio {
         public int maxLevel = 7;
         public float baseValue, holderLevelBonus, statLevelBonus;
 
-        public float value { get; private set; }
+        public float Value { get; private set; }
+
+        public UnityEvent onUpgrade;
 
         int lastStatLevel, lastHolderLevel;
 
         void Start() {
             lastStatLevel = level;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            value = ComputeValue();
+            Value = ComputeValue();
+            onUpgrade.Invoke();
         }
 
         void FixedUpdate() {
             if (lastStatLevel != level) {
                 level = Mathf.Clamp(level, 0, maxLevel);
                 lastStatLevel = level;
-                value = ComputeValue();
+                Value = ComputeValue();
             }
 
             int holderLevel = scoreCounter.currentLevel.index;
             if (lastHolderLevel != holderLevel) {
                 lastHolderLevel = holderLevel;
-                value = ComputeValue();
+                Value = ComputeValue();
             }
         }
 
@@ -53,16 +56,17 @@ namespace Tienkio {
         }
 
         public void Upgrade() {
-            if (lastStatLevel < 7 && scoreCounter.upgradePoints > 0) {
+            if (lastStatLevel < maxLevel && scoreCounter.upgradePoints > 0) {
                 level += 1;
                 scoreCounter.upgradePoints -= 1;
+                onUpgrade.Invoke();
             }
         }
 
         public void OnRespawn() {
             lastStatLevel = level = 0;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            value = ComputeValue();
+            Value = ComputeValue();
         }
     }
 }

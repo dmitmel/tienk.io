@@ -80,7 +80,7 @@ namespace Tienkio {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
-            float movementSpeed = tank.stats.movementSpeed.value;
+            float movementSpeed = tank.stats.movementSpeed.Value;
 
             float rotationX = 0, rotationY = 0;
 
