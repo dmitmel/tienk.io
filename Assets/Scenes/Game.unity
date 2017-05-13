@@ -7121,7 +7121,7 @@ GameObject:
   - component: {fileID: 1009189774}
   - component: {fileID: 1009189776}
   - component: {fileID: 1009189775}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7615,7 +7615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038500112}
   - component: {fileID: 1038500111}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7873,7 +7873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075670072}
   - component: {fileID: 1075670071}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MaxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9492,7 +9492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1299414040}
   - component: {fileID: 1299414041}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MovementSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9557,7 +9557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313891804}
   - component: {fileID: 1313891803}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BodyDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9844,7 +9844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341958924}
   - component: {fileID: 1341958923}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthRegen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12368,7 +12368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747562482}
   - component: {fileID: 1747562481}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Reload
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12622,7 +12622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771891687}
   - component: {fileID: 1771891686}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12905,7 +12905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797460323}
   - component: {fileID: 1797460322}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BulletPenetration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
