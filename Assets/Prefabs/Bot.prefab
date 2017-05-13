@@ -971,8 +971,8 @@ MonoBehaviour:
   - BigCrasher
   - Tank
   targetChooseInterval: 1
-  spawnFieldMin: {x: -220, y: -220, z: -220}
-  spawnFieldMax: {x: 220, y: 220, z: 220}
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
 --- !u!114 &114878821196847498
 MonoBehaviour:
   m_ObjectHideFlags: 1
