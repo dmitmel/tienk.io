@@ -27,7 +27,7 @@ namespace Tienkio {
         Vector3 currentVelocity = Vector3.zero;
 
         public float accelerationMultiplier = 2;
-        //public float autoSpinSpeed;
+        public float autoSpinSpeed;
 
         TankController tank;
         new Transform transform;
@@ -49,14 +49,6 @@ namespace Tienkio {
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(0);
             }
-
-            //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
-            //if (autoSpinEnabled) {
-            //    transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
-            //} else {
-            //    float angle = Vectors.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            //    transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
-            //}
 
             if (KeyBindings.instance.autoFire.isDown) {
                 if (autoFireEnabled) {
@@ -102,10 +94,15 @@ namespace Tienkio {
                     break;
             }
 
-            if (inversedControls) rotationY = -rotationY;
-            var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-            var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
-            transform.localRotation *= yQuaternion * xQuaternion;
+            if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
+            if (autoSpinEnabled) {
+                transform.rotation *= Quaternion.Euler(0, autoSpinSpeed, 0);
+            } else {
+                if (inversedControls) rotationY = -rotationY;
+                var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+                var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
+                transform.localRotation *= yQuaternion * xQuaternion;
+            }
 
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
             rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);

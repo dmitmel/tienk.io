@@ -5983,6 +5983,7 @@ MonoBehaviour:
   inversedControls: 0
   rotationSensitivity: {x: 10, y: 10}
   accelerationMultiplier: 2
+  autoSpinSpeed: 1
 --- !u!135 &919655971
 SphereCollider:
   m_ObjectHideFlags: 0
