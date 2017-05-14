@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4722250766472204}
   - component: {fileID: 212510204511425822}
-  - component: {fileID: 114694054479345380}
+  - component: {fileID: 114615052712830438}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -655,6 +655,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114615052712830438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518396232424634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12f40917098e490ab6a071cd4b9e351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follow: {fileID: 4299928913420496}
 --- !u!114 &114640937803044584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -667,6 +679,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreCounter: {fileID: 114688945464035576}
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  currentUpgradeNode:
+    tree: {fileID: 0}
+    tankName: 
+    previewIcon: {fileID: 0}
+    minLevel: 0
+    prefab: {fileID: 0}
+    unlockedTanks: 
   upgrades: []
 --- !u!114 &114688945464035576
 MonoBehaviour:
@@ -935,20 +959,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &114694054479345380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518396232424634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f05b8a0948846829c69e42bd104077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar: {fileID: 4478781346470216}
-  follow: {fileID: 4299928913420496}
-  offset: {x: 0, y: -0.9, z: 0}
 --- !u!114 &114715507373294810
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -53,7 +53,6 @@
      <Compile Include="Assets\Scripts\CrasherAI.cs" />
      <Compile Include="Assets\Scripts\CursorLocker.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
-     <Compile Include="Assets\Scripts\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\HealthBarMover.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
