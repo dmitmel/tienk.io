@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 1009189775}
+  tankUpgrader: {fileID: 919655969}
   scoreLabel: {fileID: 1498618172}
   levelLabel: {fileID: 1882704110}
   upgradePointsLabel: {fileID: 947887235}
@@ -5943,6 +5944,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreCounter: {fileID: 1009189775}
+  onUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 183386608}
+        m_MethodName: UpdateLevelLabel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  currentUpgradeNode:
+    tree: {fileID: 0}
+    tankName: 
+    previewIcon: {fileID: 0}
+    minLevel: 0
+    prefab: {fileID: 0}
+    unlockedTanks: 
   upgrades: []
 --- !u!114 &919655970
 MonoBehaviour:
@@ -7194,7 +7218,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 183386608}
-        m_MethodName: OnScoreChange
+        m_MethodName: UpdateScoreLabel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 183386608}
+        m_MethodName: UpdateLevelLabel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7210,7 +7245,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 183386608}
-        m_MethodName: OnUpgradePointsChange
+        m_MethodName: UpdateUpgradePointsLabel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

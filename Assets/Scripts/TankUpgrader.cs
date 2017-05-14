@@ -15,12 +15,16 @@
 //
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tienkio {
     public class TankUpgrader : MonoBehaviour {
         public ScoreCounter scoreCounter;
 
-        TankUpgradeNode currentUpgradeNode;
+        public UnityEvent onUpgrade;
+
+        [HideInInspector]
+        public TankUpgradeNode currentUpgradeNode;
         [HideInInspector]
         public TankUpgradeNode[] upgrades;
 
@@ -49,6 +53,7 @@ namespace Tienkio {
         public void UpgradeToTier(int tierIndex) {
             currentUpgradeNode = upgrades[tierIndex];
             if (currentUpgradeNode.prefab != null) UpdateTank();
+            onUpgrade.Invoke();
         }
 
         void UpdateTank() {
