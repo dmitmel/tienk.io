@@ -45,6 +45,7 @@ namespace Tienkio {
         void FixedUpdate() {
             if (tank.healthBar.health <= 0) {
                 Destroy(gameObject);
+                Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(0);
             }
 
