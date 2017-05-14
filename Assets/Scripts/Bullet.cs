@@ -55,5 +55,5 @@ namespace Tienkio {
                 if (health <= 0) poolObject.PutIntoPool();
             }
         }
-   }
+    }
 }
