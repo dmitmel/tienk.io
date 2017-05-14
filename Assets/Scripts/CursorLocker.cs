@@ -17,7 +17,7 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class CursorLocker : MonoBehaviour {
+    public class CursorLocker : Singleton<CursorLocker> {
         public bool cursorIsLocked = true;
 
         void Start() {
@@ -30,7 +30,7 @@ namespace Tienkio {
             cursorIsLocked = true;
         }
 
-        void UnlockCursor() {
+        public void UnlockCursor() {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             cursorIsLocked = false;
