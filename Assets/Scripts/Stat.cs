@@ -58,7 +58,7 @@ namespace Tienkio {
 
         public void Upgrade() {
             if (lastLevel < maxLevel && scoreCounter.upgradePoints > 0) {
-                lastLevel = level += 1;
+                level += 1;
                 scoreCounter.upgradePoints -= 1;
             }
         }
