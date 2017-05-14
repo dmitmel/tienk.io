@@ -48,6 +48,9 @@ namespace Tienkio {
             transform = base.transform;
             tankRigidbody = tank.GetComponent<Rigidbody>();
             tankTransform = tank.transform;
+        }
+
+        void Start() {
             SetRandomPosition();
         }
 
@@ -76,7 +79,7 @@ namespace Tienkio {
 
             if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
 
-            if (enemies.Count > 0 || target == null) {
+            if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -118,7 +121,7 @@ namespace Tienkio {
         }
 
         Stat RandomStat() {
-            switch (UnityEngine.Random.Range(0, 6)) {
+            switch (UnityEngine.Random.Range(0, 7)) {
                 case 0:
                     return tank.stats.healthRegen;
                 case 1:
@@ -148,8 +151,14 @@ namespace Tienkio {
 
             bool isFirst = true;
 
-            foreach (Transform enemy in enemies) {
-                if (enemy == null) continue;
+            for (int i = 0; i < enemies.Count; i++) {
+                Transform enemy = enemies[i];
+
+                if (enemy == null || !enemy.gameObject.activeInHierarchy) {
+                    enemies.Remove(enemy);
+                    i--;
+                    continue;
+                }
 
                 if (isFirst) {
                     currentTarget = enemy;
@@ -182,9 +191,13 @@ namespace Tienkio {
         }
 
         void OnTriggerExit(Collider collider) {
+            Debug.Log(collider, collider);
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = null;
+            if (colliderIsEnemy && colliderTransform == target) {
+                nextTargetChooseTime = Time.time + targetChooseInterval;
+                target = ChooseTarget();
+            }
         }
     }
 }

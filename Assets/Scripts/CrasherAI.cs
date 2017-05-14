@@ -44,7 +44,7 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (enemies.Count > 0 || target == null) {
+            if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -65,8 +65,14 @@ namespace Tienkio {
 
             bool isFirst = true;
 
-            foreach (Transform enemy in enemies) {
-                if (enemy == null) continue;
+            for (int i = 0; i < enemies.Count; i++) {
+                Transform enemy = enemies[i];
+
+                if (enemy == null || !enemy.gameObject.activeInHierarchy) {
+                    enemies.Remove(enemy);
+                    i--;
+                    continue;
+                }
 
                 if (isFirst) {
                     currentTarget = enemy;
@@ -89,7 +95,10 @@ namespace Tienkio {
         void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = null;
+            if (colliderIsEnemy && colliderTransform == target) {
+                target = ChooseTarget();
+                nextTargetChooseTime = Time.time + targetChooseInterval;
+            }
         }
     }
 }
