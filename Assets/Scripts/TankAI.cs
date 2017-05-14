@@ -191,7 +191,6 @@ namespace Tienkio {
         }
 
         void OnTriggerExit(Collider collider) {
-            Debug.Log(collider, collider);
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
             if (colliderIsEnemy && colliderTransform == target) {
