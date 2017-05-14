@@ -44,7 +44,7 @@ namespace Tienkio {
                 child.gameObject.SetActive(false);
             }
 
-            upgradeButton.interactable = stat.level < stat.maxLevel;
+            UpdateButton();
         }
 
         public void UpdateButton() {
