@@ -29,9 +29,8 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (PlayerControls.singletonGameObject != null) {
+            if (!PlayerControls.instanceExists)
                 upgradeButton.interactable = false;
-            }
         }
 
         public void UpdateBars() {

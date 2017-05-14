@@ -20,7 +20,8 @@ namespace Tienkio {
     public class BulletPool : Singleton<BulletPool> {
         PoolManager pool;
 
-        void Awake() {
+        protected override void Awake() {
+            base.Awake();
             pool = GetComponent<PoolManager>();
         }
 

@@ -17,31 +17,25 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
-        static GameObject _instanceObject;
+    public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
         static T _instance;
 
         public static T instance {
-            get {
-                if (_instance == null) {
-                    T[] objects = FindObjectsOfType<T>();
-                    int count = objects.Length;
-                    if (count == 0) {
-                        Debug.LogError(string.Format("[Singleton] There're no objects on scene with type of '{0}'", typeof(T)));
-                    } else {
-                        if (count > 1)
-                            Debug.LogError(string.Format("[Singleton] There're multiple instances of '{0}'", typeof(T)));
-                        _instance = objects[0];
-                        _instanceObject = _instance.gameObject;
-                    }
-                }
-
-                return _instance;
-            }
+            get { return _instance; }
         }
 
-        public static GameObject singletonGameObject {
-            get { return _instanceObject; }
+        public static bool instanceExists { get { return _instance != null; } }
+
+        protected virtual void Awake() {
+            if (_instance != null)
+                Destroy(gameObject);
+            else
+                _instance = (T) this;
+        }
+
+        void OnDestroy() {
+            if (_instance == this)
+                _instance = null;
         }
     }
 }

@@ -36,7 +36,8 @@ namespace Tienkio {
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        void Awake() {
+        protected override void Awake() {
+            base.Awake();
             tank = GetComponent<TankController>();
             transform = base.transform;
             rigidbody = GetComponent<Rigidbody>();
