@@ -14,14 +14,28 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Tienkio {
-    public class MainMenuController : MonoBehaviour {
+    public class NickFieldController : MonoBehaviour {
         public int gameSceneIndex;
 
+        InputField inputField;
+
+        void Awake() {
+            inputField = GetComponent<InputField>();
+        }
+
+        public void OnSubmit(BaseEventData eventData) {
+            Debug.Log(eventData);
+        }
+
         public void StartGame(string nick) {
-            PlayerPrefs.SetString("nick", nick);
-            SceneManager.LoadScene(gameSceneIndex);
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) {
+                PlayerPrefs.SetString("nick", nick);
+                SceneManager.LoadScene(gameSceneIndex);
+            }
         }
     }
 }
