@@ -163,13 +163,13 @@ namespace Tienkio {
                 if (isFirst) {
                     currentTarget = enemy;
                     currentTargetPriority = GetAttackPriorityFor(currentTarget);
-                    currentTargetHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    currentTargetHealth = enemy.GetComponent<Health>().health;
                     sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
                     int enemyPriority = GetAttackPriorityFor(enemy);
-                    float enemyHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    float enemyHealth = enemy.GetComponent<Health>().health;
                     float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
                     if (enemyPriority > currentTargetPriority ||

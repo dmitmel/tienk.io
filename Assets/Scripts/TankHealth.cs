@@ -17,7 +17,7 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class TankHealth : ObjectWithHealth {
+    public class TankHealth : Health {
         [Space]
         public StatsHolder stats;
         public float statToExtraRegenMultiplier = 1;

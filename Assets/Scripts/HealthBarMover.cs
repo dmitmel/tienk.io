@@ -24,6 +24,8 @@ namespace Tienkio {
         new Transform transform;
         Vector3 offset;
 
+        static readonly Quaternion rotationOffset = Quaternion.Euler(0, 180, 0);
+
         void Awake() {
             transform = base.transform;
             camera = Camera.main.transform;
@@ -35,7 +37,7 @@ namespace Tienkio {
 
         void FixedUpdate() {
             if (follow != null) transform.position = camera.rotation * offset + follow.position;
-            transform.rotation = camera.rotation;
+            transform.rotation = camera.rotation * rotationOffset;
         }
     }
 }

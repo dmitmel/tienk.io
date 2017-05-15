@@ -17,7 +17,7 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class ObjectWithHealth : MonoBehaviour {
+    public class Health : MonoBehaviour {
         public Transform healthBar;
         public float health;
         protected float lastHealth;
@@ -56,9 +56,9 @@ namespace Tienkio {
         }
 
         void ResizeBar() {
-            float width = health * (originalScale.x / maxHealth);
+            float width = health / maxHealth * originalScale.x;
             healthBar.localScale = new Vector3(width, originalScale.y);
-            healthBar.localPosition = new Vector3(width / 2f - originalScale.x / 2f, originalPosition.y);
+            healthBar.localPosition = new Vector3(originalScale.x / 2f - width / 2f, originalPosition.y);
         }
 
         bool IsRegenEnabled() {

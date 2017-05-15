@@ -63,7 +63,7 @@ namespace Tienkio {
         void OnCollisionEnter(Collision collision) {
             GameObject collider = collision.gameObject;
             if (collider.CompareTag("Tank")) {
-                var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
+                var tankHealthBar = collider.GetComponent<Health>();
                 var tank = collider.GetComponent<TankController>();
 
                 tankHealthBar.health -= stats.bodyDamage.Value;
