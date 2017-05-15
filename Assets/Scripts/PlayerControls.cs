@@ -15,42 +15,40 @@
 //
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
 
     public class PlayerControls : Singleton<PlayerControls> {
-        public Tank tank;
-        Transform tankTransform;
-        Rigidbody tankRigidbody;
-
-        [Space]
         public ControlsType controlsType;
         public bool inversedControls;
         public Vector2 rotationSensitivity = new Vector2(10, 10);
         Vector3 currentVelocity = Vector3.zero;
 
         public float accelerationMultiplier = 2;
-        //public float autoSpinSpeed;
+        public float autoSpinSpeed;
+
+        TankController tank;
+        new Transform transform;
+        new Rigidbody rigidbody;
+
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        public void OnTankUpgrade(Tank tankBody) {
-            tank = tankBody;
-            tankTransform = tankBody.transform;
-            tankRigidbody = tankBody.GetComponent<Rigidbody>();
+        protected override void Awake() {
+            base.Awake();
+            tank = GetComponent<TankController>();
+            transform = base.transform;
+            rigidbody = GetComponent<Rigidbody>();
         }
 
         void FixedUpdate() {
-            if (tank.healthBar.health <= 0) Destroy(gameObject);
-
-            //if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
-            //if (autoSpinEnabled) {
-            //    transform.rotation *= Quaternion.Euler(0, 0, autoSpinSpeed);
-            //} else {
-            //    float angle = Vectors.Angle2D(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            //    transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
-            //}
+            if (tank.healthBar.health <= 0) {
+                Destroy(gameObject);
+                CursorLocker.instance.UnlockCursor();
+                SceneManager.LoadScene(0);
+            }
 
             if (KeyBindings.instance.autoFire.isDown) {
                 if (autoFireEnabled) {
@@ -76,7 +74,7 @@ namespace Tienkio {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
-            float movementSpeed = tank.stats.movementSpeed.value;
+            float movementSpeed = tank.stats.movementSpeed.Value;
 
             float rotationX = 0, rotationY = 0;
 
@@ -96,14 +94,19 @@ namespace Tienkio {
                     break;
             }
 
-            if (inversedControls) rotationY = -rotationY;
-            var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-            var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
-            tankTransform.localRotation *= yQuaternion * xQuaternion;
+            if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
+            if (autoSpinEnabled) {
+                transform.rotation *= Quaternion.Euler(0, autoSpinSpeed, 0);
+            } else {
+                if (inversedControls) rotationY = -rotationY;
+                var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+                var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
+                transform.localRotation *= yQuaternion * xQuaternion;
+            }
 
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
-            tankRigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
-            if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
+            rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
+            if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
         }
     }
 }

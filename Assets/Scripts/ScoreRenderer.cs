@@ -20,6 +20,7 @@ using UnityEngine.UI;
 namespace Tienkio {
     public class ScoreRenderer : MonoBehaviour {
         public ScoreCounter counter;
+        public TankUpgrader tankUpgrader;
 
         public Text scoreLabel, levelLabel, upgradePointsLabel;
         public LevelBar levelBar;
@@ -32,15 +33,18 @@ namespace Tienkio {
         //    return valueForFormatting.ToString($"#,##0.#{suffix}");
         //}
 
-        public void OnScoreChange() {
-            scoreLabel.text = $"Score: {counter.score.ToString("#,##0")}";
+        public void UpdateScoreLabel() {
+            scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
+        }
 
-            levelLabel.text = $"Lvl {counter.currentLevel.index} Tank";
+        public void UpdateLevelLabel() {
+            levelLabel.text = string.Format("Lvl {0} {1}", counter.currentLevel.index,
+                                            tankUpgrader.currentUpgradeNode.tankName);
             levelBar.UpdateBar();
         }
 
-        public void OnUpgradePointsChange() {
-            upgradePointsLabel.text = $"x{counter.upgradePoints}";
+        public void UpdateUpgradePointsLabel() {
+            upgradePointsLabel.text = string.Format("x{0}", counter.upgradePoints);
         }
     }
 }

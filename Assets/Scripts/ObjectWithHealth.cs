@@ -23,7 +23,7 @@ namespace Tienkio {
         protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
-        protected float nextExtraRegen;
+        float nextExtraRegen;
 
         Vector3 originalPosition;
         Vector3 originalScale;

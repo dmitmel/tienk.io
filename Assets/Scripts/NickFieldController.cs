@@ -15,29 +15,29 @@
 //
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Tienkio {
-    public class HealthBarController : MonoBehaviour {
-        public Transform bar, follow;
-        public Vector3 offset;
-        new Transform camera;
+    public class NickFieldController : MonoBehaviour {
+        public int gameSceneIndex;
 
-        new Transform transform;
+        InputField inputField;
 
         void Awake() {
-            transform = base.transform;
-            camera = Camera.main.transform;
+            inputField = GetComponent<InputField>();
         }
 
-        void FixedUpdate() {
-            if (follow != null) transform.position = camera.rotation * offset + follow.position;
-            transform.rotation = camera.rotation;
+        public void OnSubmit(BaseEventData eventData) {
+            Debug.Log(eventData);
         }
 
-        public void OnTankUpgrade(Tank tank) {
-            follow = tank.transform;
-            tank.healthBar.healthBar = bar;
-            tank.healthBar.OnTankUpgrade(tank);
+        public void StartGame(string nick) {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) {
+                PlayerPrefs.SetString("nick", nick);
+                SceneManager.LoadScene(gameSceneIndex);
+            }
         }
     }
 }

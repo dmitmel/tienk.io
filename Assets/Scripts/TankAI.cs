@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ namespace Tienkio {
     public class TankAI : MonoBehaviour {
         public TankUpgrader upgrader;
 
-        public Tank tank;
+        public TankController tank;
         Rigidbody tankRigidbody;
         Transform tankTransform;
         public float accelerationMultiplier = 2;
@@ -41,20 +41,16 @@ namespace Tienkio {
         Transform target;
 
         float nextTargetChooseTime;
-        int lastUpgradePoints;
 
         new Transform transform;
 
         void Awake() {
             transform = base.transform;
-        }
-
-        public void OnTankUpgrade(Tank tank) {
-            this.tank = tank;
-
             tankRigidbody = tank.GetComponent<Rigidbody>();
             tankTransform = tank.transform;
+        }
 
+        void Start() {
             SetRandomPosition();
         }
 
@@ -83,25 +79,25 @@ namespace Tienkio {
 
             if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
 
-            if (enemies.Count > 0 || target == null) {
+            if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
                     target = ChooseTarget();
-
-                    foreach (Gun gun in tank.guns)
-                        gun.Fire();
                 }
             }
 
             if (target != null) {
-                float movementSpeed = tank.stats.movementSpeed.value;
+                float movementSpeed = tank.stats.movementSpeed.Value;
 
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
                 float distanceStabilization = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
                 tankTransform.LookAt(target);
                 tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * distanceStabilization);
+
+                foreach (Gun gun in tank.guns) gun.Fire();
+
                 if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
             } else {
                 foreach (Gun gun in tank.guns)
@@ -125,7 +121,7 @@ namespace Tienkio {
         }
 
         Stat RandomStat() {
-            switch (UnityEngine.Random.Range(0, 6)) {
+            switch (UnityEngine.Random.Range(0, 7)) {
                 case 0:
                     return tank.stats.healthRegen;
                 case 1:
@@ -155,8 +151,14 @@ namespace Tienkio {
 
             bool isFirst = true;
 
-            foreach (Transform enemy in enemies) {
-                if (enemy == null) continue;
+            for (int i = 0; i < enemies.Count; i++) {
+                Transform enemy = enemies[i];
+
+                if (enemy == null || !enemy.gameObject.activeInHierarchy) {
+                    enemies.Remove(enemy);
+                    i--;
+                    continue;
+                }
 
                 if (isFirst) {
                     currentTarget = enemy;
@@ -191,7 +193,10 @@ namespace Tienkio {
         void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = null;
+            if (colliderIsEnemy && colliderTransform == target) {
+                nextTargetChooseTime = Time.time + targetChooseInterval;
+                target = ChooseTarget();
+            }
         }
     }
 }

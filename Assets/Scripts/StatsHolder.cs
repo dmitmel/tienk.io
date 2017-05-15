@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,10 +26,6 @@ namespace Tienkio {
         public Stat bulletDamage;
         public Stat reload;
         public Stat movementSpeed;
-
-        public void OnTankUpgrade(Tank tank) {
-            tank.stats = this;
-        }
 
         public void OnRespawn() {
             healthRegen.OnRespawn();

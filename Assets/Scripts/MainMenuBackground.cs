@@ -17,25 +17,23 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
-        static T _instance;
+    public class MainMenuBackground : MonoBehaviour {
+        public RectTransform canvas;
+        RectTransform rectTransform;
 
-        public static T instance {
-            get { return _instance; }
+        Vector2 lastCanvasSize;
+
+        void Start() {
+            rectTransform = GetComponent<RectTransform>();
         }
 
-        public static bool instanceExists { get { return _instance != null; } }
-
-        protected virtual void Awake() {
-            if (_instance != null)
-                Destroy(gameObject);
-            else
-                _instance = (T) this;
-        }
-
-        void OnDestroy() {
-            if (_instance == this)
-                _instance = null;
+        void FixedUpdate() {
+            Vector2 canvasSize = canvas.sizeDelta;
+            if (lastCanvasSize != canvasSize) {
+                lastCanvasSize = canvasSize;
+                float size = Mathf.Max(canvasSize.x, canvasSize.y);
+                rectTransform.sizeDelta = new Vector2(size, size);
+            }
         }
     }
 }

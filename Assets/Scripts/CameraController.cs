@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace Tienkio {
     public class CameraController : MonoBehaviour {
-        public Rigidbody player;
+        public Transform player;
         public float movementSpeed = 1, rotationSpeed = 1;
 
         new Transform transform;
@@ -29,10 +29,6 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
-        }
-
-        public void OnPlayerUpgrade(Tank playerBody) {
-            player = playerBody.GetComponent<Rigidbody>();
         }
 
         void Start() {

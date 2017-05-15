@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,73 +17,57 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public class Shape : MonoBehaviour {
-        public float bodyDamage;
-        public int score;
+    public class TankController : MonoBehaviour {
+        public Material bodyMaterial;
+
+        public StatsHolder stats;
+        public ScoreCounter scoreCounter;
+        [HideInInspector]
+        public TankHealth healthBar;
+        [HideInInspector]
+        public Gun[] guns;
+
+        [Space]
         public int damageComputationCycles = 20;
-        public float bodyDamageForBullets;
+        public float bodyDamageForBulletMultiplier = 1;
 
-        [Space]
-        public PoolObject poolObject;
-
-        [Space]
-        public float randomRotationSpeed;
-        public float randomMovementSpeed;
         new Rigidbody rigidbody;
 
-        ObjectWithHealth healthBar;
-
         void Awake() {
-            healthBar = GetComponent<ObjectWithHealth>();
+            healthBar = GetComponent<TankHealth>();
             rigidbody = GetComponent<Rigidbody>();
-        }
-
-        public void Start() {
-            rigidbody.angularVelocity = new Vector3(
-                Random.Range(randomRotationSpeed, randomRotationSpeed),
-                0,
-                Random.Range(randomRotationSpeed, randomRotationSpeed)
-            );
-            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
-            healthBar.health = healthBar.maxHealth;
         }
 
         void OnTriggerEnter(Collider collider) {
             if (collider.CompareTag("Bullet")) {
                 var bullet = collider.GetComponent<Bullet>();
+                if (bullet.tank == this) return;
+
                 Rigidbody bulletRigidbody = collider.attachedRigidbody;
 
                 Vector3 bulletDirection = bulletRigidbody.velocity.normalized;
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = bodyDamageForBullets / damageComputationCycles;
+                float bodyDamagePerCycle = stats.bodyDamage.Value * bodyDamageForBulletMultiplier / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0) {
-                    bullet.tank.scoreCounter.score += score;
-                    ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(poolObject);
-                }
+                if (healthBar.health <= 0) bullet.tank.scoreCounter.score += scoreCounter.score;
             }
         }
 
         void OnCollisionEnter(Collision collision) {
             GameObject collider = collision.gameObject;
             if (collider.CompareTag("Tank")) {
+                var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
                 var tank = collider.GetComponent<TankController>();
 
-                tank.healthBar.health -= bodyDamage;
-                healthBar.health -= tank.stats.bodyDamage.Value;
-                if (healthBar.health <= 0) {
-                    tank.scoreCounter.score += score;
-                    ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(poolObject);
-                }
+                tankHealthBar.health -= stats.bodyDamage.Value;
+                if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
             }
         }
     }

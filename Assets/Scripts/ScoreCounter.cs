@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +38,6 @@ namespace Tienkio {
         public UnityEvent onScoreChange, onUpgradePointsChange;
 
         int lastScore, lastUpgradePoints;
-
 
         void Start() {
             currentLevel = ComputeLevel();
@@ -98,10 +97,6 @@ namespace Tienkio {
             if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
             levelIndex = lastLevel.index;
             return levels[levels.Length - 1];
-        }
-
-        public void OnTankUpgrade(Tank tank) {
-            tank.scoreCounter = this;
         }
 
         public void OnRespawn() {

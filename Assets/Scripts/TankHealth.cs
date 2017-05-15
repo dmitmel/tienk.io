@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,39 +22,24 @@ namespace Tienkio {
         public StatsHolder stats;
         public float statToExtraRegenMultiplier = 1;
 
-        float lastHealthRegen, lastMaxHealth;
+        float lastMaxHealth = -1;
 
-        public void OnTankUpgrade(Tank tankBody) {
-            stats = tankBody.stats;
+        public void OnHealthRegenUpgrade() {
+            healthRegen = stats.healthRegen.Value;
+            extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
 
-        protected override void Start() {
-            base.Start();
-
-            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
-            healthRegen = lastHealthRegen = stats.healthRegen.value;
-        }
-
-        protected override void FixedUpdate() {
-            base.FixedUpdate();
-
-            float newHealthRegen = stats.healthRegen.value;
-            if (newHealthRegen != lastHealthRegen) {
-                lastHealthRegen = healthRegen = stats.healthRegen.value;
-                extraRegen = healthRegen * statToExtraRegenMultiplier;
-            }
-
-            float newMaxHealth = stats.maxHealth.value;
-            if (newMaxHealth != lastMaxHealth) {
-                maxHealth = newMaxHealth;
-                lastHealth = health = health * newMaxHealth / lastMaxHealth;
-                lastMaxHealth = newMaxHealth;
-            }
+        public void OnMaxHealthUpgrade() {
+            maxHealth = stats.maxHealth.Value;
+            if (lastMaxHealth == -1) lastHealth = health = maxHealth;
+            else lastHealth = health = health * (maxHealth / lastMaxHealth);
+            lastMaxHealth = maxHealth;
         }
 
         public void OnRespawn() {
-            health = maxHealth = lastMaxHealth = stats.maxHealth.value;
-            healthRegen = lastHealthRegen = stats.healthRegen.value;
+            health = maxHealth = lastMaxHealth = stats.maxHealth.Value;
+            healthRegen = stats.healthRegen.Value;
+            extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
     }
 }

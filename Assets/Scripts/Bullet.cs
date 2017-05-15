@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ using UnityEngine;
 namespace Tienkio {
     public class Bullet : MonoBehaviour {
         [HideInInspector]
-        public Tank tank;
+        public TankController tank;
 
         [HideInInspector]
         public float health, damage, knockback, flyTime;
@@ -55,5 +55,5 @@ namespace Tienkio {
                 if (health <= 0) poolObject.PutIntoPool();
             }
         }
-   }
+    }
 }

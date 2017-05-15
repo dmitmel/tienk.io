@@ -23,30 +23,17 @@ namespace Tienkio {
         public Button upgradeButton;
         public Transform upgradeBars;
 
-        int lastStatLevel, lastUpgradePoints;
-
         void Start() {
-            UpdateUI();
+            UpdateBars();
+            UpdateButton();
         }
 
         void FixedUpdate() {
-            if (lastStatLevel != stat.level) {
-                UpdateUI();
-                lastStatLevel = stat.level;
-            }
-
-            int upgradePoints = stat.scoreCounter.upgradePoints;
-            if (lastUpgradePoints != upgradePoints) {
-                lastUpgradePoints = upgradePoints;
-                upgradeButton.interactable = IsInteractable();
-            }
-
-            if (PlayerControls.singletonGameObject != null) {
+            if (!PlayerControls.instanceExists)
                 upgradeButton.interactable = false;
-            }
         }
 
-        void UpdateUI() {
+        public void UpdateBars() {
             for (int i = 0; i < stat.level && i < upgradeBars.childCount; i++) {
                 Transform child = upgradeBars.GetChild(i);
                 child.gameObject.SetActive(true);
@@ -57,11 +44,11 @@ namespace Tienkio {
                 child.gameObject.SetActive(false);
             }
 
-            upgradeButton.interactable = IsInteractable();
+            UpdateButton();
         }
 
-        bool IsInteractable() {
-            return stat.scoreCounter.upgradePoints > 0 && stat.level < stat.maxLevel;
+        public void UpdateButton() {
+            upgradeButton.interactable = stat.scoreCounter.upgradePoints > 0 && stat.level < stat.maxLevel;
         }
     }
 }
