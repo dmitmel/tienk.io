@@ -3876,7 +3876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9000
+  m_Text: 0
 --- !u!222 &559607750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7504,6 +7504,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  scoreLabel: {fileID: 559607749}
 --- !u!114 &1009189776
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using System;
 
 namespace Tienkio {
     [System.Serializable]
@@ -37,6 +39,9 @@ namespace Tienkio {
         [Space]
         public UnityEvent onScoreChange, onUpgradePointsChange;
 
+        [Space]
+        public Text scoreLabel;
+
         int lastScore, lastUpgradePoints;
 
         void Start() {
@@ -50,6 +55,7 @@ namespace Tienkio {
             if (lastScore != score) {
                 currentLevel = ComputeLevel();
                 lastScore = score;
+                scoreLabel.text = FormatScore();
                 onScoreChange.Invoke();
             }
 
@@ -57,6 +63,14 @@ namespace Tienkio {
                 lastUpgradePoints = upgradePoints;
                 onUpgradePointsChange.Invoke();
             }
+        }
+
+        string FormatScore() {
+            string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
+            float valueForFormatting =
+                score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
+                score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
+            return valueForFormatting.ToString(string.Format("#,##0.#{0}", suffix));
         }
 
 #if UNITY_EDITOR
