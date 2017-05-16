@@ -54,7 +54,6 @@
      <Compile Include="Assets\Scripts\CursorLocker.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\HealthBarMover.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
      <Compile Include="Assets\Scripts\MainMenuBackground.cs" />

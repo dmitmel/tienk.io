@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 4338767115554998}
   - component: {fileID: 114404087145165484}
   - component: {fileID: 135135066245337176}
-  - component: {fileID: 114907638850292002}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -199,6 +198,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33690612340596046
 MeshFilter:
@@ -314,18 +314,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   pool: {fileID: 0}
---- !u!114 &114907638850292002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1551015884717430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7651e99c656a4d1fad18c5e31ebe9a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  follow: {fileID: 4942871408852514}
 --- !u!114 &114909778901554058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -392,11 +380,16 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 1dbce323a9a414442a5ddb1d8824c5b5, type: 3}
   m_Color: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
 --- !u!212 &212993883795554526
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -427,8 +420,13 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: 1dbce323a9a414442a5ddb1d8824c5b5, type: 3}
   m_Color: {r: 0.4862745, g: 0.7764706, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0

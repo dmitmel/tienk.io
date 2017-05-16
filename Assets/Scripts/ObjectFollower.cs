@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,20 +19,25 @@ using UnityEngine;
 namespace Tienkio {
     public class ObjectFollower : MonoBehaviour {
         public Transform follow;
+        new Transform camera;
 
         new Transform transform;
-        Vector3 offset;
+        Vector3 posOffset;
+        Quaternion rotOffset;
 
         void Awake() {
             transform = base.transform;
+            camera = Camera.main.transform;
         }
 
         void Start() {
-            offset = transform.localPosition;
+            posOffset = transform.position - follow.position;
+            rotOffset = transform.rotation * Quaternion.Inverse(follow.rotation);
         }
 
         void FixedUpdate() {
-            if (follow != null) transform.localPosition = offset + follow.localPosition;
+            if (follow != null) transform.position = camera.rotation * posOffset + follow.position;
+            transform.rotation = camera.rotation * rotOffset;
         }
     }
 }
