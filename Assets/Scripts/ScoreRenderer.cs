@@ -25,14 +25,6 @@ namespace Tienkio {
         public Text scoreLabel, levelLabel, upgradePointsLabel;
         public LevelBar levelBar;
 
-        //string FormatScore() {
-        //    string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
-        //    float valueForFormatting =
-        //        score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
-        //        score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
-        //    return valueForFormatting.ToString($"#,##0.#{suffix}");
-        //}
-
         public void UpdateScoreLabel() {
             scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
         }

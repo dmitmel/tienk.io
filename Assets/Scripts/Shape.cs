@@ -31,10 +31,10 @@ namespace Tienkio {
         public float randomMovementSpeed;
         new Rigidbody rigidbody;
 
-        ObjectWithHealth healthBar;
+        Health healthBar;
 
         void Awake() {
-            healthBar = GetComponent<ObjectWithHealth>();
+            healthBar = GetComponent<Health>();
             rigidbody = GetComponent<Rigidbody>();
         }
 

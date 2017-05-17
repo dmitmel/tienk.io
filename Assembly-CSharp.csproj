@@ -53,14 +53,13 @@
      <Compile Include="Assets\Scripts\CrasherAI.cs" />
      <Compile Include="Assets\Scripts\CursorLocker.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
-     <Compile Include="Assets\Scripts\HealthBarMover.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
      <Compile Include="Assets\Scripts\MainMenuBackground.cs" />
      <Compile Include="Assets\Scripts\NickFieldController.cs" />
      <Compile Include="Assets\Scripts\NickLabel.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
-     <Compile Include="Assets\Scripts\ObjectWithHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\PoolManager.cs" />
      <Compile Include="Assets\Scripts\PoolObject.cs" />

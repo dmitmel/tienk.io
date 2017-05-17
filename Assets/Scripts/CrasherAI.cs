@@ -57,6 +57,8 @@ namespace Tienkio {
                 crasher.AddRelativeForce(Vector3.forward * acceleration);
                 if (crasher.velocity.sqrMagnitude > movementSpeed * movementSpeed) crasher.velocity.Normalize();
             }
+
+            transform.position = crasherTransform.position;
         }
 
         Transform ChooseTarget() {
