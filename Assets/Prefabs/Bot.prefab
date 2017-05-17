@@ -553,6 +553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nick: Bot
+  nickLabel: {fileID: 114570946915530616}
   bodyMaterial: {fileID: 2100000, guid: dda4b19e1b5f54c33bffca6c087df0d5, type: 2}
   stats: {fileID: 114932535852448002}
   scoreCounter: {fileID: 114688945464035576}

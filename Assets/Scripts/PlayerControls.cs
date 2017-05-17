@@ -43,6 +43,10 @@ namespace Tienkio {
             rigidbody = GetComponent<Rigidbody>();
         }
 
+        void Start() {
+            tank.nick = PlayerPrefs.GetString("nick", "");
+        }
+
         void FixedUpdate() {
             if (tank.healthBar.health <= 0) {
                 Destroy(gameObject);

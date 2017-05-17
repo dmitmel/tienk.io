@@ -37,7 +37,8 @@ namespace Tienkio {
         public Level currentLevel;
 
         [Space]
-        public UnityEvent onScoreChange, onUpgradePointsChange;
+        public UnityEvent onScoreChange;
+        public UnityEvent onUpgradePointsChange;
 
         [Space]
         public Text scoreLabel;
@@ -55,7 +56,7 @@ namespace Tienkio {
             if (lastScore != score) {
                 currentLevel = ComputeLevel();
                 lastScore = score;
-                scoreLabel.text = FormatScore();
+                if (scoreLabel != null) scoreLabel.text = FormatScore();
                 onScoreChange.Invoke();
             }
 

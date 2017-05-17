@@ -15,9 +15,14 @@
 //
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tienkio {
     public class TankController : MonoBehaviour {
+        public string nick;
+        public Text nickLabel;
+
+        [Space]
         public Material bodyMaterial;
 
         public StatsHolder stats;
@@ -36,6 +41,10 @@ namespace Tienkio {
         void Awake() {
             healthBar = GetComponent<TankHealth>();
             rigidbody = GetComponent<Rigidbody>();
+        }
+
+        void Start() {
+            nickLabel.text = nick;
         }
 
         void OnTriggerEnter(Collider collider) {
