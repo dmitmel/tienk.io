@@ -17,31 +17,54 @@
 using UnityEngine;
 
 namespace Tienkio {
+    [System.Serializable]
+    public class CameraPerson {
+        public Vector3 positionOffset;
+        public Vector3 rotationOffset;
+
+        public float movementSppeed, rotationSpeed;
+    }
+
     public class CameraController : MonoBehaviour {
         public Transform player;
-        public float movementSpeed = 1, rotationSpeed = 1;
+        public new Transform camera;
+
+        public bool isFirstPerson;
+
+        public CameraPerson firstPerson;
+        public CameraPerson thirdPerson;
 
         new Transform transform;
-
-        Vector3 velocity;
-        Vector3 posOffset;
-        Quaternion rotOffset;
 
         void Awake() {
             transform = base.transform;
         }
 
-        void Start() {
-            posOffset = transform.position - player.position;
-            rotOffset = transform.rotation * Quaternion.Inverse(player.rotation);
-        }
-
         void FixedUpdate() {
             if (player != null) {
-                transform.position = Vector3.Lerp(transform.position, player.position + posOffset,
-                                                  Time.deltaTime * movementSpeed);
-                transform.rotation = Quaternion.Lerp(transform.rotation, player.rotation * rotOffset,
-                                                     Time.deltaTime * rotationSpeed);
+                CameraPerson person = isFirstPerson ? firstPerson : thirdPerson;
+
+                Vector3 positionOffset = person.positionOffset;
+                Quaternion rotationOffset = Quaternion.Euler(person.rotationOffset);
+                float movementSpeed = person.movementSppeed;
+                float rotationSpeed = person.rotationSpeed;
+
+                if (movementSpeed > 0) {
+                    transform.position = Vector3.Lerp(transform.position, player.position,
+                                                      Time.deltaTime * movementSpeed);
+                    camera.localPosition = Vector3.Lerp(camera.localPosition, positionOffset,
+                                                        Time.deltaTime * movementSpeed);
+                } else {
+                    transform.position = player.position;
+                    camera.localPosition = positionOffset;
+                }
+
+                if (rotationSpeed > 0) {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, player.rotation * rotationOffset,
+                                                         Time.deltaTime * rotationSpeed);
+                } else {
+                    transform.rotation = player.rotation * rotationOffset;
+                }
             }
         }
     }
