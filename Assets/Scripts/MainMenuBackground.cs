@@ -27,7 +27,7 @@ namespace Tienkio {
             rectTransform = GetComponent<RectTransform>();
         }
 
-        void FixedUpdate() {
+        void Update() {
             Vector2 canvasSize = canvas.sizeDelta;
             if (lastCanvasSize != canvasSize) {
                 lastCanvasSize = canvasSize;
