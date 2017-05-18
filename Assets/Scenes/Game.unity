@@ -6653,16 +6653,16 @@ MonoBehaviour:
     key1: 32
     key2: 323
   autoFire:
-    key1: 101
+    key1: 102
     key2: 0
   autoSpin:
-    key1: 99
+    key1: 114
     key2: 0
   lockCursor:
-    key1: 102
+    key1: 27
     key2: 0
   unlockCursor:
-    key1: 102
+    key1: 27
     key2: 0
 --- !u!4 &1007650551
 Transform:
