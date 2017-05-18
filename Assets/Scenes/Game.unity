@@ -1695,11 +1695,13 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0.35}
     rotationOffset: {x: 0, y: 0, z: 0}
     movementSppeed: 0
+    offsetChangeSpeed: 5
     rotationSpeed: 1
   thirdPerson:
     positionOffset: {x: 0, y: 0, z: -5}
     rotationOffset: {x: 0, y: 0, z: 0}
     movementSppeed: 2
+    offsetChangeSpeed: 2
     rotationSpeed: 1
 --- !u!4 &234152642
 Transform:

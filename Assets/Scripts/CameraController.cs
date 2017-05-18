@@ -22,7 +22,7 @@ namespace Tienkio {
         public Vector3 positionOffset;
         public Vector3 rotationOffset;
 
-        public float movementSppeed, rotationSpeed;
+        public float movementSppeed, offsetChangeSpeed, rotationSpeed;
     }
 
     public class CameraController : MonoBehaviour {
@@ -49,15 +49,20 @@ namespace Tienkio {
                 Vector3 positionOffset = person.positionOffset;
                 Quaternion rotationOffset = Quaternion.Euler(person.rotationOffset);
                 float movementSpeed = person.movementSppeed;
+                float offsetChangeSpeed = person.offsetChangeSpeed;
                 float rotationSpeed = person.rotationSpeed;
 
                 if (movementSpeed > 0) {
                     transform.position = Vector3.Lerp(transform.position, player.position,
                                                       Time.deltaTime * movementSpeed);
-                    camera.localPosition = Vector3.Lerp(camera.localPosition, positionOffset,
-                                                        Time.deltaTime * movementSpeed);
                 } else {
                     transform.position = player.position;
+                }
+
+                if (offsetChangeSpeed > 0) {
+                    camera.localPosition = Vector3.Lerp(camera.localPosition, positionOffset,
+                                                        Time.deltaTime * offsetChangeSpeed);
+                } else {
                     camera.localPosition = positionOffset;
                 }
 
