@@ -37,8 +37,10 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (cursorIsLocked && KeyBindings.instance.unlockCursor.isDown) UnlockCursor();
-            else if (!cursorIsLocked && KeyBindings.instance.lockCursor.isDown) LockCursor();
+            if (KeyBindings.instance.toggleCursor.isDown) {
+                if (cursorIsLocked) UnlockCursor();
+                else LockCursor();
+            }
         }
     }
 }

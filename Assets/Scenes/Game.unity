@@ -1671,7 +1671,7 @@ GameObject:
   - component: {fileID: 234152642}
   - component: {fileID: 234152641}
   m_Layer: 0
-  m_Name: CameraRotation
+  m_Name: CameraRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6658,11 +6658,11 @@ MonoBehaviour:
   autoSpin:
     key1: 114
     key2: 0
-  lockCursor:
+  toggleCursor:
     key1: 27
     key2: 0
-  unlockCursor:
-    key1: 27
+  changePerson:
+    key1: 99
     key2: 0
 --- !u!4 &1007650551
 Transform:

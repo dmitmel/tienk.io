@@ -41,6 +41,8 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
+            if (KeyBindings.instance.changePerson.isDown) isFirstPerson = !isFirstPerson;
+
             if (player != null) {
                 CameraPerson person = isFirstPerson ? firstPerson : thirdPerson;
 
