@@ -33,7 +33,7 @@ namespace Tienkio {
         }
     }
 
-    public class KeyBindings : Singleton<KeyBindings> {
+    public class KeyBindings : PersistentSingleton<KeyBindings> {
         public KeyBinding fire, autoFire, autoSpin, toggleCursor, changePerson, playGameGuide, continueGuide, skipGuide;
     }
 }

@@ -48,6 +48,9 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
+            if (KeyBindings.instance.playGameGuide.isDown)
+                GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
+
             if (tank.healthBar.health <= 0) {
                 Destroy(gameObject);
                 CursorLocker.instance.UnlockCursor();

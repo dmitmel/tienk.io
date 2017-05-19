@@ -48,7 +48,7 @@ namespace Tienkio {
         }
     }
 
-    public class TankUpgradeTree : Singleton<TankUpgradeTree> {
+    public class TankUpgradeTree : PersistentSingleton<TankUpgradeTree> {
         public TankUpgradeNode[] tankUpgradeTree;
 
 #if UNITY_EDITOR

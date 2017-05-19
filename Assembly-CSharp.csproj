@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\NickFieldController.cs" />
      <Compile Include="Assets\Scripts\NickLabel.cs" />
      <Compile Include="Assets\Scripts\ObjectFollower.cs" />
+     <Compile Include="Assets\Scripts\PersistentSingleton.cs" />
      <Compile Include="Assets\Scripts\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\PoolManager.cs" />
      <Compile Include="Assets\Scripts\PoolObject.cs" />

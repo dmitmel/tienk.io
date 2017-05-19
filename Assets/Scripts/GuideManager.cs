@@ -19,7 +19,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Tienkio {
-    public class GuideManager : MonoBehaviour {
+    public class GuideManager : Singleton<GuideManager> {
         public GameObject guideBox;
         public Text guideText;
 
@@ -28,6 +28,7 @@ namespace Tienkio {
         [TextArea(3, 10)]
         public string[] gameGuide;
 
+        bool isGuideLoaded;
         string[] currentGuide;
         int currentGuidePart;
 
@@ -45,17 +46,18 @@ namespace Tienkio {
             guideBox.SetActive(true);
             DisplayNextGuidePart();
 
-            Time.timeScale = 0;
+            isGuideLoaded = true;
         }
 
         void Update() {
-            if (KeyBindings.instance.playGameGuide.isDown)
-                LoadGuide(gameGuide);
+            if (isGuideLoaded) {
+                Time.timeScale = 0;
 
-            if (KeyBindings.instance.continueGuide.isDown)
-                DisplayNextGuidePart();
-            if (KeyBindings.instance.skipGuide.isDown)
-                EndGuide();
+                if (KeyBindings.instance.continueGuide.isDown)
+                    DisplayNextGuidePart();
+                if (KeyBindings.instance.skipGuide.isDown)
+                    EndGuide();
+            }
         }
 
         void EndGuide() {
@@ -67,6 +69,7 @@ namespace Tienkio {
             guideText.text = "";
 
             Time.timeScale = 1;
+            isGuideLoaded = false;
         }
 
         void DisplayNextGuidePart() {
