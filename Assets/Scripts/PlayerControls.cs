@@ -69,10 +69,10 @@ namespace Tienkio {
                 foreach (Gun gun in tank.guns)
                     gun.Fire();
             } else {
-                if (Input.GetButton("Fire1")) {
+                if (Input.GetButton("Fire")) {
                     foreach (Gun gun in tank.guns)
                         gun.Fire();
-                } else if (Input.GetButtonUp("Fire1")) {
+                } else if (Input.GetButtonUp("Fire")) {
                     foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
