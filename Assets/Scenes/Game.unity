@@ -12124,7 +12124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guideBox: {fileID: 1042172779}
   guideText: {fileID: 1671541190}
-  displayGameGuide: 1
   gameGuide:
   - Welcome to tienk.io! It's like diep.io, but in 3D.
   - Here's small guide for you (press H key to play it again).
@@ -12135,12 +12134,10 @@ MonoBehaviour:
   - You can switch between First Person mode and Third Person mode using C key.
   - Bar under tank is indicator of your health. Your health can regenerate slowly.
   - There're a lot of shapes on the map. You can destroy them to get some score.
-  - 'When you reach new level, you
-
-    get an Upgrade Point.'
+  - When you reach new level, you get an Upgrade Point.
   - Use upgrade points to upgrade your stats (they're in the bottom left corner).
-  - To upgrade them you need to unlock cursor using Escape key (you can lock it later
-    using the same key).
+  - To upgrade them you need to unlock cursor using T key (you can lock it later using
+    the same key).
   - When you get a lot of score, you can upgrade your tank (upgrades are in the top
     left corner).
   - And, you can find some bots on the map. They'll attack you.
