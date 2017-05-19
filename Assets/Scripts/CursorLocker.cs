@@ -1,4 +1,4 @@
-﻿//
+﻿﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,7 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (KeyBindings.instance.toggleCursor.isDown) {
+            if (Input.GetButtonDown("Toggle Cursor")) {
                 if (cursorIsLocked) UnlockCursor();
                 else LockCursor();
             }

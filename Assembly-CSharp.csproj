@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\GuideManager.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\KeyBindings.cs" />
      <Compile Include="Assets\Scripts\LevelBar.cs" />
      <Compile Include="Assets\Scripts\MainMenuBackground.cs" />
      <Compile Include="Assets\Scripts\NickFieldController.cs" />

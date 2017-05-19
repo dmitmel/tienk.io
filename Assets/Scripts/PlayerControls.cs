@@ -48,7 +48,7 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (KeyBindings.instance.playGameGuide.isDown)
+            if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
 
             if (tank.healthBar.health <= 0) {
@@ -57,7 +57,7 @@ namespace Tienkio {
                 SceneManager.LoadScene(0);
             }
 
-            if (KeyBindings.instance.autoFire.isDown) {
+            if (Input.GetButtonDown("Auto Fire")) {
                 if (autoFireEnabled) {
                     foreach (Gun gun in tank.guns)
                         gun.StopFiring();
@@ -69,10 +69,10 @@ namespace Tienkio {
                 foreach (Gun gun in tank.guns)
                     gun.Fire();
             } else {
-                if (KeyBindings.instance.fire.isPressed) {
+                if (Input.GetButton("Fire1")) {
                     foreach (Gun gun in tank.guns)
                         gun.Fire();
-                } else if (KeyBindings.instance.fire.isUp) {
+                } else if (Input.GetButtonUp("Fire1")) {
                     foreach (Gun gun in tank.guns)
                         gun.StopFiring();
                 }
@@ -101,7 +101,7 @@ namespace Tienkio {
                     break;
             }
 
-            if (KeyBindings.instance.autoSpin.isDown) autoSpinEnabled = !autoSpinEnabled;
+            if (Input.GetButtonDown("Auto Spin")) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, autoSpinSpeed, 0);
             } else {

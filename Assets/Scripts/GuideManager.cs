@@ -53,9 +53,9 @@ namespace Tienkio {
             if (isGuideLoaded) {
                 Time.timeScale = 0;
 
-                if (KeyBindings.instance.continueGuide.isDown)
+                if (Input.GetButtonDown("Continue Guide"))
                     DisplayNextGuidePart();
-                if (KeyBindings.instance.skipGuide.isDown)
+                if (Input.GetButtonDown("Skip Guide"))
                     EndGuide();
             }
         }
