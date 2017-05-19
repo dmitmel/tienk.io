@@ -19,7 +19,8 @@ using UnityEngine;
 
 namespace Tienkio {
     public class CrasherAI : MonoBehaviour {
-        public Rigidbody2D crasher;
+        public Rigidbody crasher;
+        Transform crasherTransform;
         public float acceleration, movementSpeed;
 
         public float targetChooseInterval;
@@ -33,16 +34,17 @@ namespace Tienkio {
 
         void Awake() {
             transform = base.transform;
+            crasherTransform = crasher.transform;
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void OnTriggerEnter(Collider collider) {
             Transform colliderTransform = collider.transform;
             if (colliderTransform.CompareTag("Tank"))
                 enemies.Add(collider.transform);
         }
 
-        void Update() {
-            if (enemies.Count > 0 || target == null) {
+        void FixedUpdate() {
+            if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
@@ -51,13 +53,12 @@ namespace Tienkio {
             }
 
             if (target != null) {
-                crasher.rotation = (Vectors.Angle2D(crasher.position, target.position) + 90) % 360;
-                crasher.AddRelativeForce(Vector2.up * acceleration);
-                crasher.velocity = new Vector2(
-                    Mathf.Clamp(crasher.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(crasher.velocity.y, -movementSpeed, movementSpeed)
-                );
+                crasherTransform.LookAt(target);
+                crasher.AddRelativeForce(Vector3.forward * acceleration);
+                if (crasher.velocity.sqrMagnitude > movementSpeed * movementSpeed) crasher.velocity.Normalize();
             }
+
+            transform.position = crasherTransform.position;
         }
 
         Transform ChooseTarget() {
@@ -66,8 +67,14 @@ namespace Tienkio {
 
             bool isFirst = true;
 
-            foreach (Transform enemy in enemies) {
-                if (enemy == null) continue;
+            for (int i = 0; i < enemies.Count; i++) {
+                Transform enemy = enemies[i];
+
+                if (enemy == null || !enemy.gameObject.activeInHierarchy) {
+                    enemies.Remove(enemy);
+                    i--;
+                    continue;
+                }
 
                 if (isFirst) {
                     currentTarget = enemy;
@@ -87,10 +94,13 @@ namespace Tienkio {
             return currentTarget;
         }
 
-        void OnTriggerExit2D(Collider2D collider) {
+        void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = null;
+            if (colliderIsEnemy && colliderTransform == target) {
+                target = ChooseTarget();
+                nextTargetChooseTime = Time.time + targetChooseInterval;
+            }
         }
     }
 }

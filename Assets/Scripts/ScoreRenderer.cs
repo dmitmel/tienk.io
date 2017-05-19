@@ -20,37 +20,23 @@ using UnityEngine.UI;
 namespace Tienkio {
     public class ScoreRenderer : MonoBehaviour {
         public ScoreCounter counter;
+        public TankUpgrader tankUpgrader;
 
         public Text scoreLabel, levelLabel, upgradePointsLabel;
         public LevelBar levelBar;
 
-        int lastScore, lastUpgradePoints;
-
-        void Start() {
-            UpdateUI();
+        public void UpdateScoreLabel() {
+            scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
         }
 
-        void Update() {
-            if (lastScore != counter.score || lastUpgradePoints != counter.upgradePoints) UpdateUI();
-        }
-
-        //string FormatScore() {
-        //    string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
-        //    float valueForFormatting =
-        //        score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
-        //        score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
-        //    return valueForFormatting.ToString($"#,##0.#{suffix}");
-        //}
-
-        public void UpdateUI() {
-            scoreLabel.text = $"Score: {counter.score.ToString("#,##0")}";
-            lastScore = counter.score;
-
-            levelLabel.text = $"Lvl {counter.currentLevel.index} Tank";
+        public void UpdateLevelLabel() {
+            levelLabel.text = string.Format("Lvl {0} {1}", counter.currentLevel.index,
+                                            tankUpgrader.currentUpgradeNode.tankName);
             levelBar.UpdateBar();
+        }
 
-            upgradePointsLabel.text = $"x{counter.upgradePoints}";
-            lastUpgradePoints = counter.upgradePoints;
+        public void UpdateUpgradePointsLabel() {
+            upgradePointsLabel.text = string.Format("x{0}", counter.upgradePoints);
         }
     }
 }

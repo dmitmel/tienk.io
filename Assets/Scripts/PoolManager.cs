@@ -59,13 +59,13 @@ namespace Tienkio {
 
                 if (nextObjectRemove > 0 && now >= nextObjectRemove) {
                     nextObjectRemove = now + garbageCollectionInterval;
-                    PoolObject obj = pool.Dequeue();
-                    Destroy(obj);
+                    PoolObject poolObj = pool.Dequeue();
+                    Destroy(poolObj.gameObject);
                 }
             }
         }
 
-        public PoolObject GetFromPool(Vector2 position, Quaternion rotation) {
+        public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {
             nextGCStart = Time.time + garbageCollectionDelay;
             nextObjectRemove = -1;
 
@@ -88,13 +88,13 @@ namespace Tienkio {
             }
         }
 
-        public void PutIntoPool(PoolObject obj) {
+        public void PutIntoPool(PoolObject poolObj) {
             nextGCStart = Time.time + garbageCollectionDelay;
             nextObjectRemove = -1;
 
-            pool.Enqueue(obj);
-            obj.gameObject.SetActive(false);
-            objectsToIntialize.Remove(obj);
+            pool.Enqueue(poolObj);
+            poolObj.gameObject.SetActive(false);
+            objectsToIntialize.Remove(poolObj);
         }
     }
 }

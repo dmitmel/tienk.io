@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,9 @@
 //
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using System;
 
 namespace Tienkio {
     [System.Serializable]
@@ -33,18 +36,42 @@ namespace Tienkio {
         public Level[] levels;
         public Level currentLevel;
 
-        int lastScore;
+        [Space]
+        public UnityEvent onScoreChange;
+        public UnityEvent onUpgradePointsChange;
+
+        [Space]
+        public Text scoreLabel;
+
+        int lastScore, lastUpgradePoints;
 
         void Start() {
             currentLevel = ComputeLevel();
             lastScore = score;
+            onScoreChange.Invoke();
+            onUpgradePointsChange.Invoke();
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (lastScore != score) {
                 currentLevel = ComputeLevel();
                 lastScore = score;
+                if (scoreLabel != null) scoreLabel.text = FormatScore();
+                onScoreChange.Invoke();
             }
+
+            if (lastUpgradePoints != upgradePoints) {
+                lastUpgradePoints = upgradePoints;
+                onUpgradePointsChange.Invoke();
+            }
+        }
+
+        string FormatScore() {
+            string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
+            float valueForFormatting =
+                score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
+                score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
+            return valueForFormatting.ToString(string.Format("#,##0.#{0}", suffix));
         }
 
 #if UNITY_EDITOR

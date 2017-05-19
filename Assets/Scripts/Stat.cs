@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tienkio {
     public class Stat : MonoBehaviour {
@@ -24,45 +24,49 @@ namespace Tienkio {
         public int maxLevel = 7;
         public float baseValue, holderLevelBonus, statLevelBonus;
 
-        public float value { get; private set; }
+        public float Value { get; private set; }
 
-        int lastStatLevel, lastHolderLevel;
+        public UnityEvent onValueChange;
+
+        int lastLevel, lastHolderLevel;
 
         void Start() {
-            lastStatLevel = level;
+            lastLevel = level;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            value = ComputeValue();
+            ComputeValue();
+            onValueChange.Invoke();
         }
 
-        void Update() {
-            if (lastStatLevel != level) {
+        void FixedUpdate() {
+            if (lastLevel != level) {
                 level = Mathf.Clamp(level, 0, maxLevel);
-                lastStatLevel = level;
-                value = ComputeValue();
+                lastLevel = level;
+                ComputeValue();
             }
 
             int holderLevel = scoreCounter.currentLevel.index;
             if (lastHolderLevel != holderLevel) {
                 lastHolderLevel = holderLevel;
-                value = ComputeValue();
+                ComputeValue();
             }
         }
 
-		float ComputeValue() {
-            return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastStatLevel;
+        void ComputeValue() {
+            Value = baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastLevel;
+            onValueChange.Invoke();
         }
 
         public void Upgrade() {
-            if (lastStatLevel < 7 && scoreCounter.upgradePoints > 0) {
+            if (lastLevel < maxLevel && scoreCounter.upgradePoints > 0) {
                 level += 1;
                 scoreCounter.upgradePoints -= 1;
             }
         }
 
         public void OnRespawn() {
-            lastStatLevel = level = 0;
+            lastLevel = level = 0;
             lastHolderLevel = scoreCounter.currentLevel.index;
-            value = ComputeValue();
+            ComputeValue();
         }
     }
 }

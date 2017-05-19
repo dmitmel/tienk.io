@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,24 +19,24 @@ using UnityEngine;
 namespace Tienkio {
     public class Bullet : MonoBehaviour {
         [HideInInspector]
-        public Tank tank;
+        public TankController tank;
 
         [HideInInspector]
         public float health, damage, knockback, flyTime;
         public float slowDownToNormalVelocityTime;
 
         [HideInInspector]
-        public Vector2 normalVelocity;
+        public Vector3 normalVelocity;
 
-        new Rigidbody2D rigidbody;
-        Vector2 originalVelocity;
+        new Rigidbody rigidbody;
+        Vector3 originalVelocity;
 
         PoolObject poolObject;
 
         float startTime;
 
         void Awake() {
-            rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody = GetComponent<Rigidbody>();
             poolObject = GetComponent<PoolObject>();
         }
 
@@ -45,15 +45,15 @@ namespace Tienkio {
             startTime = Time.time;
         }
 
-        void Update() {
+        void FixedUpdate() {
             float timeFromStart = Time.time - startTime;
             if (timeFromStart >= flyTime) {
                 poolObject.PutIntoPool();
             } else {
-                rigidbody.velocity = Vector2.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
+                rigidbody.velocity = Vector3.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
 
                 if (health <= 0) poolObject.PutIntoPool();
             }
         }
-   }
+    }
 }

@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,8 +21,11 @@ using System;
 
 namespace Tienkio {
     public class TankAI : MonoBehaviour {
-        public Tank tank;
-        Rigidbody2D tankRigidbody;
+        public TankUpgrader upgrader;
+
+        public TankController tank;
+        Rigidbody tankRigidbody;
+        Transform tankTransform;
         public float accelerationMultiplier = 2;
         public float minSqrDistance;
 
@@ -31,81 +34,94 @@ namespace Tienkio {
         public float targetChooseInterval;
 
         [Space]
-        public Rect spawnFieldBoundary;
+        public Vector3 spawnFieldMin;
+        public Vector3 spawnFieldMax;
 
         List<Transform> enemies = new List<Transform>();
         Transform target;
 
         float nextTargetChooseTime;
-        int lastUpgradePoints;
 
         new Transform transform;
 
         void Awake() {
             transform = base.transform;
-            tankRigidbody = tank.GetComponent<Rigidbody2D>();
+            tankRigidbody = tank.GetComponent<Rigidbody>();
+            tankTransform = tank.transform;
         }
 
         void Start() {
-            tank.transform.position = new Vector2(
-                UnityEngine.Random.Range(spawnFieldBoundary.x, spawnFieldBoundary.width),
-                UnityEngine.Random.Range(spawnFieldBoundary.y, spawnFieldBoundary.height)
-            );
+            SetRandomPosition();
         }
 
         void Respawn() {
-            Start();
-
+            SetRandomPosition();
             tank.scoreCounter.OnRespawn();
             tank.stats.OnRespawn();
             tank.healthBar.OnRespawn();
         }
 
-        void OnTriggerEnter2D(Collider2D collider) {
+        void SetRandomPosition() {
+            tankTransform.position = new Vector3(
+                UnityEngine.Random.Range(spawnFieldMin.x, spawnFieldMax.x),
+                UnityEngine.Random.Range(spawnFieldMin.y, spawnFieldMax.y),
+                UnityEngine.Random.Range(spawnFieldMin.z, spawnFieldMax.z)
+            );
+        }
+
+        void OnTriggerEnter(Collider collider) {
             if (collider.gameObject != tank.gameObject && objectsAttackPriority.Contains(collider.tag))
                 enemies.Add(collider.transform);
         }
 
-        void Update() {
+        void FixedUpdate() {
             if (tank.healthBar.health <= 0) Respawn();
 
-            for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
-                Stat stat = RandomStat();
-                stat.Upgrade();
-            }
+            if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
 
-            if (enemies.Count > 0 || target == null) {
+            if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
                 if (now >= nextTargetChooseTime) {
                     nextTargetChooseTime = now + targetChooseInterval;
                     target = ChooseTarget();
-
-                    foreach (Gun gun in tank.guns)
-                        if (!gun.isFiring)
-                            gun.StartFiring();
                 }
             }
 
             if (target != null) {
-                float movementSpeed = tank.stats.movementSpeed.value;
+                float movementSpeed = tank.stats.movementSpeed.Value;
 
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
-                float additionalMultiplier = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
+                float distanceStabilization = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
-                tankRigidbody.rotation = Vectors.Angle2D(tankRigidbody.position, target.position) + 90;
-                tankRigidbody.AddRelativeForce(Vector2.up * movementSpeed * accelerationMultiplier * additionalMultiplier);
-                tankRigidbody.velocity = new Vector2(
-                    Mathf.Clamp(tankRigidbody.velocity.x, -movementSpeed, movementSpeed),
-                    Mathf.Clamp(tankRigidbody.velocity.y, -movementSpeed, movementSpeed)
-                );
+                tankTransform.LookAt(target);
+                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * distanceStabilization);
+
+                foreach (Gun gun in tank.guns) gun.Fire();
+
+                if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
             } else {
                 foreach (Gun gun in tank.guns)
                     gun.StopFiring();
             }
+
+            transform.position = tankTransform.position;
+        }
+
+        public void UpgradeToRandomTier() {
+            int tiers = upgrader.upgrades.Length;
+            int tier = UnityEngine.Random.Range(0, tiers - 1);
+            upgrader.UpgradeToTier(tier);
+        }
+
+        public void UpgradeRandomStats() {
+            for (int i = 0; i < tank.scoreCounter.upgradePoints; i++) {
+                Stat stat = RandomStat();
+                stat.Upgrade();
+            }
         }
 
         Stat RandomStat() {
-            switch (UnityEngine.Random.Range(0, 6)) {
+            switch (UnityEngine.Random.Range(0, 7)) {
                 case 0:
                     return tank.stats.healthRegen;
                 case 1:
@@ -135,19 +151,25 @@ namespace Tienkio {
 
             bool isFirst = true;
 
-            foreach (Transform enemy in enemies) {
-                if (enemy == null) continue;
+            for (int i = 0; i < enemies.Count; i++) {
+                Transform enemy = enemies[i];
+
+                if (enemy == null || !enemy.gameObject.activeInHierarchy) {
+                    enemies.Remove(enemy);
+                    i--;
+                    continue;
+                }
 
                 if (isFirst) {
                     currentTarget = enemy;
                     currentTargetPriority = GetAttackPriorityFor(currentTarget);
-                    currentTargetHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    currentTargetHealth = enemy.GetComponent<Health>().health;
                     sqrDistanceToCurrentTarget = (transform.position - currentTarget.position).sqrMagnitude;
 
                     isFirst = false;
                 } else {
                     int enemyPriority = GetAttackPriorityFor(enemy);
-                    float enemyHealth = enemy.GetComponent<ObjectWithHealth>().health;
+                    float enemyHealth = enemy.GetComponent<Health>().health;
                     float sqrDistanceToEnemy = (transform.position - enemy.position).sqrMagnitude;
 
                     if (enemyPriority > currentTargetPriority ||
@@ -168,10 +190,13 @@ namespace Tienkio {
             return Array.IndexOf(objectsAttackPriority, enemy.tag);
         }
 
-        void OnTriggerExit2D(Collider2D collider) {
+        void OnTriggerExit(Collider collider) {
             Transform colliderTransform = collider.transform;
             bool colliderIsEnemy = enemies.Remove(colliderTransform);
-            if (colliderIsEnemy && colliderTransform == target) target = null;
+            if (colliderIsEnemy && colliderTransform == target) {
+                nextTargetChooseTime = Time.time + targetChooseInterval;
+                target = ChooseTarget();
+            }
         }
     }
 }

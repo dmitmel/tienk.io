@@ -20,11 +20,12 @@ namespace Tienkio {
     public class BulletPool : Singleton<BulletPool> {
         PoolManager pool;
 
-        void Awake() {
+        protected override void Awake() {
+            base.Awake();
             pool = GetComponent<PoolManager>();
         }
 
-        public PoolObject GetFromPool(Vector2 position, Quaternion rotation) {
+        public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {
             return pool.GetFromPool(position, rotation);
         }
 

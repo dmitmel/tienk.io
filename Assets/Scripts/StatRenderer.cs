@@ -18,39 +18,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Tienkio {
-    public enum StatType {
-        HealthRegen, MaxHealth, BodyDamage, BulletPenetration, BulletSpeed, BulletDamage, Reload, MovementSpeed
-    }
-
     public class StatRenderer : MonoBehaviour {
         public Stat stat;
         public Button upgradeButton;
         public Transform upgradeBars;
 
-        int lastStatLevel, lastUpgradePoints;
-
         void Start() {
-            UpdateUI();
+            UpdateBars();
+            UpdateButton();
         }
 
-        void Update() {
-            if (lastStatLevel != stat.level) {
-                UpdateUI();
-                lastStatLevel = stat.level;
-            }
-
-            int upgradePoints = stat.scoreCounter.upgradePoints;
-            if (lastUpgradePoints != upgradePoints) {
-                lastUpgradePoints = upgradePoints;
-                upgradeButton.interactable = IsInteractable();
-            }
-
-            if (Player.singletonGameObject != null) {
+        void FixedUpdate() {
+            if (!PlayerControls.instanceExists)
                 upgradeButton.interactable = false;
-            }
         }
 
-        void UpdateUI() {
+        public void UpdateBars() {
             for (int i = 0; i < stat.level && i < upgradeBars.childCount; i++) {
                 Transform child = upgradeBars.GetChild(i);
                 child.gameObject.SetActive(true);
@@ -61,11 +44,11 @@ namespace Tienkio {
                 child.gameObject.SetActive(false);
             }
 
-            upgradeButton.interactable = IsInteractable();
+            UpdateButton();
         }
 
-        bool IsInteractable() {
-            return stat.scoreCounter.upgradePoints > 0 && stat.level < stat.maxLevel;
+        public void UpdateButton() {
+            upgradeButton.interactable = stat.scoreCounter.upgradePoints > 0 && stat.level < stat.maxLevel;
         }
     }
 }

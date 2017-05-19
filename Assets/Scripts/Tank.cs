@@ -18,55 +18,7 @@ using UnityEngine;
 
 namespace Tienkio {
     public class Tank : MonoBehaviour {
-        public StatsHolder stats;
-        public ScoreCounter scoreCounter;
-        [HideInInspector]
-        public TankHealth healthBar;
         public Gun[] guns;
-
-        [Space]
-        public int damageComputationCycles = 20;
-        public float bodyDamageForBulletMultiplier = 1;
-
-        new Rigidbody2D rigidbody;
-
-        void Awake() {
-            healthBar = GetComponent<TankHealth>();
-            rigidbody = GetComponent<Rigidbody2D>();
-        }
-
-        void OnTriggerEnter2D(Collider2D collider) {
-            if (collider.CompareTag("Bullet")) {
-                var bullet = collider.GetComponent<Bullet>();
-                if (bullet.tank == this) return;
-
-                Rigidbody2D bulletRigidbody = collider.attachedRigidbody;
-
-                Vector2 bulletDirection = bulletRigidbody.velocity.normalized;
-                rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode2D.Impulse);
-
-                float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = stats.bodyDamage.value * bodyDamageForBulletMultiplier / damageComputationCycles;
-
-                for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
-                    healthBar.health -= bulletDamagePerCycle;
-                    bullet.health -= bodyDamagePerCycle;
-                }
-
-                if (healthBar.health <= 0) bullet.tank.scoreCounter.score += scoreCounter.score;
-            }
-        }
-
-        void OnCollisionEnter2D(Collision2D collision) {
-            Collider2D collider = collision.collider;
-            if (collider.CompareTag("Tank")) {
-                var tankHealthBar = collider.GetComponent<ObjectWithHealth>();
-                var tank = collider.GetComponent<Tank>();
-
-                tankHealthBar.health -= stats.bodyDamage.value;
-
-                if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
-            }
-        }
+        public float bodyDamageMultiplier;
     }
 }
