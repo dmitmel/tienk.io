@@ -1225,7 +1225,7 @@ RectTransform:
   - {fileID: 547890041}
   - {fileID: 211257458}
   m_Father: {fileID: 343987072}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1709,15 +1709,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 234152640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802605109}
   - {fileID: 1628334190}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!1 &234782104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ RectTransform:
   - {fileID: 1100001608}
   - {fileID: 192853428}
   m_Father: {fileID: 343987072}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2296,7 +2296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301126175
 GameObject:
@@ -2693,12 +2693,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1042172780}
   - {fileID: 253411135}
   - {fileID: 183386607}
   - {fileID: 2096962104}
   - {fileID: 947887233}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2760,6 +2761,97 @@ Transform:
   m_PrefabParentObject: {fileID: 4554841265577114, guid: 4f2980d0bdb0547258d4c2f6763c45ed,
     type: 2}
   m_PrefabInternal: {fileID: 361268522}
+--- !u!1 &362574715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 362574716}
+  - component: {fileID: 362574719}
+  - component: {fileID: 362574718}
+  - component: {fileID: 362574717}
+  m_Layer: 5
+  m_Name: Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &362574716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362574715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1385392379}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -80, y: 60}
+  m_SizeDelta: {x: 102, y: 73}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &362574717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362574715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &362574718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362574715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9458642, g: 0.9458642, b: 0.9458642, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 54282c163db34413bbac0477dc5ff688, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '>>
+
+    SPACE'
+--- !u!222 &362574719
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362574715}
 --- !u!1 &398800042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,7 +3567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5803922, g: 0.7019608, b: 0.972549, a: 1}
+  m_Color: {r: 0.57440865, g: 0.69588095, b: 0.98497283, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3496,6 +3588,323 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526981976}
+--- !u!1 &547105097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 547105099}
+  - component: {fileID: 547105098}
+  m_Layer: 0
+  m_Name: TankUpgradeTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &547105098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547105097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9988f0101134803a392894c560859c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankUpgradeTree:
+  - tree: {fileID: 547105098}
+    tankName: Tank
+    previewIcon: {fileID: 21300002, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 0
+    prefab: {fileID: 114273142071671744, guid: bbd66e2e7908645d5966ed332e6af363, type: 2}
+    unlockedTanks: 0100000002000000030000000400000010000000
+  - tree: {fileID: 547105098}
+    tankName: Twin
+    previewIcon: {fileID: 21300022, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 15
+    prefab: {fileID: 114902014056405934, guid: 22f92b3a9030e41a08de5e459733ce1e, type: 2}
+    unlockedTanks: 050000000600000007000000
+  - tree: {fileID: 547105098}
+    tankName: Sniper
+    previewIcon: {fileID: 21300030, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 15
+    prefab: {fileID: 114815090070974814, guid: 504e20d03a6284db5a581b886274233f, type: 2}
+    unlockedTanks: 08000000090000000a0000000b000000
+  - tree: {fileID: 547105098}
+    tankName: Machine Gun
+    previewIcon: {fileID: 21300020, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 15
+    prefab: {fileID: 0}
+    unlockedTanks: 0c0000000d0000002c000000
+  - tree: {fileID: 547105098}
+    tankName: Flank Guard
+    previewIcon: {fileID: 21300012, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 15
+    prefab: {fileID: 0}
+    unlockedTanks: 0e00000006000000070000000f000000
+  - tree: {fileID: 547105098}
+    tankName: Triple Shot
+    previewIcon: {fileID: 21300046, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 150000001600000017000000
+  - tree: {fileID: 547105098}
+    tankName: Quad Tank
+    previewIcon: {fileID: 21300006, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 1300000014000000
+  - tree: {fileID: 547105098}
+    tankName: Twin Flank
+    previewIcon: {fileID: 21300026, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 1100000012000000
+  - tree: {fileID: 547105098}
+    tankName: Assasin
+    previewIcon: {fileID: 21300034, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 1d0000001e000000
+  - tree: {fileID: 547105098}
+    tankName: Overseer
+    previewIcon: {fileID: 21300048, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 18000000190000001a0000001b000000120000001c000000
+  - tree: {fileID: 547105098}
+    tankName: Hunter
+    previewIcon: {fileID: 21300036, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 2300000024000000
+  - tree: {fileID: 547105098}
+    tankName: Trapper
+    previewIcon: {fileID: 21300038, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 25000000260000001b0000002700000028000000
+  - tree: {fileID: 547105098}
+    tankName: Destroyer
+    previewIcon: {fileID: 21300014, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 2100000022000000
+  - tree: {fileID: 547105098}
+    tankName: Gunner
+    previewIcon: {fileID: 21300068, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 2d0000002600000024000000
+  - tree: {fileID: 547105098}
+    tankName: Tri-Angle
+    previewIcon: {fileID: 21300004, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 1f00000020000000
+  - tree: {fileID: 547105098}
+    tankName: Auto 3
+    previewIcon: {fileID: 21300074, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 130000002d000000
+  - tree: {fileID: 547105098}
+    tankName: Smasher
+    previewIcon: {fileID: 21300040, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 30
+    prefab: {fileID: 0}
+    unlockedTanks: 290000002a0000002b000000
+  - tree: {fileID: 547105098}
+    tankName: Triple Twin
+    previewIcon: {fileID: 21300052, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Battleship
+    previewIcon: {fileID: 21300084, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Octo Tank
+    previewIcon: {fileID: 21300008, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Auto 5
+    previewIcon: {fileID: 21300076, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Tiplet
+    previewIcon: {fileID: 21300070, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Penta Shot
+    previewIcon: {fileID: 21300016, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Spread Shot
+    previewIcon: {fileID: 21300062, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Overlord
+    previewIcon: {fileID: 21300024, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Necromancer
+    previewIcon: {fileID: 21300018, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Manager
+    previewIcon: {fileID: 21300058, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Overtraper
+    previewIcon: {fileID: 21300066, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Factory
+    previewIcon: {fileID: 21300092, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Ranger
+    previewIcon: {fileID: 21300060, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Stalker
+    previewIcon: {fileID: 21300032, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Booster
+    previewIcon: {fileID: 21300054, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Fighter
+    previewIcon: {fileID: 21300010, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Hybrid
+    previewIcon: {fileID: 21300050, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Annihilator
+    previewIcon: {fileID: 21300086, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Predator
+    previewIcon: {fileID: 21300056, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Streamliner
+    previewIcon: {fileID: 21300080, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Tri-Trapper
+    previewIcon: {fileID: 21300042, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Gunner Trapper
+    previewIcon: {fileID: 21300064, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Mega Trapper
+    previewIcon: {fileID: 21300044, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Auto Trapper
+    previewIcon: {fileID: 21300082, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Landmine
+    previewIcon: {fileID: 21300078, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Auto Smasher
+    previewIcon: {fileID: 21300088, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Spike
+    previewIcon: {fileID: 21300090, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Sprayer
+    previewIcon: {fileID: 21300028, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+  - tree: {fileID: 547105098}
+    tankName: Auto Gunner
+    previewIcon: {fileID: 21300072, guid: 08e87581438a44f38a58e6429092beec, type: 3}
+    minLevel: 44
+    prefab: {fileID: 0}
+    unlockedTanks: 
+--- !u!4 &547105099
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547105097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &547890040
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,7 +6000,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &856847106
 MonoBehaviour:
@@ -6076,7 +6485,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 343987072}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6630,42 +7039,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1007650551}
-  - component: {fileID: 1007650550}
   - component: {fileID: 1007650552}
-  - component: {fileID: 1007650553}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: CursorLocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1007650550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1007650549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d914ccc95404f2884b7329d969b3eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire:
-    key1: 32
-    key2: 323
-  autoFire:
-    key1: 102
-    key2: 0
-  autoSpin:
-    key1: 114
-    key2: 0
-  toggleCursor:
-    key1: 27
-    key2: 0
-  changePerson:
-    key1: 99
-    key2: 0
 --- !u!4 &1007650551
 Transform:
   m_ObjectHideFlags: 0
@@ -6677,7 +7058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1007650552
 MonoBehaviour:
@@ -6691,294 +7072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorIsLocked: 1
---- !u!114 &1007650553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1007650549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9988f0101134803a392894c560859c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tankUpgradeTree:
-  - tree: {fileID: 1007650553}
-    tankName: Tank
-    previewIcon: {fileID: 21300002, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 0
-    prefab: {fileID: 114273142071671744, guid: bbd66e2e7908645d5966ed332e6af363, type: 2}
-    unlockedTanks: 0100000002000000030000000400000010000000
-  - tree: {fileID: 1007650553}
-    tankName: Twin
-    previewIcon: {fileID: 21300022, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 15
-    prefab: {fileID: 114902014056405934, guid: 22f92b3a9030e41a08de5e459733ce1e, type: 2}
-    unlockedTanks: 050000000600000007000000
-  - tree: {fileID: 1007650553}
-    tankName: Sniper
-    previewIcon: {fileID: 21300030, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 15
-    prefab: {fileID: 114815090070974814, guid: 504e20d03a6284db5a581b886274233f, type: 2}
-    unlockedTanks: 08000000090000000a0000000b000000
-  - tree: {fileID: 1007650553}
-    tankName: Machine Gun
-    previewIcon: {fileID: 21300020, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 15
-    prefab: {fileID: 0}
-    unlockedTanks: 0c0000000d0000002c000000
-  - tree: {fileID: 1007650553}
-    tankName: Flank Guard
-    previewIcon: {fileID: 21300012, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 15
-    prefab: {fileID: 0}
-    unlockedTanks: 0e00000006000000070000000f000000
-  - tree: {fileID: 1007650553}
-    tankName: Triple Shot
-    previewIcon: {fileID: 21300046, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 150000001600000017000000
-  - tree: {fileID: 1007650553}
-    tankName: Quad Tank
-    previewIcon: {fileID: 21300006, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 1300000014000000
-  - tree: {fileID: 1007650553}
-    tankName: Twin Flank
-    previewIcon: {fileID: 21300026, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 1100000012000000
-  - tree: {fileID: 1007650553}
-    tankName: Assasin
-    previewIcon: {fileID: 21300034, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 1d0000001e000000
-  - tree: {fileID: 1007650553}
-    tankName: Overseer
-    previewIcon: {fileID: 21300048, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 18000000190000001a0000001b000000120000001c000000
-  - tree: {fileID: 1007650553}
-    tankName: Hunter
-    previewIcon: {fileID: 21300036, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 2300000024000000
-  - tree: {fileID: 1007650553}
-    tankName: Trapper
-    previewIcon: {fileID: 21300038, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 25000000260000001b0000002700000028000000
-  - tree: {fileID: 1007650553}
-    tankName: Destroyer
-    previewIcon: {fileID: 21300014, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 2100000022000000
-  - tree: {fileID: 1007650553}
-    tankName: Gunner
-    previewIcon: {fileID: 21300068, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 2d0000002600000024000000
-  - tree: {fileID: 1007650553}
-    tankName: Tri-Angle
-    previewIcon: {fileID: 21300004, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 1f00000020000000
-  - tree: {fileID: 1007650553}
-    tankName: Auto 3
-    previewIcon: {fileID: 21300074, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 130000002d000000
-  - tree: {fileID: 1007650553}
-    tankName: Smasher
-    previewIcon: {fileID: 21300040, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 30
-    prefab: {fileID: 0}
-    unlockedTanks: 290000002a0000002b000000
-  - tree: {fileID: 1007650553}
-    tankName: Triple Twin
-    previewIcon: {fileID: 21300052, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Battleship
-    previewIcon: {fileID: 21300084, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Octo Tank
-    previewIcon: {fileID: 21300008, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Auto 5
-    previewIcon: {fileID: 21300076, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Tiplet
-    previewIcon: {fileID: 21300070, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Penta Shot
-    previewIcon: {fileID: 21300016, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Spread Shot
-    previewIcon: {fileID: 21300062, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Overlord
-    previewIcon: {fileID: 21300024, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Necromancer
-    previewIcon: {fileID: 21300018, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Manager
-    previewIcon: {fileID: 21300058, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Overtraper
-    previewIcon: {fileID: 21300066, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Factory
-    previewIcon: {fileID: 21300092, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Ranger
-    previewIcon: {fileID: 21300060, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Stalker
-    previewIcon: {fileID: 21300032, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Booster
-    previewIcon: {fileID: 21300054, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Fighter
-    previewIcon: {fileID: 21300010, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Hybrid
-    previewIcon: {fileID: 21300050, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Annihilator
-    previewIcon: {fileID: 21300086, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Predator
-    previewIcon: {fileID: 21300056, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Streamliner
-    previewIcon: {fileID: 21300080, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Tri-Trapper
-    previewIcon: {fileID: 21300042, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Gunner Trapper
-    previewIcon: {fileID: 21300064, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Mega Trapper
-    previewIcon: {fileID: 21300044, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Auto Trapper
-    previewIcon: {fileID: 21300082, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Landmine
-    previewIcon: {fileID: 21300078, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Auto Smasher
-    previewIcon: {fileID: 21300088, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Spike
-    previewIcon: {fileID: 21300090, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Sprayer
-    previewIcon: {fileID: 21300028, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
-  - tree: {fileID: 1007650553}
-    tankName: Auto Gunner
-    previewIcon: {fileID: 21300072, guid: 08e87581438a44f38a58e6429092beec, type: 3}
-    minLevel: 44
-    prefab: {fileID: 0}
-    unlockedTanks: 
 --- !u!1 &1009189773
 GameObject:
   m_ObjectHideFlags: 0
@@ -7619,6 +7712,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040158867}
+--- !u!1 &1042172779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1042172780}
+  - component: {fileID: 1042172782}
+  - component: {fileID: 1042172781}
+  m_Layer: 5
+  m_Name: GuideBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1042172780
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042172779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1385392379}
+  m_Father: {fileID: 343987072}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 400}
+  m_SizeDelta: {x: 750, y: 350}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1042172781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042172779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9998734, g: 1, b: 0.9998412, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 53c0e7617ea944ae3abb7ac404832cac, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 0
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1042172782
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042172779}
 --- !u!1001 &1045270591
 Prefab:
   m_ObjectHideFlags: 0
@@ -8885,6 +9047,95 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1203307529}
+--- !u!1 &1205075634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1205075635}
+  - component: {fileID: 1205075637}
+  - component: {fileID: 1205075636}
+  - component: {fileID: 1205075638}
+  m_Layer: 5
+  m_Name: Skip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1205075635
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205075634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1385392379}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 42}
+  m_SizeDelta: {x: 310, y: 36}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1205075636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205075634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9458642, g: 0.9458642, b: 0.9458642, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 54282c163db34413bbac0477dc5ff688, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: (Press enter to skip)
+--- !u!222 &1205075637
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205075634}
+--- !u!114 &1205075638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205075634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1210942457
 GameObject:
   m_ObjectHideFlags: 0
@@ -10133,6 +10384,77 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377601255}
+--- !u!1 &1385392378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1385392379}
+  - component: {fileID: 1385392381}
+  - component: {fileID: 1385392380}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1385392379
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385392378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1671541189}
+  - {fileID: 362574716}
+  - {fileID: 1205075635}
+  m_Father: {fileID: 1042172780}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -16, y: -16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1385392380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385392378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.57440865, g: 0.69588095, b: 0.98497283, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1385392381
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385392378}
 --- !u!1 &1392158136
 GameObject:
   m_ObjectHideFlags: 0
@@ -11684,6 +12006,157 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663856288}
+--- !u!1 &1671541188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1671541189}
+  - component: {fileID: 1671541191}
+  - component: {fileID: 1671541190}
+  - component: {fileID: 1671541192}
+  m_Layer: 5
+  m_Name: Guide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1671541189
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671541188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1385392379}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 33}
+  m_SizeDelta: {x: -60, y: -126}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1671541190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671541188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.95, g: 0.95, b: 0.95, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 54282c163db34413bbac0477dc5ff688, type: 3}
+    m_FontSize: 44
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 44
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1671541191
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671541188}
+--- !u!114 &1671541192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671541188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
+--- !u!1 &1671903164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1671903166}
+  - component: {fileID: 1671903165}
+  m_Layer: 0
+  m_Name: GuideManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1671903165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671903164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f668eed701d7a40b1bf0c2c6a0436d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guideBox: {fileID: 1042172779}
+  guideText: {fileID: 1671541190}
+  displayGameGuide: 1
+  gameGuide:
+  - Welcome to tienk.io! It's like diep.io, but in 3D.
+  - Here's small guide for you (press H key to play it again).
+  - This sphere is your tank. Use cursor to rotate camera and WASD keys or arrows
+    to move the tank.
+  - There's a gun on your tank. Use the left mouse button or space to fire bullets.
+  - Also, use F key to enable "Auto Fire" and R key to enable "Auto Spin".
+  - You can switch between First Person mode and Third Person mode using C key.
+  - Bar under tank is indicator of your health. Your health can regenerate slowly.
+  - There're a lot of shapes on the map. You can destroy them to get some score.
+  - 'When you reach new level, you
+
+    get an Upgrade Point.'
+  - Use upgrade points to upgrade your stats (they're in the bottom left corner).
+  - To upgrade them you need to unlock cursor using Escape key (you can lock it later
+    using the same key).
+  - When you get a lot of score, you can upgrade your tank (upgrades are in the top
+    left corner).
+  - And, you can find some bots on the map. They'll attack you.
+--- !u!4 &1671903166
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671903164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676936965
 GameObject:
   m_ObjectHideFlags: 0
@@ -12903,7 +13376,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1802605104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234152642}
@@ -14819,7 +15292,7 @@ RectTransform:
   - {fileID: 149942686}
   - {fileID: 322441766}
   m_Father: {fileID: 343987072}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

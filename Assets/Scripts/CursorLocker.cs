@@ -37,7 +37,7 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (KeyBindings.instance.toggleCursor.isDown) {
+            if (Input.GetButtonDown("Toggle Cursor")) {
                 if (cursorIsLocked) UnlockCursor();
                 else LockCursor();
             }

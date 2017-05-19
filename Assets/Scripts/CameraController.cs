@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,7 +41,7 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (KeyBindings.instance.changePerson.isDown) isFirstPerson = !isFirstPerson;
+            if (Input.GetButtonDown("Change Camera")) isFirstPerson = !isFirstPerson;
 
             if (player != null) {
                 CameraPerson person = isFirstPerson ? firstPerson : thirdPerson;

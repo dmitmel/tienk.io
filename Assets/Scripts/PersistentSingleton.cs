@@ -14,26 +14,11 @@
 // limitations under the License.
 //
 
-using UnityEngine;
-
 namespace Tienkio {
-    [System.Serializable]
-    public class KeyBinding {
-        public KeyCode key1;
-        public KeyCode key2;
-
-        public bool isPressed {
-            get { return Input.GetKey(key1) || Input.GetKey(key2); }
+    public class PersistentSingleton<T> : Singleton<T> where T : Singleton<T> {
+        protected override void Awake() {
+            base.Awake();
+            DontDestroyOnLoad(gameObject);
         }
-        public bool isDown {
-            get { return Input.GetKeyDown(key1) || Input.GetKeyDown(key2); }
-        }
-        public bool isUp {
-            get { return Input.GetKeyUp(key1) || Input.GetKeyUp(key2); }
-        }
-    }
-
-    public class KeyBindings : Singleton<KeyBindings> {
-        public KeyBinding fire, autoFire, autoSpin, toggleCursor, changePerson;
     }
 }
