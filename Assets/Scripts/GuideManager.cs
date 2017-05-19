@@ -23,8 +23,6 @@ namespace Tienkio {
         public GameObject guideBox;
         public Text guideText;
 
-        public bool displayGameGuide;
-
         [TextArea(3, 10)]
         public string[] gameGuide;
 
@@ -33,9 +31,9 @@ namespace Tienkio {
         int currentGuidePart;
 
         void Start() {
-            if (displayGameGuide) {
+            if (!PlayerPrefs.HasKey("doNotShowGameGuide")) {
+                PlayerPrefs.SetInt("doNotShowGameGuide", 1);
                 LoadGuide(gameGuide);
-                displayGameGuide = false;
             }
         }
 
