@@ -90,10 +90,13 @@ namespace Tienkio {
                 float movementSpeed = tank.stats.movementSpeed.Value;
 
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
-                float distanceStabilization = sqrDistanceToTarget < minSqrDistance ? -1 : 1;
+                var targetTank = target.GetComponent<TankController>();
+                float direction =
+                    targetTank != null && targetTank.healthBar.health > tank.healthBar.health ? -1 :
+                    sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
                 tankTransform.LookAt(target);
-                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * distanceStabilization);
+                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * direction);
 
                 foreach (Gun gun in tank.guns) gun.Fire();
 
