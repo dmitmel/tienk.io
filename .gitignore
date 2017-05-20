@@ -4,7 +4,7 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
+# /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 
@@ -44,3 +44,7 @@ Thumbs.db
 # Misc #
 # ==== #
 /README.html
+/.vscode
+/SVGAssets
+/UtilScripts
+/.save.cson

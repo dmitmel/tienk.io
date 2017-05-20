@@ -1,0 +1,10 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "tienk.io_webgl.data.unityweb",
+"asmCodeUrl": "tienk.io_webgl.asm.code.unityweb",
+"asmMemoryUrl": "tienk.io_webgl.asm.memory.unityweb",
+"asmFrameworkUrl": "tienk.io_webgl.asm.framework.unityweb",
+"backgroundUrl": "tienk.io_webgl.jpg",
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF"
+}
