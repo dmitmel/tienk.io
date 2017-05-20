@@ -56,6 +56,7 @@ namespace Tienkio {
 
         public void Respawn() {
             SetRandomPosition();
+            tank.kills = 0;
             tank.scoreCounter.OnRespawn();
             tank.stats.OnRespawn();
             tank.healthBar.OnRespawn();

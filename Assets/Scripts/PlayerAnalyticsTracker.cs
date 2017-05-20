@@ -20,16 +20,18 @@ using System.Collections.Generic;
 
 namespace Tienkio {
     public class PlayerAnalyticsTracker : MonoBehaviour {
-        public ScoreCounter scoreCounter;
+        public TankController tank;
 
         static int maxReachedLevel;
 
         public void OnGameOver() {
-            Analytics.CustomEvent("GameOver");
+            Analytics.CustomEvent("GameOver", new Dictionary<string, object> {
+                { "kills", tank.kills }
+            });
         }
 
         public void OnScoreChange() {
-            int currentLevel = scoreCounter.currentLevel.index;
+            int currentLevel = tank.scoreCounter.currentLevel.index;
             for (int level = maxReachedLevel + 1; level <= currentLevel; level++) {
                 Analytics.CustomEvent("ReachNewLevel", new Dictionary<string, object> {
                     { "level", level }

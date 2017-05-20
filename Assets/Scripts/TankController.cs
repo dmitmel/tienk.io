@@ -22,6 +22,8 @@ namespace Tienkio {
     public class TankController : MonoBehaviour {
         public string nick;
         public Text nickLabel;
+        [HideInInspector]
+        public int kills;
 
         [Space]
         public Material bodyMaterial;
@@ -73,8 +75,10 @@ namespace Tienkio {
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0)
+                if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0) {
+                    bullet.tank.kills++;
                     bullet.tank.scoreCounter.score += scoreCounter.score;
+                }
             }
         }
 
@@ -85,7 +89,10 @@ namespace Tienkio {
                 var tank = collider.GetComponent<TankController>();
 
                 tankHealthBar.health -= stats.bodyDamage.Value;
-                if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
+                if (tankHealthBar.health <= 0) {
+                    kills++;
+                    scoreCounter.score += tank.scoreCounter.score;
+                }
             }
         }
     }

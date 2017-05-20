@@ -6340,6 +6340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nick: Player
   nickLabel: {fileID: 1340069274}
+  kills: 0
   bodyMaterial: {fileID: 2100000, guid: d8dff37e6d66b4d6dbc798d187a3586e, type: 2}
   stats: {fileID: 1009189776}
   scoreCounter: {fileID: 1009189775}
@@ -6495,7 +6496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c743e378fbf486e8ff68e8c040367f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCounter: {fileID: 1009189775}
+  tank: {fileID: 919655965}
 --- !u!1 &947887232
 GameObject:
   m_ObjectHideFlags: 0

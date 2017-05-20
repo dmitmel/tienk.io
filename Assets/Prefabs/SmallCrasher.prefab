@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 23529418169178966}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: SmallCrasher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
