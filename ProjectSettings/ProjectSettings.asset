@@ -612,11 +612,15 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    UNet: 0
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
+    UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: dd916cb4-34fa-4a6a-8fa5-0d17b53a38d4
+  projectName: tienk.io
+  organizationId: federationofcoders
   cloudEnabled: 0
   enableNewInputSystem: 0
