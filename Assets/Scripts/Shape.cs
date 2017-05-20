@@ -64,7 +64,7 @@ namespace Tienkio {
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0) {
+                if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0) {
                     bullet.tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
                     ShapePool.instance.DestroyShape(poolObject);
@@ -79,7 +79,7 @@ namespace Tienkio {
 
                 tank.healthBar.health -= bodyDamage;
                 healthBar.health -= tank.stats.bodyDamage.Value;
-                if (healthBar.health <= 0) {
+                if (healthBar.health <= 0 && tank.healthBar.health > 0) {
                     tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
                     ShapePool.instance.DestroyShape(poolObject);

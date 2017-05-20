@@ -65,7 +65,8 @@ namespace Tienkio {
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0) bullet.tank.scoreCounter.score += scoreCounter.score;
+                if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0)
+                    bullet.tank.scoreCounter.score += scoreCounter.score;
             }
         }
 
