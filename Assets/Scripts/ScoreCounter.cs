@@ -115,7 +115,7 @@ namespace Tienkio {
         }
 
         public void OnRespawn() {
-            lastScore = score = 0;
+            score = 0;
             upgradePoints = 0;
             currentLevel = ComputeLevel();
         }

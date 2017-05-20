@@ -16,11 +16,14 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Tienkio {
     public class TankController : MonoBehaviour {
         public string nick;
         public Text nickLabel;
+        [HideInInspector]
+        public int kills;
 
         [Space]
         public Material bodyMaterial;
@@ -36,6 +39,9 @@ namespace Tienkio {
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
+        [Space]
+        public UnityEvent onGameOver;
+
         new Rigidbody rigidbody;
 
         void Awake() {
@@ -45,6 +51,10 @@ namespace Tienkio {
 
         void Start() {
             nickLabel.text = nick;
+        }
+
+        void FixedUpdate() {
+            if (healthBar.health <= 0) onGameOver.Invoke();
         }
 
         void OnTriggerEnter(Collider collider) {
@@ -65,7 +75,10 @@ namespace Tienkio {
                     bullet.health -= bodyDamagePerCycle;
                 }
 
-                if (healthBar.health <= 0) bullet.tank.scoreCounter.score += scoreCounter.score;
+                if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0) {
+                    bullet.tank.kills++;
+                    bullet.tank.scoreCounter.score += scoreCounter.score;
+                }
             }
         }
 
@@ -76,7 +89,10 @@ namespace Tienkio {
                 var tank = collider.GetComponent<TankController>();
 
                 tankHealthBar.health -= stats.bodyDamage.Value;
-                if (tankHealthBar.health <= 0) scoreCounter.score += tank.scoreCounter.score;
+                if (tankHealthBar.health <= 0) {
+                    kills++;
+                    scoreCounter.score += tank.scoreCounter.score;
+                }
             }
         }
     }
