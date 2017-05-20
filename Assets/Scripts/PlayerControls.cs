@@ -51,12 +51,6 @@ namespace Tienkio {
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
 
-            if (tank.healthBar.health <= 0) {
-                Destroy(gameObject);
-                CursorLocker.instance.UnlockCursor();
-                SceneManager.LoadScene(0);
-            }
-
             if (Input.GetButtonDown("Auto Fire")) {
                 if (autoFireEnabled) {
                     foreach (Gun gun in tank.guns)
@@ -114,6 +108,11 @@ namespace Tienkio {
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
             rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
             if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
+        }
+
+        public void LoadMainMenu() {
+            CursorLocker.instance.UnlockCursor();
+            SceneManager.LoadScene(0);
         }
     }
 }

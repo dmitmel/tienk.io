@@ -24,6 +24,10 @@ namespace Tienkio {
 
         static int maxReachedLevel;
 
+        public void OnGameOver() {
+            Analytics.CustomEvent("GameOver");
+        }
+
         public void OnScoreChange() {
             int currentLevel = scoreCounter.currentLevel.index;
             for (int level = maxReachedLevel + 1; level <= currentLevel; level++) {

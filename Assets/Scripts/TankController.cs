@@ -16,6 +16,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Tienkio {
     public class TankController : MonoBehaviour {
@@ -36,6 +37,9 @@ namespace Tienkio {
         public int damageComputationCycles = 20;
         public float bodyDamageForBulletMultiplier = 1;
 
+        [Space]
+        public UnityEvent onGameOver;
+
         new Rigidbody rigidbody;
 
         void Awake() {
@@ -45,6 +49,10 @@ namespace Tienkio {
 
         void Start() {
             nickLabel.text = nick;
+        }
+
+        void FixedUpdate() {
+            if (healthBar.health <= 0) onGameOver.Invoke();
         }
 
         void OnTriggerEnter(Collider collider) {
