@@ -54,8 +54,9 @@ namespace Tienkio {
             SetRandomPosition();
         }
 
-        void Respawn() {
+        public void Respawn() {
             SetRandomPosition();
+            tank.kills = 0;
             tank.scoreCounter.OnRespawn();
             tank.stats.OnRespawn();
             tank.healthBar.OnRespawn();
@@ -75,8 +76,6 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
-            if (tank.healthBar.health <= 0) Respawn();
-
             if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
 
             if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
