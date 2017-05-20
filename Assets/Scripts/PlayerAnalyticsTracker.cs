@@ -22,20 +22,16 @@ namespace Tienkio {
     public class PlayerAnalyticsTracker : MonoBehaviour {
         public ScoreCounter scoreCounter;
 
-        int prevLevel;
-
-        void Start() {
-            prevLevel = scoreCounter.currentLevel.index;
-        }
+        static int maxReachedLevel;
 
         public void OnScoreChange() {
             int currentLevel = scoreCounter.currentLevel.index;
-            for (int level = prevLevel + 1; level <= currentLevel; level++) {
+            for (int level = maxReachedLevel + 1; level <= currentLevel; level++) {
                 Analytics.CustomEvent("ReachNewLevel", new Dictionary<string, object> {
                     { "level", level }
                 });
+                maxReachedLevel = level;
             }
-            prevLevel = currentLevel;
         }
     }
 }
