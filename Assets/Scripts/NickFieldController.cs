@@ -16,10 +16,16 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Tienkio {
     public class NickFieldController : MonoBehaviour {
         public int gameSceneIndex;
+
+        private void Start() {
+            var inputField = GetComponent<InputField>();
+            inputField.text = PlayerPrefs.GetString("nick", "");
+        }
 
         public void StartGame(string nick) {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) {
