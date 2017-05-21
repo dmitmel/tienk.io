@@ -1696,7 +1696,7 @@ MonoBehaviour:
     rotationOffset: {x: 0, y: 0, z: 0}
     movementSppeed: 0
     offsetChangeSpeed: 5
-    rotationSpeed: 1
+    rotationSpeed: 2
   thirdPerson:
     positionOffset: {x: 0, y: 0, z: -5}
     rotationOffset: {x: 0, y: 0, z: 0}
