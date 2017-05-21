@@ -20,13 +20,12 @@ using UnityEngine.UI;
 
 namespace Tienkio {
     public class GuideManager : Singleton<GuideManager> {
-        public GameObject guideBox;
+        public Modal guideBox;
         public Text guideText;
 
         [TextArea(3, 10)]
         public string[] gameGuide;
 
-        bool isGuideLoaded;
         string[] currentGuide;
         int currentGuidePart;
 
@@ -41,16 +40,12 @@ namespace Tienkio {
             currentGuide = guide;
             currentGuidePart = 0;
 
-            guideBox.SetActive(true);
+            guideBox.ShowModal();
             DisplayNextGuidePart();
-
-            isGuideLoaded = true;
         }
 
         void Update() {
-            if (isGuideLoaded) {
-                Time.timeScale = 0;
-
+            if (guideBox.isOpened && Modal.openedPausedModalsCount < 2) {
                 if (Input.GetButtonDown("Continue Guide"))
                     DisplayNextGuidePart();
                 if (Input.GetButtonDown("Skip Guide"))
@@ -62,12 +57,10 @@ namespace Tienkio {
             currentGuide = new string[] { };
             currentGuidePart = 0;
 
-            guideBox.SetActive(false);
+            guideBox.CloseModal();
+
             StopAllCoroutines();
             guideText.text = "";
-
-            Time.timeScale = 1;
-            isGuideLoaded = false;
         }
 
         void DisplayNextGuidePart() {

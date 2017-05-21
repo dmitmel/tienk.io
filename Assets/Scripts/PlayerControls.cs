@@ -48,9 +48,11 @@ namespace Tienkio {
             tank.nick = PlayerPrefs.GetString("nick", "");
         }
 
-        void FixedUpdate() {
+        void Update() {
             if (Input.GetButtonDown("Pause")) pauseMenu.ShowModal();
+        }
 
+        void FixedUpdate() {
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
 

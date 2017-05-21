@@ -18,18 +18,32 @@ using UnityEngine;
 
 namespace Tienkio {
     public class Modal : MonoBehaviour {
+        public static int openedPausedModalsCount { get; private set; }
+
+        public GameObject modalBox;
         public bool pauseGame, unlockCursor;
+        public bool isOpened { get; private set; }
+
+        void Update() {
+            Time.timeScale = openedPausedModalsCount > 0 ? 0 : 1;
+        }
 
         public void ShowModal() {
-            if (pauseGame) Time.timeScale = 0;
-            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.UnlockCursor();
-            gameObject.SetActive(true);
+            if (!isOpened) {
+                if (pauseGame) openedPausedModalsCount++;
+                if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.UnlockCursor();
+                modalBox.SetActive(true);
+                isOpened = true;
+            }
         }
 
         public void CloseModal() {
-            if (pauseGame) Time.timeScale = 1;
-            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.LockCursor();
-            gameObject.SetActive(false);
+            if (isOpened) {
+                if (pauseGame) openedPausedModalsCount--;
+                if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.LockCursor();
+                modalBox.SetActive(false);
+                isOpened = false;
+            }
         }
     }
 }
