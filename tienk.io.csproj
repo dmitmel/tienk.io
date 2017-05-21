@@ -143,6 +143,8 @@
     <Compile Include="Assets\Scripts\TankUpgradeRenderer.cs" />
     <Compile Include="Assets\Scripts\TankUpgradeTree.cs" />
     <Compile Include="Assets\Scripts\TankUpgrader.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Modal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

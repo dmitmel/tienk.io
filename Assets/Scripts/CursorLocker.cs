@@ -24,7 +24,7 @@ namespace Tienkio {
             if (cursorIsLocked) LockCursor();
         }
 
-        void LockCursor() {
+        public void LockCursor() {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             cursorIsLocked = true;

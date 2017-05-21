@@ -15,7 +15,6 @@
 //
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Tienkio {
     public enum ControlsType { WASDMovement, WASDTilt }
@@ -29,10 +28,12 @@ namespace Tienkio {
         public float accelerationMultiplier = 2;
         public float autoSpinSpeed;
 
+        [Space]
+        public Modal pauseMenu;
+
         TankController tank;
         new Transform transform;
         new Rigidbody rigidbody;
-
 
         bool autoSpinEnabled, autoFireEnabled;
 
@@ -48,6 +49,8 @@ namespace Tienkio {
         }
 
         void FixedUpdate() {
+            if (Input.GetButtonDown("Pause")) pauseMenu.ShowModal();
+
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
 
@@ -108,11 +111,6 @@ namespace Tienkio {
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
             rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
             if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
-        }
-
-        public void LoadMainMenu() {
-            CursorLocker.instance.UnlockCursor();
-            SceneManager.LoadScene(0);
         }
     }
 }
