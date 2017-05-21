@@ -15,25 +15,32 @@
 //
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Tienkio {
-    public class MainMenuBackground : MonoBehaviour {
-        public RectTransform canvas;
-        RectTransform rectTransform;
+    public class MainMenuController : MonoBehaviour {
+        public RectTransform canvas, background;
+        public InputField nickInputField;
 
-        Vector2 lastCanvasSize;
-
-        void Start() {
-            rectTransform = GetComponent<RectTransform>();
-        }
+        Vector2 prevCanvasSize;
 
         void Update() {
             Vector2 canvasSize = canvas.sizeDelta;
-            if (lastCanvasSize != canvasSize) {
-                lastCanvasSize = canvasSize;
+            if (prevCanvasSize != canvasSize) {
+                prevCanvasSize = canvasSize;
                 float size = Mathf.Max(canvasSize.x, canvasSize.y);
-                rectTransform.sizeDelta = new Vector2(size, size);
+                background.sizeDelta = new Vector2(size, size);
             }
+        }
+
+        public void StartGame() {
+            PlayerPrefs.SetString("nick", nickInputField.text);
+            SceneManager.LoadScene(1);
+        }
+
+        public void Quit() {
+            Application.Quit();
         }
     }
 }
