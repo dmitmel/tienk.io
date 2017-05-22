@@ -22,7 +22,6 @@ namespace Tienkio {
     public class PlayerControls : Singleton<PlayerControls> {
         public ControlsType controlsType;
         public bool inversedControls;
-        public Vector2 rotationSensitivity = new Vector2(10, 10);
         Vector3 currentVelocity = Vector3.zero;
 
         public float accelerationMultiplier = 2;
@@ -86,15 +85,15 @@ namespace Tienkio {
 
             switch (controlsType) {
                 case ControlsType.WASDMovement:
-                    rotationX = Input.GetAxis("Mouse X") * rotationSensitivity.x;
-                    rotationY = Input.GetAxis("Mouse Y") * rotationSensitivity.y;
+                    rotationX = Input.GetAxis("Mouse X") * Settings.instance.sensitivity.value;
+                    rotationY = Input.GetAxis("Mouse Y") * Settings.instance.sensitivity.value;
 
                     currentVelocity = new Vector3(horizontalAxis, 0, verticalAxis);
                     break;
 
                 case ControlsType.WASDTilt:
-                    rotationX = horizontalAxis * rotationSensitivity.x;
-                    rotationY = verticalAxis * rotationSensitivity.y;
+                    rotationX = horizontalAxis * Settings.instance.sensitivity.value;
+                    rotationY = verticalAxis * Settings.instance.sensitivity.value;
 
                     currentVelocity = new Vector3(0, 0, Mathf.Clamp01(currentVelocity.z + Input.GetAxis("Speed")));
                     break;

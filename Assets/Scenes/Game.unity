@@ -1869,14 +1869,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 587089390}
   m_HandleRect: {fileID: 1822349512}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 5
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901481688}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveSensetivity
         m_Mode: 0
         m_Arguments:
@@ -4343,6 +4343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293882675}
   - component: {fileID: 1293882676}
+  - component: {fileID: 512945702}
   m_Layer: 5
   m_Name: OptionsModal
   m_TagString: Untagged
@@ -4350,6 +4351,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &512945702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512945701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e5fb8a0bc04d28bffd1db5d1f4ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsType: {fileID: 675729036}
+  inversedControls: {fileID: 1602443940}
+  sensitivity: {fileID: 202278240}
+  musicVolume: {fileID: 930083789}
+  effectsVolume: {fileID: 883669185}
 --- !u!1 &513889653
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,7 +6490,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901481688}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveControlsType
         m_Mode: 0
         m_Arguments:
@@ -7890,7 +7907,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901481688}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveEffectsVolume
         m_Mode: 0
         m_Arguments:
@@ -8383,7 +8400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlsType: 0
   inversedControls: 0
-  rotationSensitivity: {x: 10, y: 10}
   accelerationMultiplier: 2
   autoSpinSpeed: 1
   pauseMenu: {fileID: 12972805}
@@ -8547,7 +8563,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901481688}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -12085,7 +12101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sensetivity
+  m_Text: Sensitivity
 --- !u!222 &1264464488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12677,7 +12693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329449521}
   m_Layer: 5
-  m_Name: Sensetivity
+  m_Name: Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14690,7 +14706,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901481688}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveInversedControls
         m_Mode: 0
         m_Arguments:
@@ -17765,7 +17781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1901481687}
   - component: {fileID: 1901481689}
-  - component: {fileID: 1901481688}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -17797,23 +17812,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -180, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1901481688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114412768892482114, guid: df0d547ba0eed448081481342bd1da8a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1901481686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d6e5fb8a0bc04d28bffd1db5d1f4ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlsType: {fileID: 675729036}
-  inversedControls: {fileID: 1602443940}
-  sensetivity: {fileID: 202278240}
-  musicVolume: {fileID: 930083789}
-  effectsVolume: {fileID: 883669185}
 --- !u!114 &1901481689
 MonoBehaviour:
   m_ObjectHideFlags: 0

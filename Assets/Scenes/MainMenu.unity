@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558209186}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558209186}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveControlsType
         m_Mode: 0
         m_Arguments:
@@ -1646,7 +1646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 441675664}
   m_Layer: 5
-  m_Name: Sensetivity
+  m_Name: Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1946,7 +1946,6 @@ GameObject:
   m_Component:
   - component: {fileID: 558209185}
   - component: {fileID: 558209187}
-  - component: {fileID: 558209186}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1978,23 +1977,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -180, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &558209186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114412768892482114, guid: df0d547ba0eed448081481342bd1da8a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558209184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d6e5fb8a0bc04d28bffd1db5d1f4ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlsType: {fileID: 413670153}
-  inversedControls: {fileID: 1740324219}
-  sensetivity: {fileID: 1688646981}
-  musicVolume: {fileID: 360392128}
-  effectsVolume: {fileID: 912970375}
 --- !u!114 &558209187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,7 +3117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sensetivity
+  m_Text: Sensitivity
 --- !u!222 &838012814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3464,7 +3446,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558209186}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveEffectsVolume
         m_Mode: 0
         m_Arguments:
@@ -5999,14 +5981,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 869597793}
   m_HandleRect: {fileID: 1435640192}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 5
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558209186}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveSensetivity
         m_Mode: 0
         m_Arguments:
@@ -6198,7 +6180,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558209186}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveInversedControls
         m_Mode: 0
         m_Arguments:
@@ -7911,6 +7893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1463859842}
   - component: {fileID: 1463859843}
+  - component: {fileID: 2117108357}
   m_Layer: 5
   m_Name: OptionsModal
   m_TagString: Untagged
@@ -7918,6 +7901,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2117108357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117108356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e5fb8a0bc04d28bffd1db5d1f4ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsType: {fileID: 413670153}
+  inversedControls: {fileID: 1740324219}
+  sensitivity: {fileID: 1688646981}
+  musicVolume: {fileID: 360392128}
+  effectsVolume: {fileID: 912970375}
 --- !u!1 &2126293984
 GameObject:
   m_ObjectHideFlags: 0

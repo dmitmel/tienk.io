@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,12 +20,12 @@ using UnityEngine.UI;
 namespace Tienkio {
     public class Settings : Singleton<Settings> {
         public SwitchButton controlsType, inversedControls;
-        public Slider sensetivity, musicVolume, effectsVolume;
+        public Slider sensitivity, musicVolume, effectsVolume;
 
         void Start() {
             controlsType.value = PlayerPrefs.GetInt("controlsType", 0);
             inversedControls.value = PlayerPrefs.GetInt("inversedControls", 0);
-            sensetivity.value = PlayerPrefs.GetFloat("sensetivity", 0.5f);
+            sensitivity.value = PlayerPrefs.GetFloat("sensitivity", 10);
             musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1);
             effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1);
         }
@@ -38,8 +38,8 @@ namespace Tienkio {
             PlayerPrefs.SetInt("inversedControls", invertControlsIndex);
         }
 
-        public void SaveSensetivity(float sensetivity) {
-            PlayerPrefs.SetFloat("sensetivity", sensetivity);
+        public void SaveSensetivity(float sensitivity) {
+            PlayerPrefs.SetFloat("sensitivity", sensitivity);
         }
 
         public void SaveMusicVolume(float musicVolume) {
