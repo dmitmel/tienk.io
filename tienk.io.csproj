@@ -121,6 +121,7 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\LevelBar.cs" />
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\Modal.cs" />
     <Compile Include="Assets\Scripts\NickLabel.cs" />
     <Compile Include="Assets\Scripts\ObjectFollower.cs" />
     <Compile Include="Assets\Scripts\PersistentSingleton.cs" />
@@ -128,14 +129,17 @@
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\PoolManager.cs" />
     <Compile Include="Assets\Scripts\PoolObject.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
     <Compile Include="Assets\Scripts\ScoreRenderer.cs" />
+    <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\Shape.cs" />
     <Compile Include="Assets\Scripts\ShapePool.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
     <Compile Include="Assets\Scripts\StatRenderer.cs" />
     <Compile Include="Assets\Scripts\StatsHolder.cs" />
+    <Compile Include="Assets\Scripts\SwitchButton.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\TankAI.cs" />
     <Compile Include="Assets\Scripts\TankController.cs" />
@@ -143,9 +147,6 @@
     <Compile Include="Assets\Scripts\TankUpgradeRenderer.cs" />
     <Compile Include="Assets\Scripts\TankUpgradeTree.cs" />
     <Compile Include="Assets\Scripts\TankUpgrader.cs" />
-    <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Modal.cs" />
-    <Compile Include="Assets\Scripts\SwitchButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -33,17 +33,38 @@ namespace Tienkio {
         [Space]
         public Text valueText;
 
-        [Space]
-        public int value;
+        [Space, SerializeField]
+        int _value;
         public SwitchButtonValue[] values;
         public SwitchButtonEvent onValueChanged = new SwitchButtonEvent();
 
+        public int value {
+            get { return _value; }
+            set {
+                int maxValue = Mathf.Max(0, values.Length - 1);
+                int clampedValue = Mathf.Clamp(value, 0, maxValue);
+                if (clampedValue != _value) {
+                    _value = clampedValue;
+                    UpdateGraphics();
+                    onValueChanged.Invoke(_value);
+                }
+            }
+        }
+
         protected override void Start() {
+            base.Start();
             UpdateGraphics();
         }
 
+#if UNITY_EDITOR
+        protected override void OnValidate() {
+            base.OnValidate();
+            value = _value;
+        }
+#endif
+
         void UpdateGraphics() {
-            SwitchButtonValue selectedValue = values[value];
+            SwitchButtonValue selectedValue = values[_value];
             valueText.text = selectedValue.name;
             targetGraphic.color = selectedValue.color;
         }
@@ -61,10 +82,10 @@ namespace Tienkio {
 
         void SelectNextValue() {
             if (IsActive() && IsInteractable()) {
-                value++;
-                if (value >= values.Length) value = 0;
+                _value++;
+                if (_value >= values.Length) _value = 0;
                 UpdateGraphics();
-                onValueChanged.Invoke(value);
+                onValueChanged.Invoke(_value);
             }
         }
     }
