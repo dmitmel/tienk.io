@@ -49,7 +49,7 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (Input.GetButtonDown("Pause")) pauseMenu.ShowModal();
+            if (Input.GetButtonDown("Pause")) pauseMenu.ToggleModal();
         }
 
         void FixedUpdate() {

@@ -45,5 +45,10 @@ namespace Tienkio {
                 isOpened = false;
             }
         }
+
+        public void ToggleModal() {
+            if (isOpened) CloseModal();
+            else ShowModal();
+        }
     }
 }
