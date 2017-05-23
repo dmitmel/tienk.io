@@ -30,8 +30,8 @@ namespace Tienkio {
         int currentGuidePart;
 
         void Start() {
-            if (!PlayerPrefs.HasKey("doNotShowGameGuide")) {
-                PlayerPrefs.SetInt("doNotShowGameGuide", 1);
+            if (PlayerPrefs.GetInt("showGameGuide", 1) == 1) {
+                PlayerPrefs.SetInt("showGameGuide", 0);
                 LoadGuide(gameGuide);
             }
         }
