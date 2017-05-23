@@ -18,36 +18,55 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Tienkio {
+    public enum ControlsType { WASDMovement, WASDTilt }
+
     public class Settings : Singleton<Settings> {
+        public static ControlsType controlsTypeValue = ControlsType.WASDMovement;
+        public static bool inversedControlsValue;
+        public static float sensetivityValue = 10, musicVolumeValue = 1, effectsVolumeValue = 1;
+
         public SwitchButton controlsType, inversedControls;
         public Slider sensitivity, musicVolume, effectsVolume;
 
-        void Start() {
+        protected override void Awake() {
+            base.Awake();
+
             controlsType.value = PlayerPrefs.GetInt("controlsType", 0);
+            if (controlsType.value == 1) controlsTypeValue = ControlsType.WASDTilt;
+            else controlsTypeValue = ControlsType.WASDMovement;
+
             inversedControls.value = PlayerPrefs.GetInt("inversedControls", 0);
-            sensitivity.value = PlayerPrefs.GetFloat("sensitivity", 10);
-            musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1);
-            effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1);
+            inversedControlsValue = (inversedControls.value == 1);
+
+            sensetivityValue = sensitivity.value = PlayerPrefs.GetFloat("sensitivity", 10);
+            musicVolumeValue = musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1);
+            effectsVolumeValue = effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1);
         }
 
         public void SaveControlsType(int controlsTypeIndex) {
             PlayerPrefs.SetInt("controlsType", controlsTypeIndex);
+            if (controlsType.value == 1) controlsTypeValue = ControlsType.WASDTilt;
+            else controlsTypeValue = ControlsType.WASDMovement;
         }
 
         public void SaveInversedControls(int invertControlsIndex) {
             PlayerPrefs.SetInt("inversedControls", invertControlsIndex);
+            inversedControlsValue = (inversedControls.value == 1);
         }
 
         public void SaveSensetivity(float sensitivity) {
             PlayerPrefs.SetFloat("sensitivity", sensitivity);
+            sensetivityValue = sensitivity;
         }
 
         public void SaveMusicVolume(float musicVolume) {
             PlayerPrefs.SetFloat("musicVolume", musicVolume);
+            musicVolumeValue = musicVolume;
         }
 
         public void SaveEffectsVolume(float effectsVolume) {
             PlayerPrefs.SetFloat("effectsVolume", effectsVolume);
+            effectsVolumeValue = effectsVolume;
         }
     }
 }

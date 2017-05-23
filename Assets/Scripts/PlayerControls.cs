@@ -17,11 +17,7 @@
 using UnityEngine;
 
 namespace Tienkio {
-    public enum ControlsType { WASDMovement, WASDTilt }
-
     public class PlayerControls : Singleton<PlayerControls> {
-        public ControlsType controlsType;
-        public bool inversedControls;
         Vector3 currentVelocity = Vector3.zero;
 
         public float accelerationMultiplier = 2;
@@ -83,17 +79,17 @@ namespace Tienkio {
 
             float rotationX = 0, rotationY = 0;
 
-            switch (controlsType) {
+            switch (Settings.controlsTypeValue) {
                 case ControlsType.WASDMovement:
-                    rotationX = Input.GetAxis("Mouse X") * Settings.instance.sensitivity.value;
-                    rotationY = Input.GetAxis("Mouse Y") * Settings.instance.sensitivity.value;
+                    rotationX = Input.GetAxis("Mouse X") * Settings.sensetivityValue;
+                    rotationY = Input.GetAxis("Mouse Y") * Settings.sensetivityValue;
 
                     currentVelocity = new Vector3(horizontalAxis, 0, verticalAxis);
                     break;
 
                 case ControlsType.WASDTilt:
-                    rotationX = horizontalAxis * Settings.instance.sensitivity.value;
-                    rotationY = verticalAxis * Settings.instance.sensitivity.value;
+                    rotationX = horizontalAxis * Settings.sensetivityValue;
+                    rotationY = verticalAxis * Settings.sensetivityValue;
 
                     currentVelocity = new Vector3(0, 0, Mathf.Clamp01(currentVelocity.z + Input.GetAxis("Speed")));
                     break;
@@ -103,7 +99,7 @@ namespace Tienkio {
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, autoSpinSpeed, 0);
             } else {
-                if (inversedControls) rotationY = -rotationY;
+                if (Settings.inversedControlsValue) rotationY = -rotationY;
                 var xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
                 var yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
                 transform.localRotation *= yQuaternion * xQuaternion;
