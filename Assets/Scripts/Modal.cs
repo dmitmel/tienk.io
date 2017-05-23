@@ -18,37 +18,58 @@ using UnityEngine;
 
 namespace Tienkio {
     public class Modal : MonoBehaviour {
-        public static int openedPausedModalsCount { get; private set; }
-
-        public GameObject modalBox;
         public bool pauseGame, unlockCursor;
         public bool isOpened { get; private set; }
+        bool isCloseable;
+
+        static int openedPauseModals;
 
         void Update() {
-            Time.timeScale = openedPausedModalsCount > 0 ? 0 : 1;
+            if (isOpened && !isCloseable) {
+                isCloseable = true;
+                if (ModalManager.instanceExists) ModalManager.instance.closableModals.Add(this);
+            }
         }
 
         public void ShowModal() {
-            if (!isOpened) {
-                if (pauseGame) openedPausedModalsCount++;
-                if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.UnlockCursor();
-                modalBox.SetActive(true);
-                isOpened = true;
+            if (isOpened) return;
+
+            if (pauseGame) {
+                if (openedPauseModals <= 0) {
+                    openedPauseModals = 0;
+                    Time.timeScale = 0;
+                }
+
+                openedPauseModals++;
             }
+
+            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.UnlockCursor();
+            gameObject.SetActive(true);
+
+            isOpened = true;
         }
 
         public void CloseModal() {
-            if (isOpened) {
-                if (pauseGame) openedPausedModalsCount--;
-                if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.LockCursor();
-                modalBox.SetActive(false);
-                isOpened = false;
+            if (!isOpened || !isCloseable) return;
+
+            if (pauseGame) {
+                openedPauseModals--;
+
+                if (openedPauseModals <= 0) {
+                    openedPauseModals = 0;
+                    Time.timeScale = 1;
+                }
             }
+
+            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.LockCursor();
+            gameObject.SetActive(false);
+
+            if (ModalManager.instanceExists) ModalManager.instance.closableModals.Remove(this);
+            isCloseable = isOpened = false;
         }
 
-        public void ToggleModal() {
-            if (isOpened) CloseModal();
-            else ShowModal();
+        void OnDestroy() {
+            CloseModal();
         }
     }
 }

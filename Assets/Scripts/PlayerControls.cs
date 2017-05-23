@@ -44,7 +44,7 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (Input.GetButtonDown("Pause")) pauseMenu.ToggleModal();
+            if (Input.GetButtonDown("Pause") && !pauseMenu.isOpened) pauseMenu.ShowModal();
         }
 
         void FixedUpdate() {

@@ -20,7 +20,7 @@ using UnityEngine.UI;
 
 namespace Tienkio {
     public class GuideManager : Singleton<GuideManager> {
-        public Modal guideBox;
+        public Modal guideBox, pauseMenu;
         public Text guideText;
 
         [TextArea(3, 10)]
@@ -45,7 +45,7 @@ namespace Tienkio {
         }
 
         void Update() {
-            if (guideBox.isOpened && Modal.openedPausedModalsCount < 2) {
+            if (guideBox.isOpened && !pauseMenu.isOpened) {
                 if (Input.GetButtonDown("Continue Guide"))
                     DisplayNextGuidePart();
                 if (Input.GetButtonDown("Skip Guide"))
