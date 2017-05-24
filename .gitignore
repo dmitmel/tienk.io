@@ -4,7 +4,7 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
+# /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 
@@ -48,3 +48,5 @@ Thumbs.db
 /SVGAssets
 /UtilScripts
 /.save.cson
+colors.txt
+
