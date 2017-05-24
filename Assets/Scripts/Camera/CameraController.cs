@@ -15,6 +15,7 @@
 //
 
 using UnityEngine;
+using Tienkio.UI;
 
 namespace Tienkio.Camera {
     [System.Serializable]
@@ -40,9 +41,12 @@ namespace Tienkio.Camera {
             transform = base.transform;
         }
 
-        void FixedUpdate() {
-            if (Input.GetButtonDown("Change Camera")) isFirstPerson = !isFirstPerson;
+        void Update() {
+            if (!PauseMenu.isGamePaused && Input.GetButtonDown("Change Camera"))
+                isFirstPerson = !isFirstPerson;
+        }
 
+        void FixedUpdate() {
             if (player != null) {
                 CameraPerson person = isFirstPerson ? firstPerson : thirdPerson;
 

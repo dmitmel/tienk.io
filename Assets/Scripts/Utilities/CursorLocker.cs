@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using Tienkio.UI;
 using UnityEngine;
 
 namespace Tienkio.Utilities {
@@ -37,7 +38,7 @@ namespace Tienkio.Utilities {
         }
 
         void Update() {
-            if (Input.GetButtonDown("Toggle Cursor")) {
+            if (!PauseMenu.isGamePaused && Input.GetButtonDown("Toggle Cursor")) {
                 if (cursorIsLocked) UnlockCursor();
                 else LockCursor();
             }

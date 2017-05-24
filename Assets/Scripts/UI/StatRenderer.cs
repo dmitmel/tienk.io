@@ -30,9 +30,9 @@ namespace Tienkio.UI {
             UpdateButton();
         }
 
-        void FixedUpdate() {
+        void Update() {
             if (PlayerControls.instanceExists) {
-                if (Input.GetKeyDown(upgradeKey)) stat.Upgrade();
+                if (!PauseMenu.isGamePaused && Input.GetKeyDown(upgradeKey)) stat.Upgrade();
             } else {
                 upgradeButton.interactable = false;
             }

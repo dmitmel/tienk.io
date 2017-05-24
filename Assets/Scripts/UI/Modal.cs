@@ -32,7 +32,7 @@ namespace Tienkio.UI {
             }
         }
 
-        public void ShowModal() {
+        public virtual void ShowModal() {
             if (isOpened) return;
 
             if (pauseGame) {
@@ -50,7 +50,7 @@ namespace Tienkio.UI {
             isOpened = true;
         }
 
-        public void CloseModal() {
+        public virtual void CloseModal() {
             if (!isOpened || !isCloseable) return;
 
             if (pauseGame) {

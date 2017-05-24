@@ -47,10 +47,10 @@ namespace Tienkio.Tanks {
         }
 
         void Update() {
-            if (Input.GetButtonDown("Pause") && !pauseMenu.isOpened) pauseMenu.ShowModal();
-        }
+            if (PauseMenu.isGamePaused) return;
 
-        void FixedUpdate() {
+            if (Input.GetButtonDown("Pause") && !pauseMenu.isOpened) pauseMenu.ShowModal();
+
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);
 
@@ -61,6 +61,8 @@ namespace Tienkio.Tanks {
                 }
                 autoFireEnabled = !autoFireEnabled;
             }
+
+            if (Input.GetButtonDown("Auto Spin")) autoSpinEnabled = !autoSpinEnabled;
 
             if (autoFireEnabled) {
                 foreach (Gun gun in tank.guns)
@@ -74,7 +76,9 @@ namespace Tienkio.Tanks {
                         gun.StopFiring();
                 }
             }
+        }
 
+        void FixedUpdate() {
             float horizontalAxis = Input.GetAxis("Horizontal");
             float verticalAxis = Input.GetAxis("Vertical");
 
@@ -98,7 +102,6 @@ namespace Tienkio.Tanks {
                     break;
             }
 
-            if (Input.GetButtonDown("Auto Spin")) autoSpinEnabled = !autoSpinEnabled;
             if (autoSpinEnabled) {
                 transform.rotation *= Quaternion.Euler(0, autoSpinSpeed, 0);
             } else {
