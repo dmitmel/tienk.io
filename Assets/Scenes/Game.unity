@@ -141,7 +141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.7, y: -0}
+  m_AnchoredPosition: {x: -74.7, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &917378
@@ -655,6 +655,7 @@ MonoBehaviour:
   stat: {fileID: 1075670071}
   upgradeButton: {fileID: 1663856290}
   upgradeBars: {fileID: 1203307530}
+  upgradeKey: 50
 --- !u!1 &61054123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.70001, y: -0}
+  m_AnchoredPosition: {x: -74.70001, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &111883562
@@ -1457,6 +1458,7 @@ MonoBehaviour:
   stat: {fileID: 1747562481}
   upgradeButton: {fileID: 1458458274}
   upgradeBars: {fileID: 197159197}
+  upgradeKey: 55
 --- !u!1 &152129487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.7, y: -0}
+  m_AnchoredPosition: {x: -74.7, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &215033082
@@ -2907,6 +2909,7 @@ MonoBehaviour:
   stat: {fileID: 1313891803}
   upgradeButton: {fileID: 2055602102}
   upgradeBars: {fileID: 1884795001}
+  upgradeKey: 51
 --- !u!1 &269121103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,6 +3399,7 @@ MonoBehaviour:
   stat: {fileID: 1299414041}
   upgradeButton: {fileID: 281834524}
   upgradeBars: {fileID: 789586402}
+  upgradeKey: 56
 --- !u!1 &331453491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5531,6 +5535,7 @@ MonoBehaviour:
   stat: {fileID: 1771891686}
   upgradeButton: {fileID: 988935255}
   upgradeBars: {fileID: 1626772741}
+  upgradeKey: 54
 --- !u!1 &570884901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5809,6 +5814,7 @@ MonoBehaviour:
   stat: {fileID: 1341958923}
   upgradeButton: {fileID: 1947040438}
   upgradeBars: {fileID: 269121104}
+  upgradeKey: 49
 --- !u!1 &584035607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,6 +7184,7 @@ MonoBehaviour:
   stat: {fileID: 1797460322}
   upgradeButton: {fileID: 468947069}
   upgradeBars: {fileID: 1748222199}
+  upgradeKey: 53
 --- !u!1 &736515167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9568,7 +9575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 0
   score: 0
-  upgradePoints: 0
+  upgradePoints: 56
   levels:
   - index: 0
     neededScore: 0
@@ -12387,7 +12394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.70001, y: -0}
+  m_AnchoredPosition: {x: -74.70001, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1258624977
@@ -13817,7 +13824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.70001, y: -0}
+  m_AnchoredPosition: {x: -74.70001, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1388390187
@@ -15323,7 +15330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.70001, y: -0}
+  m_AnchoredPosition: {x: -74.70001, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1603492589
@@ -15548,7 +15555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.7, y: -0}
+  m_AnchoredPosition: {x: -74.7, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1619062785
@@ -16425,7 +16432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -74.7, y: -0}
+  m_AnchoredPosition: {x: -74.7, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1710481759
@@ -19476,6 +19483,7 @@ MonoBehaviour:
   stat: {fileID: 1038500111}
   upgradeButton: {fileID: 2071145298}
   upgradeBars: {fileID: 2017678254}
+  upgradeKey: 52
 --- !u!1 &2055602100
 GameObject:
   m_ObjectHideFlags: 0

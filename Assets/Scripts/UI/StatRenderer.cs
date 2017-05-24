@@ -23,6 +23,7 @@ namespace Tienkio.UI {
         public Stat stat;
         public Button upgradeButton;
         public Transform upgradeBars;
+        public KeyCode upgradeKey;
 
         void Start() {
             UpdateBars();
@@ -30,8 +31,11 @@ namespace Tienkio.UI {
         }
 
         void FixedUpdate() {
-            if (!PlayerControls.instanceExists)
+            if (PlayerControls.instanceExists) {
+                if (Input.GetKeyDown(upgradeKey)) stat.Upgrade();
+            } else {
                 upgradeButton.interactable = false;
+            }
         }
 
         public void UpdateBars() {
