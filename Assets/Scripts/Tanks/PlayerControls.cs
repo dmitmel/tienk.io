@@ -20,7 +20,7 @@ using Tienkio.Data;
 using Tienkio.UI;
 
 namespace Tienkio.Tanks {
-    public class PlayerControls : Singleton<PlayerControls> {
+    public class PlayerControls : MonoBehaviour {
         Vector3 currentVelocity = Vector3.zero;
 
         public float accelerationMultiplier = 2;
@@ -35,8 +35,7 @@ namespace Tienkio.Tanks {
 
         bool autoSpinEnabled, autoFireEnabled;
 
-        protected override void Awake() {
-            base.Awake();
+        void Awake() {
             tank = GetComponent<TankController>();
             transform = base.transform;
             rigidbody = GetComponent<Rigidbody>();

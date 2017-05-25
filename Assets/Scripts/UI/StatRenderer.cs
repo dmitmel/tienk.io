@@ -25,13 +25,19 @@ namespace Tienkio.UI {
         public Transform upgradeBars;
         public KeyCode upgradeKey;
 
+        GameObject statGameObject;
+
+        void Awake() {
+            statGameObject = stat.gameObject;
+        }
+
         void Start() {
             UpdateBars();
             UpdateButton();
         }
 
         void Update() {
-            if (PlayerControls.instanceExists) {
+            if (stat.isActiveAndEnabled) {
                 if (!PauseMenu.isGamePaused && Input.GetKeyDown(upgradeKey)) stat.Upgrade();
             } else {
                 upgradeButton.interactable = false;
