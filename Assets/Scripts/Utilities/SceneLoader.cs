@@ -19,9 +19,8 @@ using UnityEngine.SceneManagement;
 
 namespace Tienkio.Utilities {
     public class SceneLoader : MonoBehaviour {
-        public void LoadMainMenu() {
-            CursorLocker.instance.UnlockCursor();
-            SceneManager.LoadScene(0);
+        public void LoadScene(string sceneName) {
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

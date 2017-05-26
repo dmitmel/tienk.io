@@ -51,7 +51,7 @@ namespace Tienkio.Tanks {
         }
 
         void Start() {
-            nickLabel.text = nick;
+            if (nickLabel != null) nickLabel.text = nick;
         }
 
         void FixedUpdate() {

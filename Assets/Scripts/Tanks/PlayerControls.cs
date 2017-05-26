@@ -48,7 +48,7 @@ namespace Tienkio.Tanks {
         void Update() {
             if (PauseMenu.isGamePaused) return;
 
-            if (Input.GetButtonDown("Pause") && !pauseMenu.isOpened) pauseMenu.ShowModal();
+            if (Input.GetButtonDown("Pause") && pauseMenu != null && !pauseMenu.isOpened) pauseMenu.ShowModal();
 
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);

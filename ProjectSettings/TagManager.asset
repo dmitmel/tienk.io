@@ -11,6 +11,7 @@ TagManager:
   - Square
   - Triangle
   - Pentagon
+  - PlayerCamera
   layers:
   - Default
   - TransparentFX

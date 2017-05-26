@@ -27,7 +27,6 @@ namespace Tienkio.Utilities {
 
         void Awake() {
             transform = base.transform;
-            camera = UnityEngine.Camera.main.transform;
         }
 
         void Start() {
@@ -36,6 +35,8 @@ namespace Tienkio.Utilities {
         }
 
         void FixedUpdate() {
+            if (camera == null) camera = UnityEngine.Camera.main.transform;
+
             if (follow != null) transform.position = camera.rotation * posOffset + follow.position;
             transform.rotation = camera.rotation * rotOffset;
         }

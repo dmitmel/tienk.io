@@ -37,7 +37,7 @@ namespace Tienkio.UI {
         }
 
         void Update() {
-            if (stat.isActiveAndEnabled) {
+            if (statGameObject != null && statGameObject.activeInHierarchy) {
                 if (!PauseMenu.isGamePaused && Input.GetKeyDown(upgradeKey)) stat.Upgrade();
             } else {
                 upgradeButton.interactable = false;
