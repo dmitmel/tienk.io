@@ -150,6 +150,7 @@
     <Compile Include="Assets\Scripts\Utilities\PersistentSingleton.cs" />
     <Compile Include="Assets\Scripts\Utilities\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\MultiplayerCameras.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

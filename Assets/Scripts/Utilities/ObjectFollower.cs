@@ -34,7 +34,7 @@ namespace Tienkio.Utilities {
             rotOffset = transform.rotation * Quaternion.Inverse(follow.rotation);
         }
 
-        void FixedUpdate() {
+        void Update() {
             if (camera == null) camera = UnityEngine.Camera.main.transform;
 
             if (follow != null) transform.position = camera.rotation * posOffset + follow.position;

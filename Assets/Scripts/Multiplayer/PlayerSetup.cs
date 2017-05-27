@@ -16,28 +16,38 @@
 
 using UnityEngine;
 using UnityEngine.Networking;
+using Tienkio.Camera;
+using Tienkio.Tanks;
 
 namespace Tienkio.Multiplayer {
     public class PlayerSetup : NetworkBehaviour {
-        public GameObject[] gameObjectsToEnable;
-        public Behaviour[] behavioursToEnable;
+        PlayerControls playerControls;
 
-        GameObject sceneCamera;
+        void Awake() {
+            playerControls = GetComponent<PlayerControls>();
+        }
 
         void Start() {
             if (isLocalPlayer) {
-                sceneCamera = UnityEngine.Camera.main.gameObject;
+                playerControls.enabled = true;
+
+                GameObject sceneCamera = MultiplayerCameras.instance.sceneCamera;
                 sceneCamera.SetActive(false);
-                foreach (var gameObjectToEnable in gameObjectsToEnable) gameObjectToEnable.SetActive(true);
-                foreach (var behaviourToEnable in behavioursToEnable) behaviourToEnable.enabled = true;
+
+                GameObject playerCamera = MultiplayerCameras.instance.playerCamera;
+                playerCamera.SetActive(true);
+                var playerCameraController = playerCamera.GetComponent<CameraController>();
+                playerCameraController.player = transform;
             }
         }
 
         void OnDisable() {
             if (isLocalPlayer) {
+                GameObject sceneCamera = MultiplayerCameras.instance.sceneCamera;
                 sceneCamera.SetActive(true);
-                foreach (var gameObjectToEnable in gameObjectsToEnable) gameObjectToEnable.SetActive(false);
-                foreach (var behaviourToEnable in behavioursToEnable) behaviourToEnable.enabled = false;
+
+                GameObject playerCamera = MultiplayerCameras.instance.playerCamera;
+                playerCamera.SetActive(false);
             }
         }
     }
