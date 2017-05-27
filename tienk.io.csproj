@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\Tanks\TankController.cs" />
     <Compile Include="Assets\Scripts\Tanks\TankHealth.cs" />
     <Compile Include="Assets\Scripts\Tanks\TankUpgrader.cs" />
+    <Compile Include="Assets\Scripts\UI\Crosshair.cs" />
     <Compile Include="Assets\Scripts\UI\GuideManager.cs" />
     <Compile Include="Assets\Scripts\UI\LevelBar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuController.cs" />
