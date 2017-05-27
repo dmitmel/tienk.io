@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Data\Settings.cs" />
     <Compile Include="Assets\Scripts\Data\TankUpgradeTree.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\MultiplayerCameras.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\PlayerSetup.cs" />
     <Compile Include="Assets\Scripts\Pools\BulletPool.cs" />
     <Compile Include="Assets\Scripts\Pools\PoolManager.cs" />
@@ -150,7 +151,6 @@
     <Compile Include="Assets\Scripts\Utilities\PersistentSingleton.cs" />
     <Compile Include="Assets\Scripts\Utilities\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Multiplayer\MultiplayerCameras.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
