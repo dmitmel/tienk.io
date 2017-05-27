@@ -31,7 +31,6 @@ namespace Tienkio.Shapes {
 
         [Space]
         public float randomRotationSpeed;
-        public float randomMovementSpeed;
         new Rigidbody rigidbody;
 
         Health healthBar;
@@ -47,7 +46,6 @@ namespace Tienkio.Shapes {
                 0,
                 Random.Range(randomRotationSpeed, randomRotationSpeed)
             );
-            rigidbody.velocity = Random.insideUnitCircle * randomMovementSpeed;
             healthBar.health = healthBar.maxHealth;
         }
 
