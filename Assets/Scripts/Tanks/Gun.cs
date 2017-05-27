@@ -37,7 +37,9 @@ namespace Tienkio.Tanks {
         public GunStatsMultipliers statsMultipliers;
         public float bulletFlyTime, shootDelay, recoil, bulletKnockback, bulletSpread;
 
+        [HideInInspector]
         public TankController tank;
+        [HideInInspector]
         public Rigidbody tankRigidbody;
 
         bool isFiring;
@@ -78,36 +80,37 @@ namespace Tienkio.Tanks {
         }
 
         void SpawnBullet() {
-            Vector3 newBulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
-            PoolObject newBullet = BulletPool.instance.GetFromPool(newBulletPosition, Quaternion.identity);
+            Vector3 bulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
+            PoolObject bullet = BulletPool.instance.GetFromPool(bulletPosition, Quaternion.identity);
 
             Vector3 scale = transform.lossyScale;
-            newBullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
+            bullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
 
-            var newBulletRenderer = newBullet.GetComponent<MeshRenderer>();
-            newBulletRenderer.material = tank.bodyMaterial;
+            var bulletRenderer = bullet.GetComponent<MeshRenderer>();
+            bulletRenderer.material = tank.bodyMaterial;
 
-            var newBulletController = newBullet.GetComponent<Bullet>();
-            var newBulletRigidbody = newBullet.GetComponent<Rigidbody>();
+            var bulletController = bullet.GetComponent<Bullet>();
+            var bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
             float halfBulletSpread = bulletSpread / 2;
-            var newBulletRotation = transform.rotation * Quaternion.Euler(
+            var bulletRotation = transform.rotation * Quaternion.Euler(
                 Random.Range(-halfBulletSpread, halfBulletSpread),
                 0,
                 Random.Range(-halfBulletSpread, halfBulletSpread)
             );
+            bullet.transform.rotation = bulletRotation;
 
             float bulletSpeed = tank.stats.bulletSpeed.Value * statsMultipliers.bulletSpeed;
-            var bulletVelocity = newBulletRotation * Vector3.up * bulletSpeed;
+            var bulletVelocity = bulletRotation * Vector3.up * bulletSpeed;
 
-            newBulletController.normalVelocity = bulletVelocity;
-            newBulletRigidbody.velocity = bulletVelocity + tankRigidbody.velocity;
+            bulletController.normalVelocity = bulletVelocity;
+            bulletRigidbody.velocity = bulletVelocity + tankRigidbody.velocity;
 
-            newBulletController.tank = tank;
-            newBulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.Value;
-            newBulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.Value;
-            newBulletController.knockback = bulletKnockback;
-            newBulletController.flyTime = bulletFlyTime;
+            bulletController.tank = tank;
+            bulletController.damage = statsMultipliers.bulletDamage * tank.stats.bulletDamage.Value;
+            bulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.Value;
+            bulletController.knockback = bulletKnockback;
+            bulletController.flyTime = bulletFlyTime;
         }
 
         IEnumerator MoveBackwards() {
