@@ -93,7 +93,7 @@ namespace Tienkio.Tanks {
                 float sqrDistanceToTarget = (transform.position - target.position).sqrMagnitude;
                 var targetTank = target.GetComponent<TankController>();
                 float direction =
-                    targetTank != null && targetTank.healthBar.health > tank.healthBar.health ? -1 :
+                    targetTank != null && targetTank.healthBar.health > tank.healthBar.health ? -0.25f :
                     sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
                 tankTransform.LookAt(target);
