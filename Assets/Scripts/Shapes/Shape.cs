@@ -29,8 +29,6 @@ namespace Tienkio.Shapes {
         [Space]
         public PoolObject poolObject;
 
-        [Space]
-        public float randomRotationSpeed;
         new Rigidbody rigidbody;
 
         Health healthBar;
@@ -40,12 +38,8 @@ namespace Tienkio.Shapes {
             rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Start() {
-            rigidbody.angularVelocity = new Vector3(
-                Random.Range(randomRotationSpeed, randomRotationSpeed),
-                0,
-                Random.Range(randomRotationSpeed, randomRotationSpeed)
-            );
+        void OnEnable() {
+            transform.rotation = Random.rotation;
             healthBar.health = healthBar.maxHealth;
         }
 
@@ -68,7 +62,7 @@ namespace Tienkio.Shapes {
                 if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0) {
                     bullet.tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(poolObject);
+                    poolObject.PutIntoPool();
                 }
             }
         }
@@ -83,7 +77,7 @@ namespace Tienkio.Shapes {
                 if (healthBar.health <= 0 && tank.healthBar.health > 0) {
                     tank.scoreCounter.score += score;
                     ShapePool.instance.SpawnShape();
-                    ShapePool.instance.DestroyShape(poolObject);
+                    poolObject.PutIntoPool();
                 }
             }
         }

@@ -19,11 +19,11 @@ using Tienkio.Utilities;
 
 namespace Tienkio.Pools {
     public class BulletPool : Singleton<BulletPool> {
-        PoolManager pool;
+        IPoolManager pool;
 
         protected override void Awake() {
             base.Awake();
-            pool = GetComponent<PoolManager>();
+            pool = GetComponent<IPoolManager>();
         }
 
         public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {

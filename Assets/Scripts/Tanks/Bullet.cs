@@ -24,13 +24,12 @@ namespace Tienkio.Tanks {
 
         [HideInInspector]
         public float health, damage, knockback, flyTime;
-        public float slowDownToNormalVelocityTime;
+        public float slowDownSpeed;
 
         [HideInInspector]
         public Vector3 normalVelocity;
 
         new Rigidbody rigidbody;
-        Vector3 originalVelocity;
 
         PoolObject poolObject;
 
@@ -42,19 +41,15 @@ namespace Tienkio.Tanks {
         }
 
         public void Start() {
-            originalVelocity = rigidbody.velocity;
             startTime = Time.time;
         }
 
         void FixedUpdate() {
             float timeFromStart = Time.time - startTime;
-            if (timeFromStart >= flyTime) {
+            if (timeFromStart >= flyTime || health <= 0)
                 poolObject.PutIntoPool();
-            } else {
-                rigidbody.velocity = Vector3.Lerp(originalVelocity, normalVelocity, timeFromStart / slowDownToNormalVelocityTime);
-
-                if (health <= 0) poolObject.PutIntoPool();
-            }
+            else
+                rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, normalVelocity, Time.deltaTime * slowDownSpeed);
         }
     }
 }

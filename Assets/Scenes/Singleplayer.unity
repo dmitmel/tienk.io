@@ -4165,15 +4165,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapePools:
   - chance: 0.7
-    pool: {fileID: 301126178}
+    pool: {fileID: 301126175}
   - chance: 0.8
-    pool: {fileID: 1418395438}
+    pool: {fileID: 1418395436}
   - chance: 0.9
-    pool: {fileID: 1247854565}
+    pool: {fileID: 1247854563}
   - chance: 0.6
-    pool: {fileID: 331453493}
+    pool: {fileID: 331453491}
   - chance: 1
-    pool: {fileID: 1290008753}
+    pool: {fileID: 1290008751}
   spawnFieldMin: {x: -110, y: -110, z: -110}
   spawnFieldMax: {x: 110, y: 110, z: 110}
   shapesCount: 1000
@@ -14961,6 +14961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 919655964}
+  positionOffset: {x: 0, y: -0.9, z: 0}
+  rotationOffset: {x: 0, y: 180, z: 0}
 --- !u!1 &1569873809
 GameObject:
   m_ObjectHideFlags: 0

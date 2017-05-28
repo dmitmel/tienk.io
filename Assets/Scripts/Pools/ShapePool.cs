@@ -21,7 +21,9 @@ namespace Tienkio.Pools {
     [System.Serializable]
     public class ShapeSpawnerPool {
         public float chance;
-        public PoolManager pool;
+        public GameObject pool;
+
+        internal IPoolManager poolManager;
     }
 
     public class ShapePool : Singleton<ShapePool> {
@@ -29,12 +31,26 @@ namespace Tienkio.Pools {
         public Vector3 spawnFieldMin, spawnFieldMax;
         public int shapesCount;
 
+#if UNITY_EDITOR
+        void OnValidate() {
+            foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
+                GameObject pool = shapeSpawnerPool.pool;
+                if (pool != null) {
+                    IPoolManager poolManager = pool.GetComponent<IPoolManager>();
+                    if (poolManager == null)
+                        Debug.LogError("ShapePool - ShapeSpawnerPool.pool must have an IPoolManager");
+                    shapeSpawnerPool.poolManager = poolManager;
+                }
+            }
+        }
+#endif
+
         void Start() {
             for (int i = 0; i < shapesCount; i++) SpawnShape();
         }
 
         public void SpawnShape() {
-            PoolManager pool = SelectPool();
+            IPoolManager pool = SelectPool();
             if (pool != null) {
                 var position = new Vector3(
                     Random.Range(spawnFieldMin.x, spawnFieldMax.x),
@@ -45,16 +61,12 @@ namespace Tienkio.Pools {
             }
         }
 
-        public PoolManager SelectPool() {
+        public IPoolManager SelectPool() {
             foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
                 float random = Random.value;
-                if (random <= shapeSpawnerPool.chance) return shapeSpawnerPool.pool;
+                if (random <= shapeSpawnerPool.chance) return shapeSpawnerPool.poolManager;
             }
             return null;
-        }
-
-        public void DestroyShape(PoolObject shape) {
-            shape.PutIntoPool();
         }
     }
 }

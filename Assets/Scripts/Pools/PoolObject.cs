@@ -15,13 +15,12 @@
 //
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Tienkio.Pools {
     public class PoolObject : MonoBehaviour {
-        public UnityEvent onGetFromPool;
+        internal int id;
         [HideInInspector]
-        public PoolManager pool;
+        public IPoolManager pool;
 
         public void PutIntoPool() {
             pool.PutIntoPool(this);

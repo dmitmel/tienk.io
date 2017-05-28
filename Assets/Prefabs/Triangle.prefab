@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 4757542693922998}
+  positionOffset: {x: 0, y: -0.9, z: 0}
+  rotationOffset: {x: 0, y: 180, z: 0}
 --- !u!114 &114630351719228614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,23 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGetFromPool:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114695277847507846}
-        m_MethodName: Start
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  pool: {fileID: 0}
 --- !u!114 &114695277847507846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,8 +217,6 @@ MonoBehaviour:
   damageComputationCycles: 100
   bodyDamageForBullets: 2.065
   poolObject: {fileID: 114630351719228614}
-  randomRotationSpeed: 0
-  randomMovementSpeed: 0.2
 --- !u!114 &114761533910306344
 MonoBehaviour:
   m_ObjectHideFlags: 1

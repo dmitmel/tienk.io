@@ -18,14 +18,14 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Tienkio.Pools {
-    public class PoolManager : MonoBehaviour {
+    public class LocalPoolManager : MonoBehaviour, IPoolManager {
         public PoolObject prefab;
         public int initialPoolSize;
         public float garbageCollectionDelay = 10;
         public float garbageCollectionInterval = 0.4f;
 
-        Queue<PoolObject> pool;
-        List<PoolObject> objectsToIntialize;
+        Dictionary<int, PoolObject> pool;
+        int maxID;
 
         float nextGCStart = -1, nextObjectRemove = -1;
 
@@ -36,16 +36,7 @@ namespace Tienkio.Pools {
         }
 
         void Start() {
-            pool = new Queue<PoolObject>(initialPoolSize);
-            objectsToIntialize = new List<PoolObject>(initialPoolSize);
-        }
-
-        void LateUpdate() {
-            foreach (PoolObject obj in objectsToIntialize) {
-                obj.onGetFromPool.Invoke();
-            }
-
-            objectsToIntialize.Clear();
+            pool = new Dictionary<int, PoolObject>(initialPoolSize);
         }
 
         void Update() {
@@ -59,9 +50,21 @@ namespace Tienkio.Pools {
 
                 if (nextObjectRemove > 0 && now >= nextObjectRemove) {
                     nextObjectRemove = now + garbageCollectionInterval;
-                    PoolObject poolObj = pool.Dequeue();
+                    PoolObject poolObj = PopPoolObject();
                     Destroy(poolObj.gameObject);
                 }
+            }
+        }
+
+        PoolObject PopPoolObject() {
+            while (maxID > 0 && !pool.ContainsKey(maxID)) maxID--;
+
+            if (pool.ContainsKey(maxID)) {
+                PoolObject lastPoolObject = pool[maxID];
+                pool.Remove(maxID);
+                return lastPoolObject;
+            } else {
+                return null;
             }
         }
 
@@ -69,32 +72,35 @@ namespace Tienkio.Pools {
             nextGCStart = Time.time + garbageCollectionDelay;
             nextObjectRemove = -1;
 
-            if (pool.Count == 0) {
-                PoolObject poolObj = Instantiate(prefab, position, rotation, transform);
-                poolObj.pool = this;
-                return poolObj;
-            } else {
-                PoolObject poolObj = pool.Dequeue();
+            PoolObject poolObj;
 
+            if (pool.Count > 0) {
+                poolObj = PopPoolObject();
                 poolObj.gameObject.SetActive(true);
 
                 Transform objTransform = poolObj.transform;
                 objTransform.position = position;
                 objTransform.rotation = rotation;
-
-                objectsToIntialize.Add(poolObj);
-
-                return poolObj;
+            } else {
+                poolObj = Instantiate(prefab, position, rotation, transform);
+                poolObj.pool = this;
             }
+
+            poolObj.id = -1;
+            return poolObj;
         }
 
         public void PutIntoPool(PoolObject poolObj) {
-            nextGCStart = Time.time + garbageCollectionDelay;
-            nextObjectRemove = -1;
+            if (ReferenceEquals(poolObj.pool, this)) {
+                nextGCStart = Time.time + garbageCollectionDelay;
+                nextObjectRemove = -1;
 
-            pool.Enqueue(poolObj);
-            poolObj.gameObject.SetActive(false);
-            objectsToIntialize.Remove(poolObj);
+                poolObj.id = maxID;
+                pool.Add(maxID, poolObj);
+                maxID++;
+
+                poolObj.gameObject.SetActive(false);
+            }
         }
     }
 }

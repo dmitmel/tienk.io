@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,22 +16,10 @@
 
 using UnityEngine;
 
-namespace Tienkio.Utilities {
-    public class ObjectFollower : MonoBehaviour {
-        public Transform follow;
-        public Vector3 positionOffset, rotationOffset;
+namespace Tienkio.Pools {
+    public interface IPoolManager {
+        PoolObject GetFromPool(Vector3 position, Quaternion rotation);
 
-        new Transform transform, camera;
-
-        void Awake() {
-            transform = base.transform;
-        }
-
-        void Update() {
-            if (camera == null) camera = UnityEngine.Camera.main.transform;
-
-            if (follow != null) transform.position = camera.rotation * positionOffset + follow.position;
-            transform.rotation = camera.rotation * Quaternion.Euler(rotationOffset);
-        }
+        void PutIntoPool(PoolObject poolObj);
     }
 }

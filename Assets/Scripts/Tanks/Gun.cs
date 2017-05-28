@@ -111,6 +111,8 @@ namespace Tienkio.Tanks {
             bulletController.health = statsMultipliers.bulletPenetration * tank.stats.bulletPenetration.Value;
             bulletController.knockback = bulletKnockback;
             bulletController.flyTime = bulletFlyTime;
+
+            bulletController.Start();
         }
 
         IEnumerator MoveBackwards() {

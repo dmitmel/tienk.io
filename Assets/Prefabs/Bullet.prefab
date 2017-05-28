@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   damage: 0
   knockback: 0
   flyTime: 0
-  slowDownToNormalVelocityTime: 0.5
+  slowDownSpeed: 3
   normalVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &114690722846867370
 MonoBehaviour:
@@ -128,23 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGetFromPool:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114268783001056376}
-        m_MethodName: Start
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  pool: {fileID: 0}
 --- !u!135 &135969267942775570
 SphereCollider:
   m_ObjectHideFlags: 1

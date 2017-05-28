@@ -834,6 +834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 4299928913420496}
+  positionOffset: {x: 0, y: -0.9, z: 0}
+  rotationOffset: {x: 0, y: 180, z: 0}
 --- !u!114 &114640937803044584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,6 +1188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 4299928913420496}
+  positionOffset: {x: 0, y: 0.964, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114932535852448002
 MonoBehaviour:
   m_ObjectHideFlags: 1
