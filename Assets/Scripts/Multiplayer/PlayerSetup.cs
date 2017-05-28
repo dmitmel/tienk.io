@@ -23,6 +23,8 @@ namespace Tienkio.Multiplayer {
     public class PlayerSetup : NetworkBehaviour {
         PlayerControls playerControls;
 
+        GameObject sceneCamera, playerCamera;
+
         void Awake() {
             playerControls = GetComponent<PlayerControls>();
         }
@@ -31,11 +33,12 @@ namespace Tienkio.Multiplayer {
             if (isLocalPlayer) {
                 playerControls.enabled = true;
 
-                GameObject sceneCamera = MultiplayerCameras.instance.sceneCamera;
+                sceneCamera = MultiplayerCameras.instance.sceneCamera;
                 sceneCamera.SetActive(false);
 
-                GameObject playerCamera = MultiplayerCameras.instance.playerCamera;
+                playerCamera = MultiplayerCameras.instance.playerCamera;
                 playerCamera.SetActive(true);
+
                 var playerCameraController = playerCamera.GetComponent<CameraController>();
                 playerCameraController.player = transform;
             }
@@ -43,10 +46,7 @@ namespace Tienkio.Multiplayer {
 
         void OnDisable() {
             if (isLocalPlayer) {
-                GameObject sceneCamera = MultiplayerCameras.instance.sceneCamera;
                 sceneCamera.SetActive(true);
-
-                GameObject playerCamera = MultiplayerCameras.instance.playerCamera;
                 playerCamera.SetActive(false);
             }
         }
