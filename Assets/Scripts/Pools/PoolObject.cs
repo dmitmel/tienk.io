@@ -19,6 +19,8 @@ using UnityEngine;
 namespace Tienkio.Pools {
     public class PoolObject : MonoBehaviour {
         internal int id;
+        internal bool activeInPool;
+
         [HideInInspector]
         public IPoolManager pool;
 

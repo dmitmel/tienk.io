@@ -25,7 +25,7 @@ namespace Tienkio.Pools {
         public float garbageCollectionInterval = 0.4f;
 
         Dictionary<int, PoolObject> pool;
-        int maxID;
+        int nextID;
 
         float nextGCStart = -1, nextObjectRemove = -1;
 
@@ -50,32 +50,31 @@ namespace Tienkio.Pools {
 
                 if (nextObjectRemove > 0 && now >= nextObjectRemove) {
                     nextObjectRemove = now + garbageCollectionInterval;
-                    PoolObject poolObj = PopPoolObject();
-                    Destroy(poolObj.gameObject);
+                    PoolObject poolObj = FindFirstInactiveObject();
+                    if (poolObj != null) {
+                        pool.Remove(poolObj.id);
+                        Destroy(poolObj.gameObject);
+                    }
                 }
             }
         }
 
-        PoolObject PopPoolObject() {
-            while (maxID > 0 && !pool.ContainsKey(maxID)) maxID--;
-
-            if (pool.ContainsKey(maxID)) {
-                PoolObject lastPoolObject = pool[maxID];
-                pool.Remove(maxID);
-                return lastPoolObject;
-            } else {
-                return null;
+        PoolObject FindFirstInactiveObject() {
+            foreach (KeyValuePair<int, PoolObject> poolEntry in pool) {
+                PoolObject poolObj = poolEntry.Value;
+                if (!poolObj.activeInPool) return poolObj;
             }
+
+            return null;
         }
 
         public PoolObject GetFromPool(Vector3 position, Quaternion rotation) {
             nextGCStart = Time.time + garbageCollectionDelay;
             nextObjectRemove = -1;
 
-            PoolObject poolObj;
+            PoolObject poolObj = FindFirstInactiveObject();
 
-            if (pool.Count > 0) {
-                poolObj = PopPoolObject();
+            if (poolObj != null) {
                 poolObj.gameObject.SetActive(true);
 
                 Transform objTransform = poolObj.transform;
@@ -83,10 +82,14 @@ namespace Tienkio.Pools {
                 objTransform.rotation = rotation;
             } else {
                 poolObj = Instantiate(prefab, position, rotation, transform);
+                poolObj.id = nextID;
+                nextID++;
+
                 poolObj.pool = this;
+                pool[poolObj.id] = poolObj;
             }
 
-            poolObj.id = -1;
+            poolObj.activeInPool = true;
             return poolObj;
         }
 
@@ -95,10 +98,7 @@ namespace Tienkio.Pools {
                 nextGCStart = Time.time + garbageCollectionDelay;
                 nextObjectRemove = -1;
 
-                poolObj.id = maxID;
-                pool.Add(maxID, poolObj);
-                maxID++;
-
+                poolObj.activeInPool = false;
                 poolObj.gameObject.SetActive(false);
             }
         }
