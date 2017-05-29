@@ -53,10 +53,8 @@ namespace Tienkio.Data {
     public class TankUpgradeTree : PersistentSingleton<TankUpgradeTree> {
         public TankUpgradeNode[] tankUpgradeTree;
 
-#if UNITY_EDITOR
-        void OnValidate() {
+        void Start() {
             foreach (var node in tankUpgradeTree) node.tree = this;
         }
-#endif
     }
 }

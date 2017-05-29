@@ -23,7 +23,8 @@ namespace Tienkio.Pools {
         public float chance;
         public GameObject pool;
 
-        internal IPoolManager poolManager;
+        [HideInInspector]
+        public IPoolManager poolManager;
     }
 
     public class ShapePool : Singleton<ShapePool> {
@@ -31,8 +32,7 @@ namespace Tienkio.Pools {
         public Vector3 spawnFieldMin, spawnFieldMax;
         public int shapesCount;
 
-#if UNITY_EDITOR
-        void OnValidate() {
+        void Start() {
             foreach (ShapeSpawnerPool shapeSpawnerPool in shapePools) {
                 GameObject pool = shapeSpawnerPool.pool;
                 if (pool != null) {
@@ -42,10 +42,7 @@ namespace Tienkio.Pools {
                     shapeSpawnerPool.poolManager = poolManager;
                 }
             }
-        }
-#endif
 
-        void Start() {
             for (int i = 0; i < shapesCount; i++) SpawnShape();
         }
 
