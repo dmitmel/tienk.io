@@ -140,7 +140,6 @@
     <Compile Include="Assets\Scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Modal.cs" />
     <Compile Include="Assets\Scripts\UI\ModalManager.cs" />
-    <Compile Include="Assets\Scripts\UI\NickLabel.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreRenderer.cs" />
     <Compile Include="Assets\Scripts\UI\StatRenderer.cs" />

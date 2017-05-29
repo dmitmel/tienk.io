@@ -41,7 +41,7 @@ namespace Tienkio.Tanks {
         public float bodyDamageForBulletMultiplier = 1;
 
         [Space]
-        public UnityEvent onGameOver;
+        public UnityEvent onKill;
 
         new Rigidbody rigidbody;
 
@@ -55,7 +55,7 @@ namespace Tienkio.Tanks {
         }
 
         void FixedUpdate() {
-            if (healthBar.health <= 0) onGameOver.Invoke();
+            if (healthBar.health <= 0) onKill.Invoke();
         }
 
         void OnTriggerEnter(Collider collider) {

@@ -563,7 +563,7 @@ MonoBehaviour:
   guns: []
   damageComputationCycles: 20
   bodyDamageForBulletMultiplier: 0.5
-  onGameOver:
+  onKill:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114715507373294810}
