@@ -1720,7 +1720,7 @@ MonoBehaviour:
   scoreLabel: {fileID: 1498618172}
   levelLabel: {fileID: 1882704110}
   upgradePointsLabel: {fileID: 947887235}
-  levelBar: {fileID: 1499641127}
+  levelBar: {fileID: 211257459}
 --- !u!1 &187737981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2115,7 @@ GameObject:
   - component: {fileID: 211257458}
   - component: {fileID: 211257461}
   - component: {fileID: 211257460}
+  - component: {fileID: 211257459}
   m_Layer: 5
   m_Name: LevelBar
   m_TagString: Untagged
@@ -2139,9 +2140,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 705, y: 39}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &211257459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211257457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c721f1ac4ce84f1f95b976976b299b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0.04454023
+  _value: 1
+  _bar: {fileID: 1499641125}
 --- !u!114 &211257460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8433,7 +8449,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 915195730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.93, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1529042227}
@@ -8662,7 +8678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 915195731}
+  healthBar: {fileID: 1529042226}
   health: 0
   maxHealth: 0
   healthRegen: 0
@@ -9826,6 +9842,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 183386608}
         m_MethodName: UpdateLevelLabel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 183386608}
+        m_MethodName: UpdateLevelBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14733,7 +14760,6 @@ GameObject:
   - component: {fileID: 1499641124}
   - component: {fileID: 1499641126}
   - component: {fileID: 1499641125}
-  - component: {fileID: 1499641127}
   m_Layer: 5
   m_Name: LevelBarBody
   m_TagString: Untagged
@@ -14754,10 +14780,10 @@ RectTransform:
   m_Father: {fileID: 211257458}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 696, y: 32}
+  m_SizeDelta: {x: -8, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499641125
 MonoBehaviour:
@@ -14778,11 +14804,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 1dbce323a9a414442a5ddb1d8824c5b5, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -14792,19 +14818,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1499641123}
---- !u!114 &1499641127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1499641123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac719b2442574de49b4c785398c2264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthOffset: 31
-  scoreCounter: {fileID: 1009189775}
 --- !u!1 &1520689679
 GameObject:
   m_ObjectHideFlags: 0
@@ -14885,6 +14898,7 @@ GameObject:
   - component: {fileID: 1529042227}
   - component: {fileID: 1529042228}
   - component: {fileID: 1529042230}
+  - component: {fileID: 1529042229}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -14899,14 +14913,14 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529042226}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.9, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.17999999, z: 1.5}
+  m_LocalScale: {x: 1.5, y: 0.18, z: 1.5}
   m_Children:
   - {fileID: 915195731}
   m_Father: {fileID: 919655964}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1529042228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14948,6 +14962,23 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &1529042229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529042226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9755f675b3f448fdb1e67ed8eed97ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0
+  _value: 1
+  _bar: {fileID: 915195731}
+  _barPosition: {x: 0, y: 0, z: 0}
+  _barScale: {x: 0.93, y: 0.5, z: 1}
 --- !u!114 &1529042230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14962,7 +14993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 919655964}
   positionOffset: {x: 0, y: -0.9, z: 0}
-  rotationOffset: {x: 0, y: 180, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1569873809
 GameObject:
   m_ObjectHideFlags: 0

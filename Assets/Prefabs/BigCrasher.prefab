@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4617438125228848}
   - component: {fileID: 212992715215716100}
   - component: {fileID: 114946606148878650}
+  - component: {fileID: 114818259788761154}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -146,14 +147,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1922855201841508}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.0227273, z: 0}
   m_LocalScale: {x: 1.7045455, y: 0.20454544, z: 1.7045455}
   m_Children:
   - {fileID: 4022328873812970}
   m_Father: {fileID: 4942871408852514}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4942871408852514
 Transform:
   m_ObjectHideFlags: 1
@@ -278,12 +279,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4022328873812970}
+  healthBar: {fileID: 1922855201841508}
   health: 30
   maxHealth: 30
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.1
+--- !u!114 &114818259788761154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922855201841508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9755f675b3f448fdb1e67ed8eed97ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0
+  _value: 1
+  _bar: {fileID: 4022328873812970}
+  _barPosition: {x: 0, y: 0, z: 0}
+  _barScale: {x: 0.93, y: 0.5, z: 1}
 --- !u!114 &114863913521232800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 4942871408852514}
   positionOffset: {x: 0, y: -0.9, z: 0}
-  rotationOffset: {x: 0, y: 180, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &135135066245337176
 SphereCollider:
   m_ObjectHideFlags: 1

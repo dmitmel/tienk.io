@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 4095249834512752}
   - component: {fileID: 212977753232784306}
   - component: {fileID: 114098067449875444}
+  - component: {fileID: 114889276578725842}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -274,7 +275,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1272660713478360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.93, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4095249834512752}
@@ -441,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 4978173415262298}
+  positionOffset: {x: 0, y: -0.9, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114098072973954478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,42 +537,9 @@ MonoBehaviour:
   guns: []
   damageComputationCycles: 20
   bodyDamageForBulletMultiplier: 0.5
-  onGameOver:
+  onKill:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnGameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1630630591195304}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1673436768878360}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114258005430426344
@@ -832,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4469954282187970}
+  healthBar: {fileID: 1673436768878360}
   health: 0
   maxHealth: 0
   healthRegen: 0
@@ -1295,6 +1265,23 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   scoreLabel: {fileID: 0}
+--- !u!114 &114889276578725842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673436768878360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9755f675b3f448fdb1e67ed8eed97ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0
+  _value: 1
+  _bar: {fileID: 4469954282187970}
+  _barPosition: {x: 0, y: 0, z: 0}
+  _barScale: {x: 0.93, y: 0.5, z: 1}
 --- !u!135 &135375823131595310
 SphereCollider:
   m_ObjectHideFlags: 1

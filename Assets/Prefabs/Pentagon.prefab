@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4234191281432868}
   - component: {fileID: 212720910888025204}
   - component: {fileID: 114331886005625454}
+  - component: {fileID: 114389468543777568}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -86,14 +87,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146902698480414}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 1.5, y: 0.17999999, z: 1.5}
   m_Children:
   - {fileID: 4111115050982994}
   m_Father: {fileID: 4772518294606934}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4772518294606934
 Transform:
   m_ObjectHideFlags: 1
@@ -189,7 +190,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 4772518294606934}
   positionOffset: {x: 0, y: -0.9, z: 0}
-  rotationOffset: {x: 0, y: 180, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114389468543777568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146902698480414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9755f675b3f448fdb1e67ed8eed97ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0
+  _value: 1
+  _bar: {fileID: 4111115050982994}
+  _barPosition: {x: 0, y: 0, z: 0}
+  _barScale: {x: 0.93, y: 0.5, z: 1}
 --- !u!114 &114397020887705444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4111115050982994}
+  healthBar: {fileID: 1146902698480414}
   health: 100
   maxHealth: 100
   healthRegen: 0

@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 4374570107792024}
   - component: {fileID: 212652461687623708}
   - component: {fileID: 114471047489251880}
+  - component: {fileID: 114803017664497260}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -87,14 +88,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1841094596343324}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.3846154, z: 0}
   m_LocalScale: {x: 2.3076923, y: 0.2769231, z: 2.3076923}
   m_Children:
   - {fileID: 4472846400006004}
   m_Father: {fileID: 4336311779641716}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4472846400006004
 Transform:
   m_ObjectHideFlags: 1
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a153e6f3261a04e8faf6382bd8cf5216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4472846400006004}
+  healthBar: {fileID: 1841094596343324}
   health: 10
   maxHealth: 10
   healthRegen: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 4336311779641716}
   positionOffset: {x: 0, y: -0.9, z: 0}
-  rotationOffset: {x: 0, y: 180, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114574173238140602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +229,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 2
+--- !u!114 &114803017664497260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841094596343324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9755f675b3f448fdb1e67ed8eed97ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: 0
+  _offset: 0
+  _value: 1
+  _bar: {fileID: 4472846400006004}
+  _barPosition: {x: 0, y: 0, z: 0}
+  _barScale: {x: 0.93, y: 0.5, z: 1}
 --- !u!114 &114971795578077394
 MonoBehaviour:
   m_ObjectHideFlags: 1

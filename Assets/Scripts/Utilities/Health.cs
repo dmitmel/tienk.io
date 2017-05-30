@@ -15,58 +15,54 @@
 //
 
 using UnityEngine;
+using Tienkio.UI;
 
 namespace Tienkio.Utilities {
     public class Health : MonoBehaviour {
-        public Transform healthBar;
+        public GameObject healthBar;
+        Bar healthBarController;
+
         public float health;
         protected float lastHealth;
         public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
 
         float nextExtraRegen;
 
-        Vector3 originalPosition;
-        Vector3 originalScale;
+#if UNITY_EDITOR
+        void OnValidate() {
+            healthBarController = healthBar.GetComponent<Bar>();
+            if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
+        }
+#endif
 
         protected virtual void Start() {
-            originalPosition = healthBar.localPosition;
-            originalScale = healthBar.localScale;
+            healthBarController = healthBar.GetComponent<Bar>();
+            if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
         }
 
         protected virtual void FixedUpdate() {
+            bool isRegenEnabled = healthRegen > 0;
+            bool isExtraRegenEnabled = extraRegenTimeout > 0 && extraRegen > 0;
+
             if (lastHealth != health) {
-                ResizeBar();
-                if (IsExtraRegenEnabled()) nextExtraRegen = Time.time + extraRegenTimeout;
+                healthBarController.value = health / maxHealth;
+                if (isExtraRegenEnabled) nextExtraRegen = Time.time + extraRegenTimeout;
                 lastHealth = health;
             }
 
-            if (IsRegenEnabled() || IsExtraRegenEnabled()) {
+            if (isRegenEnabled || isExtraRegenEnabled) {
                 float now = Time.time;
-                bool isExtraRegen = IsExtraRegenEnabled() && now >= nextExtraRegen;
+                bool isExtraRegen = isExtraRegenEnabled && now >= nextExtraRegen;
 
                 if (health < maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
                     float regen = Mathf.Min(maxHealth * healthPerSecond * Time.deltaTime, maxHealth - health);
                     health = lastHealth += regen;
-                    ResizeBar();
-                } else if (IsExtraRegenEnabled()) {
+                    healthBarController.value = health / maxHealth;
+                } else if (isExtraRegenEnabled) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }
             }
-        }
-
-        void ResizeBar() {
-            float width = health / maxHealth * originalScale.x;
-            healthBar.localScale = new Vector3(width, originalScale.y);
-            healthBar.localPosition = new Vector3(originalScale.x / 2f - width / 2f, originalPosition.y);
-        }
-
-        bool IsRegenEnabled() {
-            return healthRegen > 0;
-        }
-
-        bool IsExtraRegenEnabled() {
-            return extraRegenTimeout > 0 && extraRegen > 0;
         }
     }
 }

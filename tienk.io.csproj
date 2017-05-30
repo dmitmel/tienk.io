@@ -136,7 +136,6 @@
     <Compile Include="Assets\Scripts\Tanks\TankUpgrader.cs" />
     <Compile Include="Assets\Scripts\UI\Crosshair.cs" />
     <Compile Include="Assets\Scripts\UI\GuideManager.cs" />
-    <Compile Include="Assets\Scripts\UI\LevelBar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Modal.cs" />
     <Compile Include="Assets\Scripts\UI\ModalManager.cs" />
@@ -152,6 +151,9 @@
     <Compile Include="Assets\Scripts\Utilities\PersistentSingleton.cs" />
     <Compile Include="Assets\Scripts\Utilities\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UI\ScaledBar.cs" />
+    <Compile Include="Assets\Scripts\UI\FilledBar.cs" />
+    <Compile Include="Assets\Scripts\UI\Bar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

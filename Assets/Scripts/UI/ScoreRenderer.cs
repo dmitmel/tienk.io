@@ -23,8 +23,13 @@ namespace Tienkio.UI {
         public ScoreCounter counter;
         public TankUpgrader tankUpgrader;
 
-        public Text scoreLabel, levelLabel, upgradePointsLabel;
-        public LevelBar levelBar;
+        [Space]
+        public Text scoreLabel;
+        public Text levelLabel;
+        public Text upgradePointsLabel;
+
+        [Space]
+        public FilledBar levelBar;
 
         public void UpdateScoreLabel() {
             scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
@@ -33,7 +38,18 @@ namespace Tienkio.UI {
         public void UpdateLevelLabel() {
             levelLabel.text = string.Format("Lvl {0} {1}", counter.currentLevel.index,
                                             tankUpgrader.currentUpgradeNode.tankName);
-            levelBar.UpdateBar();
+        }
+
+        public void UpdateLevelBar() {
+            int score = counter.score;
+            Level currentLevel = counter.currentLevel;
+
+            if (currentLevel.scoreToNextLevel > 0) {
+                int scoreInLevel = score - currentLevel.neededScore;
+                levelBar.value = (float) scoreInLevel / currentLevel.scoreToNextLevel;
+            } else {
+                levelBar.value = 1;
+            }
         }
 
         public void UpdateUpgradePointsLabel() {
