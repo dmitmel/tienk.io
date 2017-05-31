@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4736439044166612}
   - component: {fileID: 135796314160304662}
   - component: {fileID: 114715507373294810}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1375498980345382
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -177,7 +177,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1518396232424634
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -189,27 +189,6 @@ GameObject:
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1524769267325730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4299928913420496}
-  - component: {fileID: 54255186572013916}
-  - component: {fileID: 114477251814088442}
-  - component: {fileID: 114085802647605790}
-  - component: {fileID: 114371437190328476}
-  - component: {fileID: 114640937803044584}
-  - component: {fileID: 135715597377873828}
-  m_Layer: 0
-  m_Name: Body
-  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,16 +235,22 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4554841265577114}
+  - component: {fileID: 54091846731092880}
+  - component: {fileID: 114648061201068744}
+  - component: {fileID: 114487280364429188}
+  - component: {fileID: 114816320384960584}
+  - component: {fileID: 114656994942914450}
+  - component: {fileID: 135177162558110512}
   m_Layer: 0
   m_Name: Bot
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1936300527126610
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -348,22 +333,6 @@ Transform:
   m_Father: {fileID: 4345635480439248}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4299928913420496
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4345635480439248}
-  - {fileID: 4722250766472204}
-  - {fileID: 224988458235952424}
-  m_Father: {fileID: 4554841265577114}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4345635480439248
 Transform:
   m_ObjectHideFlags: 1
@@ -382,7 +351,7 @@ Transform:
   - {fileID: 4838116891789300}
   - {fileID: 4274146802662566}
   - {fileID: 4524506291198724}
-  m_Father: {fileID: 4299928913420496}
+  m_Father: {fileID: 4554841265577114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4478781346470216
@@ -421,8 +390,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4345635480439248}
+  - {fileID: 4722250766472204}
+  - {fileID: 224988458235952424}
   - {fileID: 4736439044166612}
-  - {fileID: 4299928913420496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,7 +421,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 0.17999999, z: 1.5}
   m_Children:
   - {fileID: 4478781346470216}
-  m_Father: {fileID: 4299928913420496}
+  m_Father: {fileID: 4554841265577114}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4736439044166612
@@ -464,7 +435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4554841265577114}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4838116891789300
 Transform:
@@ -492,12 +463,12 @@ Transform:
   m_Father: {fileID: 4345635480439248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54255186572013916
+--- !u!54 &54091846731092880
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
+  m_GameObject: {fileID: 1796678027560356}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 2
@@ -543,43 +514,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23921569, g: 0.23921569, b: 0.23921569, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
---- !u!114 &114085802647605790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nick: Bot
-  nickLabel: {fileID: 114570946915530616}
-  kills: 0
-  bodyMaterial: {fileID: 2100000, guid: dda4b19e1b5f54c33bffca6c087df0d5, type: 2}
-  stats: {fileID: 114932535852448002}
-  scoreCounter: {fileID: 114688945464035576}
-  healthBar: {fileID: 0}
-  guns: []
-  damageComputationCycles: 20
-  bodyDamageForBulletMultiplier: 0.5
-  onKill:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114715507373294810}
-        m_MethodName: Respawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114143874603512482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,7 +534,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114371437190328476}
+      - m_Target: {fileID: 114816320384960584}
         m_MethodName: OnHealthRegenUpgrade
         m_Mode: 1
         m_Arguments:
@@ -704,37 +638,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &114371437190328476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1518396232424634}
-  health: 0
-  maxHealth: 0
-  healthRegen: 0
-  extraRegenTimeout: 30
-  extraRegen: 0
-  stats: {fileID: 114932535852448002}
-  statToExtraRegenMultiplier: 40
---- !u!114 &114477251814088442
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockback: 2
 --- !u!114 &114482613929390116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -755,8 +658,45 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114371437190328476}
+      - m_Target: {fileID: 114816320384960584}
         m_MethodName: OnMaxHealthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114487280364429188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796678027560356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadd936a8654d4702ba481c3ab188785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nick: Bot
+  nickLabel: {fileID: 114570946915530616}
+  kills: 0
+  bodyMaterial: {fileID: 2100000, guid: dda4b19e1b5f54c33bffca6c087df0d5, type: 2}
+  stats: {fileID: 114932535852448002}
+  scoreCounter: {fileID: 114688945464035576}
+  healthBar: {fileID: 0}
+  guns: []
+  damageComputationCycles: 20
+  bodyDamageForBulletMultiplier: 0.5
+  onKill:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114715507373294810}
+        m_MethodName: Respawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -851,15 +791,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12f40917098e490ab6a071cd4b9e351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 4299928913420496}
+  follow: {fileID: 4554841265577114}
   positionOffset: {x: 0, y: -0.9, z: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
---- !u!114 &114640937803044584
+--- !u!114 &114648061201068744
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
+  m_GameObject: {fileID: 1796678027560356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ae960443be4e8088d1f277f789595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 2
+--- !u!114 &114656994942914450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796678027560356}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a77d42ef6a9164bc3b6976659bb009c6, type: 3}
@@ -1158,8 +1110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9007f9d2aa4011b33c56f3598b463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrader: {fileID: 114640937803044584}
-  tank: {fileID: 114085802647605790}
+  upgrader: {fileID: 114656994942914450}
+  tank: {fileID: 114487280364429188}
   accelerationMultiplier: 2
   minSqrDistance: 20
   objectsAttackPriority:
@@ -1172,6 +1124,25 @@ MonoBehaviour:
   targetChooseInterval: 1
   spawnFieldMin: {x: -110, y: -110, z: -110}
   spawnFieldMax: {x: 110, y: 110, z: 110}
+--- !u!114 &114816320384960584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796678027560356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc2dc763032742ac8e4cd84644959f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1518396232424634}
+  health: 0
+  maxHealth: 0
+  healthRegen: 0
+  extraRegenTimeout: 30
+  extraRegen: 0
+  stats: {fileID: 114932535852448002}
+  statToExtraRegenMultiplier: 40
 --- !u!114 &114878821196847498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1205,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12f40917098e490ab6a071cd4b9e351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 4299928913420496}
+  follow: {fileID: 4554841265577114}
   positionOffset: {x: 0, y: 0.964, z: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114932535852448002
@@ -1249,12 +1220,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!135 &135715597377873828
+--- !u!135 &135177162558110512
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524769267325730}
+  m_GameObject: {fileID: 1796678027560356}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -1433,7 +1404,7 @@ RectTransform:
   m_Children:
   - {fileID: 224661007523897584}
   - {fileID: 224316267729516518}
-  m_Father: {fileID: 4299928913420496}
+  m_Father: {fileID: 4554841265577114}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

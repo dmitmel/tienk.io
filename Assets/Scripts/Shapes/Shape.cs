@@ -26,14 +26,12 @@ namespace Tienkio.Shapes {
         public int damageComputationCycles = 20;
         public float bodyDamageForBullets;
 
-        [Space]
-        public PoolObject poolObject;
-
+        PoolObject poolObject;
         new Rigidbody rigidbody;
-
         Health healthBar;
 
         void Awake() {
+            poolObject = GetComponent<PoolObject>();
             healthBar = GetComponent<Health>();
             rigidbody = GetComponent<Rigidbody>();
         }
