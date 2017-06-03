@@ -43,8 +43,9 @@ namespace Tienkio.UI {
         public float offset {
             get { return _offset; }
             set {
-                if (_offset != value) {
-                    _offset = value;
+                float clampedValue = Mathf.Clamp01(value);
+                if (_offset != clampedValue) {
+                    _offset = clampedValue;
                     Resize();
                 }
             }
@@ -53,8 +54,9 @@ namespace Tienkio.UI {
         public float value {
             get { return _value; }
             set {
-                if (_value != value) {
-                    _value = value;
+                float clampedValue = Mathf.Clamp01(value);
+                if (_value != clampedValue) {
+                    _value = clampedValue;
                     Resize();
                 }
             }

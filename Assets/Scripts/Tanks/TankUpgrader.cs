@@ -22,12 +22,12 @@ namespace Tienkio.Tanks {
     public class TankUpgrader : MonoBehaviour {
         public ScoreCounter scoreCounter;
 
-        public UnityEvent onUpgrade;
+        public UnityEvent onUpgrade, onNewUpgradesAvailable;
 
         [HideInInspector]
         public TankUpgradeNode currentUpgradeNode;
         [HideInInspector]
-        public TankUpgradeNode[] upgrades;
+        public TankUpgradeNode[] availableUpgrades;
 
         TankController tankController;
         Rigidbody tankRigidbody;
@@ -35,6 +35,8 @@ namespace Tienkio.Tanks {
         Tank currentTankBody;
 
         new Transform transform;
+
+        int lastAvailableUpgradesCount;
 
         void Awake() {
             transform = base.transform;
@@ -48,25 +50,26 @@ namespace Tienkio.Tanks {
         }
 
         void Update() {
-            upgrades = currentUpgradeNode.GetAvailableTanksForLevel(scoreCounter.levelIndex);
+            availableUpgrades = currentUpgradeNode.GetAvailableTanksForLevel(scoreCounter.currentLevel.index);
+
+            int availableUpgradesCount = availableUpgrades.Length;
+            if (lastAvailableUpgradesCount != availableUpgradesCount) {
+                lastAvailableUpgradesCount = availableUpgradesCount;
+                onNewUpgradesAvailable.Invoke();
+            }
         }
 
         public void UpgradeToTier(int tierIndex) {
-            currentUpgradeNode = upgrades[tierIndex];
+            lastAvailableUpgradesCount = 0;
+            currentUpgradeNode = availableUpgrades[tierIndex];
             if (currentUpgradeNode.prefab != null) UpdateTank();
             onUpgrade.Invoke();
         }
 
         void UpdateTank() {
-            Vector3 position = transform.position;
-            Quaternion rotation = transform.rotation;
-            if (currentTankBody != null) {
-                position = currentTankBody.transform.position;
-                rotation = currentTankBody.transform.rotation;
-                DestroyImmediate(currentTankBody.gameObject);
-            }
+            if (currentTankBody != null) DestroyImmediate(currentTankBody.gameObject);
 
-            currentTankBody = Instantiate(currentUpgradeNode.prefab, position, rotation, transform);
+            currentTankBody = Instantiate(currentUpgradeNode.prefab, transform);
 
             tankController.guns = currentTankBody.guns;
             foreach (Gun gun in tankController.guns) {

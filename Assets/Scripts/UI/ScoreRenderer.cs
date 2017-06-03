@@ -17,6 +17,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Tienkio.Tanks;
+using Tienkio.Data;
 
 namespace Tienkio.UI {
     public class ScoreRenderer : MonoBehaviour {
@@ -30,6 +31,7 @@ namespace Tienkio.UI {
 
         [Space]
         public FilledBar levelBar;
+        public FilledBar scoreToNextUpgradeBar;
 
         public void UpdateScoreLabel() {
             scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
@@ -54,6 +56,29 @@ namespace Tienkio.UI {
 
         public void UpdateUpgradePointsLabel() {
             upgradePointsLabel.text = string.Format("x{0}", counter.upgradePoints);
+        }
+
+        public void UpdateScoreToNextUpgradeBar() {
+            TankUpgradeNode[] tankUpgradeTree = TankUpgradeTree.instance.tankUpgradeTree;
+            int[] unlockedTanks = tankUpgrader.currentUpgradeNode.unlockedTanks;
+
+            TankUpgradeNode minUpgrade = null;
+
+            foreach (int unlockedTank in unlockedTanks) {
+                TankUpgradeNode unlockedTankNode = tankUpgradeTree[unlockedTank];
+                if (minUpgrade == null)
+                    minUpgrade = unlockedTankNode;
+                else if (unlockedTankNode.minLevel < minUpgrade.minLevel)
+                    minUpgrade = unlockedTankNode;
+            }
+
+            if (minUpgrade != null) {
+                Level minUpgradeLevel = counter.levels[minUpgrade.minLevel];
+                int minScoreOfNextUpgrade = minUpgradeLevel.neededScore;
+                scoreToNextUpgradeBar.value = (float) counter.score / minScoreOfNextUpgrade;
+            } else {
+                scoreToNextUpgradeBar.value = 1;
+            }
         }
     }
 }

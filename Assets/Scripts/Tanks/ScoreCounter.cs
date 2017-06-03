@@ -30,7 +30,6 @@ namespace Tienkio.Tanks {
     }
 
     public class ScoreCounter : MonoBehaviour {
-        public int levelIndex;
         public int score;
         public int upgradePoints;
         public Level[] levels;
@@ -46,10 +45,8 @@ namespace Tienkio.Tanks {
         int lastScore, lastUpgradePoints;
 
         void Start() {
-            currentLevel = ComputeLevel();
             lastScore = score;
-            onScoreChange.Invoke();
-            onUpgradePointsChange.Invoke();
+            lastUpgradePoints = upgradePoints;
         }
 
         void FixedUpdate() {
@@ -77,18 +74,16 @@ namespace Tienkio.Tanks {
 #if UNITY_EDITOR
         void OnValidate() {
             if (levels.Length > 0) {
-                for (int i = 0; i < levels.Length; i++) {
-                    Level level = levels[i];
-                    level.index = i;
-                }
-
                 for (int i = 0; i < levels.Length - 1; i++) {
                     Level level = levels[i];
                     Level nextLevel = levels[i + 1];
+                    level.index = i;
                     level.scoreToNextLevel = Mathf.Max(nextLevel.neededScore - level.neededScore, 0);
                 }
 
-                levels[levels.Length - 1].scoreToNextLevel = 0;
+                Level lastLevel = levels[levels.Length - 1];
+                lastLevel.index = levels.Length - 1;
+                lastLevel.scoreToNextLevel = 0;
             }
 
             currentLevel = ComputeLevel();
@@ -100,17 +95,15 @@ namespace Tienkio.Tanks {
                 Level level = levels[i];
                 Level nextLevel = levels[i + 1];
                 if (level.neededScore <= score) {
-                    if (level.index > levelIndex && level.givesUpgradePoint) upgradePoints++;
+                    if (level.index > currentLevel.index && level.givesUpgradePoint) upgradePoints++;
                     if (score < nextLevel.neededScore) {
-                        levelIndex = level.index;
                         return level;
                     }
                 }
             }
 
             Level lastLevel = levels[levels.Length - 1];
-            if (lastLevel.index > levelIndex && lastLevel.givesUpgradePoint) upgradePoints++;
-            levelIndex = lastLevel.index;
+            if (lastLevel.index > currentLevel.index && lastLevel.givesUpgradePoint) upgradePoints++;
             return levels[levels.Length - 1];
         }
 

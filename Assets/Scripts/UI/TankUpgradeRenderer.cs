@@ -29,48 +29,26 @@ namespace Tienkio.UI {
 
     public class TankUpgradeRenderer : MonoBehaviour {
         public TankUpgrader upgrader;
+        public ScoreCounter scoreCounter;
         public TankUpgradeButton[] upgradeButtons;
 
-        int lastUpgradesCount;
+        public void UpdateUpgradeButtons() {
+            int availableUpgradesCount = upgrader.availableUpgrades.Length;
 
-        void Start() {
-            UpdateUI();
-        }
-
-        void Update() {
-            int upgradesCount = upgrader.upgrades.Length;
-            if (upgradesCount != lastUpgradesCount) {
-                lastUpgradesCount = upgradesCount;
-                UpdateUI();
-            }
-        }
-
-        void UpdateUI() {
-            for (int i = 0; i < transform.childCount; i++) {
-                Transform child = transform.GetChild(i);
-                child.gameObject.SetActive(lastUpgradesCount > 0);
-            }
-
-            if (lastUpgradesCount > 0) {
-                for (int i = 0; i < lastUpgradesCount && i < upgradeButtons.Length; i++) {
+            if (availableUpgradesCount > 0) {
+                for (int i = 0; i < availableUpgradesCount && i < upgradeButtons.Length; i++) {
                     TankUpgradeButton upgradeButton = upgradeButtons[i];
                     upgradeButton.button.SetActive(true);
-                    TankUpgradeNode upgrade = upgrader.upgrades[i];
+
+                    TankUpgradeNode upgrade = upgrader.availableUpgrades[i];
                     upgradeButton.tankName.text = upgrade.tankName;
                     upgradeButton.previewIcon.sprite = upgrade.previewIcon;
                 }
 
-                for (int i = lastUpgradesCount; i < upgradeButtons.Length; i++) {
+                for (int i = availableUpgradesCount; i < upgradeButtons.Length; i++) {
                     TankUpgradeButton upgradeButton = upgradeButtons[i];
                     upgradeButton.button.SetActive(false);
                 }
-            }
-        }
-
-        public void IgnoreUpgrades() {
-            for (int i = 0; i < transform.childCount; i++) {
-                Transform child = transform.GetChild(i);
-                child.gameObject.SetActive(false);
             }
         }
     }

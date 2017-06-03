@@ -77,7 +77,7 @@ namespace Tienkio.Tanks {
         }
 
         void FixedUpdate() {
-            if (upgrader.upgrades.Length > 0) UpgradeToRandomTier();
+            if (upgrader.availableUpgrades.Length > 0) UpgradeToRandomTier();
 
             if (enemies.Count > 0 || target == null || !target.gameObject.activeInHierarchy) {
                 float now = Time.time;
@@ -111,7 +111,7 @@ namespace Tienkio.Tanks {
         }
 
         public void UpgradeToRandomTier() {
-            int tiers = upgrader.upgrades.Length;
+            int tiers = upgrader.availableUpgrades.Length;
             int tier = UnityEngine.Random.Range(0, tiers - 1);
             upgrader.UpgradeToTier(tier);
         }
