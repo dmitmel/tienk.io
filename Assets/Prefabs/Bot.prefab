@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 114816320384960584}
   - component: {fileID: 114656994942914450}
   - component: {fileID: 135177162558110512}
+  - component: {fileID: 114232994452047274}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Tank
@@ -497,7 +498,18 @@ MonoBehaviour:
   statLevelBonus: -0.05
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114232994452047274}
+        m_MethodName: AllocRequiredBullets
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114039657786586442
@@ -569,6 +581,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114232994452047274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796678027560356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde9f5e15afae47a59c84852af548230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114259092442635014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -823,6 +846,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  onNewUpgradesAvailable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   currentUpgradeNode:
     tree: {fileID: 0}
     tankName: 
@@ -830,7 +858,7 @@ MonoBehaviour:
     minLevel: 0
     prefab: {fileID: 0}
     unlockedTanks: 
-  upgrades: []
+  availableUpgrades: []
 --- !u!114 &114688945464035576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -842,7 +870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 0
   score: 0
   upgradePoints: 0
   levels:

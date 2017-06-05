@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65506780412050348}
   - component: {fileID: 23718507014720902}
   - component: {fileID: 33655505548180844}
-  - component: {fileID: 114245877332376112}
+  - component: {fileID: 114960212130801488}
   m_Layer: 0
   m_Name: Square
   m_TagString: Square
@@ -192,17 +192,6 @@ MonoBehaviour:
   healthRegen: 0
   extraRegenTimeout: 30
   extraRegen: 0.1
---- !u!114 &114245877332376112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1824281452569420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114471047489251880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,6 +235,17 @@ MonoBehaviour:
   _bar: {fileID: 4472846400006004}
   _barPosition: {x: 0, y: 0, z: 0}
   _barScale: {x: 0.93, y: 0.5, z: 1}
+--- !u!114 &114960212130801488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824281452569420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114971795578077394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,11 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
   bodyDamage: 2.1
   score: 10
   damageComputationCycles: 100
   bodyDamageForBullets: 2.1
-  poolObject: {fileID: 114245877332376112}
 --- !u!212 &212652461687623708
 SpriteRenderer:
   m_ObjectHideFlags: 1

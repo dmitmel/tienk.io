@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 64466873727864680}
   - component: {fileID: 33912645623436516}
   - component: {fileID: 23322888974395014}
-  - component: {fileID: 114822434234488590}
+  - component: {fileID: 114986852123687636}
   m_Layer: 0
   m_Name: SmallCrasher
   m_TagString: SmallCrasher
@@ -265,22 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
   bodyDamage: 0.3
   score: 15
   damageComputationCycles: 20
   bodyDamageForBullets: 2.5
-  poolObject: {fileID: 0}
---- !u!114 &114822434234488590
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1948235856471396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114882939920480632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,6 +300,17 @@ MonoBehaviour:
   acceleration: 8.5
   movementSpeed: 4.5
   targetChooseInterval: 1
+--- !u!114 &114986852123687636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948235856471396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135217139615208814
 SphereCollider:
   m_ObjectHideFlags: 1

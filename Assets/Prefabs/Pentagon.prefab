@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 64857786234238514}
   - component: {fileID: 33029341894080928}
   - component: {fileID: 23040641498963142}
-  - component: {fileID: 114397020887705444}
+  - component: {fileID: 114156180212584010}
   m_Layer: 0
   m_Name: Pentagon
   m_TagString: Pentagon
@@ -177,6 +177,17 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: e3e3a7c4f7e8442d188e36cf96075590, type: 3}
+--- !u!114 &114156180212584010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619854735590434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114331886005625454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,17 +219,6 @@ MonoBehaviour:
   _bar: {fileID: 4111115050982994}
   _barPosition: {x: 0, y: 0, z: 0}
   _barScale: {x: 0.93, y: 0.5, z: 1}
---- !u!114 &114397020887705444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619854735590434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114537826272853036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,11 +230,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
   bodyDamage: 11.9
   score: 130
   damageComputationCycles: 100
   bodyDamageForBullets: 3.094
-  poolObject: {fileID: 114397020887705444}
 --- !u!114 &114598280158411774
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,4 +1,4 @@
-//
+﻿//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +14,16 @@
 // limitations under the License.
 //
 
-using UnityEngine;
+using Tienkio.Pools;
+using Tienkio.Utilities;
 
-namespace Tienkio.Pools {
-    public interface IPoolManager {
-        PoolObject GetFromPool(Vector3 position, Quaternion rotation);
+namespace Tienkio.Tanks {
+    public class BulletPool : Singleton<BulletPool> {
+        public static PoolManager poolManager;
 
-        void PutIntoPool(PoolObject poolObj);
+        protected override void Awake() {
+            base.Awake();
+            poolManager = GetComponent<PoolManager>();
+        }
     }
 }

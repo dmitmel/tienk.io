@@ -21,22 +21,34 @@ using Tienkio.Tanks;
 
 namespace Tienkio.Shapes {
     public class Shape : MonoBehaviour {
+        public Vector3 spawnFieldMin, spawnFieldMax;
         public float bodyDamage;
         public int score;
         public int damageComputationCycles = 20;
         public float bodyDamageForBullets;
 
-        PoolObject poolObject;
         new Rigidbody rigidbody;
         Health healthBar;
+        PoolObject poolObject;
 
         void Awake() {
-            poolObject = GetComponent<PoolObject>();
             healthBar = GetComponent<Health>();
             rigidbody = GetComponent<Rigidbody>();
+            poolObject = GetComponent<PoolObject>();
+
+            transform.position = new Vector3(
+                Random.Range(spawnFieldMin.x, spawnFieldMax.x),
+                Random.Range(spawnFieldMin.y, spawnFieldMax.y),
+                Random.Range(spawnFieldMin.z, spawnFieldMax.z)
+            );
         }
 
         void OnEnable() {
+            transform.position = new Vector3(
+                Random.Range(spawnFieldMin.x, spawnFieldMax.x),
+                Random.Range(spawnFieldMin.y, spawnFieldMax.y),
+                Random.Range(spawnFieldMin.z, spawnFieldMax.z)
+            );
             transform.rotation = Random.rotation;
             healthBar.health = healthBar.maxHealth;
         }
@@ -59,8 +71,9 @@ namespace Tienkio.Shapes {
 
                 if (healthBar.health <= 0 && bullet.tank.healthBar.health > 0) {
                     bullet.tank.scoreCounter.score += score;
-                    ShapePool.instance.SpawnShape();
+
                     poolObject.PutIntoPool();
+                    ShapeSpawner.instance.SpawnShape();
                 }
             }
         }
@@ -74,8 +87,9 @@ namespace Tienkio.Shapes {
                 healthBar.health -= tank.stats.bodyDamage.Value;
                 if (healthBar.health <= 0 && tank.healthBar.health > 0) {
                     tank.scoreCounter.score += score;
-                    ShapePool.instance.SpawnShape();
+
                     poolObject.PutIntoPool();
+                    ShapeSpawner.instance.SpawnShape();
                 }
             }
         }

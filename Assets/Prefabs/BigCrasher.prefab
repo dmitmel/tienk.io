@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 64388334177495980}
   - component: {fileID: 33034108519739064}
   - component: {fileID: 23882853877085066}
-  - component: {fileID: 114863913521232800}
+  - component: {fileID: 114800723666746722}
   m_Layer: 0
   m_Name: BigCrasher
   m_TagString: BigCrasher
@@ -251,11 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
   bodyDamage: 9
   score: 25
   damageComputationCycles: 20
   bodyDamageForBullets: 2.5
-  poolObject: {fileID: 0}
 --- !u!114 &114663602937337258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,6 +269,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 4
+--- !u!114 &114800723666746722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538592650469818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114818259788761154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,17 +297,6 @@ MonoBehaviour:
   _bar: {fileID: 4022328873812970}
   _barPosition: {x: 0, y: 0, z: 0}
   _barScale: {x: 0.93, y: 0.5, z: 1}
---- !u!114 &114863913521232800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538592650469818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114946606148878650
 MonoBehaviour:
   m_ObjectHideFlags: 1

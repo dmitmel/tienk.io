@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 54752631844929712}
   - component: {fileID: 33028082766497168}
   - component: {fileID: 23093898573510052}
-  - component: {fileID: 114630351719228614}
+  - component: {fileID: 114310394213154734}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Triangle
@@ -177,6 +177,17 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: e1103bd2138b84965884637904384b48, type: 3}
+--- !u!114 &114310394213154734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944034265205782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114391923371503652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,17 +219,6 @@ MonoBehaviour:
   _bar: {fileID: 4661141419280470}
   _barPosition: {x: 0, y: 0, z: 0}
   _barScale: {x: 0.93, y: 0.5, z: 1}
---- !u!114 &114630351719228614
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1944034265205782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17b28014393f427192d48f6fc496ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114695277847507846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,11 +230,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7fffedc1ad54bc38562f77203f40a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFieldMin: {x: -110, y: -110, z: -110}
+  spawnFieldMax: {x: 110, y: 110, z: 110}
   bodyDamage: 5.9
   score: 25
   damageComputationCycles: 100
   bodyDamageForBullets: 2.065
-  poolObject: {fileID: 114630351719228614}
 --- !u!114 &114761533910306344
 MonoBehaviour:
   m_ObjectHideFlags: 1

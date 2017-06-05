@@ -34,7 +34,6 @@ namespace Tienkio.Tanks {
             lastLevel = level;
             lastHolderLevel = scoreCounter.currentLevel.index;
             ComputeValue();
-            onValueChange.Invoke();
         }
 
         void FixedUpdate() {

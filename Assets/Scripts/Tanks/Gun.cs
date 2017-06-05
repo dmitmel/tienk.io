@@ -42,6 +42,14 @@ namespace Tienkio.Tanks {
         [HideInInspector]
         public Rigidbody tankRigidbody;
 
+        PoolManager bulletPool;
+
+        public int requiredBullets {
+            get {
+                return Mathf.CeilToInt(bulletFlyTime / (tank.stats.reload.Value * statsMultipliers.reload));
+            }
+        }
+
         bool isFiring;
         float nextFire;
 
@@ -49,6 +57,7 @@ namespace Tienkio.Tanks {
 
         void Awake() {
             transform = base.transform;
+            bulletPool = BulletPool.poolManager;
         }
 
         public void StopFiring() {
@@ -80,11 +89,7 @@ namespace Tienkio.Tanks {
         }
 
         void SpawnBullet() {
-            Vector3 bulletPosition = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
-            PoolObject bullet = BulletPool.instance.GetFromPool(bulletPosition, Quaternion.identity);
-
-            Vector3 scale = transform.lossyScale;
-            bullet.transform.localScale = new Vector3(scale.x * bulletSize, scale.x * bulletSize, scale.z * bulletSize);
+            PoolObject bullet = bulletPool.GetFromPool();
 
             var bulletRenderer = bullet.GetComponent<MeshRenderer>();
             bulletRenderer.material = tank.bodyMaterial;
@@ -98,7 +103,12 @@ namespace Tienkio.Tanks {
                 0,
                 Random.Range(-halfBulletSpread, halfBulletSpread)
             );
-            bullet.transform.rotation = bulletRotation;
+
+            var bulletTransform = bullet.transform;
+            bulletTransform.position = transform.position + transform.rotation * new Vector3(0, bulletOffset, 0);
+            bulletTransform.rotation = bulletRotation;
+            Vector3 gunScale = transform.lossyScale;
+            bullet.transform.localScale = new Vector3(gunScale.x * bulletSize, gunScale.x * bulletSize, gunScale.z * bulletSize);
 
             float bulletSpeed = tank.stats.bulletSpeed.Value * statsMultipliers.bulletSpeed;
             var bulletVelocity = bulletRotation * Vector3.up * bulletSpeed;
