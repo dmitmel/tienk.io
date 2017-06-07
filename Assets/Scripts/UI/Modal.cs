@@ -70,7 +70,19 @@ namespace Tienkio.UI {
         }
 
         void OnDestroy() {
-            CloseModal();
+            if (!isOpened) return;
+
+            if (pauseGame) {
+                openedPauseModals--;
+
+                if (openedPauseModals <= 0) {
+                    openedPauseModals = 0;
+                    Time.timeScale = 1;
+                }
+            }
+
+            if (ModalManager.instanceExists) ModalManager.instance.closableModals.Remove(this);
+            isCloseable = isOpened = false;
         }
     }
 }
