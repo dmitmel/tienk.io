@@ -42,9 +42,14 @@ namespace Tienkio.Tanks {
 
         int GetRequiredBulletsCount() {
             int requiredBullets = 1;
-            foreach (Gun gun in tankController.guns)
+            foreach (Gun gun in tankController.tankBody.guns)
                 requiredBullets += gun.requiredBullets;
             return requiredBullets;
+        }
+
+
+        void OnDestroy() {
+            bulletPool.Free(prevRequiredBullets);
         }
     }
 }

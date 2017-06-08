@@ -712,7 +712,7 @@ MonoBehaviour:
   stats: {fileID: 114932535852448002}
   scoreCounter: {fileID: 114688945464035576}
   healthBar: {fileID: 0}
-  guns: []
+  tankBody: {fileID: 0}
   damageComputationCycles: 20
   bodyDamageForBulletMultiplier: 0.5
   onKill:

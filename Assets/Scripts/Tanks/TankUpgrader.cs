@@ -71,8 +71,8 @@ namespace Tienkio.Tanks {
 
             currentTankBody = Instantiate(currentUpgradeNode.prefab, transform);
 
-            tankController.guns = currentTankBody.guns;
-            foreach (Gun gun in tankController.guns) {
+            tankController.tankBody = currentTankBody;
+            foreach (Gun gun in currentTankBody.guns) {
                 gun.tank = tankController;
                 gun.tankRigidbody = tankRigidbody;
             }

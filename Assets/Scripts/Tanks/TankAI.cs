@@ -97,13 +97,14 @@ namespace Tienkio.Tanks {
                     sqrDistanceToTarget < minSqrDistance ? -1 : 1;
 
                 tankTransform.LookAt(target);
-                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * direction);
+                tankRigidbody.AddRelativeForce(Vector3.forward * movementSpeed * accelerationMultiplier * direction *
+                                               tank.tankBody.movementSpeedMultiplier);
 
-                foreach (Gun gun in tank.guns) gun.Fire();
+                foreach (Gun gun in tank.tankBody.guns) gun.Fire();
 
                 if (tankRigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) tankRigidbody.velocity.Normalize();
             } else {
-                foreach (Gun gun in tank.guns)
+                foreach (Gun gun in tank.tankBody.guns)
                     gun.StopFiring();
             }
 

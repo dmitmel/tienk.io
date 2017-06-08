@@ -19,6 +19,6 @@ using UnityEngine;
 namespace Tienkio.Tanks {
     public class Tank : MonoBehaviour {
         public Gun[] guns;
-        public float bodyDamageMultiplier;
+        public float bodyDamageMultiplier = 1, movementSpeedMultiplier = 1;
     }
 }

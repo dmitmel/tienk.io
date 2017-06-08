@@ -41,18 +41,19 @@ namespace Tienkio.Tanks {
                 level = Mathf.Clamp(level, 0, maxLevel);
                 lastLevel = level;
                 ComputeValue();
+                onValueChange.Invoke();
             }
 
             int holderLevel = scoreCounter.currentLevel.index;
             if (lastHolderLevel != holderLevel) {
                 lastHolderLevel = holderLevel;
                 ComputeValue();
+                onValueChange.Invoke();
             }
         }
 
         void ComputeValue() {
             Value = baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastLevel;
-            onValueChange.Invoke();
         }
 
         public void Upgrade() {
@@ -66,6 +67,7 @@ namespace Tienkio.Tanks {
             lastLevel = level = 0;
             lastHolderLevel = scoreCounter.currentLevel.index;
             ComputeValue();
+            onValueChange.Invoke();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Tienkio.Tanks {
         [HideInInspector]
         public TankHealth healthBar;
         [HideInInspector]
-        public Gun[] guns;
+        public Tank tankBody;
 
         [Space]
         public int damageComputationCycles = 20;
@@ -69,7 +69,8 @@ namespace Tienkio.Tanks {
                 rigidbody.AddForce(bulletDirection * bullet.knockback, ForceMode.Impulse);
 
                 float bulletDamagePerCycle = bullet.damage / damageComputationCycles;
-                float bodyDamagePerCycle = stats.bodyDamage.Value * bodyDamageForBulletMultiplier / damageComputationCycles;
+                float bodyDamagePerCycle = stats.bodyDamage.Value * tankBody.bodyDamageMultiplier *
+                                                bodyDamageForBulletMultiplier / damageComputationCycles;
 
                 for (int cycle = 0; cycle < damageComputationCycles && healthBar.health > 0 && bullet.health > 0; cycle++) {
                     healthBar.health -= bulletDamagePerCycle;
@@ -89,7 +90,7 @@ namespace Tienkio.Tanks {
                 var tankHealthBar = collider.GetComponent<Health>();
                 var tank = collider.GetComponent<TankController>();
 
-                tankHealthBar.health -= stats.bodyDamage.Value;
+                tankHealthBar.health -= stats.bodyDamage.Value * tankBody.bodyDamageMultiplier;
                 if (tankHealthBar.health <= 0) {
                     kills++;
                     scoreCounter.score += tank.scoreCounter.score;

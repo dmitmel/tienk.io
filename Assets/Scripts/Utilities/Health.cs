@@ -40,7 +40,7 @@ namespace Tienkio.Utilities {
             if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
         }
 
-        protected virtual void FixedUpdate() {
+        void FixedUpdate() {
             bool isRegenEnabled = healthRegen > 0;
             bool isExtraRegenEnabled = extraRegenTimeout > 0 && extraRegen > 0;
 

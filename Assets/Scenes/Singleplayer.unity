@@ -8896,7 +8896,7 @@ MonoBehaviour:
   stats: {fileID: 1009189776}
   scoreCounter: {fileID: 1009189775}
   healthBar: {fileID: 0}
-  guns: []
+  tankBody: {fileID: 0}
   damageComputationCycles: 20
   bodyDamageForBulletMultiplier: 0.5
   onKill:
@@ -9015,6 +9015,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 183386608}
         m_MethodName: UpdateScoreToNextUpgradeBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 919655973}
+        m_MethodName: AllocRequiredBullets
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

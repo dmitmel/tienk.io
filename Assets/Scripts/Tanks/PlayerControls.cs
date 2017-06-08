@@ -15,7 +15,6 @@
 //
 
 using UnityEngine;
-using Tienkio.Utilities;
 using Tienkio.Data;
 using Tienkio.UI;
 
@@ -55,7 +54,7 @@ namespace Tienkio.Tanks {
 
             if (Input.GetButtonDown("Auto Fire")) {
                 if (autoFireEnabled) {
-                    foreach (Gun gun in tank.guns)
+                    foreach (Gun gun in tank.tankBody.guns)
                         gun.StopFiring();
                 }
                 autoFireEnabled = !autoFireEnabled;
@@ -64,14 +63,14 @@ namespace Tienkio.Tanks {
             if (Input.GetButtonDown("Auto Spin")) autoSpinEnabled = !autoSpinEnabled;
 
             if (autoFireEnabled) {
-                foreach (Gun gun in tank.guns)
+                foreach (Gun gun in tank.tankBody.guns)
                     gun.Fire();
             } else {
                 if (Input.GetButton("Fire")) {
-                    foreach (Gun gun in tank.guns)
+                    foreach (Gun gun in tank.tankBody.guns)
                         gun.Fire();
                 } else if (Input.GetButtonUp("Fire")) {
-                    foreach (Gun gun in tank.guns)
+                    foreach (Gun gun in tank.tankBody.guns)
                         gun.StopFiring();
                 }
             }
@@ -111,7 +110,8 @@ namespace Tienkio.Tanks {
             }
 
             if (currentVelocity.sqrMagnitude > 1) currentVelocity.Normalize();
-            rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier);
+            rigidbody.AddRelativeForce(currentVelocity * movementSpeed * accelerationMultiplier *
+                                       tank.tankBody.movementSpeedMultiplier);
             if (rigidbody.velocity.sqrMagnitude > movementSpeed * movementSpeed) rigidbody.velocity.Normalize();
         }
     }

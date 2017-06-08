@@ -84,7 +84,7 @@ namespace Tienkio.Shapes {
                 var tank = collider.GetComponent<TankController>();
 
                 tank.healthBar.health -= bodyDamage;
-                healthBar.health -= tank.stats.bodyDamage.Value;
+                healthBar.health -= tank.stats.bodyDamage.Value * tank.tankBody.bodyDamageMultiplier;
                 if (healthBar.health <= 0 && tank.healthBar.health > 0) {
                     tank.scoreCounter.score += score;
 

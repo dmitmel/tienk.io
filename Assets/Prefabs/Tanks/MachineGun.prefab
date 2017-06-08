@@ -168,6 +168,7 @@ MonoBehaviour:
   guns:
   - {fileID: 114437523490971938}
   bodyDamageMultiplier: 1
+  movementSpeedMultiplier: 1
 --- !u!114 &114437523490971938
 MonoBehaviour:
   m_ObjectHideFlags: 1
