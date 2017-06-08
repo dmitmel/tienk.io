@@ -260,7 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1146902698480414}
-  health: 100
+  _health: 100
+  _maxHealth: 100
   maxHealth: 100
   healthRegen: 0
   extraRegenTimeout: 30

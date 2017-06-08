@@ -23,15 +23,16 @@ namespace Tienkio.Tanks {
         public StatsHolder stats;
         public float statToExtraRegenMultiplier = 1;
 
-        float lastMaxHealth;
+        float prevMaxHealth;
 
         protected override void Start() {
-            base.Start();
             healthRegen = stats.healthRegen.Value;
             extraRegen = healthRegen * statToExtraRegenMultiplier;
 
             maxHealth = stats.maxHealth.Value;
-            lastHealth = lastMaxHealth = health = maxHealth;
+            prevMaxHealth = health = _maxHealth;
+
+            base.Start();
         }
 
         public void OnHealthRegenUpgrade() {
@@ -41,12 +42,12 @@ namespace Tienkio.Tanks {
 
         public void OnMaxHealthUpgrade() {
             maxHealth = stats.maxHealth.Value;
-            lastHealth = health = health * (maxHealth / lastMaxHealth);
-            lastMaxHealth = maxHealth;
+            _health = _health * (_maxHealth / prevMaxHealth);
+            prevMaxHealth = _maxHealth;
         }
 
         public void OnRespawn() {
-            health = maxHealth = lastMaxHealth = stats.maxHealth.Value;
+            _health = maxHealth = prevMaxHealth = stats.maxHealth.Value;
             healthRegen = stats.healthRegen.Value;
             extraRegen = healthRegen * statToExtraRegenMultiplier;
         }

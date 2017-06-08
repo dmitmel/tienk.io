@@ -22,43 +22,73 @@ namespace Tienkio.Utilities {
         public GameObject healthBar;
         Bar healthBarController;
 
-        public float health;
-        protected float lastHealth;
-        public float maxHealth, healthRegen, extraRegenTimeout, extraRegen;
+        [SerializeField]
+        protected float _health, _maxHealth;
+        public float healthRegen, extraRegenTimeout, extraRegen;
+
+        public float health {
+            get { return _health; }
+            set {
+                float clampedValue = Mathf.Min(value, _maxHealth);
+                if (_health != clampedValue) {
+                    _health = clampedValue;
+                    healthBarController.value = _health / _maxHealth;
+                    bool isExtraRegenEnabled = extraRegenTimeout > 0 && extraRegen > 0;
+                    if (isExtraRegenEnabled) nextExtraRegen = Time.time + extraRegenTimeout;
+                }
+            }
+        }
+
+        public float maxHealth {
+            get { return _maxHealth; }
+            set {
+                float clampedValue = Mathf.Max(value, 0);
+                if (_maxHealth != clampedValue) {
+                    _maxHealth = clampedValue;
+                    health = Mathf.Clamp(_health, 0, _maxHealth);
+                }
+            }
+        }
 
         float nextExtraRegen;
 
 #if UNITY_EDITOR
         void OnValidate() {
-            healthBarController = healthBar.GetComponent<Bar>();
-            if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
+            _maxHealth = Mathf.Max(_maxHealth, 0);
+            _health = Mathf.Min(_health, _maxHealth);
+
+            if (healthBarController == null) {
+                healthBarController = healthBar.GetComponent<Bar>();
+                if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
+            } else {
+                if (_maxHealth > 0) healthBarController.value = _health / _maxHealth;
+                else healthBarController.value = 1;
+            }
         }
 #endif
 
-        protected virtual void Start() {
+        void Awake() {
             healthBarController = healthBar.GetComponent<Bar>();
             if (healthBarController == null) Debug.LogError("Health - healthBar must have a Bar", this);
+        }
+
+        protected virtual void Start() {
+            healthBarController.value = _health / _maxHealth;
         }
 
         void FixedUpdate() {
             bool isRegenEnabled = healthRegen > 0;
             bool isExtraRegenEnabled = extraRegenTimeout > 0 && extraRegen > 0;
 
-            if (lastHealth != health) {
-                healthBarController.value = health / maxHealth;
-                if (isExtraRegenEnabled) nextExtraRegen = Time.time + extraRegenTimeout;
-                lastHealth = health;
-            }
-
             if (isRegenEnabled || isExtraRegenEnabled) {
                 float now = Time.time;
                 bool isExtraRegen = isExtraRegenEnabled && now >= nextExtraRegen;
 
-                if (health < maxHealth) {
+                if (health < _maxHealth) {
                     float healthPerSecond = isExtraRegen ? extraRegen : healthRegen;
-                    float regen = Mathf.Min(maxHealth * healthPerSecond * Time.deltaTime, maxHealth - health);
-                    health = lastHealth += regen;
-                    healthBarController.value = health / maxHealth;
+                    float regen = Mathf.Min(_maxHealth * healthPerSecond * Time.deltaTime, _maxHealth - health);
+                    _health += regen;
+                    healthBarController.value = health / _maxHealth;
                 } else if (isExtraRegenEnabled) {
                     nextExtraRegen = Time.time + extraRegenTimeout;
                 }
