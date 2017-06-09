@@ -47,7 +47,8 @@ namespace Tienkio.Tanks {
         }
 
         public void OnRespawn() {
-            _health = maxHealth = prevMaxHealth = stats.maxHealth.Value;
+            prevMaxHealth = maxHealth = stats.maxHealth.Value;
+            health = maxHealth;
             healthRegen = stats.healthRegen.Value;
             extraRegen = healthRegen * statToExtraRegenMultiplier;
         }
