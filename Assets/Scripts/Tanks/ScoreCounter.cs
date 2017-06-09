@@ -30,9 +30,10 @@ namespace Tienkio.Tanks {
     }
 
     public class ScoreCounter : MonoBehaviour {
-        public int score;
-        public int upgradePoints;
+        [SerializeField]
+        int _score, _upgradePoints;
         public Level[] levels;
+        [HideInInspector]
         public Level currentLevel;
 
         [Space]
@@ -42,32 +43,33 @@ namespace Tienkio.Tanks {
         [Space]
         public Text scoreLabel;
 
-        int lastScore, lastUpgradePoints;
-
-        void Start() {
-            lastScore = score;
-            lastUpgradePoints = upgradePoints;
+        public int score {
+            get { return _score; }
+            set {
+                if (_score != value) {
+                    _score = value;
+                    currentLevel = ComputeLevel();
+                    if (scoreLabel != null) scoreLabel.text = FormatScore();
+                    onScoreChange.Invoke();
+                }
+            }
         }
 
-        void FixedUpdate() {
-            if (lastScore != score) {
-                currentLevel = ComputeLevel();
-                lastScore = score;
-                if (scoreLabel != null) scoreLabel.text = FormatScore();
-                onScoreChange.Invoke();
-            }
-
-            if (lastUpgradePoints != upgradePoints) {
-                lastUpgradePoints = upgradePoints;
-                onUpgradePointsChange.Invoke();
+        public int upgradePoints {
+            get { return _upgradePoints; }
+            set {
+                if (_upgradePoints != value) {
+                    _upgradePoints = value;
+                    onUpgradePointsChange.Invoke();
+                }
             }
         }
 
         string FormatScore() {
-            string suffix = score >= 1e6 ? "M" : score >= 1000 ? "k" : "";
+            string suffix = _score >= 1e6 ? "M" : _score >= 1000 ? "k" : "";
             float valueForFormatting =
-                score >= 1e6 ? (float) Math.Round(score / 1e6, 1) :
-                score >= 1000 ? (float) Math.Round(score / 1000.0, 1) : score;
+                _score >= 1e6 ? (float) Math.Round(_score / 1e6, 1) :
+                _score >= 1000 ? (float) Math.Round(_score / 1000.0, 1) : _score;
             return valueForFormatting.ToString(string.Format("#,##0.#{0}", suffix));
         }
 
@@ -91,26 +93,29 @@ namespace Tienkio.Tanks {
 #endif
 
         Level ComputeLevel() {
+            int prevUpgradePoints = _upgradePoints;
+
             for (int i = 0; i < levels.Length - 1; i++) {
                 Level level = levels[i];
                 Level nextLevel = levels[i + 1];
-                if (level.neededScore <= score) {
-                    if (level.index > currentLevel.index && level.givesUpgradePoint) upgradePoints++;
-                    if (score < nextLevel.neededScore) {
+                if (level.neededScore <= _score) {
+                    if (level.index > currentLevel.index && level.givesUpgradePoint) _upgradePoints++;
+                    if (_score < nextLevel.neededScore) {
+                        if (prevUpgradePoints != _upgradePoints) onUpgradePointsChange.Invoke();
                         return level;
                     }
                 }
             }
 
             Level lastLevel = levels[levels.Length - 1];
-            if (lastLevel.index > currentLevel.index && lastLevel.givesUpgradePoint) upgradePoints++;
+            if (lastLevel.index > currentLevel.index && lastLevel.givesUpgradePoint) _upgradePoints++;
+            if (prevUpgradePoints != _upgradePoints) onUpgradePointsChange.Invoke();
             return levels[levels.Length - 1];
         }
 
         public void OnRespawn() {
             score = 0;
             upgradePoints = 0;
-            currentLevel = ComputeLevel();
         }
     }
 }

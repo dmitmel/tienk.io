@@ -870,8 +870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6820beeadf444daacdf1bac4c27a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  upgradePoints: 0
+  _score: 0
+  _upgradePoints: 0
   levels:
   - index: 0
     neededScore: 0
