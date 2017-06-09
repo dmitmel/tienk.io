@@ -17,21 +17,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Tienkio.UI {
     public class MainMenuController : MonoBehaviour {
         public RectTransform canvas, background;
         public InputField nickInputField;
 
-        Vector2 prevCanvasSize;
-
         void Update() {
             Vector2 canvasSize = canvas.sizeDelta;
-            if (prevCanvasSize != canvasSize) {
-                prevCanvasSize = canvasSize;
-                float size = Mathf.Max(canvasSize.x, canvasSize.y);
-                background.sizeDelta = new Vector2(size, size);
-            }
+            float size = Mathf.Max(canvasSize.x, canvasSize.y);
+            background.sizeDelta = new Vector2(size, size);
         }
 
         public void StartGame() {
@@ -40,7 +38,11 @@ namespace Tienkio.UI {
         }
 
         public void Quit() {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
         }
     }
 }
