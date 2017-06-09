@@ -36,7 +36,7 @@ namespace Tienkio.Tanks {
 
         new Transform transform;
 
-        int lastAvailableUpgradesCount;
+        int prevAvailableUpgradesCount;
 
         void Awake() {
             transform = base.transform;
@@ -53,14 +53,14 @@ namespace Tienkio.Tanks {
             availableUpgrades = currentUpgradeNode.GetAvailableTanksForLevel(scoreCounter.currentLevel.index);
 
             int availableUpgradesCount = availableUpgrades.Length;
-            if (lastAvailableUpgradesCount != availableUpgradesCount) {
-                lastAvailableUpgradesCount = availableUpgradesCount;
+            if (prevAvailableUpgradesCount != availableUpgradesCount) {
+                prevAvailableUpgradesCount = availableUpgradesCount;
                 onNewUpgradesAvailable.Invoke();
             }
         }
 
         public void UpgradeToTier(int tierIndex) {
-            lastAvailableUpgradesCount = 0;
+            prevAvailableUpgradesCount = 0;
             currentUpgradeNode = availableUpgrades[tierIndex];
             if (currentUpgradeNode.prefab != null) UpdateTank();
             onUpgrade.Invoke();
