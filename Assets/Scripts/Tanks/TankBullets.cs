@@ -34,10 +34,12 @@ namespace Tienkio.Tanks {
         }
 
         public void AllocRequiredBullets() {
-            int requiredBullets = GetRequiredBulletsCount();
-            bulletPool.Free(prevRequiredBullets);
-            bulletPool.Alloc(requiredBullets);
-            prevRequiredBullets = requiredBullets;
+            if (bulletPool != null) {
+                int requiredBullets = GetRequiredBulletsCount();
+                bulletPool.Free(prevRequiredBullets);
+                bulletPool.Alloc(requiredBullets);
+                prevRequiredBullets = requiredBullets;
+            }
         }
 
         int GetRequiredBulletsCount() {

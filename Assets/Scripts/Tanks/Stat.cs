@@ -24,49 +24,43 @@ namespace Tienkio.Tanks {
         public int maxLevel = 7;
         public float baseValue, holderLevelBonus, statLevelBonus;
 
-        public float Value { get; private set; }
-
         public UnityEvent onValueChange;
 
-        int lastLevel, lastHolderLevel;
+        public float Value { get; private set; }
+
+#if UNITY_EDITOR
+        void OnValidate() {
+            level = Mathf.Clamp(level, 0, maxLevel);
+            Value = ComputeValue();
+            onValueChange.Invoke();
+        }
+#endif
 
         void Start() {
-            lastLevel = level;
-            lastHolderLevel = scoreCounter.currentLevel.index;
             ComputeValue();
         }
 
-        void FixedUpdate() {
-            if (lastLevel != level) {
-                level = Mathf.Clamp(level, 0, maxLevel);
-                lastLevel = level;
-                ComputeValue();
-                onValueChange.Invoke();
-            }
-
-            int holderLevel = scoreCounter.currentLevel.index;
-            if (lastHolderLevel != holderLevel) {
-                lastHolderLevel = holderLevel;
-                ComputeValue();
-                onValueChange.Invoke();
-            }
-        }
-
-        void ComputeValue() {
-            Value = baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * lastLevel;
+        float ComputeValue() {
+            return baseValue + holderLevelBonus * scoreCounter.currentLevel.index + statLevelBonus * level;
         }
 
         public void Upgrade() {
-            if (lastLevel < maxLevel && scoreCounter.upgradePoints > 0) {
+            if (level < maxLevel && scoreCounter.upgradePoints > 0) {
                 level += 1;
                 scoreCounter.upgradePoints -= 1;
+                Value = ComputeValue();
+                onValueChange.Invoke();
             }
         }
 
+        public void OnScoreChange() {
+            Value = ComputeValue();
+            onValueChange.Invoke();
+        }
+
         public void OnRespawn() {
-            lastLevel = level = 0;
-            lastHolderLevel = scoreCounter.currentLevel.index;
-            ComputeValue();
+            level = 0;
+            Value = ComputeValue();
             onValueChange.Invoke();
         }
     }
