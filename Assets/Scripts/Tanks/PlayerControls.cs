@@ -17,6 +17,7 @@
 using UnityEngine;
 using Tienkio.Data;
 using Tienkio.UI;
+using Tienkio.Utilities;
 
 namespace Tienkio.Tanks {
     public class PlayerControls : MonoBehaviour {
@@ -47,7 +48,10 @@ namespace Tienkio.Tanks {
         void Update() {
             if (PauseMenu.isGamePaused) return;
 
-            if (Input.GetButtonDown("Pause") && pauseMenu != null && !pauseMenu.isOpened) pauseMenu.ShowModal();
+            if (Input.GetButtonDown("Pause") && pauseMenu != null && !pauseMenu.isOpened) {
+                CursorLocker.instance.UnlockCursor();
+                pauseMenu.ShowModal();
+            }
 
             if (Input.GetButtonDown("Show Game Guide"))
                 GuideManager.instance.LoadGuide(GuideManager.instance.gameGuide);

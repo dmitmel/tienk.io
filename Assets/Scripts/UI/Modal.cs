@@ -19,7 +19,7 @@ using Tienkio.Utilities;
 
 namespace Tienkio.UI {
     public class Modal : MonoBehaviour {
-        public bool pauseGame, unlockCursor;
+        public bool pauseGame;
         public bool isOpened { get; private set; }
         bool isCloseable;
 
@@ -44,7 +44,6 @@ namespace Tienkio.UI {
                 openedPauseModals++;
             }
 
-            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.UnlockCursor();
             gameObject.SetActive(true);
 
             isOpened = true;
@@ -62,7 +61,6 @@ namespace Tienkio.UI {
                 }
             }
 
-            if (unlockCursor && CursorLocker.instanceExists) CursorLocker.instance.LockCursor();
             gameObject.SetActive(false);
 
             if (ModalManager.instanceExists) ModalManager.instance.closableModals.Remove(this);
@@ -70,19 +68,7 @@ namespace Tienkio.UI {
         }
 
         void OnDestroy() {
-            if (!isOpened) return;
-
-            if (pauseGame) {
-                openedPauseModals--;
-
-                if (openedPauseModals <= 0) {
-                    openedPauseModals = 0;
-                    Time.timeScale = 1;
-                }
-            }
-
-            if (ModalManager.instanceExists) ModalManager.instance.closableModals.Remove(this);
-            isCloseable = isOpened = false;
+            CloseModal();
         }
     }
 }
