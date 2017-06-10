@@ -75,6 +75,9 @@ namespace Tienkio.Tanks {
 
 #if UNITY_EDITOR
         void OnValidate() {
+            onScoreChange.Invoke();
+            onUpgradePointsChange.Invoke();
+
             if (levels.Length > 0) {
                 for (int i = 0; i < levels.Length - 1; i++) {
                     Level level = levels[i];

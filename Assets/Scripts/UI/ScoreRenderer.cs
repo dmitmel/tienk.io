@@ -33,6 +33,12 @@ namespace Tienkio.UI {
         public FilledBar levelBar;
         public FilledBar scoreToNextUpgradeBar;
 
+        TankUpgradeTree tankUpgradeTree;
+
+        void Start() {
+            tankUpgradeTree = TankUpgradeTree.instance;
+        }
+
         public void UpdateScoreLabel() {
             scoreLabel.text = string.Format("Score: {0}", counter.score.ToString("#,##0"));
         }
@@ -59,25 +65,27 @@ namespace Tienkio.UI {
         }
 
         public void UpdateScoreToNextUpgradeBar() {
-            TankUpgradeNode[] tankUpgradeTree = TankUpgradeTree.instance.tankUpgradeTree;
-            int[] unlockedTanks = tankUpgrader.currentUpgradeNode.unlockedTanks;
+            if (tankUpgradeTree != null) {
+                TankUpgradeNode[] tankUpgradeNodes = tankUpgradeTree.tankUpgradeTree;
+                int[] unlockedTanks = tankUpgrader.currentUpgradeNode.unlockedTanks;
 
-            TankUpgradeNode minUpgrade = null;
+                TankUpgradeNode minUpgrade = null;
 
-            foreach (int unlockedTank in unlockedTanks) {
-                TankUpgradeNode unlockedTankNode = tankUpgradeTree[unlockedTank];
-                if (minUpgrade == null)
-                    minUpgrade = unlockedTankNode;
-                else if (unlockedTankNode.minLevel < minUpgrade.minLevel)
-                    minUpgrade = unlockedTankNode;
-            }
+                foreach (int unlockedTank in unlockedTanks) {
+                    TankUpgradeNode unlockedTankNode = tankUpgradeNodes[unlockedTank];
+                    if (minUpgrade == null)
+                        minUpgrade = unlockedTankNode;
+                    else if (unlockedTankNode.minLevel < minUpgrade.minLevel)
+                        minUpgrade = unlockedTankNode;
+                }
 
-            if (minUpgrade != null) {
-                Level minUpgradeLevel = counter.levels[minUpgrade.minLevel];
-                int minScoreOfNextUpgrade = minUpgradeLevel.neededScore;
-                scoreToNextUpgradeBar.value = (float) counter.score / minScoreOfNextUpgrade;
-            } else {
-                scoreToNextUpgradeBar.value = 1;
+                if (minUpgrade != null) {
+                    Level minUpgradeLevel = counter.levels[minUpgrade.minLevel];
+                    int minScoreOfNextUpgrade = minUpgradeLevel.neededScore;
+                    scoreToNextUpgradeBar.value = (float) counter.score / minScoreOfNextUpgrade;
+                } else {
+                    scoreToNextUpgradeBar.value = 1;
+                }
             }
         }
     }
