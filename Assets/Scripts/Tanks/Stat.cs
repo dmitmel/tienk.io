@@ -37,7 +37,7 @@ namespace Tienkio.Tanks {
 #endif
 
         void Start() {
-            ComputeValue();
+            Value = ComputeValue();
         }
 
         float ComputeValue() {
