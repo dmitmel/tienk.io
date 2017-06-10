@@ -40,7 +40,7 @@ namespace Tienkio.Tanks {
             poolObject = GetComponent<PoolObject>();
         }
 
-        public void Start() {
+        void OnEnable() {
             startTime = Time.time;
         }
 
