@@ -25,7 +25,8 @@ namespace Tienkio.Shapes {
         public string name;
         [Range(0, 1)]
         public float chance;
-        public PoolManager poolManager;
+        public GameObject poolManagerObject;
+        internal IPoolManager poolManager;
     }
 
     public class ShapeSpawner : Singleton<ShapeSpawner> {
@@ -48,16 +49,29 @@ namespace Tienkio.Shapes {
         }
 #endif
 
+        protected override void Awake() {
+            base.Awake();
+            foreach (ShapeSpawnerPool shapeSpawnerPool in pools) {
+                GameObject poolManagerObject = shapeSpawnerPool.poolManagerObject;
+                var poolManager = shapeSpawnerPool.poolManagerObject.GetComponent<IPoolManager>();
+                if (poolManager == null)
+                    Debug.LogError("ShapeSpawner - pool manager object '" + poolManagerObject.name +
+                                   "' must have an IPoolManager");
+                else
+                    shapeSpawnerPool.poolManager = poolManager;
+            }
+        }
+
         void Start() {
             for (int i = 0; i < shapesCount; i++) SpawnShape();
         }
 
         public void SpawnShape() {
-            PoolManager pool = SelectPool();
+            var pool = SelectPool();
             if (pool != null) pool.GetFromPool();
         }
 
-        public PoolManager SelectPool() {
+        public IPoolManager SelectPool() {
             List<ShapeSpawnerPool> availablePools = new List<ShapeSpawnerPool>(pools.Length);
 
             foreach (ShapeSpawnerPool shapeSpawnerPool in pools)

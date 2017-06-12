@@ -20,7 +20,7 @@ using Tienkio.Pools;
 namespace Tienkio.Tanks {
     public class TankBullets : MonoBehaviour {
         TankController tankController;
-        PoolManager bulletPool;
+        IPoolManager bulletPool;
 
         int prevRequiredBullets;
 
@@ -48,7 +48,6 @@ namespace Tienkio.Tanks {
                 requiredBullets += gun.requiredBullets;
             return requiredBullets;
         }
-
 
         void OnDestroy() {
             bulletPool.Free(prevRequiredBullets);

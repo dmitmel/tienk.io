@@ -116,7 +116,8 @@
     <Compile Include="Assets\Scripts\Data\TankUpgradeTree.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MultiplayerCameras.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\PlayerSetup.cs" />
-    <Compile Include="Assets\Scripts\Pools\PoolManager.cs" />
+    <Compile Include="Assets\Scripts\Pools\IPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Pools\LocalPoolManager.cs" />
     <Compile Include="Assets\Scripts\Pools\PoolObject.cs" />
     <Compile Include="Assets\Scripts\Shapes\CrasherAI.cs" />
     <Compile Include="Assets\Scripts\Shapes\Shape.cs" />

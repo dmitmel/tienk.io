@@ -4478,19 +4478,19 @@ MonoBehaviour:
   pools:
   - name: Squares
     chance: 0.7
-    poolManager: {fileID: 2073595704}
+    poolManagerObject: {fileID: 2073595702}
   - name: Triangles
     chance: 0.8
-    poolManager: {fileID: 1292137063}
+    poolManagerObject: {fileID: 1292137061}
   - name: Pentagons
     chance: 0.9
-    poolManager: {fileID: 197357517}
+    poolManagerObject: {fileID: 197357515}
   - name: SmallCrashers
     chance: 0.6
-    poolManager: {fileID: 739804892}
+    poolManagerObject: {fileID: 739804890}
   - name: BigCrashers
     chance: 1
-    poolManager: {fileID: 1582162978}
+    poolManagerObject: {fileID: 1582162976}
   shapesCount: 1000
 --- !u!1 &404575794
 GameObject:

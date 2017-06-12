@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace Tienkio.Pools {
     public class PoolObject : MonoBehaviour {
-        internal PoolManager pool;
+        internal IPoolManager pool;
 
         public void PutIntoPool() {
             pool.PutIntoPool(this);

@@ -42,7 +42,7 @@ namespace Tienkio.Tanks {
         [HideInInspector]
         public Rigidbody tankRigidbody;
 
-        PoolManager bulletPool;
+        IPoolManager bulletPool;
 
         public int requiredBullets {
             get {

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System;
 
 namespace Tienkio.Pools {
-    public class PoolManager : MonoBehaviour {
+    public class LocalPoolManager : MonoBehaviour, IPoolManager {
         public PoolObject prefab;
         public int poolSize;
 

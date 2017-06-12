@@ -46,8 +46,8 @@ namespace Tienkio.Multiplayer {
 
         void OnDisable() {
             if (isLocalPlayer) {
-                sceneCamera.SetActive(true);
-                playerCamera.SetActive(false);
+                if (sceneCamera) sceneCamera.SetActive(true);
+                if (playerCamera) playerCamera.SetActive(false);
             }
         }
     }

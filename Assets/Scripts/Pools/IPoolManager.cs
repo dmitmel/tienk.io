@@ -1,4 +1,4 @@
-﻿//
+//
 //  Copyright (c) 2017  FederationOfCoders.org
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,16 +14,15 @@
 // limitations under the License.
 //
 
-using Tienkio.Pools;
-using Tienkio.Utilities;
+namespace Tienkio.Pools {
+    public interface IPoolManager {
+        bool HasObjects { get; }
 
-namespace Tienkio.Tanks {
-    public class BulletPool : Singleton<BulletPool> {
-        public static IPoolManager poolManager;
+        void Alloc(int objects);
+        void Free(int objects);
+        void Clear();
 
-        protected override void Awake() {
-            base.Awake();
-            poolManager = GetComponent<IPoolManager>();
-        }
+        PoolObject GetFromPool();
+        void PutIntoPool(PoolObject poolObject);
     }
 }
