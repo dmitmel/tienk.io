@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\Multiplayer\PlayerSetup.cs" />
     <Compile Include="Assets\Scripts\Pools\IPoolManager.cs" />
     <Compile Include="Assets\Scripts\Pools\LocalPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Pools\NetworkPoolManager.cs" />
     <Compile Include="Assets\Scripts\Pools\PoolObject.cs" />
     <Compile Include="Assets\Scripts\Shapes\CrasherAI.cs" />
     <Compile Include="Assets\Scripts\Shapes\Shape.cs" />
